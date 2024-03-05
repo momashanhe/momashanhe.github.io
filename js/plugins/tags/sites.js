@@ -82,7 +82,7 @@ const SitesJS = {
       cfg.class = el.getAttribute('class');
       cfg.el = el;
       cfg.api = api;
-      cfg.avatar = volantis.GLOBAL_CONFIG.default.link;
+      cfg.avatar = volantis.GLOBAL_CONFIG.default.avatar;
       cfg.screenshot = volantis.GLOBAL_CONFIG.default.cover;
       SitesJS.layout(cfg);
     }

@@ -50,11 +50,14 @@ const FriendsJS = {
       const arr = data.content;
       var cellALL = "";
       arr.forEach((item, i) => {
-        var user = '<div class="user-card">';
-        user += '<a class="card-link" target="_blank" rel="external noopener noreferrer"';
-        user += ' href="' + item.url + '">';
-        user += '<img alt="' + item.title + '" src="' + (item.avatar || cfg.avatar) + '" onerror="errorImgAvatar(this)">';
-        user += '<div class="name"><span>' + item.title + '</span></div>';
+        var user = '<div class="users-card">';
+        user += '<a class="card-link" target="_blank" rel="external noopener noreferrer" href="' + item.url + '">';
+        user += '<img alt="' + item.title + '" src="' + (item.screenshot || ('https://image.thum.io/get/width/1024/crop/768/' + item.url)) + '" onerror="errorImgCover(this)"/>';
+        user += '<div class="info">';
+        user += '<img alt="' + item.title + '" src="' + (item.avatar || cfg.avatar) + '" onerror="errorImgAvatar(this)"/>';
+        user += '<span class="title">' + item.title + '</span>';
+        user += '<span class="desc">' + (item.description || item.url) + '</span>';
+        user += '</div>';
         user += '</a>';
         user += '</div>';
         cellALL += user;
@@ -67,7 +70,7 @@ const FriendsJS = {
       } catch (e) { }
     });
   },
-  start: () => {
+  start: (cfg) => {
     const els = document.getElementsByClassName('friendsjs-wrap');
     for (var i = 0; i < els.length; i++) {
       const el = els[i];
@@ -76,10 +79,11 @@ const FriendsJS = {
         continue;
       }
       var cfg = new Object();
+      cfg.class = el.getAttribute('class');
       cfg.el = el;
       cfg.api = api;
-      cfg.class = el.getAttribute('class');
       cfg.avatar = volantis.GLOBAL_CONFIG.default.avatar;
+      cfg.screenshot = volantis.GLOBAL_CONFIG.default.cover;
       FriendsJS.layout(cfg);
     }
   }
