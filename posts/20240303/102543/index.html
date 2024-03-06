@@ -49,19 +49,19 @@
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>001-给博客添加徽标 - 墨码山河</title>
+  <title>给博客添加徽标 - 墨码山河</title>
   <meta name="keywords" content="Hexo,代码改变世界">
   <meta desc name="description" content="摘要：本文主要介绍了如何给博客添加自定义徽标。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="001-给博客添加徽标">
+<meta property="og:title" content="给博客添加徽标">
 <meta property="og:url" content="https://momashanhe.com/posts/20240303/102543/index.html">
 <meta property="og:site_name" content="墨码山河">
 <meta property="og:description" content="摘要：本文主要介绍了如何给博客添加自定义徽标。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-03T02:25:43.000Z">
-<meta property="article:modified_time" content="2024-03-05T11:59:39.920Z">
+<meta property="article:modified_time" content="2024-03-06T12:06:25.968Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -2012,7 +2012,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/volantis-static/media/placeholder/avatar/round/3442075.svg","link":"/volantis-static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/volantis-static/media/placeholder/cover/76b86c0226ffd.svg","image":"/volantis-static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1709654972422),
+    lastupdate: new Date(1709726824422),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2512,7 +2512,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        001-给博客添加徽标
+        给博客添加徽标
       </h1>
       <div class='new-meta-box'>
         
@@ -2532,13 +2532,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>60 字</p>
+      <p>1k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 分钟</p>
+      <p>4 分钟</p>
     </a>
   </div>
 
@@ -2588,15 +2588,74 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-
-
-<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>图标生成网站：</p>
-<p><a target="_blank" rel="noopener" href="https://shields.io/">https://shields.io/</a></p>
 <details ><summary> 引用 </summary>
               <div class='content'>
               <p><a target="_blank" rel="noopener" href="https://akilar.top/posts/e87ad7f8/">https://akilar.top/posts/e87ad7f8/</a></p>
               </div>
             </details>
+
+<h2 id="1-静态徽标"><a href="#1-静态徽标" class="headerlink" title="1 静态徽标"></a>1 静态徽标</h2><h3 id="1-1-语法"><a href="#1-1-语法" class="headerlink" title="1.1 语法"></a>1.1 语法</h3><p>徽标生成网站：<br><a target="_blank" rel="noopener" href="https://shields.io/">https://shields.io/</a></p>
+<p>通过访问特定链接就能生成自定义徽标，特定链接的语法：</p>
+<figure class="highlight plaintext"><figcaption><span>url</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://img.shields.io/badge/前缀-后缀-颜色?参数</span><br></pre></td></tr></table></figure>
+
+<p>特定链接使用<code>-</code>短横线分隔，如果用到了特殊字符需要转义：</p>
+<blockquote>
+<p>需要<code> </code>空格，则使用<code>_</code>下划线或者<code>%20</code>表示。<br>需要<code>_</code>下划线，则使用<code>__</code>双下划线表示。<br>需要<code>-</code>短横线，则使用<code>--</code>双短横线表示。</p>
+</blockquote>
+<p>颜色支持十六进制、RGB、RGBA、HSL、HSLA和CSS进行表达。</p>
+<p>样式：<br><object data="https://img.shields.io/badge/left-right-blue"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-blue&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过<code>img</code>引用，也可以通过<code>object</code>引用，建议使用<code>object</code>引用，因为只有<code>object</code>引用才支持点击徽标跳转链接。</p>
+<h3 id="1-2-参数"><a href="#1-2-参数" class="headerlink" title="1.2 参数"></a>1.2 参数</h3><h4 id="1-2-1-类型"><a href="#1-2-1-类型" class="headerlink" title="1.2.1 类型"></a>1.2.1 类型</h4><p>类型参数名为<code>style</code>，类型参数值支持多种：</p>
+<blockquote>
+<p>flat：扁平，默认。<br>样式：<br><object data="https://img.shields.io/badge/left-right-blue?style=flat"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-blue?style=flat&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>flat-square：方角扁平。<br>样式：<br><object data="https://img.shields.io/badge/left-right-blue?style=flat-square"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-blue?style=flat-square&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>plastic：塑料质感。<br>样式：<br><object data="https://img.shields.io/badge/left-right-blue?style=plastic"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-blue?style=plastic&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>for-the-badge：放大版，同时字母大写。<br>样式：<br><object data="https://img.shields.io/badge/left-right-blue?style=for-the-badge"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-blue?style=for-the-badge&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>social：后缀改为聊天气泡。<br>样式：<br><object data="https://img.shields.io/badge/left-right-blue?style=social"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-blue?style=social&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="1-2-2-标签"><a href="#1-2-2-标签" class="headerlink" title="1.2.2 标签"></a>1.2.2 标签</h4><p>左侧标签参数名为<code>label</code>，左侧标签颜色参数名为<code>labelColor</code>，右侧标签颜色参数名为<code>color</code>，支持重写左侧标签和自定义两侧标签颜色。</p>
+<p>样式：<br><object data="https://img.shields.io/badge/left-right-90EE90?label=edit&labelColor=A9A9A9&color=FF0000"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-90EE90?label=edit&amp;labelColor=A9A9A9&amp;color=FF0000&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-链接"><a href="#1-2-3-链接" class="headerlink" title="1.2.3 链接"></a>1.2.3 链接</h4><p>链接参数名为<code>link</code>，链接参数值支持自定义链接，用于点击徽标进行跳转。</p>
+<p>样式：<br><object data="https://img.shields.io/badge/left-right-90EE90?link=https://hexo.io/zh-cn/index.html"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-90EE90?link=https://hexo.io/zh-cn/index.html&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-LOGO"><a href="#1-2-4-LOGO" class="headerlink" title="1.2.4 LOGO"></a>1.2.4 LOGO</h4><p>LOGO参数名为<code>logo</code>，LOGO颜色参数名为<code>logoColor</code>，参数值支持从网站获取：<br><a target="_blank" rel="noopener" href="https://simpleicons.org/">https://simpleicons.org/</a></p>
+<p>在上述网站中可以找到支持的LOGO名称和颜色，也可以复制下载SVG格式的图标。</p>
+<p>样式：<br><object data="https://img.shields.io/badge/left-right-90EE90?logo=hexo&logoColor=0E83CD"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/left-right-90EE90?logo=hexo&amp;logoColor=0E83CD&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-动态徽标"><a href="#2-动态徽标" class="headerlink" title="2 动态徽标"></a>2 动态徽标</h2><h3 id="2-1-通过URL获取的文件内容"><a href="#2-1-通过URL获取的文件内容" class="headerlink" title="2.1 通过URL获取的文件内容"></a>2.1 通过URL获取的文件内容</h3><p>语法：</p>
+<figure class="highlight plaintext"><figcaption><span>url</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://img.shields.io/badge/dynamic/类型?参数</span><br></pre></td></tr></table></figure>
+
+<p>支持的文件类型有：</p>
+<blockquote>
+<p>json<br>toml<br>xml<br>yaml</p>
+</blockquote>
+<p>参数沿用静态徽标的参数，并且新增了<code>url</code>参数和<code>query</code>参数，用于指定文件地址和属性名，属性名前使用<code>$.</code>作为前缀。</p>
+<p>样式：<br><object data="https://img.shields.io/badge/dynamic/json?url=https://github.com/badges/shields/raw/master/package.json&query=$.name"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/badge/dynamic/json?url=https://github.com/badges/shields/raw/master/package.json&amp;query=$.name&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-通过URL获取的响应内容"><a href="#2-2-通过URL获取的响应内容" class="headerlink" title="2.2 通过URL获取的响应内容"></a>2.2 通过URL获取的响应内容</h3><p>语法：</p>
+<figure class="highlight plaintext"><figcaption><span>url</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://img.shields.io/endpoint?参数</span><br></pre></td></tr></table></figure>
+
+<p>参数沿用静态徽标的参数，并且新增了<code>url</code>参数，用于请求地址。</p>
+<p>请求地址需要响应的内容：</p>
+<blockquote>
+<p>schemaVersion：版本，必填，总是设置为1。<br>style：类型，非必填，默认是<code>flat</code>。<br>label：左侧标签内容，可以设置为空字符串，必填。<br>message：右侧标签内容，不能设置为空字符串，必填。<br>labelColor：左侧标签颜色，非必填，默认是<code>grey</code>。<br>color：右侧标签颜色，非必填，默认是<code>lightgrey</code>。<br>namedLogo：LOGO对应名字，非必填，默认不传。<br>logoSvg：LOGO对应的SVG字符串，非必填，默认不传。<br>logoColor：LOGO颜色，非必填，默认不传。<br>isError：非必填，默认否，</p>
+</blockquote>
+<p>请求url得到的响应内容：</p>
+<figure class="highlight json"><figcaption><span>json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span> <span class="attr">&quot;schemaVersion&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span> <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;is it monday&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;message&quot;</span><span class="punctuation">:</span> <span class="string">&quot;no&quot;</span><span class="punctuation">,</span> <span class="attr">&quot;color&quot;</span><span class="punctuation">:</span> <span class="string">&quot;orange&quot;</span> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>样式：<br><object data="https://img.shields.io/endpoint?url=https://shields.redsparr0w.com/2473/monday"></object><br>写法：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span> <span class="attr">data</span>=<span class="string">&quot;https://img.shields.io/endpoint?url=https://shields.redsparr0w.com/2473/monday&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2612,7 +2671,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">001-给博客添加徽标</div>
+            <div class="license-title">给博客添加徽标</div>
             <div class="license-link"><a href="https://momashanhe.com/posts/20240303/102543/">https://momashanhe.com/posts/20240303/102543/</a>
             </div>
             <div class="license-meta">
@@ -2627,7 +2686,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年3月5日</div>
+                <div class="license-meta-text">2024年3月6日</div>
               </div>
               
               
@@ -2699,14 +2758,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/posts/20240303/112321/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>001-装修友链页面</p>
+        <a class='prev' href='/posts/20240303/152102/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>给博客加装评论系统</p>
           <p class='content'>摘要：</p>
         </a>
       
       
         <a class='next' href='/posts/20240226/223923/'>
-          <p class='title'>006-设置博客主题<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='title'>设置博客主题<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>摘要：本文主要介绍如何设置博客主题。</p>
         </a>
       
@@ -2822,19 +2881,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            001-给博客添加徽标
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="/posts/20240303/112321/" href="/posts/20240303/112321/"
-          
-          
-          active-action="action-posts20240303112321"
-          >
-          <div class='name'>
-            
-            001-装修友链页面
+            给博客添加徽标
           </div>
           
         </a></li>
@@ -2846,7 +2893,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            001-给博客加装评论系统
+            给博客加装评论系统
           </div>
           
         </a></li>
@@ -2884,7 +2931,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-text">工具</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%9D%99%E6%80%81%E5%BE%BD%E6%A0%87"><span class="toc-text">1 静态徽标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E8%AF%AD%E6%B3%95"><span class="toc-text">1.1 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%8F%82%E6%95%B0"><span class="toc-text">1.2 参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E7%B1%BB%E5%9E%8B"><span class="toc-text">1.2.1 类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E6%A0%87%E7%AD%BE"><span class="toc-text">1.2.2 标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-%E9%93%BE%E6%8E%A5"><span class="toc-text">1.2.3 链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-LOGO"><span class="toc-text">1.2.4 LOGO</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8A%A8%E6%80%81%E5%BE%BD%E6%A0%87"><span class="toc-text">2 动态徽标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%80%9A%E8%BF%87URL%E8%8E%B7%E5%8F%96%E7%9A%84%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">2.1 通过URL获取的文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%80%9A%E8%BF%87URL%E8%8E%B7%E5%8F%96%E7%9A%84%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-text">2.2 通过URL获取的响应内容</span></a></li></ol></li></ol>
   </div>
 </section>
 
@@ -2904,6 +2951,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
     <br><br>
+    
+      
+        
+          <div><p><object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
+</div>
+        
+      
     
       
         <div class='copyright'>
@@ -3322,7 +3376,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/102543/","name":"001-给博客添加徽标"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"001-给博客添加徽标","description":"摘要：本文主要介绍了如何给博客添加自定义徽标。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/102543/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/102543/","wordCount":23,"datePublished":"2024-03-03T02:25:43.000Z","dateModified":"2024-03-05T11:59:39.920Z","articleSection":"日常生活","keywords":"Hexo","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/102543/","name":"给博客添加徽标"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客添加徽标","description":"摘要：本文主要介绍了如何给博客添加自定义徽标。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/102543/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/102543/","wordCount":23,"datePublished":"2024-03-03T02:25:43.000Z","dateModified":"2024-03-06T12:06:25.968Z","articleSection":"日常生活","keywords":"Hexo","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
