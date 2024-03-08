@@ -49,24 +49,24 @@
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>给博客加装评论系统 - 墨码山河</title>
-  <meta name="keywords" content="Hexo,Twikoo,Vercel,MongoDB,代码改变世界">
-  <meta desc name="description" content="摘要： - 墨码山河 - 墨码山河">
+  <title>给博客加装Twikoo评论 - 墨码山河</title>
+  <meta name="keywords" content="Hexo,Vercel,MongoDB,Twikoo,代码改变世界">
+  <meta desc name="description" content="摘要：本文主要介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="给博客加装评论系统">
+<meta property="og:title" content="给博客加装Twikoo评论">
 <meta property="og:url" content="https://momashanhe.com/posts/20240303/152102/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：">
+<meta property="og:description" content="摘要：本文主要介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-03T07:21:02.000Z">
-<meta property="article:modified_time" content="2024-03-06T12:06:40.397Z">
+<meta property="article:modified_time" content="2024-03-07T02:05:36.577Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="Twikoo">
 <meta property="article:tag" content="Vercel">
 <meta property="article:tag" content="MongoDB">
+<meta property="article:tag" content="Twikoo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://momashanhe.com/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
@@ -2015,7 +2015,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/volantis-static/media/placeholder/avatar/round/3442075.svg","link":"/volantis-static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/volantis-static/media/placeholder/cover/76b86c0226ffd.svg","image":"/volantis-static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1709726824422),
+    lastupdate: new Date(1709861394819),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2515,7 +2515,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        给博客加装评论系统
+        给博客加装Twikoo评论
       </h1>
       <div class='new-meta-box'>
         
@@ -2535,13 +2535,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>2 字</p>
+      <p>654 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 分钟</p>
+      <p>2 分钟</p>
     </a>
   </div>
 
@@ -2582,8 +2582,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：</p>
+    <p>摘要：本文主要介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。</p>
 <span id="more"></span>
+
+<details ><summary> 环境 </summary>
+              <div class='content'>
+              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NPM 9.3.1<br>Git 2.37.3<br>Hexo 4.3.1</p>
+              </div>
+            </details>
+
+<h2 id="1-使用MongoDB"><a href="#1-使用MongoDB" class="headerlink" title="1 使用MongoDB"></a>1 使用MongoDB</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><p>MongoDB是一款流行的开源文档型数据库，用于存储文档类型的数据，比如博客产生的评论。</p>
+<p>MongoDB的中文官网：<br><a target="_blank" rel="noopener" href="https://www.mongodb.com/zh-cn">https://www.mongodb.com/zh-cn</a></p>
+<p>如果有云服务器，可以在服务器上使用MongoDB本地数据库，如果没有云服务器，可以使用MongoDB Atlas云数据库。</p>
+<h3 id="1-2-注册账号并创建集群"><a href="#1-2-注册账号并创建集群" class="headerlink" title="1.2 注册账号并创建集群"></a>1.2 注册账号并创建集群</h3><p>注册MongoDB账号，然后在邮箱中验证邮件完成注册。</p>
+<p>在<code>Overview</code>界面中可以设置组织名和项目名，然后创建一个集群。</p>
+<p>在区域选择界面，选择免费的，提供商Provider选择<code>AWS</code>亚马逊即可，区域Region选择<code>N. Virginia (us-east-1)</code>弗吉尼亚州，也可以选择其他的。</p>
+<p>继续设置Name集群名称，默认使用<code>Cluster0</code>作为集群名称，可以自定义，一旦设定不可修改。</p>
+<p>继续设置Tag标签，这是可选的。</p>
+<p>点击页面下方的<code>Create</code>创建免费集群。</p>
+<h3 id="1-3-创建用户"><a href="#1-3-创建用户" class="headerlink" title="1.3 创建用户"></a>1.3 创建用户</h3><p>进入<code>Database Access</code>界面，点击<code>Add New Database User</code>创建用户，选择<code>Password</code>作为认证方式。</p>
+<p>输入用户和密码，这个用户是用来登录云数据库的，因此密码尽量设置的难一些。</p>
+<p>继续设置用户权限，点击<code>Add Built In Role</code>并选择<code>Atlas Admin</code>选项。</p>
+<p>点击页面下方的<code>Add User</code>创建用户。</p>
+<h3 id="1-4-设置IP地址"><a href="#1-4-设置IP地址" class="headerlink" title="1.4 设置IP地址"></a>1.4 设置IP地址</h3><p>进入<code>Network Access</code>界面，点击表格右侧的<code>ADD IP ADDRESS</code>添加能访问云数据库的IP地址。</p>
+<p>点击<code>Allow Access from Anywhere</code>或者在<code>Access List Entry</code>输入<code>0.0.0.0/0</code>表示允许所有IP地址的连接，点击<code>Confirm</code>保存设置。</p>
+<h3 id="1-5-查看如何连接"><a href="#1-5-查看如何连接" class="headerlink" title="1.5 查看如何连接"></a>1.5 查看如何连接</h3><p>进入<code>Database</code>界面，点击集群后面的<code>Connect</code>建立连接，连接方式选择<code>Drivers</code>使用驱动连接。</p>
+<p>使用Driver默认的<code>Node.js</code>作为驱动，使用Version默认的<code>5.5 or later</code>作为版本。</p>
+<p>复制下方<code>mongodb+srv</code>开头的字符串，并将<code>&lt;password&gt;</code>修改为创建用户时设置的密码。</p>
+<p>点击页面下方的<code>Close</code>关闭退出即可。</p>
+<p>mongodb+srv:&#x2F;&#x2F;admin:<a href="mailto:&#78;&#119;&#x59;&#x78;&#57;&#x69;&#74;&#x68;&#x7a;&#70;&#x61;&#x52;&#107;&#65;&#55;&#72;&#x40;&#119;&#101;&#x62;&#115;&#105;&#x74;&#x65;&#46;&#x73;&#x6c;&#118;&#x38;&#x78;&#106;&#x6b;&#46;&#109;&#111;&#110;&#x67;&#111;&#x64;&#98;&#x2e;&#x6e;&#x65;&#x74;">&#78;&#119;&#x59;&#x78;&#57;&#x69;&#74;&#x68;&#x7a;&#70;&#x61;&#x52;&#107;&#65;&#55;&#72;&#x40;&#119;&#101;&#x62;&#115;&#105;&#x74;&#x65;&#46;&#x73;&#x6c;&#118;&#x38;&#x78;&#106;&#x6b;&#46;&#109;&#111;&#110;&#x67;&#111;&#x64;&#98;&#x2e;&#x6e;&#x65;&#x74;</a>&#x2F;?retryWrites&#x3D;true&amp;w&#x3D;majority&amp;appName&#x3D;WebSite</p>
+<h2 id="2-使用Vercel"><a href="#2-使用Vercel" class="headerlink" title="2 使用Vercel"></a>2 使用Vercel</h2><p><a target="_blank" rel="noopener" href="https://twikoo.js.org/backend.html#vercel-%E9%83%A8%E7%BD%B2">https://twikoo.js.org/backend.html#vercel-%E9%83%A8%E7%BD%B2</a></p>
+<p><a target="_blank" rel="noopener" href="https://vercel.com/">https://vercel.com/</a></p>
 
   </div>
   
@@ -2599,7 +2628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">给博客加装评论系统</div>
+            <div class="license-title">给博客加装Twikoo评论</div>
             <div class="license-link"><a href="https://momashanhe.com/posts/20240303/152102/">https://momashanhe.com/posts/20240303/152102/</a>
             </div>
             <div class="license-meta">
@@ -2614,7 +2643,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年3月6日</div>
+                <div class="license-meta-text">2024年3月7日</div>
               </div>
               
               
@@ -2663,8 +2692,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Twikoo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Twikoo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vercel/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Vercel</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MongoDB/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>MongoDB</p></a></div>
-  <span hidden itemprop="keywords">Hexo Twikoo Vercel MongoDB</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vercel/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Vercel</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/MongoDB/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>MongoDB</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Twikoo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Twikoo</p></a></div>
+  <span hidden itemprop="keywords">Hexo Vercel MongoDB Twikoo</span>
   
 
 
@@ -2687,9 +2716,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
       
-        <a class='next' href='/posts/20240303/102543/'>
-          <p class='title'>给博客添加徽标<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要介绍了如何给博客添加自定义徽标。</p>
+        <a class='next' href='/posts/20240303/112321/'>
+          <p class='title'>使用Vercel托管博客<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>摘要：本文主要介绍了如何将博客托管到Vercel云平台。</p>
         </a>
       
     </div>
@@ -2809,6 +2838,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20240303/112321/" href="/posts/20240303/112321/"
+          
+          
+          active-action="action-posts20240303112321"
+          >
+          <div class='name'>
+            
+            使用Vercel托管博客
+          </div>
+          
+        </a></li>
+      
         <li><a class="flat-box" title="/posts/20240303/152102/" href="/posts/20240303/152102/"
           
           
@@ -2816,7 +2857,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            给博客加装评论系统
+            给博客加装Twikoo评论
           </div>
           
         </a></li>
@@ -2854,7 +2895,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8MongoDB"><span class="toc-text">1 使用MongoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E5%B9%B6%E5%88%9B%E5%BB%BA%E9%9B%86%E7%BE%A4"><span class="toc-text">1.2 注册账号并创建集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-text">1.3 创建用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E8%AE%BE%E7%BD%AEIP%E5%9C%B0%E5%9D%80"><span class="toc-text">1.4 设置IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E6%9F%A5%E7%9C%8B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5"><span class="toc-text">1.5 查看如何连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8Vercel"><span class="toc-text">2 使用Vercel</span></a></li></ol>
   </div>
 </section>
 
@@ -3299,7 +3340,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/152102/","name":"给博客加装评论系统"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装评论系统","description":"摘要：","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/152102/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/152102/","wordCount":3,"datePublished":"2024-03-03T07:21:02.000Z","dateModified":"2024-03-06T12:06:40.397Z","articleSection":"日常生活","keywords":"Hexo,Twikoo,Vercel,MongoDB","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/152102/","name":"给博客加装Twikoo评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Twikoo评论","description":"摘要：本文主要介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/152102/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/152102/","wordCount":53,"datePublished":"2024-03-03T07:21:02.000Z","dateModified":"2024-03-07T02:05:36.577Z","articleSection":"日常生活","keywords":"Hexo,Vercel,MongoDB,Twikoo","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
