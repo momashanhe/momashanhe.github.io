@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-03T07:21:02.000Z">
-<meta property="article:modified_time" content="2024-03-09T01:50:36.907Z">
+<meta property="article:modified_time" content="2024-03-09T07:56:58.695Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Vercel">
@@ -2023,7 +2023,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/volantis-static/media/placeholder/avatar/round/3442075.svg","link":"/volantis-static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/volantis-static/media/placeholder/cover/76b86c0226ffd.svg","image":"/volantis-static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1709949839738),
+    lastupdate: new Date(1709987272644),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2615,7 +2615,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>874 字</p>
+      <p>883 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2636,11 +2636,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <a class='notlink'>
     <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
     
-    <span id="twikoo_visitors">
+    <span data-path="/posts/20240303/152102/" class="waline-pageview-count">
       <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
     </span>
       
     <p>次</p>
+  </a>
+</div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comment">
+   
+  
+  <a class="notlink" href="/posts/20240303/152102/#comments">
+    <i class="fa-solid fa-comment-dots fa-fw"></i>
+    <span data-path="/posts/20240303/152102/" class="waline-comment-count">
+      <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+    </span> 
+     
+      <p>条</p> 
+     
   </a>
 </div>
 
@@ -2668,12 +2687,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <details ><summary> 引用 </summary>
               <div class='content'>
-              <p><a target="_blank" rel="noopener" href="https://twikoo.js.org/backend.html">Twikoo官方文档 - 云函数部署</a></p>
+              <p><a target="_blank" rel="noopener" href="https://twikoo.js.org/quick-start.html">Twikoo官方文档 - 快速上手</a></p>
               </div>
             </details>
 
 <h2 id="1-使用MongoDB"><a href="#1-使用MongoDB" class="headerlink" title="1 使用MongoDB"></a>1 使用MongoDB</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><p>MongoDB是一款流行的开源文档型数据库，用于存储文档类型的数据，比如博客产生的评论。</p>
-<p>MongoDB的中文官网：<br><a target="_blank" rel="noopener" href="https://www.mongodb.com/zh-cn">https://www.mongodb.com/zh-cn</a></p>
+<p>MongoDB的中文官网：<br><a target="_blank" rel="noopener" href="https://www.mongodb.com/zh-cn/">https://www.mongodb.com/zh-cn/</a></p>
 <p>如果有云服务器，可以在服务器上使用MongoDB本地数据库，如果没有云服务器，可以使用MongoDB Atlas云数据库。</p>
 <h3 id="1-2-注册账号并创建集群"><a href="#1-2-注册账号并创建集群" class="headerlink" title="1.2 注册账号并创建集群"></a>1.2 注册账号并创建集群</h3><p>注册MongoDB账号，然后在邮箱中验证邮件完成注册。</p>
 <p>在<code>Overview</code>界面中可以设置组织名和项目名，然后创建一个集群：</p>
@@ -2704,8 +2723,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>复制下方<code>mongodb+srv</code>开头的字符串，并将<code>&lt;password&gt;</code>修改为创建用户时设置的密码，将这个数据库连接字符串复制并保存，后面需要用到。</p>
 <p>点击页面下方的<code>Close</code>关闭退出即可。</p>
 <h2 id="2-使用Vercel"><a href="#2-使用Vercel" class="headerlink" title="2 使用Vercel"></a>2 使用Vercel</h2><h3 id="2-1-创建项目"><a href="#2-1-创建项目" class="headerlink" title="2.1 创建项目"></a>2.1 创建项目</h3><p>创建账户并登录到Vercel，在Twikoo提供的文档里找到快速创建Vercel项目的链接：<br><a target="_blank" rel="noopener" href="https://vercel.com/import/project?template=https://github.com/twikoojs/twikoo/tree/main/src/server/vercel-min">部署Twikoo到Vercel</a></p>
-<p>输入GitHub项目名称后会自动创建并部署，首次部署后会提示需要设置<code>MONGODB_URI</code>环境变量。</p>
-<h3 id="2-2-配置项目"><a href="#2-2-配置项目" class="headerlink" title="2.2 配置项目"></a>2.2 配置项目</h3><p>进入刚刚创建的Twikoo项目界面，切换到<code>Settings</code>标签。</p>
+<p>输入GitHub项目名称后会自动在GitHub上创建项目，然后会在Vercel上自动部署，首次部署后会提示需要设置<code>MONGODB_URI</code>环境变量。</p>
+<h3 id="2-2-配置项目"><a href="#2-2-配置项目" class="headerlink" title="2.2 配置项目"></a>2.2 配置项目</h3><p>进入刚刚创建的项目界面，切换到<code>Settings</code>标签。</p>
 <p>在左侧导航栏点击<code>Environment Variables</code>设置，在Key中输入<code>MONGODB_URI</code>，在Value中输入前面设置MongoDB保存的数据库连接字符串，点击<code>Save</code>保存：</p>
 <img src="/posts/20240303/152102/007-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" class="lazyload" data-srcset="/posts/20240303/152102/007-%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class=" lazyload" title="007-设置环境变量">
 
@@ -2818,6 +2837,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/posts/20240309/100821/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>给博客加装Waline评论</p>
+          <p class='content'>摘要：本文主要介绍了通过使用LeanCloud数据库和Vercel服务器将Waline评论部署到Hexo博客。</p>
+        </a>
       
       
         <a class='next' href='/posts/20240303/112321/'>
@@ -2977,6 +3001,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20240309/100821/" href="/posts/20240309/100821/"
+          
+          
+          active-action="action-posts20240309100821"
+          >
+          <div class='name'>
+            
+            给博客加装Waline评论
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
@@ -3033,7 +3069,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         
-          <div><p><object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Host-Vercel-696969?link=https://vercel.com/"></object> <object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Comment-Twikoo-5672CD?link=https://twikoo.js.org/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
+          <div><p><object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Host-Vercel-696969?link=https://vercel.com/"></object> <object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Comment-Waline-4E9DEF?link=https://waline.js.org/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
 </div>
         
       
@@ -3186,39 +3222,50 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
       <script>
-  volantis.layoutHelper("comments",`<div id="twikoo_container"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
-  function load_twikoo() {
-    if(!document.querySelectorAll("#twikoo_container")[0])return;
-    volantis.js("https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.31/twikoo.min.js", p_twikoo)
-  }
-  function p_twikoo() {
-    if(!document.querySelectorAll("#twikoo_container")[0])return;
+  volantis.layoutHelper("comments",`<div id="waline"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
+  
+  function p_waline() {
+    if(!document.querySelector("#waline"))return;
+    let locale = {};
     let path = pdata.commentPath;
-    let placeholder = pdata.commentPlaceholder || "良言一句三冬暖，恶语伤人六月寒。" || "";
+    let pagePlaceholder = pdata.commentPlaceholder || "良言一句三冬暖，恶语伤人六月寒。";
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
-    twikoo.init(Object.assign(Object.assign({"path":null,"envId":"https://twikoo.momashanhe.com","placeholder":"良言一句三冬暖，恶语伤人六月寒。","visitor":true}, {
-      el: '#twikoo_container',
-      path: path,
-      placeholder: placeholder,
-      onCommentLoaded: function() {
-        if(typeof VolantisFancyBox === "undefined") {
-          const checkFancyBox = setInterval(() => {
-            if(typeof VolantisFancyBox === "undefined") return;
-            clearInterval(checkFancyBox);
-            VolantisFancyBox.groupBind('.tk-content img:not([class*="emo"])', 'Comments');
-          })
-        } else {
-          VolantisFancyBox.groupBind('.tk-content img:not([class*="emo"])', 'Comments');
-        }
-      }
-    }),pdata.commentConfig))
-  }
-  load_twikoo();
-</script>
+    if(pagePlaceholder.length != 0) {
+      locale.placeholder = pagePlaceholder;
+    }
 
+    try {
+      Waline.init(Object.assign(Object.assign({"path":null,"placeholder":"良言一句三冬暖，恶语伤人六月寒。","serverURL":"https://waline.momashanhe.com","imageUploader":{"fileName":null,"tokenName":null,"api":null,"token":null,"resp":null},"pageview":true,"comment":true}, {
+        el: '#waline',
+        path: path,
+        // https://github.com/volantis-x/hexo-theme-volantis/issues/713
+        
+        locale,
+      }),pdata.commentConfig));
+    } catch (error) {
+      alert(`Waline ${error}`)
+    }
+    fancybox_waline()
+  }
+
+  function fancybox_waline() {
+    if(typeof VolantisFancyBox === "undefined") {
+      const checkFancyBox = setInterval(() => {
+        if(typeof VolantisFancyBox === "undefined") return;
+        clearInterval(checkFancyBox);
+        VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+      })
+    } else {
+      VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+    }
+  }
+
+  volantis.css('https://cdn.bootcdn.net/ajax/libs/waline/2.15.8/waline.min.css')
+  volantis.js('https://cdn.bootcdn.net/ajax/libs/waline/2.15.8/waline.min.js').then(p_waline)
+</script>
     
 
 
@@ -3490,7 +3537,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/152102/","name":"给博客加装Twikoo评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Twikoo评论","description":"摘要：本文主要介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/152102/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/152102/","wordCount":53,"datePublished":"2024-03-03T07:21:02.000Z","dateModified":"2024-03-09T01:50:36.907Z","articleSection":"日常生活","keywords":"Hexo,Vercel,MongoDB,Twikoo","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/152102/","name":"给博客加装Twikoo评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Twikoo评论","description":"摘要：本文主要介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/152102/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/152102/","wordCount":53,"datePublished":"2024-03-03T07:21:02.000Z","dateModified":"2024-03-09T07:56:58.695Z","articleSection":"日常生活","keywords":"Hexo,Vercel,MongoDB,Twikoo","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

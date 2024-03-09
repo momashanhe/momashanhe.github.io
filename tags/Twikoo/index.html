@@ -2018,7 +2018,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/volantis-static/media/placeholder/avatar/round/3442075.svg","link":"/volantis-static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/volantis-static/media/placeholder/cover/76b86c0226ffd.svg","image":"/volantis-static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1709949839738),
+    lastupdate: new Date(1709987272644),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2737,14 +2737,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>文章数目：</div>
-          <div>9 篇</div>
+          <div>10 篇</div>
         </div>
       
 
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>6.4k 字</div>
+          <div>7k 字</div>
         </div>
       
 
@@ -2809,7 +2809,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <li><a class="flat-box"
             title="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/"
             active-action="action-categoriesE697A5E5B8B8E7949FE6B4BB"
-            ><div class='name'>日常生活</div><div class='badge'>(9)</div></a></li>
+            ><div class='name'>日常生活</div><div class='badge'>(10)</div></a></li>
         
       </ul>
     </div>
@@ -2834,7 +2834,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/GitHub/" style="font-size: 19px; color: #777">GitHub</a> <a href="/tags/Hexo/" style="font-size: 24px; color: #555">Hexo</a> <a href="/tags/MongoDB/" style="font-size: 14px; color: #999">MongoDB</a> <a href="/tags/Twikoo/" style="font-size: 14px; color: #999">Twikoo</a> <a href="/tags/Vercel/" style="font-size: 19px; color: #777">Vercel</a>
+      <a href="/tags/GitHub/" style="font-size: 17.33px; color: #828282">GitHub</a> <a href="/tags/Hexo/" style="font-size: 24px; color: #555">Hexo</a> <a href="/tags/LeanCloud/" style="font-size: 14px; color: #999">LeanCloud</a> <a href="/tags/MongoDB/" style="font-size: 14px; color: #999">MongoDB</a> <a href="/tags/Twikoo/" style="font-size: 14px; color: #999">Twikoo</a> <a href="/tags/Vercel/" style="font-size: 20.67px; color: #6c6c6c">Vercel</a> <a href="/tags/Waline/" style="font-size: 14px; color: #999">Waline</a>
     </div>
   </section>
 
@@ -2863,7 +2863,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         
-          <div><p><object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Host-Vercel-696969?link=https://vercel.com/"></object> <object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Comment-Twikoo-5672CD?link=https://twikoo.js.org/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
+          <div><p><object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Host-Vercel-696969?link=https://vercel.com/"></object> <object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Comment-Waline-4E9DEF?link=https://waline.js.org/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
 </div>
         
       
@@ -3016,39 +3016,50 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
       <script>
-  volantis.layoutHelper("comments",`<div id="twikoo_container"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
-  function load_twikoo() {
-    if(!document.querySelectorAll("#twikoo_container")[0])return;
-    volantis.js("https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.31/twikoo.min.js", p_twikoo)
-  }
-  function p_twikoo() {
-    if(!document.querySelectorAll("#twikoo_container")[0])return;
+  volantis.layoutHelper("comments",`<div id="waline"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
+  
+  function p_waline() {
+    if(!document.querySelector("#waline"))return;
+    let locale = {};
     let path = pdata.commentPath;
-    let placeholder = pdata.commentPlaceholder || "良言一句三冬暖，恶语伤人六月寒。" || "";
+    let pagePlaceholder = pdata.commentPlaceholder || "良言一句三冬暖，恶语伤人六月寒。";
     if (path.length == 0) {
       let defaultPath = '';
       path = defaultPath || decodeURI(window.location.pathname);
     }
-    twikoo.init(Object.assign(Object.assign({"path":null,"envId":"https://twikoo.momashanhe.com","placeholder":"良言一句三冬暖，恶语伤人六月寒。","visitor":true}, {
-      el: '#twikoo_container',
-      path: path,
-      placeholder: placeholder,
-      onCommentLoaded: function() {
-        if(typeof VolantisFancyBox === "undefined") {
-          const checkFancyBox = setInterval(() => {
-            if(typeof VolantisFancyBox === "undefined") return;
-            clearInterval(checkFancyBox);
-            VolantisFancyBox.groupBind('.tk-content img:not([class*="emo"])', 'Comments');
-          })
-        } else {
-          VolantisFancyBox.groupBind('.tk-content img:not([class*="emo"])', 'Comments');
-        }
-      }
-    }),pdata.commentConfig))
-  }
-  load_twikoo();
-</script>
+    if(pagePlaceholder.length != 0) {
+      locale.placeholder = pagePlaceholder;
+    }
 
+    try {
+      Waline.init(Object.assign(Object.assign({"path":null,"placeholder":"良言一句三冬暖，恶语伤人六月寒。","serverURL":"https://waline.momashanhe.com","imageUploader":{"fileName":null,"tokenName":null,"api":null,"token":null,"resp":null},"pageview":true,"comment":true}, {
+        el: '#waline',
+        path: path,
+        // https://github.com/volantis-x/hexo-theme-volantis/issues/713
+        
+        locale,
+      }),pdata.commentConfig));
+    } catch (error) {
+      alert(`Waline ${error}`)
+    }
+    fancybox_waline()
+  }
+
+  function fancybox_waline() {
+    if(typeof VolantisFancyBox === "undefined") {
+      const checkFancyBox = setInterval(() => {
+        if(typeof VolantisFancyBox === "undefined") return;
+        clearInterval(checkFancyBox);
+        VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+      })
+    } else {
+      VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+    }
+  }
+
+  volantis.css('https://cdn.bootcdn.net/ajax/libs/waline/2.15.8/waline.min.css')
+  volantis.js('https://cdn.bootcdn.net/ajax/libs/waline/2.15.8/waline.min.js').then(p_waline)
+</script>
     
 
 
