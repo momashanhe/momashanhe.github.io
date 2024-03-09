@@ -228,6 +228,14 @@ button {
     backdrop-filter: saturate(200%) blur(20px);
   }
 }
+@supports (backdrop-filter: blur(20px)) {
+  .blur#comments {
+    backdrop-filter: unset;
+  }
+}
+#layoutHelper-comments {
+  margin-bottom: 100px;
+}
 .shadow {
   box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
   -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
@@ -2010,7 +2018,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/volantis-static/media/placeholder/avatar/round/3442075.svg","link":"/volantis-static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/volantis-static/media/placeholder/cover/76b86c0226ffd.svg","image":"/volantis-static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1709864123929),
+    lastupdate: new Date(1709949839738),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2242,14 +2250,50 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
+                 title="社交"
+                  
+                  
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>社交
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="通讯录"
                   
                   
                   
                     active-action="action-friends"
                   >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
+                  <i class='fa-solid fa-link fa-fw'></i>通讯录
                 </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/board/" title="留言板"
+                  
+                  
+                  
+                    active-action="action-board"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>留言板
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
                 
               </li>
             
@@ -2437,14 +2481,50 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
               <li>
                 <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
+                 title="社交"
+                  
+                  
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>社交
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="通讯录"
                   
                   
                   
                     active-action="action-friends"
                   >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
+                  <i class='fa-solid fa-link fa-fw'></i>通讯录
                 </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/board/" title="留言板"
+                  
+                  
+                  
+                    active-action="action-board"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>留言板
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
                 
               </li>
             
@@ -2733,7 +2813,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>本站总字数：</div>
-          <div>6.2k 字</div>
+          <div>6.4k 字</div>
         </div>
       
 
@@ -2768,7 +2848,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <div class="webinfo-item">
           <div>最后活动时间：</div>
-          <div id="last-update-show">2024-03-08 日</div>
+          <div id="last-update-show">2024-03-09 日</div>
         </div>
       
     </div>
@@ -2852,7 +2932,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         
-          <div><p><object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
+          <div><p><object data="https://img.shields.io/badge/Source-GitHub-FFA500?link=https://github.com/"></object> <object data="https://img.shields.io/badge/Host-Vercel-696969?link=https://vercel.com/"></object> <object data="https://img.shields.io/badge/Framework-Hexo-0E83CD?link=https://hexo.io/zh-cn/index.html"></object> <object data="https://img.shields.io/badge/Theme-Volantis-1BCDFC?link=https://volantis.js.org/"></object> <object data="https://img.shields.io/badge/Comment-Twikoo-5672CD?link=https://twikoo.js.org/"></object> <object data="https://img.shields.io/badge/Badge-Shields-9ACD32?link=https://shields.io/"></object></p>
 </div>
         
       
@@ -3004,6 +3084,41 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
+      <script>
+  volantis.layoutHelper("comments",`<div id="twikoo_container"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
+  function load_twikoo() {
+    if(!document.querySelectorAll("#twikoo_container")[0])return;
+    volantis.js("https://cdn.bootcdn.net/ajax/libs/twikoo/1.6.31/twikoo.min.js", p_twikoo)
+  }
+  function p_twikoo() {
+    if(!document.querySelectorAll("#twikoo_container")[0])return;
+    let path = pdata.commentPath;
+    let placeholder = pdata.commentPlaceholder || "良言一句三冬暖，恶语伤人六月寒。" || "";
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    twikoo.init(Object.assign(Object.assign({"path":null,"envId":"https://twikoo.momashanhe.com","placeholder":"良言一句三冬暖，恶语伤人六月寒。","visitor":true}, {
+      el: '#twikoo_container',
+      path: path,
+      placeholder: placeholder,
+      onCommentLoaded: function() {
+        if(typeof VolantisFancyBox === "undefined") {
+          const checkFancyBox = setInterval(() => {
+            if(typeof VolantisFancyBox === "undefined") return;
+            clearInterval(checkFancyBox);
+            VolantisFancyBox.groupBind('.tk-content img:not([class*="emo"])', 'Comments');
+          })
+        } else {
+          VolantisFancyBox.groupBind('.tk-content img:not([class*="emo"])', 'Comments');
+        }
+      }
+    }),pdata.commentConfig))
+  }
+  load_twikoo();
+</script>
+
+    
 
 
 
