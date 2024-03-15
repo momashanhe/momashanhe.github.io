@@ -43,32 +43,32 @@
   
   <!-- Custom Files headBegin end-->
   <link rel="preload" href="/css/style.css" as="style">
-  <link rel="preload" href="/volantis-static/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-<link rel="preload" href="/volantis-static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="https://unpkg.com/momashanhe-static@1.0.10000000002/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://unpkg.com/momashanhe-static@1.0.10000000002/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>使用图床存放引用图片 - 墨码山河</title>
-  <meta name="keywords" content="Hexo,Vercel,LeanCloud,Waline,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要介绍了如何使用图床管理博客图片。 - 墨码山河 - 墨码山河">
+  <title>使用GitHub图床存放博客静态资源 - 墨码山河</title>
+  <meta name="keywords" content="Hexo,GitHub,NPM,PicGo,代码改变世界">
+  <meta desc name="description" content="摘要：本文主要介绍了如何使用GitHub图床存放静态资源，并对静态资源的获取进行加速。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用图床存放引用图片">
+<meta property="og:title" content="使用GitHub图床存放博客静态资源">
 <meta property="og:url" content="https://momashanhe.com/posts/20240310/141520/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要介绍了如何使用图床管理博客图片。">
+<meta property="og:description" content="摘要：本文主要介绍了如何使用GitHub图床存放静态资源，并对静态资源的获取进行加速。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://momashanhe.com/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="og:image" content="https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-10T06:15:20.000Z">
-<meta property="article:modified_time" content="2024-03-10T06:16:16.253Z">
+<meta property="article:modified_time" content="2024-03-15T09:02:44.647Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="Vercel">
-<meta property="article:tag" content="LeanCloud">
-<meta property="article:tag" content="Waline">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="NPM">
+<meta property="article:tag" content="PicGo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://momashanhe.com/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta name="twitter:image" content="https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   <style>
     /* 首屏样式 */
     #safearea {
@@ -745,14 +745,14 @@ button {
 }
 @font-face {
   font-family: 'UbuntuMono';
-  src: url("/volantis-static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  src: url("https://unpkg.com/momashanhe-static@1.0.10000000002/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
 }
 @font-face {
   font-family: 'Varela Round';
-  src: url("/volantis-static/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  src: url("https://unpkg.com/momashanhe-static@1.0.10000000002/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
   font-weight: 'normal';
   font-style: 'normal';
   font-display: swap;
@@ -2003,11 +2003,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   /******************************************************************************/
   //图像加载出错时的处理
   function errorImgAvatar(img) {
-    img.src = "/volantis-static/media/placeholder/avatar/round/3442075.svg";
+    img.src = "https://unpkg.com/momashanhe-static@1.0.10000000002/media/placeholder/avatar/round/3442075.svg";
     img.onerror = null;
   }
   function errorImgCover(img) {
-    img.src = "/volantis-static/media/placeholder/cover/76b86c0226ffd.svg";
+    img.src = "https://unpkg.com/momashanhe-static@1.0.10000000002/media/placeholder/cover/76b86c0226ffd.svg";
     img.onerror = null;
   }
   /******************************************************************************/
@@ -2022,8 +2022,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   volantis.GLOBAL_CONFIG ={
     root: '/',
     debug: "env",
-    default: {"avatar":"/volantis-static/media/placeholder/avatar/round/3442075.svg","link":"/volantis-static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/volantis-static/media/placeholder/cover/76b86c0226ffd.svg","image":"/volantis-static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1710083571983),
+    default: {"avatar":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1710496230482),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2097,7 +2097,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
         <a class="title flat-box" target="_self" href='/'>
           
-            <img no-lazy class='logo' src='/volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+            <img no-lazy class='logo' src='https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/Logo-NavBar@3x.png'/>
           
           
           
@@ -2439,7 +2439,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   
     <span hidden>
-      <meta itemprop="image" content="/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+      <meta itemprop="image" content="https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
   <div class="article-meta" id="top">
@@ -2447,7 +2447,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        使用图床存放引用图片
+        使用GitHub图床存放博客静态资源
       </h1>
       <div class='new-meta-box'>
         
@@ -2455,7 +2455,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             
 <div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
   <a itemprop="url" class='author' href="/" rel="nofollow">
-    <img itemprop="image" src="/volantis-static/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="/volantis-static/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <img itemprop="image" src="https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/apple-touch-icon.png" class="lazyload" data-srcset="https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/apple-touch-icon.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
     <p itemprop="name">墨码山河</p>
   </a>
 </div>
@@ -2467,13 +2467,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>49 字</p>
+      <p>945 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 分钟</p>
+      <p>3 分钟</p>
     </a>
   </div>
 
@@ -2488,7 +2488,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <a class='notlink'>
     <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
     
-    <span data-path="/posts/20240310/141520/">
+    <span data-path="/posts/20240310/141520/" class="waline-pageview-count">
       <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
     </span>
       
@@ -2506,7 +2506,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <a class="notlink" href="/posts/20240310/141520/#comments">
     <i class="fa-solid fa-comment-dots fa-fw"></i>
-    <span data-path="/posts/20240310/141520/">
+    <span data-path="/posts/20240310/141520/" class="waline-comment-count">
       <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
     </span> 
      
@@ -2528,7 +2528,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要介绍了如何使用图床管理博客图片。</p>
+    <p>摘要：本文主要介绍了如何使用GitHub图床存放静态资源，并对静态资源的获取进行加速。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
@@ -2537,13 +2537,91 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-<h2 id="1-使用LeanCloud"><a href="#1-使用LeanCloud" class="headerlink" title="1 使用LeanCloud"></a>1 使用LeanCloud</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>博客暂时还没有服务器进行备案，也不想使用别人的图床，就只能自己打一个比较简陋的了。</p>
+<p>使用GitHub作为图床，但是需要注意不要超过1G容量，超过1G的时候需要想办法进行拆分。</p>
+<p>使用NPM加速访问，实现CDN的效果。</p>
+<h2 id="2-GitHub"><a href="#2-GitHub" class="headerlink" title="2 GitHub"></a>2 GitHub</h2><p>GitHub官网：<br><a target="_blank" rel="noopener" href="https://github.com/">https://github.com/</a></p>
+<p>如果没有注册过GitHub的话，需要注册一个账号。</p>
+<p>创建一个用于存储静态资源的仓库。</p>
+<p>点击右上角个人头像，在下拉列表中点击<code>Settings</code>进入设置界面。</p>
+<p>点击左侧菜单栏底部的<code>Developer Settings</code>进入开发者界面。</p>
+<p>点击<code>Personal access tokens</code>选项，然后点击<code>Tokens (classic)</code>菜单，并在右侧点击<code>Generate new token</code>下拉列表中的<code>Generate new token (classic)</code>按钮：<br><img src="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007001-132103.jpg" class="lazyload" data-srcset="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007001-132103.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="001-创建Token"></p>
+<p>在<code>Note</code>中输入对Token使用的描述，把<code>Expiration</code>设置为<code>No expiration</code>永不过期，然后给下面的<code>Select scopes</code>勾选<code>repo</code>选框：<br><img src="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007002-135621.jpg" class="lazyload" data-srcset="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007002-135621.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="002-勾选作用域"></p>
+<p>最后点击底部的<code>Generate token</code>创建Token，并将页面上展示的Token进行复制保存，这个Token只会出现这一次，忘记只能重新生成。</p>
+<p>这个Token后面会在PicGo里配置。</p>
+<p>将静态资源文件上传到仓库里。</p>
+<h2 id="3-NPM"><a href="#3-NPM" class="headerlink" title="3 NPM"></a>3 NPM</h2><h3 id="3-1-注册"><a href="#3-1-注册" class="headerlink" title="3.1 注册"></a>3.1 注册</h3><p>NPM官网：<br><a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a></p>
+<p>注册NPM账号：<br><img src="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007003-140338.jpg" class="lazyload" data-srcset="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007003-140338.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="003-注册NPM"></p>
+<p>新账号注册后需要配置2FA认证：</p>
+<figure class="highlight txt"><figcaption><span>txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">You don’t have two-factor authentication (2FA) enabled on your account. Configure 2FA or visit our docs to learn more.</span><br></pre></td></tr></table></figure>
+
+<p>点击2FA认证链接，选择使用<code>Authenticator app</code>的方式认证：<br><img src="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007004-141025.jpg" class="lazyload" data-srcset="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007004-141025.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="004-2FA认证"></p>
+<p>在手机上下载<code>Authenticator</code>并安装，打开后选择<code>扫描QR码</code>然后扫描网页上的二维码，将生成的一次性密码代码输入底部的密码框中。</p>
+<p>保存好生成的恢复代码，这里只出现一次，忘记需要重新生成。</p>
+<h3 id="3-2-本地仓库"><a href="#3-2-本地仓库" class="headerlink" title="3.2 本地仓库"></a>3.2 本地仓库</h3><p>进入静态资源的本地仓库，执行以下命名切换回原生源：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure>
+
+<p>如果是第一次使用，需要执行命令添加本地NPM用户配置，输入账户和密码以及邮箱即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm adduser</span><br></pre></td></tr></table></figure>
+
+<p>如果不是第一次使用，执行登录命令，输入账户和密码以及邮箱即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm login</span><br></pre></td></tr></table></figure>
+
+<p>如果命令行提示需要登录，在下面的网址里完成登录即可：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Create your account at:</span><br></pre></td></tr></table></figure>
+
+<p>在打包前准备好包名，需要事先确认包名没有重复，可以在NPM官网搜索相应包名，搜不到就说明还没被占用。</p>
+<p>执行初始化命令，将仓库打包，按照指示进行配置：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
+
+<p>根据实际情况填写，红框内的使用默认就好：<br><img src="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007005-141236.jpg" class="lazyload" data-srcset="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007005-141236.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="005-包初始化"></p>
+<p>注意名称不要使用带有年月日的数字，不然会被认为垃圾名称发布失败，尽量是用<code>-</code>短横线分隔。</p>
+<p>最后输入<code>yes</code>即可。</p>
+<p>打包以后就可以发布了，执行命令：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --otp=123456</span><br></pre></td></tr></table></figure>
+<p>命令说明：</p>
+<blockquote>
+<p>otp：需要输入Authenticator生成的一次性密码。</p>
+</blockquote>
+<p>发布成功提示：<br><img src="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007006-141308.jpg" class="lazyload" data-srcset="https://unpkg.com/momashanhe-image@1.0.10000000002/001002/007006-141308.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="006-发布成功"></p>
+<p>发布成功后，可以寻找NPM的节点使用，比如可以按照下面的方式使用：</p>
+<figure class="highlight plaintext"><figcaption><span>url</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://unpkg.com/:package@:version/:file</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-升级仓库"><a href="#3-3-升级仓库" class="headerlink" title="3.3 升级仓库"></a>3.3 升级仓库</h3><p>以后使用静态资源的时候，现在本地试用，然后将静态资源同步到GitHub上，再发布NPM升级包。</p>
+<p>使用命令增加NPM版本，这个命令会自动增加小版本数字：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm version patch</span><br></pre></td></tr></table></figure>
+
+<p>然后执行发布命令：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm publish --otp=123456</span><br></pre></td></tr></table></figure>
+
+<p>发布成功后修改使用的版本号就可以了。</p>
+
   </div>
   
   
     
     <div class='footer'>
        <!-- 参考资料、相关资料等 -->
+      
+        <div class='references'>
+          <section class='header'>
+            
+              <i class="fa-solid fa-quote-left fa-fw" aria-hidden="true"></i>
+            
+            <span>参考资料</span>
+          </section>
+          <section class='body'>
+            <ul>
+              
+                <li>
+                  <a href="https://akilar.top/posts/3e956346/" rel="external nofollow noopener noreferrer" target="_blank">
+                  Akilar - npm图床的使用技巧
+                  </a>
+                </li>
+              
+            </ul>
+          </section>
+        </div>
       
        <!-- 相关文章 -->
       
@@ -2552,7 +2630,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">使用图床存放引用图片</div>
+            <div class="license-title">使用GitHub图床存放博客静态资源</div>
             <div class="license-link"><a href="https://momashanhe.com/posts/20240310/141520/">https://momashanhe.com/posts/20240310/141520/</a>
             </div>
             <div class="license-meta">
@@ -2563,6 +2641,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               <div class="license-meta-item">
                 <div class="license-meta-title">发布于</div>
                 <div class="license-meta-text">2024年3月10日</div>
+              </div>
+              
+              <div class="license-meta-item">
+                <div class="license-meta-title">更新于</div>
+                <div class="license-meta-text">2024年3月15日</div>
               </div>
               
               
@@ -2593,10 +2676,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">日常生活</a>
+    <a class="category-link" href="/categories/%E5%BB%BA%E7%AB%99%E6%8A%80%E6%9C%AF/">建站技术</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" itemprop="url"><span itemprop="name">日常生活</span></a>
+        <a href="/categories/%E5%BB%BA%E7%AB%99%E6%8A%80%E6%9C%AF/" itemprop="url"><span itemprop="name">建站技术</span></a>
       </span>
     
   </div>
@@ -2611,8 +2694,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Vercel/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Vercel</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/LeanCloud/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>LeanCloud</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Waline/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Waline</p></a></div>
-  <span hidden itemprop="keywords">Hexo Vercel LeanCloud Waline</span>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/GitHub/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>GitHub</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/NPM/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>NPM</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/PicGo/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>PicGo</p></a></div>
+  <span hidden itemprop="keywords">Hexo GitHub NPM PicGo</span>
   
 
 
@@ -2634,10 +2717,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
+        <a class='prev' href='/posts/20240314/143553/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>入门</p>
+          <p class='content'>摘要：</p>
+        </a>
       
-        <a class='next' href='/posts/20240309/100821/'>
-          <p class='title'>给博客加装Waline评论<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要介绍了通过使用LeanCloud数据库和Vercel服务器将Waline评论部署到Hexo博客。</p>
+      
+        <a class='next' href='/posts/20240310/113145/'>
+          <p class='title'>博客图床对比<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>摘要：本文主要介绍了不同图床之间的区别。</p>
         </a>
       
     </div>
@@ -2683,7 +2771,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <a class='avatar flat-box rectangle' href='/pages/about/'>
-          <img no-lazy src='/volantis-static/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+          <img no-lazy src='https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/Logo-NavBar@3x.png'/>
         </a>
       
     
@@ -2748,7 +2836,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/001002/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>建站记录:Hexo博客:折腾</span></a>
+      <a href='/groups/001002/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>建站技术:Hexo博客:折腾</span></a>
     
   </header>
 
@@ -2780,6 +2868,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20240303/131251/" href="/posts/20240303/131251/"
+          
+          
+          active-action="action-posts20240303131251"
+          >
+          <div class='name'>
+            
+            博客评论系统对比
+          </div>
+          
+        </a></li>
+      
         <li><a class="flat-box" title="/posts/20240303/152102/" href="/posts/20240303/152102/"
           
           
@@ -2804,6 +2904,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20240310/113145/" href="/posts/20240310/113145/"
+          
+          
+          active-action="action-posts20240310113145"
+          >
+          <div class='name'>
+            
+            博客图床对比
+          </div>
+          
+        </a></li>
+      
         <li><a class="flat-box" title="/posts/20240310/141520/" href="/posts/20240310/141520/"
           
           
@@ -2811,7 +2923,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            使用图床存放引用图片
+            使用GitHub图床存放博客静态资源
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20240314/144908/" href="/posts/20240314/144908/"
+          
+          
+          active-action="action-posts20240314144908"
+          >
+          <div class='name'>
+            
+            博客文章加密
           </div>
           
         </a></li>
@@ -2849,7 +2973,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8LeanCloud"><span class="toc-text">1 使用LeanCloud</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-GitHub"><span class="toc-text">2 GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-NPM"><span class="toc-text">3 NPM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%B3%A8%E5%86%8C"><span class="toc-text">3.1 注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="toc-text">3.2 本地仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%8D%87%E7%BA%A7%E4%BB%93%E5%BA%93"><span class="toc-text">3.3 升级仓库</span></a></li></ol></li></ol>
   </div>
 </section>
 
@@ -2992,7 +3116,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 	hoverDelay: 0
   };
 </script>
-<script defer src="/volantis-static/libs/flying-pages/flying-pages.min.js"></script>
+<script defer src="https://unpkg.com/momashanhe-static@1.0.10000000002/libs/flying-pages/flying-pages.min.js"></script>
 
 
 
@@ -3340,7 +3464,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/日常生活/","name":"日常生活"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240310/141520/","name":"使用图床存放引用图片"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用图床存放引用图片","description":"摘要：本文主要介绍了如何使用图床管理博客图片。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240310/141520/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240310/141520/","wordCount":23,"datePublished":"2024-03-10T06:15:20.000Z","dateModified":"2024-03-10T06:16:16.253Z","articleSection":"日常生活","keywords":"Hexo,Vercel,LeanCloud,Waline","image":{"@type":"ImageObject","url":"/volantis-static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240310/141520/","name":"使用GitHub图床存放博客静态资源"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用GitHub图床存放博客静态资源","description":"摘要：本文主要介绍了如何使用GitHub图床存放静态资源，并对静态资源的获取进行加速。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240310/141520/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240310/141520/","wordCount":43,"datePublished":"2024-03-10T06:15:20.000Z","dateModified":"2024-03-15T09:02:44.647Z","articleSection":"建站技术","keywords":"Hexo,GitHub,NPM,PicGo","image":{"@type":"ImageObject","url":"https://unpkg.com/momashanhe-static@1.0.10000000002/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
