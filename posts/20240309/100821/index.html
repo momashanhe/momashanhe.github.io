@@ -36,7 +36,6 @@
       <meta name="application-name" content="Volantis">
       <meta name="msapplication-TileColor" content="#f4f4f4">
       <meta name="msapplication-TileImage" content="/@static/media/org.volantis/blog/favicon/favicon-32x32.png">
-      <meta name="cache-control" content="no-chache">
       <meta name="theme-color" content="#f4f4f4" media="(prefers-color-scheme: light)">
       <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <!-- import head_begin end -->
@@ -62,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-09T02:08:21.000Z">
-<meta property="article:modified_time" content="2024-03-16T03:45:48.627Z">
+<meta property="article:modified_time" content="2024-03-16T04:33:53.559Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Vercel">
@@ -2024,7 +2023,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1710563044470),
+    lastupdate: new Date(1710563655765),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2545,12 +2544,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="2-2-注册账号并创建应用"><a href="#2-2-注册账号并创建应用" class="headerlink" title="2.2 注册账号并创建应用"></a>2.2 注册账号并创建应用</h3><p>注册LeanCloud账号，分为中国大陆版和国际版，区别是中国大陆版需要绑定手机、实名认证、备案域名，国际版不需要，这里注册国际版就能满足要求。</p>
 <p>国际版注册链接：<br><a target="_blank" rel="noopener" href="https://console.leancloud.app/register">https://console.leancloud.app/register</a></p>
 <p>输入注册信息，然后在邮箱中验证邮件完成注册。</p>
-<p>点击<code>创建应用</code>并选择免费的开发版，创建用于Waline的应用：<br><img src="https://momashanhe.com/@image/001002/005001-082344.jpg" alt="001-创建应用"></p>
-<p>进入应用，在左侧的导航栏内进入<code>设置</code>下的<code>应用凭证</code>界面，记录认证信息以便后续使用：<br><img src="https://momashanhe.com/@image/001002/005002-083612.jpg" alt="002-应用凭证"></p>
+<p>点击<code>创建应用</code>并选择免费的开发版，创建用于Waline的应用：<br><img src="/@image/001002/005001-082344.jpg" alt="001-创建应用"></p>
+<p>进入应用，在左侧的导航栏内进入<code>设置</code>下的<code>应用凭证</code>界面，记录认证信息以便后续使用：<br><img src="/@image/001002/005002-083612.jpg" alt="002-应用凭证"></p>
 <h2 id="3-使用Vercel"><a href="#3-使用Vercel" class="headerlink" title="3 使用Vercel"></a>3 使用Vercel</h2><h3 id="3-1-创建项目"><a href="#3-1-创建项目" class="headerlink" title="3.1 创建项目"></a>3.1 创建项目</h3><p>创建账户并登录到Vercel，在Waline提供的文档里找到快速创建Vercel项目的链接：<br><a target="_blank" rel="noopener" href="https://vercel.com/new/clone?repository-url=https://github.com/walinejs/waline/tree/main/example">部署Waline到Vercel</a></p>
 <p>输入GitHub项目名称后会自动在GitHub上创建项目，然后会在Vercel上自动部署，首次部署后需要设置环境变量。</p>
 <h3 id="3-2-配置项目"><a href="#3-2-配置项目" class="headerlink" title="3.2 配置项目"></a>3.2 配置项目</h3><p>进入刚刚创建的项目界面，切换到<code>Settings</code>标签。</p>
-<p>在左侧导航栏点击<code>Environment Variables</code>设置，配置<code>LEAN_ID</code>、<code>LEAN_KEY</code>、<code>LEAN_MASTER_KEY</code>三个环境变量，值为上面LeanCloud里的应用凭证里的认证信息：<br><img src="https://momashanhe.com/@image/001002/005003-083853.jpg" alt="003-设置环境变量"></p>
+<p>在左侧导航栏点击<code>Environment Variables</code>设置，配置<code>LEAN_ID</code>、<code>LEAN_KEY</code>、<code>LEAN_MASTER_KEY</code>三个环境变量，值为上面LeanCloud里的应用凭证里的认证信息：<br><img src="/@image/001002/005003-083853.jpg" alt="003-设置环境变量"></p>
 <blockquote>
 <p>如果使用LeanCloud国内版，需要额外配置<code>LEAN_SERVER</code>环境变量，值为绑定的域名。</p>
 </blockquote>
@@ -3403,7 +3402,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240309/100821/","name":"给博客加装Waline评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Waline评论","description":"摘要：本文主要介绍了通过使用LeanCloud数据库和Vercel服务器将Waline评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240309/100821/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240309/100821/","wordCount":55,"datePublished":"2024-03-09T02:08:21.000Z","dateModified":"2024-03-16T03:45:48.627Z","articleSection":"建站技术","keywords":"Hexo,Vercel,LeanCloud,Waline","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240309/100821/","name":"给博客加装Waline评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Waline评论","description":"摘要：本文主要介绍了通过使用LeanCloud数据库和Vercel服务器将Waline评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240309/100821/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240309/100821/","wordCount":55,"datePublished":"2024-03-09T02:08:21.000Z","dateModified":"2024-03-16T04:33:53.559Z","articleSection":"建站技术","keywords":"Hexo,Vercel,LeanCloud,Waline","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
