@@ -1,0 +1,18 @@
+{
+  "name": "momashanhe-static",
+  "version": "1.0.10000000003",
+  "description": "墨码山河个人博客静态资源",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@momashanhe:momashanhe/momashanhe-static.git"
+  },
+  "keywords": [
+    "静态资源"
+  ],
+  "author": "momashanhe",
+  "license": "ISC"
+}
