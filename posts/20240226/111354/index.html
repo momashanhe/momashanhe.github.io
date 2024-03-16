@@ -36,6 +36,7 @@
       <meta name="application-name" content="Volantis">
       <meta name="msapplication-TileColor" content="#f4f4f4">
       <meta name="msapplication-TileImage" content="/@static/media/org.volantis/blog/favicon/favicon-32x32.png">
+      <meta name="cache-control" content="no-chache">
       <meta name="theme-color" content="#f4f4f4" media="(prefers-color-scheme: light)">
       <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <!-- import head_begin end -->
@@ -61,7 +62,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-02-26T03:13:54.000Z">
-<meta property="article:modified_time" content="2024-03-16T01:01:36.485Z">
+<meta property="article:modified_time" content="2024-03-16T03:45:48.486Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1710551082877),
+    lastupdate: new Date(1710563044470),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2538,11 +2539,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>官网：<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn">https://hexo.io/zh-cn</a></p>
 <h2 id="2-环境"><a href="#2-环境" class="headerlink" title="2 环境"></a>2 环境</h2><h3 id="2-1-安装Git"><a href="#2-1-安装Git" class="headerlink" title="2.1 安装Git"></a>2.1 安装Git</h3><p>由于初始化博客目录需要Git支持，并且Hexo的某些命令需要在bash命令行中执行，因此需要安装Git工具。</p>
 <p>官网：<br><a target="_blank" rel="noopener" href="https://git-scm.com/">https://git-scm.com</a><br>使用最新版安装即可，也可以通过GitHub选择2.37.3版本下载，历史版本下载地址：<br><a target="_blank" rel="noopener" href="https://github.com/git-for-windows/git/releases/tag/v2.37.3.windows.1/">v2.37.3.windows.1&#x2F;</a><br>如果GitHub访问速度慢，也可以通过淘宝镜像下载：<br><a target="_blank" rel="noopener" href="https://registry.npmmirror.com/binary.html?path=git-for-windows/v2.37.3.windows.1/">v2.37.3.windows.1&#x2F;</a></p>
-<p>如果不太了解Git工具，可以使用默认设置安装。<br>安装结束后，右键选择<code>Git Bash Here</code>进入bash命令行：<br><img src="/@image/001001/001001-083413.jpg" alt="001-bash"><br>输入<code>git --version</code>命令查看Git的安装版本：<br><img src="/@image/001001/001002-085802.jpg" alt="002-版本"></p>
-<p>需要注意的是，默认安装的2.37.3版本在初始化本地Git项目的时候，默认创建的分支还是master分支，可以在安装的时候自定义：<br><img src="/@image/001001/001003-091105.jpg" alt="003-默认分支"></p>
+<p>如果不太了解Git工具，可以使用默认设置安装。<br>安装结束后，右键选择<code>Git Bash Here</code>进入bash命令行：<br><img src="https://momashanhe.com/@image/001001/001001-083413.jpg" alt="001-bash"><br>输入<code>git --version</code>命令查看Git的安装版本：<br><img src="https://momashanhe.com/@image/001001/001002-085802.jpg" alt="002-版本"></p>
+<p>需要注意的是，默认安装的2.37.3版本在初始化本地Git项目的时候，默认创建的分支还是master分支，可以在安装的时候自定义：<br><img src="https://momashanhe.com/@image/001001/001003-091105.jpg" alt="003-默认分支"></p>
 <h3 id="2-2-安装Node"><a href="#2-2-安装Node" class="headerlink" title="2.2 安装Node"></a>2.2 安装Node</h3><p>Hexo基于Node，搭建过程中还需要使用NPM（Node包管理工具，安装Node时默认安装）。</p>
 <p>官网：<br><a target="_blank" rel="noopener" href="https://nodejs.org/en">https://nodejs.org/en</a><br>本文使用的版本不是最新版，是18.14.0版本。下载地址：<br><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v18.14.0/">v18.14.0&#x2F;</a><br>选择<code>node-v18.14.0-x64.msi</code>下载并安装。</p>
-<p>使用默认配置安装结束后，打开cmd命令行，输入<code>npm -v</code>命令和<code>node -v</code>命令查询NPM版本和Node版本：<br><img src="/@image/001001/001004-092632.jpg" alt="004-版本"></p>
+<p>使用默认配置安装结束后，打开cmd命令行，输入<code>npm -v</code>命令和<code>node -v</code>命令查询NPM版本和Node版本：<br><img src="https://momashanhe.com/@image/001001/001004-092632.jpg" alt="004-版本"></p>
 <p>NPM是包管理工具，通过命令将安装包使用的源设置为淘宝镜像，速度会快一些：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
 <p>使用命令查看安装使用的源：</p>
@@ -2550,15 +2551,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h3 id="2-3-安装Hexo"><a href="#2-3-安装Hexo" class="headerlink" title="2.3 安装Hexo"></a>2.3 安装Hexo</h3><p>在cmd命令行中使用NPM安装Hexo：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<p>安装结束后，使用<code>hexo -v</code>命令查看Hexo版本：<br><img src="/@image/001001/001005-093156.jpg" alt="005-版本"></p>
+<p>安装结束后，使用<code>hexo -v</code>命令查看Hexo版本：<br><img src="https://momashanhe.com/@image/001001/001005-093156.jpg" alt="005-版本"></p>
 <h2 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h2><h3 id="3-1-初始化博客目录"><a href="#3-1-初始化博客目录" class="headerlink" title="3.1 初始化博客目录"></a>3.1 初始化博客目录</h3><p>在电脑中新建博客目录，右键进入bash命令行，使用命令初始化博客目录：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
-<p>结果如下：<br><img src="/@image/001001/001006-094535.jpg" alt="006-博客目录"></p>
-<h3 id="3-2-博客预览"><a href="#3-2-博客预览" class="headerlink" title="3.2 博客预览"></a>3.2 博客预览</h3><p>使用<code>hexo generate</code>命令生成博客内容。<br>也可以简写为<code>hexo g</code>命令。<br>结果如下：<br><img src="/@image/001001/001007-102153.jpg" alt="007-生成博客"><br>使用<code>hexo server</code>命令启动本地预览。<br>也可以简写为<code>hexo s</code>命令。<br>结果如下：<br><img src="/@image/001001/001008-103527.jpg" alt="008-启动博客"><br>根据提示，在浏览器输入地址访问博客：<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a><br>可以看到博客的默认界面：<br><img src="/@image/001001/001009-104523.jpg" alt="009-本地预览"></p>
+<p>结果如下：<br><img src="https://momashanhe.com/@image/001001/001006-094535.jpg" alt="006-博客目录"></p>
+<h3 id="3-2-博客预览"><a href="#3-2-博客预览" class="headerlink" title="3.2 博客预览"></a>3.2 博客预览</h3><p>使用<code>hexo generate</code>命令生成博客内容。<br>也可以简写为<code>hexo g</code>命令。<br>结果如下：<br><img src="https://momashanhe.com/@image/001001/001007-102153.jpg" alt="007-生成博客"><br>使用<code>hexo server</code>命令启动本地预览。<br>也可以简写为<code>hexo s</code>命令。<br>结果如下：<br><img src="https://momashanhe.com/@image/001001/001008-103527.jpg" alt="008-启动博客"><br>根据提示，在浏览器输入地址访问博客：<br><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a><br>可以看到博客的默认界面：<br><img src="https://momashanhe.com/@image/001001/001009-104523.jpg" alt="009-本地预览"></p>
 <p>可以使用<code>Ctrl+C</code>命令停止博客。</p>
 <h3 id="3-3-新建文章"><a href="#3-3-新建文章" class="headerlink" title="3.3 新建文章"></a>3.3 新建文章</h3><p>使用命令创建文章：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<p>执行后创建标题为<code>test</code>的文章，在博客名录下的<code>source</code>目录中的<code>_posts</code>目录中会自动新增对应的Markdown文件：<br><img src="/@image/001001/001010-105512.jpg" alt="010-新建文章"></p>
+<p>执行后创建标题为<code>test</code>的文章，在博客名录下的<code>source</code>目录中的<code>_posts</code>目录中会自动新增对应的Markdown文件：<br><img src="https://momashanhe.com/@image/001001/001010-105512.jpg" alt="010-新建文章"></p>
 <p>可以通过文本编辑器修改文章，保存后在本地预览：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
 
@@ -3376,7 +3377,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240226/111354/","name":"本地安装Hexo博客"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"本地安装Hexo博客","description":"摘要：本文主要介绍如何下载和安装Hexo。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240226/111354/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240226/111354/","wordCount":21,"datePublished":"2024-02-26T03:13:54.000Z","dateModified":"2024-03-16T01:01:36.485Z","articleSection":"建站技术","keywords":"Hexo","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240226/111354/","name":"本地安装Hexo博客"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"本地安装Hexo博客","description":"摘要：本文主要介绍如何下载和安装Hexo。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240226/111354/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240226/111354/","wordCount":21,"datePublished":"2024-02-26T03:13:54.000Z","dateModified":"2024-03-16T03:45:48.486Z","articleSection":"建站技术","keywords":"Hexo","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

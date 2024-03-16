@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /d/Work/WebSite/MoMaShanHe/themes/volantis/static
+cd /d/Work/WebSite/MoMaShanHe/source/@static
 rm -rf .git
 git init
 git config --local user.name momashanhe

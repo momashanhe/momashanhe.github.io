@@ -36,6 +36,7 @@
       <meta name="application-name" content="Volantis">
       <meta name="msapplication-TileColor" content="#f4f4f4">
       <meta name="msapplication-TileImage" content="/@static/media/org.volantis/blog/favicon/favicon-32x32.png">
+      <meta name="cache-control" content="no-chache">
       <meta name="theme-color" content="#f4f4f4" media="(prefers-color-scheme: light)">
       <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <!-- import head_begin end -->
@@ -61,7 +62,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-03T03:23:21.000Z">
-<meta property="article:modified_time" content="2024-03-16T01:01:36.576Z">
+<meta property="article:modified_time" content="2024-03-16T03:45:48.721Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Vercel">
@@ -2021,7 +2022,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1710551082877),
+    lastupdate: new Date(1710563044470),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2538,7 +2539,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h2 id="1-使用Vercel"><a href="#1-使用Vercel" class="headerlink" title="1 使用Vercel"></a>1 使用Vercel</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><p>Vercel是一个云服务平台，可以用于部署静态网站，也用于部署一些没有接口数据交互的动态网站。</p>
 <p>对于个人博客，在Vercel上部署类似于在GitHub Pages上进行部署，但是Vercel的访问速度要比GitHub Pages好太多，因此许多博主都将博客部署在Vercel上。</p>
 <p>Vercel的官网：<br><a target="_blank" rel="noopener" href="https://vercel.com/">https://vercel.com/</a></p>
-<h3 id="1-2-注册"><a href="#1-2-注册" class="headerlink" title="1.2 注册"></a>1.2 注册</h3><p>在注册时选择私人目的，不要选择商业目的：<br><img src="/@image/001002/002001-101536.jpg" alt="001-注册Vercel"></p>
+<h3 id="1-2-注册"><a href="#1-2-注册" class="headerlink" title="1.2 注册"></a>1.2 注册</h3><p>在注册时选择私人目的，不要选择商业目的：<br><img src="https://momashanhe.com/@image/001002/002001-101536.jpg" alt="001-注册Vercel"></p>
 <p>选择邮箱注册，在邮箱收到链接后验证完成注册。</p>
 <h3 id="1-3-部署"><a href="#1-3-部署" class="headerlink" title="1.3 部署"></a>1.3 部署</h3><div class="tabs" id="tab-tab-id-1"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-1-1">1. 通过本地手动部署</a></li><li class="tab"><a class="#tab-id-1-2">2. 通过GitHub Pages博客项目自动部署</a></li><li class="tab"><a class="#tab-id-1-3">3. 通过GitHub博客源码项目自动部署</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1-1"><p>这种方式不需要访问GitHub，是通过本地命令的方式进行部署的。</p>
 <p>类似于将本地博客部署到GitHub Pages需要安装插件，将本地博客部署到Vercel也需要安装插件。</p>
@@ -2550,10 +2551,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>部署完成后会提示生成的链接，通过链接可以访问博客。</p>
 <p>还有一些常用命令，可以在官网学习。</p>
-<p>推荐方式之一，从本地可以直接部署到Vercel平台，简单快速。</p></div><div class="tab-pane" id="tab-id-1-2"><p>进入Vercel项目管理界面，打开<code>Overview</code>并在右侧点击<code>Add New...</code>下拉列表中的<code>Project</code>选项：<br><img src="/@image/001002/002002-102813.jpg" alt="002-添加项目"></p>
-<p>在导入项目管理界面点击<code>Continue with GitHub</code>并在弹出的界面上完成GitHub授权：<br><img src="/@image/001002/002003-103618.jpg" alt="003-导入GitHub项目"></p>
+<p>推荐方式之一，从本地可以直接部署到Vercel平台，简单快速。</p></div><div class="tab-pane" id="tab-id-1-2"><p>进入Vercel项目管理界面，打开<code>Overview</code>并在右侧点击<code>Add New...</code>下拉列表中的<code>Project</code>选项：<br><img src="https://momashanhe.com/@image/001002/002002-102813.jpg" alt="002-添加项目"></p>
+<p>在导入项目管理界面点击<code>Continue with GitHub</code>并在弹出的界面上完成GitHub授权：<br><img src="https://momashanhe.com/@image/001002/002003-103618.jpg" alt="003-导入GitHub项目"></p>
 <p>在导入项目管理界面可以看到刚刚导入的项目，点击项目后面的<code>Install</code>并在弹出的界面上选择<code>Only select repositories</code>选项，在<code>Select repositories</code>下拉列表中选择GitHub Pages博客项目，点击<code>Install</code>执行安装，输入GitHub密码将项目从GitHub复制到Vercel上。</p>
-<p>在导入项目管理界面点击项目右侧的<code>Import</code>，进入设置和部署界面：<br><img src="/@image/001002/002004-104528.jpg" alt="004-部署项目"></p>
+<p>在导入项目管理界面点击项目右侧的<code>Import</code>，进入设置和部署界面：<br><img src="https://momashanhe.com/@image/001002/002004-104528.jpg" alt="004-部署项目"></p>
 <ol>
 <li>设置Vercel中的项目名，可以使用默认的。</li>
 <li>设置框架，自动识别为Other框架，可以使用默认的，因为项目中只有静态文件，不需要使用框架部署。</li>
@@ -2561,10 +2562,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ol>
 <p>等到部署结束，会跳转到祝贺页面，能够看到博客的缩略图，点击即可通过Vercel提供的链接访问博客。</p>
 <p>当对GitHub Pages博客项目进行推送时，会触发Vercel的自动部署。</p>
-<p>推荐方式之一，不需要对现有流程进行更改，不需要考虑在Vercel上部署带来的一系列问题。</p></div><div class="tab-pane" id="tab-id-1-3"><p>进入Vercel项目管理界面，打开<code>Overview</code>并在右侧点击<code>Add New...</code>下拉列表中的<code>Project</code>选项：<br><img src="/@image/001002/002002-102813.jpg" alt="002-添加项目"></p>
-<p>在导入项目管理界面点击<code>Continue with GitHub</code>并在弹出的界面上完成GitHub授权：<br><img src="/@image/001002/002003-103618.jpg" alt="003-导入GitHub项目"></p>
+<p>推荐方式之一，不需要对现有流程进行更改，不需要考虑在Vercel上部署带来的一系列问题。</p></div><div class="tab-pane" id="tab-id-1-3"><p>进入Vercel项目管理界面，打开<code>Overview</code>并在右侧点击<code>Add New...</code>下拉列表中的<code>Project</code>选项：<br><img src="https://momashanhe.com/@image/001002/002002-102813.jpg" alt="002-添加项目"></p>
+<p>在导入项目管理界面点击<code>Continue with GitHub</code>并在弹出的界面上完成GitHub授权：<br><img src="https://momashanhe.com/@image/001002/002003-103618.jpg" alt="003-导入GitHub项目"></p>
 <p>在导入项目管理界面可以看到刚刚导入的项目，点击项目后面的<code>Install</code>并在弹出的界面上选择<code>Only select repositories</code>选项，在<code>Select repositories</code>下拉列表中选择GitHub博客源码项目，点击<code>Install</code>执行安装，输入GitHub密码将项目从GitHub复制到Vercel上。</p>
-<p>在导入项目管理界面点击项目右侧的<code>Import</code>，进入设置和部署界面：<br><img src="/@image/001002/002005-105633.jpg" alt="005-部署项目"></p>
+<p>在导入项目管理界面点击项目右侧的<code>Import</code>，进入设置和部署界面：<br><img src="https://momashanhe.com/@image/001002/002005-105633.jpg" alt="005-部署项目"></p>
 <ol>
 <li>设置Vercel中的项目名，可以使用默认的。</li>
 <li>设置框架，支持自动识别比如Hexo框架，如果不对可以修改。</li>
@@ -2574,7 +2575,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>当对GitHub博客源码项目进行推送时，会触发Vercel的自动部署。</p>
 <p>不推荐这种方式，在某些情况下会出现问题，将主题项目作为子模块或者子项目，会导致部署后进入博客白屏。</p></div></div></div>
 
-<h3 id="1-4-设置域名"><a href="#1-4-设置域名" class="headerlink" title="1.4 设置域名"></a>1.4 设置域名</h3><p>进入Vercel项目管理界面，点击创建的博客项目进入项目界面，切换到<code>Settings</code>标签，在左侧导航栏点击<code>Domains</code>设置：<br><img src="/@image/001002/002006-112512.jpg" alt="006-设置域名"></p>
+<h3 id="1-4-设置域名"><a href="#1-4-设置域名" class="headerlink" title="1.4 设置域名"></a>1.4 设置域名</h3><p>进入Vercel项目管理界面，点击创建的博客项目进入项目界面，切换到<code>Settings</code>标签，在左侧导航栏点击<code>Domains</code>设置：<br><img src="https://momashanhe.com/@image/001002/002006-112512.jpg" alt="006-设置域名"></p>
 <p>在输入框中输入购买的域名，点击<code>Add</code>添加。</p>
 <p>根据提示去域名服务商配置域名解析，将指向GitHub Pages改为指向Vercel。</p>
 <p>之后等待域名生效即可。</p>
@@ -3403,7 +3404,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/112321/","name":"使用Vercel托管博客"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用Vercel托管博客","description":"摘要：本文主要介绍了如何将博客托管到Vercel云平台。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/112321/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/112321/","wordCount":28,"datePublished":"2024-03-03T03:23:21.000Z","dateModified":"2024-03-16T01:01:36.576Z","articleSection":"建站技术","keywords":"Hexo,Vercel","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/112321/","name":"使用Vercel托管博客"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用Vercel托管博客","description":"摘要：本文主要介绍了如何将博客托管到Vercel云平台。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/112321/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/112321/","wordCount":28,"datePublished":"2024-03-03T03:23:21.000Z","dateModified":"2024-03-16T03:45:48.721Z","articleSection":"建站技术","keywords":"Hexo,Vercel","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
