@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-04-05T06:24:36.000Z">
-<meta property="article:modified_time" content="2024-04-08T08:00:29.103Z">
+<meta property="article:modified_time" content="2024-05-11T06:25:10.518Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1713095009559),
+    lastupdate: new Date(1716081624048),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,7 +2465,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>5.4k 字</p>
+      <p>5.5k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2539,12 +2539,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>CSS中设置长度，必须加单位，否则样式无效。</p>
 <h2 id="2-显示模式"><a href="#2-显示模式" class="headerlink" title="2 显示模式"></a>2 显示模式</h2><h3 id="2-1-分类"><a href="#2-1-分类" class="headerlink" title="2.1 分类"></a>2.1 分类</h3><h4 id="2-1-1-块级元素"><a href="#2-1-1-块级元素" class="headerlink" title="2.1.1 块级元素"></a>2.1.1 块级元素</h4><p>又称为块元素（block）。</p>
 <p>特点：</p>
-<ol>
+<ul>
 <li>在页面中独占一行，不会与任何元素共用一行，从上到下排列。</li>
 <li>默认宽度：撑满父元素。</li>
 <li>默认高度：由内容撑开。</li>
 <li>可以通过CSS设置宽高。</li>
-</ol>
+</ul>
 <p>相关元素：</p>
 <ul>
 <li>主体结构元素：html、body</li>
@@ -2555,12 +2555,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h4 id="2-1-2-行内元素"><a href="#2-1-2-行内元素" class="headerlink" title="2.1.2 行内元素"></a>2.1.2 行内元素</h4><p>又称为内联元素（inline）。</p>
 <p>特点:</p>
-<ol>
+<ul>
 <li>在页面中不独占一行，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。</li>
 <li>默认宽度：由内容撑开。</li>
 <li>默认高度：由内容撑开。</li>
 <li>无法通过CSS设置宽高。</li>
-</ol>
+</ul>
 <p>相关元素：</p>
 <ul>
 <li>文本：br、span、em、strong、sup、sub、del、ins</li>
@@ -2569,12 +2569,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h4 id="2-1-3-行内块元素"><a href="#2-1-3-行内块元素" class="headerlink" title="2.1.3 行内块元素"></a>2.1.3 行内块元素</h4><p>又称为内联块元素（inline-block）。</p>
 <p>特点：</p>
-<ol>
+<ul>
 <li>在页面中不独占一行，一行中不能容纳下的行内元素，会在下一行继续从左到右排列。</li>
 <li>默认宽度：由内容撑开。</li>
 <li>默认高度：由内容撑开。</li>
 <li>可以通过CSS设置宽高。</li>
-</ol>
+</ul>
 <p>相关元素：</p>
 <ul>
 <li>图片：img</li>
@@ -2583,7 +2583,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>框架：iframe</li>
 </ul>
 <p>如果按照“是否独占一行”进行分类，行内块元素应该算作行内元素。</p>
-<h3 id="2-2-设置显示模式"><a href="#2-2-设置显示模式" class="headerlink" title="2.2 设置显示模式"></a>2.2 设置显示模式</h3><p>控制元素显示模式的属性：</p>
+<h3 id="2-2-设置显示模式"><a href="#2-2-设置显示模式" class="headerlink" title="2.2 设置显示模式"></a>2.2 设置显示模式</h3><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2618,12 +2618,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>margin（外边距）：盒子外部边距，盒子边框与其他盒子的间隔区域。</li>
 </ul>
 <p>说明：</p>
-<ol>
+<ul>
 <li>盒子的大小&#x3D;内容的大小+内边距的大小+边框的大小。</li>
 <li>盒子的外边距不受盒子样式的影响，不会影响盒子的大小，只会影响盒子的位置。</li>
-</ol>
+</ul>
 <p>图示如下：<br><img src="/@image/102001/002001-173918.jpg" alt="001-盒子模型"></p>
-<h3 id="3-2-相关属性"><a href="#3-2-相关属性" class="headerlink" title="3.2 相关属性"></a>3.2 相关属性</h3><h4 id="3-2-1-盒子内容相关"><a href="#3-2-1-盒子内容相关" class="headerlink" title="3.2.1 盒子内容相关"></a>3.2.1 盒子内容相关</h4><p>控制盒子内容的属性：</p>
+<h3 id="3-2-相关属性"><a href="#3-2-相关属性" class="headerlink" title="3.2 相关属性"></a>3.2 相关属性</h3><h4 id="3-2-1-盒子内容相关"><a href="#3-2-1-盒子内容相关" class="headerlink" title="3.2.1 盒子内容相关"></a>3.2.1 盒子内容相关</h4><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2636,32 +2636,32 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>width</td>
       <td>设置内容区域宽度</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>max-width</td>
       <td>设置内容区域的最大宽度，一般不与width一起使用</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>min-width</td>
       <td>设置内容区域的最小宽度，一般不与width一起使用</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>height</td>
       <td>设置内容区域高度</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>max-height</td>
       <td>设置内容区域的最大高度，一般不与height一起使用</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>min-height</td>
       <td>设置内容区域的最小高度，一般不与height一起使用</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
   </tbody>
 </table>
@@ -2676,7 +2676,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>示例：</p>
 <figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line"><span class="attribute">height</span>: <span class="number">500px</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-2-2-盒子内边距相关"><a href="#3-2-2-盒子内边距相关" class="headerlink" title="3.2.2 盒子内边距相关"></a>3.2.2 盒子内边距相关</h4><p>控制盒子内边距的属性：</p>
+<h4 id="3-2-2-盒子内边距相关"><a href="#3-2-2-盒子内边距相关" class="headerlink" title="3.2.2 盒子内边距相关"></a>3.2.2 盒子内边距相关</h4><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2689,37 +2689,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>padding-top</td>
       <td>设置上内边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>padding-right</td>
       <td>设置右内边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>padding-bottom</td>
       <td>设置下内边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>padding-left</td>
       <td>设置左内边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>padding</td>
       <td>复合属性</td>
       <td>
-        用空格隔开，顺时针设置内边距：<br>
+        顺时针设置内边距，空格分隔：<br>
         <dl>
           <dt>1. 四个方向内边距相同：</dt>
-          <dd>padding: 长度;</dd>
+          <dd><code>padding: 长度;</code></dd>
           <dt>2. 上下内边距相同，左右内边距相同：</dt>
-          <dd>padding: 上下长度 左右长度;</dd>
+          <dd><code>padding: 上下长度 左右长度;</code></dd>
           <dt>3. 上内边距，左右内边距相同，下内边距：</dt>
-          <dd>padding: 上长度 左右长度 下长度;</dd>
+          <dd><code>padding: 上长度 左右长度 下长度;</code></dd>
           <dt>4. 上内边距，右内边距，下内边距，左内边距：</dt>
-          <dd>padding: 上长度 右长度 下长度 左长度;</dd>
+          <dd><code>padding: 上长度 右长度 下长度 左长度;</code></dd>
         </dl>
       </td>
     </tr>
@@ -2727,14 +2727,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <p>说明：</p>
-<ol>
+<ul>
 <li>值不能为负数。</li>
 <li>行内元素的左右内边距是没问题的，上下内边距不能完美的设置。</li>
-</ol>
+</ul>
 <p>示例：</p>
 <figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">padding</span>: <span class="number">10px</span>;</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-2-3-盒子边框相关"><a href="#3-2-3-盒子边框相关" class="headerlink" title="3.2.3 盒子边框相关"></a>3.2.3 盒子边框相关</h4><p>控制盒子边框的属性：</p>
+<h4 id="3-2-3-盒子边框相关"><a href="#3-2-3-盒子边框相关" class="headerlink" title="3.2.3 盒子边框相关"></a>3.2.3 盒子边框相关</h4><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2758,7 +2758,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>border-width</td>
       <td>设置边框宽度，复合四个方向</td>
-      <td>长度单位，默认3px</td>
+      <td>长度值，默认3px</td>
     </tr>
     <tr>
       <td>border-color</td>
@@ -2774,7 +2774,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <p>上述的每个属性都能在四个方向上的边框单独设置。</p>
-<h4 id="3-2-4-盒子外边距相关"><a href="#3-2-4-盒子外边距相关" class="headerlink" title="3.2.4 盒子外边距相关"></a>3.2.4 盒子外边距相关</h4><p>控制盒子外边框的属性：</p>
+<h4 id="3-2-4-盒子外边距相关"><a href="#3-2-4-盒子外边距相关" class="headerlink" title="3.2.4 盒子外边距相关"></a>3.2.4 盒子外边距相关</h4><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2787,37 +2787,37 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>margin-top</td>
       <td>设置上外边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>margin-right</td>
       <td>设置右外边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>margin-bottom</td>
       <td>设置下外边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>margin-left</td>
       <td>设置左外边距</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>margin</td>
       <td>复合属性</td>
       <td>
-        用空格隔开，顺时针设置外边距：<br>
+        顺时针设置外边距，空格分隔：<br>
         <dl>
           <dt>1. 四个方向外边距相同：</dt>
-          <dd>margin: 长度;</dd>
+          <dd><code>margin: 长度;</code></dd>
           <dt>2. 上下外边距相同，左右外边距相同：</dt>
-          <dd>margin: 上下长度 左右长度;</dd>
+          <dd><code>margin: 上下长度 左右长度;</code></dd>
           <dt>3. 上外边距，左右外边距相同，下外边距：</dt>
-          <dd>margin: 上长度 左右长度 下长度;</dd>
+          <dd><code>margin: 上长度 左右长度 下长度;</code></dd>
           <dt>4. 上外边距，右外边距，下外边距，左外边距：</dt>
-          <dd>margin: 上长度 右长度 下长度 左长度;</dd>
+          <dd><code>margin: 上长度 右长度 下长度 左长度;</code></dd>
         </dl>
       </td>
     </tr>
@@ -2825,30 +2825,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <p>说明：</p>
-<ol>
+<ul>
 <li>行内元素的左右外边距是没问题的，上下外边距不能设置。</li>
 <li>上左影响自己的位置，下右影响后面兄弟元素的位置。</li>
 <li>值可以为负数，负值允许其他元素进入到元素内部。</li>
 <li>值可以设为auto，给块级元素的左右设为auto会让元素水平居中。</li>
-</ol>
+</ul>
 <p>示例：</p>
 <figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin</span>: <span class="number">10px</span>;</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-3-技巧"><a href="#3-3-技巧" class="headerlink" title="3.3 技巧"></a>3.3 技巧</h3><h4 id="3-3-1-外边距问题"><a href="#3-3-1-外边距问题" class="headerlink" title="3.3.1 外边距问题"></a>3.3.1 外边距问题</h4><h5 id="3-3-1-1-margin塌陷"><a href="#3-3-1-1-margin塌陷" class="headerlink" title="3.3.1.1 margin塌陷"></a>3.3.1.1 margin塌陷</h5><p>在设置margin时，第一个子元素的上margin会作用在父元素上，最后一个子元素的下margin会作用在父元素上。</p>
+<h3 id="3-3-技巧"><a href="#3-3-技巧" class="headerlink" title="3.3 技巧"></a>3.3 技巧</h3><h4 id="3-3-1-外边距问题"><a href="#3-3-1-外边距问题" class="headerlink" title="3.3.1 外边距问题"></a>3.3.1 外边距问题</h4><h5 id="3-3-1-1-外边距塌陷"><a href="#3-3-1-1-外边距塌陷" class="headerlink" title="3.3.1.1 外边距塌陷"></a>3.3.1.1 外边距塌陷</h5><p>在设置外边距时，第一个子元素的上外边距会作用在父元素上，最后一个子元素的下外边距会作用在父元素上。</p>
 <p>问题原因：</p>
 <ul>
 <li>历史遗留问题，可以看作早期CSS故意这么处理的。</li>
 </ul>
 <p>解决办法：</p>
-<ol>
-<li>方案一：给父元素padding设为非0的数字。</li>
-<li>方案二：给父元素border设为非0的数字。</li>
-<li>方案三（推荐）：把父元素overflow设为hidden。</li>
-</ol>
-<h5 id="3-3-1-2-margin合并"><a href="#3-3-1-2-margin合并" class="headerlink" title="3.3.1.2 margin合并"></a>3.3.1.2 margin合并</h5><p>上面兄弟元素的下margin和下面兄弟元素的上margin会合并，取一个最大的值，而不是相加。</p>
-<p>这种是正常的，可以把元素margin设为期望的总和。</p>
+<ul>
+<li>方案一：给父元素的<code>padding</code>属性设为非0的数字。</li>
+<li>方案二：给父元素的<code>border</code>属性设为非0的数字。</li>
+<li>方案三（推荐）：把父元素的<code>overflow</code>属性设为hidden。</li>
+</ul>
+<h5 id="3-3-1-2-外边距合并"><a href="#3-3-1-2-外边距合并" class="headerlink" title="3.3.1.2 外边距合并"></a>3.3.1.2 外边距合并</h5><p>上面兄弟元素的下外边距和下面兄弟元素的上外边距会合并，取一个最大的值，而不是相加。</p>
+<p>这种是正常的，可以把元素外边距设为期望的总和。</p>
 <h4 id="3-3-2-内容溢出"><a href="#3-3-2-内容溢出" class="headerlink" title="3.3.2 内容溢出"></a>3.3.2 内容溢出</h4><p>文本内容过长超出父元素设置的高度会产生纵向内容溢出，子元素宽度过长超出父元素设置的宽度会产生横线内容溢出。</p>
-<p>设置溢出属性：</p>
+<p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2874,7 +2874,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>示例：</p>
 <figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: auto;</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-3-3-隐藏元素"><a href="#3-3-3-隐藏元素" class="headerlink" title="3.3.3 隐藏元素"></a>3.3.3 隐藏元素</h4><p>使用属性隐藏元素：</p>
+<h4 id="3-3-3-隐藏元素"><a href="#3-3-3-隐藏元素" class="headerlink" title="3.3.3 隐藏元素"></a>3.3.3 隐藏元素</h4><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -2912,69 +2912,53 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>可以继承的属性，都是不影响布局的，即都是和盒子模型没关系的。</p>
 <h4 id="3-3-5-居中布局"><a href="#3-3-5-居中布局" class="headerlink" title="3.3.5 居中布局"></a>3.3.5 居中布局</h4><p>让子元素在父元素中水平居中：</p>
 <ol>
-<li>子元素为块级元素</li>
+<li>子元素为块级元素。给子元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin</span>: auto;</span><br></pre></td></tr></table></figure></li>
+<li>子元素为行内元素和行内块元素。给父元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-align</span>: center;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<ul>
-<li>给子元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin</span>: auto;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li>子元素为行内元素和行内块元素</li>
-</ol>
-<ul>
-<li>给父元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-align</span>: center;</span><br></pre></td></tr></table></figure></li>
-</ul>
 <p>让子元素在父元素中垂直居中：</p>
 <ol>
-<li>子元素为块元素</li>
+<li>子元素为块级元素。给子元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin-top</span>: (父元素盒子内容高度-子元素盒子高度)/<span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
+<li>子元素为行内元素和行内块元素<br>2.1 给父元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">line-height</span>: 父元素盒子内容高度;</span><br></pre></td></tr></table></figure>
+2.2 当子元素字体大小不同时，字体小的子元素会靠下，需要让子元素使用中线对齐，给子元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vertical-align</span>: middle;</span><br></pre></td></tr></table></figure>
+2.3 父元素字体越大子元素越靠下，需要清除父元素字体的影响，给父元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-size</span>: <span class="number">0px</span>;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<ul>
-<li>给子元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">margin-top</span>: (父元素盒子内容高度-子元素盒子高度)/<span class="number">2</span>;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li>子元素为行内元素和行内块元素</li>
-</ol>
-<ul>
-<li>给父元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">line-height</span>: 父元素盒子内容高度;</span><br></pre></td></tr></table></figure></li>
-<li>当子元素字体大小不同时，字体小的子元素会靠下，需要让子元素使用中线对齐，给子元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vertical-align</span>: middle;</span><br></pre></td></tr></table></figure></li>
-<li>父元素字体越大子元素越靠下，需要清除父元素字体的影响，给父元素设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">font-size</span>: <span class="number">0px</span>;</span><br></pre></td></tr></table></figure></li>
-</ul>
 <h4 id="3-3-6-消除空白"><a href="#3-3-6-消除空白" class="headerlink" title="3.3.6 消除空白"></a>3.3.6 消除空白</h4><h5 id="3-3-6-1-消除换行空白"><a href="#3-3-6-1-消除换行空白" class="headerlink" title="3.3.6.1 消除换行空白"></a>3.3.6.1 消除换行空白</h5><p>行内元素和行内块元素之间的换行会被浏览器解析为一个空白字符。</p>
 <p>解决办法：</p>
-<ol>
+<ul>
 <li>方案一：去掉换行和空格。</li>
 <li>方案二（推荐）：把父元素字体大小设为0，再给子元素单独设置字体大小。</li>
-</ol>
+</ul>
 <h5 id="3-3-6-2-消除基线空白"><a href="#3-3-6-2-消除基线空白" class="headerlink" title="3.3.6.2 消除基线空白"></a>3.3.6.2 消除基线空白</h5><p>子元素与基线对齐，而基线与盒子底部之间是有一定距离的。</p>
 <p>解决办法：</p>
-<ol>
-<li>方案一（推荐）：把子元素vertical-align设为除了baseline以外的其他值，比如top、middel、bottom均可。</li>
-<li>方案二：若子元素只有一个，设置子元素display为block，将子元素转为块级元素。</li>
+<ul>
+<li>方案一（推荐）：把子元素的<code>vertical-align</code>属性设为除了baseline以外的其他值，比如top、middel、bottom均可。</li>
+<li>方案二：若子元素只有一个，设置子元素的<code>display</code>属性为block，将子元素转为块级元素。</li>
 <li>方案三：把父元素字体大小设为0，清除父元素字体的影响，再给子元素单独设置字体大小。</li>
-</ol>
+</ul>
 <h2 id="4-浮动"><a href="#4-浮动" class="headerlink" title="4 浮动"></a>4 浮动</h2><h3 id="4-1-介绍"><a href="#4-1-介绍" class="headerlink" title="4.1 介绍"></a>4.1 介绍</h3><p>浮动最初是用来实现文字环绕图片效果的，现在是主流的页面布局方式之一。</p>
 <p>元素浮动的特点：</p>
-<ol>
+<ul>
 <li>会脱离文档流。</li>
 <li>不管浮动前是什么元素，浮动后默认宽高都是尽可能小的被内容撑开，而且可以设置宽高。</li>
 <li>不会独占一行，可以与其他元素共用一行。</li>
 <li>不会产生外边距问题，能够完美的设置四个方向的外边距和内边距。</li>
 <li>不会有空白问题。</li>
-</ol>
+</ul>
 <h3 id="4-2-影响"><a href="#4-2-影响" class="headerlink" title="4.2 影响"></a>4.2 影响</h3><p>浮动产生的影响：</p>
 <ul>
 <li>对父元素的影响：不能撑起父元素的高度，导致父元素高度塌陷，但是父元素的宽度依然束缚浮动元素。</li>
 <li>对兄弟元素的影响：不浮动的兄弟元素会占据浮动元素之前的位置，而且是在浮动元素的下层。</li>
 </ul>
 <p>解决浮动的影响：</p>
-<ol>
+<ul>
 <li>方案一：给父元素指定高度，不能解决对兄弟元素的影响。</li>
 <li>方案二：给父元素也设置浮动，不能解决对兄弟元素的影响。</li>
-<li>方案三：给父元素overflow设置为hidden，不能解决对兄弟元素的影响。</li>
-<li>方案四（推荐）：如果不是全都浮动，给不浮动的兄弟元素clear设为both，清除浮动效果，解决浮动产生的全部影响。</li>
-<li>方案五：如果全都浮动，在最后添加不浮动的块级元素，给不浮动的块级元素clear设为both，原理与方案四相同。</li>
-<li>方案六（推荐）：如果全都浮动，给父元素设置伪元素，通过伪元素清除浮动，原理与方案四相同：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父元素<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="4-3-属性"><a href="#4-3-属性" class="headerlink" title="4.3 属性"></a>4.3 属性</h3><p>浮动相关属性：</p>
+<li>方案三：给父元素的<code>overflow</code>属性设置为hidden，不能解决对兄弟元素的影响。</li>
+<li>方案四（推荐）：如果不是全都浮动，给不浮动的兄弟元素的<code>clear</code>属性设为both，清除浮动效果，解决浮动产生的全部影响。</li>
+<li>方案五：如果全都浮动，在最后添加不浮动的块级元素，给不浮动的块级元素的<code>clear</code>属性设为both，原理与方案四相同。</li>
+<li>方案六（推荐）：如果全都浮动，给父元素设置伪元素，通过伪元素清除浮动，原理与方案四相同：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">父元素<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-3-属性"><a href="#4-3-属性" class="headerlink" title="4.3 属性"></a>4.3 属性</h3><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -3005,7 +2989,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<h2 id="5-定位"><a href="#5-定位" class="headerlink" title="5 定位"></a>5 定位</h2><h3 id="5-1-属性"><a href="#5-1-属性" class="headerlink" title="5.1 属性"></a>5.1 属性</h3><p>定位相关属性：</p>
+<h2 id="5-定位"><a href="#5-定位" class="headerlink" title="5 定位"></a>5 定位</h2><h3 id="5-1-属性"><a href="#5-1-属性" class="headerlink" title="5.1 属性"></a>5.1 属性</h3><p>设置定位方式。常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -3029,7 +3013,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>用于调整定位的属性，只有开启定位才有效：</p>
+<p>开启定位后可以调整元素位置。常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -3042,22 +3026,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>left</td>
       <td>调整到左侧边缘的距离</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>right</td>
       <td>调整到右侧边缘的距离，不能和left同时使用</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>top</td>
       <td>调整到顶部边缘的距离</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
     <tr>
       <td>bottom</td>
       <td>调整到底部边缘的距离，不能和top同时使用</td>
-      <td>长度单位</td>
+      <td>长度值</td>
     </tr>
   </tbody>
 </table>
@@ -3067,85 +3051,85 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>基于原来的位置，即基于正常定位的位置进行调整的。</li>
 </ul>
 <p>效果：</p>
-<ol>
+<ul>
 <li>只设为相对定位，不设置位置，无变化。</li>
 <li>设置位置后，根据层级进行元素覆盖。</li>
-</ol>
+</ul>
 <p>特点：</p>
-<ol>
+<ul>
 <li>不会脱离文档流，元素位置的变化，只是视觉效果上的变化，不会对其他元素产生任何影响。</li>
-<li>不建议和float同时使用。</li>
-<li>不建议和margin同时使用。</li>
+<li>不建议和<code>float</code>属性同时使用。</li>
+<li>不建议和<code>margin</code>属性同时使用。</li>
 <li>元素（行内元素、行内块元素、块级元素）在设置为相对定位之后，不会变成定位元素（宽度和高度由内容决定，可以自由设置）。</li>
-</ol>
+</ul>
 <h4 id="5-2-2-绝对定位"><a href="#5-2-2-绝对定位" class="headerlink" title="5.2.2 绝对定位"></a>5.2.2 绝对定位</h4><p>参考元素：</p>
 <ul>
 <li>基于包含块。如果没有脱离文档流，包含块就是父元素，如果脱离文档流，包含块就是最近开启任何定位的祖先元素。</li>
 </ul>
 <p>效果：</p>
-<ol>
+<ul>
 <li>只设为绝对定位，不设置位置，元素在绝对定位前的位置浮动，后面的元素占用绝对定位前的位置并且被元素覆盖。</li>
 <li>设置位置后，根据包含块进行元素覆盖。</li>
-</ol>
+</ul>
 <p>特点：</p>
-<ol>
+<ul>
 <li>会脱离文档流，会对后面的兄弟元素有影响，会对父元素有影响。</li>
-<li>不建议和float同时使用，浮动会失效，以绝对定位为主。</li>
-<li>不建议和margin同时使用。</li>
+<li>不建议和<code>float</code>属性同时使用，浮动会失效，以绝对定位为主。</li>
+<li>不建议和<code>margin</code>属性同时使用。</li>
 <li>元素（行内元素、行内块元素、块级元素）在设置为绝对定位之后，都会变成定位元素（宽度和高度由内容决定，可以自由设置）。</li>
-</ol>
+</ul>
 <p>使用规则：</p>
-<ol>
+<ul>
 <li>在父元素上开启相对定位，在对其他元素没有影响的情况下，支持作为子元素的包含块。</li>
 <li>在子元素上开启绝对定位，在包含块为父元素的前提下修改位置。</li>
-</ol>
+</ul>
 <p>和浮动的区别：</p>
-<ol>
+<ul>
 <li>绝对定位的元素内容会被覆盖，不能环绕元素。</li>
 <li>绝对定位的元素会变成定位元素。</li>
 <li>绝对定位的元素一般会配合相对定位的包含块一起使用。</li>
-</ol>
+</ul>
 <h4 id="5-2-3-固定定位"><a href="#5-2-3-固定定位" class="headerlink" title="5.2.3 固定定位"></a>5.2.3 固定定位</h4><p>参考元素：</p>
 <ul>
 <li>基于视口。对于PC浏览器来说，视口就是浏览器展示内容的界面。</li>
 </ul>
 <p>效果：</p>
-<ol>
+<ul>
 <li>只设为固定定位，不设置位置，元素在固定定位前的位置浮动，后面的元素占用固定定位前的位置并且被元素覆盖。</li>
 <li>设置位置后，根据视口进行元素覆盖，并且页面内容滚动时，固定定位固定在视口相对位置，不随页面内容滚动。</li>
-</ol>
+</ul>
 <p>特点：</p>
-<ol>
+<ul>
 <li>会脱离文档流，会对后面的兄弟元素有影响，会对父元素有影响。</li>
-<li>不建议和float同时使用，浮动会失效，以固定定位为主。</li>
-<li>不建议和margin同时使用。</li>
+<li>不建议和<code>float</code>属性同时使用，浮动会失效，以固定定位为主。</li>
+<li>不建议和<code>margin</code>属性同时使用。</li>
 <li>元素（行内元素、行内块元素、块级元素）在设置为固定定位之后，都会变成定位元素（宽度和高度由内容决定，可以自由设置）。</li>
-</ol>
+</ul>
 <p>和绝对定位的区别：</p>
-<ol>
+<ul>
 <li>固定定位不使用包含块，不需要父元素配合，不需要和相对定位配合。</li>
 <li>固定定位保持在视口显示，不会跟随内容移动而消失。</li>
-</ol>
+</ul>
 <h4 id="5-2-4-粘性定位"><a href="#5-2-4-粘性定位" class="headerlink" title="5.2.4 粘性定位"></a>5.2.4 粘性定位</h4><p>参考元素：</p>
 <ul>
 <li>基于滚动元素。根据关系最近的具有滚动机制的祖先元素，即祖先元素必须有滚动条，最远的是<code>body</code>元素。</li>
 </ul>
 <p>效果：</p>
-<ol>
+<ul>
 <li>只设为粘性定位，不设置位置，无变化。</li>
 <li>设置位置后，根据滚动元素进行元素覆盖，并且页面内容滚动时，粘性定位固定在滚动元素相对位置，不随页面内容滚动。</li>
 <li>当滚动元素和父元素同时在页面显示时，粘性定位显示，否则粘性定位消失，多个粘性定位会进行元素覆盖。</li>
-</ol>
+</ul>
 <p>特点：</p>
-<ol>
+<ul>
 <li>不会脱离文档流，是一种专门用于窗口滚动时的新的定位方式。</li>
-<li>不建议和float同时使用。</li>
-<li>不建议和margin同时使用。</li>
+<li>不建议和<code>float</code>属性同时使用。</li>
+<li>不建议和<code>margin</code>属性同时使用。</li>
 <li>元素（行内元素、行内块元素、块级元素）在设置为粘性定位之后，不会变成定位元素（宽度和高度由内容决定，可以自由设置）。</li>
-</ol>
+</ul>
 <p>滚动机制：</p>
 <ul>
-<li>设置元素的高度小于元素内容的高度，继续将元素overflow设为scroll或者auto，就能在元素上显示滚动条。</li>
+<li>设置元素的高度小于元素内容的高度，继续将元素的<code>overflow</code>属性设为scroll或者auto，就能在元素上显示滚动条。</li>
 </ul>
 <h3 id="5-3-层级"><a href="#5-3-层级" class="headerlink" title="5.3 层级"></a>5.3 层级</h3><p>元素的显示层级：</p>
 <ol>
@@ -3153,7 +3137,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>如果位置发生重叠，默认情况下，后面的元素会覆盖前面的元素。</li>
 <li>如果元素被显示层级低的元素覆盖了，可能是因为包含块的显示层级低被其他元素覆盖，导致元素和包含块一起被覆盖。</li>
 </ol>
-<p>用于调整显示层级的属性：</p>
+<p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -3173,21 +3157,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h3 id="5-4-定位元素的特殊应用"><a href="#5-4-定位元素的特殊应用" class="headerlink" title="5.4 定位元素的特殊应用"></a>5.4 定位元素的特殊应用</h3><p>定位元素的宽度和高度由内容决定，不再充满包含块，由此会带来一些问题。</p>
 <p>成为定位元素的两种方式：</p>
-<ol>
-<li>元素使用固定定位成为定位元素。</li>
-<li>父元素使用相对定位，元素使用绝对定位成为定位元素。</li>
-</ol>
+<ul>
+<li>方式一：元素使用固定定位成为定位元素。</li>
+<li>方式二：父元素使用相对定位，元素使用绝对定位成为定位元素。</li>
+</ul>
 <h4 id="5-4-1-让定位元素充满包含块"><a href="#5-4-1-让定位元素充满包含块" class="headerlink" title="5.4.1 让定位元素充满包含块"></a>5.4.1 让定位元素充满包含块</h4><p>在定位元素没有设置宽度和高度的前提下，让定位元素在包含块居中，有以下两种方案：</p>
-<ol>
+<ul>
 <li>方案一：计算充满所需要的宽度和高度。</li>
-<li>方案二：给定位元素的用于调整定位的属性设置为0（推荐）：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<li>方案二（推荐）：给定位元素的用于调整定位的属性设置为0：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">0</span>;</span><br></pre></td></tr></table></figure></li>
+</ul>
 <h4 id="5-4-2-让定位元素在包含块居中"><a href="#5-4-2-让定位元素在包含块居中" class="headerlink" title="5.4.2 让定位元素在包含块居中"></a>5.4.2 让定位元素在包含块居中</h4><p>在定位元素设置宽度和高度的前提下，让定位元素在包含块居中，有以下两种方案：</p>
-<ol>
-<li>方案一：设置左右margin为auto，计算上margin长度。</li>
+<ul>
+<li>方案一：设置左右外边距为auto，计算上外边距长度。</li>
 <li>方案二：使用折半的方式设置：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line"><span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line"><span class="attribute">margin-left</span>: 元素宽度一半的负数;</span><br><span class="line"><span class="attribute">margin-top</span>: 元素高度一半的负数;</span><br></pre></td></tr></table></figure></li>
-<li>方案三：将用于调整定位的属性设置为0，同时设置margin为auto（推荐）：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">margin</span>: auto;</span><br></pre></td></tr></table></figure></li>
-</ol>
+<li>方案三（推荐）：将用于调整定位的属性设置为0，同时设置外边距为auto：<figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line"><span class="attribute">margin</span>: auto;</span><br></pre></td></tr></table></figure></li>
+</ul>
 <h2 id="6-布局"><a href="#6-布局" class="headerlink" title="6 布局"></a>6 布局</h2><h3 id="6-1-版心"><a href="#6-1-版心" class="headerlink" title="6.1 版心"></a>6.1 版心</h3><p>在PC端网页中，一般都会有一个固定宽度且水平居中的盒子，来显示网页的主要内容，这是网页的版心。</p>
 <p>版心的宽度一般是960像素到1200像素之间。</p>
 <p>版心可以是一个，也可以是多个。</p>
@@ -3204,21 +3188,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>页脚：footer、page-footer</li>
 </ul>
 <h3 id="6-3-重置默认样式"><a href="#6-3-重置默认样式" class="headerlink" title="6.3 重置默认样式"></a>6.3 重置默认样式</h3><p>在早期元素默认样式能够快速的绘制网页，但如今网页的设计越来越复杂，这些默认样式会在绘制页面时带来麻烦，而且这些默认样式在不同的浏览器<br>上呈现出来的效果也不一样，所以需要重置这些默认样式。</p>
-<h4 id="6-3-1-全局选择器"><a href="#6-3-1-全局选择器" class="headerlink" title="6.3.1 全局选择器"></a>6.3.1 全局选择器</h4><p>代码：</p>
+<h4 id="6-3-1-全局选择器"><a href="#6-3-1-全局选择器" class="headerlink" title="6.3.1 全局选择器"></a>6.3.1 全局选择器</h4><p>示例：</p>
 <figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>此种方法在测试时可以用，但实际开发中不会使用，因为在重置样式时，需要对特定元素进行重做，并不是清除所有样式。</p>
 <h4 id="6-3-2-重置样式文件"><a href="#6-3-2-重置样式文件" class="headerlink" title="6.3.2 重置样式文件"></a>6.3.2 重置样式文件</h4><p>将对默认样式的修改写入单独的<code>reset.css</code>文件，在页面中引入默认的CSS文件。</p>
 <h4 id="6-3-3-Normalize-css"><a href="#6-3-3-Normalize-css" class="headerlink" title="6.3.3 Normalize.css"></a>6.3.3 Normalize.css</h4><p>Normalize.css也是CSS文件，它对默认样式提供了跨浏览器的高度一致性，相比传统的重置样式文件，Normalize.css是一种现代的、为HTML5准备的优质替代方案。</p>
 <p>使用方式和重置样式文件一样，需要先在官网下载最新的CSS文件，在页面中引入即可。</p>
-<p>官网：<br><a target="_blank" rel="noopener" href="http://necolas.github.io/normalize.css/">http://necolas.github.io/normalize.css/</a></p>
-<p>相对于重置样式文件来说，Normalize.css有如下优点：</p>
-<ol>
+<p>官网：<a target="_blank" rel="noopener" href="http://necolas.github.io/normalize.css/">http://necolas.github.io/normalize.css/</a></p>
+<p>相对于重置样式文件来说，重置样式文件侧重于清除样式，Normalize.css侧重于统一样式，有如下优点：</p>
+<ul>
 <li>保护了有价值的默认样式，而不是完全去掉它们。</li>
 <li>为大部分HTML元素提供高度一致的样式。</li>
 <li>新增对HTML5元素的设置。</li>
 <li>对并集选择器的使用比较谨慎，有效避免调试工具杂乱。</li>
-</ol>
+</ul>
 
   </div>
   
@@ -3249,7 +3233,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年4月8日</div>
+                <div class="license-meta-text">2024年5月11日</div>
               </div>
               
               
@@ -3472,6 +3456,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20240416/155528/" href="/posts/20240416/155528/"
+          
+          
+          active-action="action-posts20240416155528"
+          >
+          <div class='name'>
+            
+            CSS3新特性
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
@@ -3505,7 +3501,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D"><span class="toc-text">1 长度单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-text">2 显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%86%E7%B1%BB"><span class="toc-text">2.1 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-text">2.1.1 块级元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-text">2.1.2 行内元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-text">2.1.3 行内块元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.2 设置显示模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-text">3 盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%A6%82%E5%BF%B5"><span class="toc-text">3.1 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7"><span class="toc-text">3.2 相关属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E7%9B%92%E5%AD%90%E5%86%85%E5%AE%B9%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.1 盒子内容相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E7%9B%92%E5%AD%90%E5%86%85%E8%BE%B9%E8%B7%9D%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.2 盒子内边距相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E7%9B%92%E5%AD%90%E8%BE%B9%E6%A1%86%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.3 盒子边框相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-%E7%9B%92%E5%AD%90%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.4 盒子外边距相关</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%8A%80%E5%B7%A7"><span class="toc-text">3.3 技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%97%AE%E9%A2%98"><span class="toc-text">3.3.1 外边距问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-1-margin%E5%A1%8C%E9%99%B7"><span class="toc-text">3.3.1.1 margin塌陷</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-2-margin%E5%90%88%E5%B9%B6"><span class="toc-text">3.3.1.2 margin合并</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%86%85%E5%AE%B9%E6%BA%A2%E5%87%BA"><span class="toc-text">3.3.2 内容溢出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0"><span class="toc-text">3.3.3 隐藏元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-%E7%BB%A7%E6%89%BF%E6%A0%B7%E5%BC%8F"><span class="toc-text">3.3.4 继承样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80"><span class="toc-text">3.3.5 居中布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-6-%E6%B6%88%E9%99%A4%E7%A9%BA%E7%99%BD"><span class="toc-text">3.3.6 消除空白</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-6-1-%E6%B6%88%E9%99%A4%E6%8D%A2%E8%A1%8C%E7%A9%BA%E7%99%BD"><span class="toc-text">3.3.6.1 消除换行空白</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-6-2-%E6%B6%88%E9%99%A4%E5%9F%BA%E7%BA%BF%E7%A9%BA%E7%99%BD"><span class="toc-text">3.3.6.2 消除基线空白</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B5%AE%E5%8A%A8"><span class="toc-text">4 浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%BD%B1%E5%93%8D"><span class="toc-text">4.2 影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B1%9E%E6%80%A7"><span class="toc-text">4.3 属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%BD%8D"><span class="toc-text">5 定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%B1%9E%E6%80%A7"><span class="toc-text">5.1 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%88%86%E7%B1%BB"><span class="toc-text">5.2 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.1 相对定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.2 绝对定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3-%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.3 固定定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-4-%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.4 粘性定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%B1%82%E7%BA%A7"><span class="toc-text">5.3 层级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E7%9A%84%E7%89%B9%E6%AE%8A%E5%BA%94%E7%94%A8"><span class="toc-text">5.4 定位元素的特殊应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-%E8%AE%A9%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E5%85%85%E6%BB%A1%E5%8C%85%E5%90%AB%E5%9D%97"><span class="toc-text">5.4.1 让定位元素充满包含块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-%E8%AE%A9%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E5%9C%A8%E5%8C%85%E5%90%AB%E5%9D%97%E5%B1%85%E4%B8%AD"><span class="toc-text">5.4.2 让定位元素在包含块居中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B8%83%E5%B1%80"><span class="toc-text">6 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E7%89%88%E5%BF%83"><span class="toc-text">6.1 版心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%B8%83%E5%B1%80%E5%90%8D%E8%AF%8D"><span class="toc-text">6.2 布局名词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E9%87%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F"><span class="toc-text">6.3 重置默认样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1-%E5%85%A8%E5%B1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">6.3.1 全局选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-2-%E9%87%8D%E7%BD%AE%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="toc-text">6.3.2 重置样式文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-3-Normalize-css"><span class="toc-text">6.3.3 Normalize.css</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%95%BF%E5%BA%A6%E5%8D%95%E4%BD%8D"><span class="toc-text">1 长度单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-text">2 显示模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%86%E7%B1%BB"><span class="toc-text">2.1 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-text">2.1.1 块级元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-text">2.1.2 行内元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E8%A1%8C%E5%86%85%E5%9D%97%E5%85%83%E7%B4%A0"><span class="toc-text">2.1.3 行内块元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%AE%BE%E7%BD%AE%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.2 设置显示模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="toc-text">3 盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%A6%82%E5%BF%B5"><span class="toc-text">3.1 概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7"><span class="toc-text">3.2 相关属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E7%9B%92%E5%AD%90%E5%86%85%E5%AE%B9%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.1 盒子内容相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E7%9B%92%E5%AD%90%E5%86%85%E8%BE%B9%E8%B7%9D%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.2 盒子内边距相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E7%9B%92%E5%AD%90%E8%BE%B9%E6%A1%86%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.3 盒子边框相关</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-4-%E7%9B%92%E5%AD%90%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9B%B8%E5%85%B3"><span class="toc-text">3.2.4 盒子外边距相关</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%8A%80%E5%B7%A7"><span class="toc-text">3.3 技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%A4%96%E8%BE%B9%E8%B7%9D%E9%97%AE%E9%A2%98"><span class="toc-text">3.3.1 外边距问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-1-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%A1%8C%E9%99%B7"><span class="toc-text">3.3.1.1 外边距塌陷</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-2-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6"><span class="toc-text">3.3.1.2 外边距合并</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E5%86%85%E5%AE%B9%E6%BA%A2%E5%87%BA"><span class="toc-text">3.3.2 内容溢出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0"><span class="toc-text">3.3.3 隐藏元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-%E7%BB%A7%E6%89%BF%E6%A0%B7%E5%BC%8F"><span class="toc-text">3.3.4 继承样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80"><span class="toc-text">3.3.5 居中布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-6-%E6%B6%88%E9%99%A4%E7%A9%BA%E7%99%BD"><span class="toc-text">3.3.6 消除空白</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-6-1-%E6%B6%88%E9%99%A4%E6%8D%A2%E8%A1%8C%E7%A9%BA%E7%99%BD"><span class="toc-text">3.3.6.1 消除换行空白</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-6-2-%E6%B6%88%E9%99%A4%E5%9F%BA%E7%BA%BF%E7%A9%BA%E7%99%BD"><span class="toc-text">3.3.6.2 消除基线空白</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B5%AE%E5%8A%A8"><span class="toc-text">4 浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">4.1 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%BD%B1%E5%93%8D"><span class="toc-text">4.2 影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B1%9E%E6%80%A7"><span class="toc-text">4.3 属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%9A%E4%BD%8D"><span class="toc-text">5 定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E5%B1%9E%E6%80%A7"><span class="toc-text">5.1 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%88%86%E7%B1%BB"><span class="toc-text">5.2 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.1 相对定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.2 绝对定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3-%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.3 固定定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-4-%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8D"><span class="toc-text">5.2.4 粘性定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%B1%82%E7%BA%A7"><span class="toc-text">5.3 层级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E7%9A%84%E7%89%B9%E6%AE%8A%E5%BA%94%E7%94%A8"><span class="toc-text">5.4 定位元素的特殊应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-%E8%AE%A9%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E5%85%85%E6%BB%A1%E5%8C%85%E5%90%AB%E5%9D%97"><span class="toc-text">5.4.1 让定位元素充满包含块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-%E8%AE%A9%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E5%9C%A8%E5%8C%85%E5%90%AB%E5%9D%97%E5%B1%85%E4%B8%AD"><span class="toc-text">5.4.2 让定位元素在包含块居中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B8%83%E5%B1%80"><span class="toc-text">6 布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E7%89%88%E5%BF%83"><span class="toc-text">6.1 版心</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%B8%83%E5%B1%80%E5%90%8D%E8%AF%8D"><span class="toc-text">6.2 布局名词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E9%87%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E6%A0%B7%E5%BC%8F"><span class="toc-text">6.3 重置默认样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1-%E5%85%A8%E5%B1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">6.3.1 全局选择器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-2-%E9%87%8D%E7%BD%AE%E6%A0%B7%E5%BC%8F%E6%96%87%E4%BB%B6"><span class="toc-text">6.3.2 重置样式文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-3-Normalize-css"><span class="toc-text">6.3.3 Normalize.css</span></a></li></ol></li></ol></li></ol>
   </div>
 </section>
 
@@ -3972,7 +3968,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240405/142436/","name":"CSS2进阶"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"CSS2进阶","description":"摘要：本文主要介绍了CSS的盒子模型。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240405/142436/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240405/142436/","wordCount":19,"datePublished":"2024-04-05T06:24:36.000Z","dateModified":"2024-04-08T08:00:29.103Z","articleSection":"大前端","keywords":"HTML,CSS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240405/142436/","name":"CSS2进阶"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"CSS2进阶","description":"摘要：本文主要介绍了CSS的盒子模型。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240405/142436/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240405/142436/","wordCount":19,"datePublished":"2024-04-05T06:24:36.000Z","dateModified":"2024-05-11T06:25:10.518Z","articleSection":"大前端","keywords":"HTML,CSS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

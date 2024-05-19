@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-14T08:31:25.000Z">
-<meta property="article:modified_time" content="2024-04-08T00:44:17.671Z">
+<meta property="article:modified_time" content="2024-05-11T07:28:00.495Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1713095009559),
+    lastupdate: new Date(1716081624048),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,13 +2465,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>6.1k 字</p>
+      <p>6.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>24 分钟</p>
+      <p>26 分钟</p>
     </a>
   </div>
 
@@ -2530,7 +2530,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <span id="more"></span>
 
 <h2 id="1-文本元素"><a href="#1-文本元素" class="headerlink" title="1 文本元素"></a>1 文本元素</h2><p>和排版元素相比，文本元素侧重词汇和短语并且一般是行内元素，排版元素侧重文章和段落并且一般是块级元素，而且文本元素通常写在排版元素中。</p>
-<p>常用的文本元素如下：</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2553,7 +2553,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>不太常用的文本元素如下：</p>
+<p>不太常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2607,7 +2607,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <p>省略了一些语义不强、较少使用、能被替代的元素，可以在官方网站上查看全部元素。</p>
-<h2 id="2-图片元素"><a href="#2-图片元素" class="headerlink" title="2 图片元素"></a>2 图片元素</h2><h3 id="2-1-基本结构"><a href="#2-1-基本结构" class="headerlink" title="2.1 基本结构"></a>2.1 基本结构</h3><p>图片元素用于定义图片资源的位置，以及图片的一些属性，属于行内元素，如下：</p>
+<h2 id="2-图片元素"><a href="#2-图片元素" class="headerlink" title="2 图片元素"></a>2 图片元素</h2><h3 id="2-1-基本结构"><a href="#2-1-基本结构" class="headerlink" title="2.1 基本结构"></a>2.1 基本结构</h3><p>图片元素用于定义图片资源的位置，以及图片的一些属性，属于行内元素。</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2625,13 +2626,39 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>常用属性如下：</p>
-<ul>
-<li>src：图片路径。</li>
-<li>alt：图片描述。</li>
-<li>width：图片宽度，默认使用图片本身的宽度，单位是像素。</li>
-<li>height：图片高度，默认使用图片本身的高度， 单位是像素。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>src</td>
+      <td>图片路径</td>
+      <td>路径</td>
+    </tr>
+    <tr>
+      <td>alt</td>
+      <td>图片描述</td>
+      <td>描述</td>
+    </tr>
+    <tr>
+      <td>width</td>
+      <td>图片宽度，默认使用图片本身的宽度</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>图片高度，默认使用图片本身的高度</td>
+      <td>长度值</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="2-2-路径"><a href="#2-2-路径" class="headerlink" title="2.2 路径"></a>2.2 路径</h3><p>图片路径也称为图片地址，分为相对路径和绝对路径，以及网络地址：</p>
 <ul>
 <li>相对路径：从当前页面文件所在的位置开始，能够访问图片资源的路径。</li>
@@ -2657,7 +2684,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="2-3-6-base64"><a href="#2-3-6-base64" class="headerlink" title="2.3.6 base64"></a>2.3.6 base64</h4><p>说明：将图片转换得到的一串特殊的文本，支持通过浏览器打开，但某些看图应用无法打开。</p>
 <p>特点：字符串会特别长，并且会占用和图片大小相同的空间。</p>
 <p>场景：一些较小的图片，或者需要同页面一起加载的图片。</p>
-<h2 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3 超链接"></a>3 超链接</h2><h3 id="3-1-基本结构"><a href="#3-1-基本结构" class="headerlink" title="3.1 基本结构"></a>3.1 基本结构</h3><p>用于从当前页面进行跳转，超链接本身属于行内元素，如下：</p>
+<h2 id="3-超链接"><a href="#3-超链接" class="headerlink" title="3 超链接"></a>3 超链接</h2><h3 id="3-1-基本结构"><a href="#3-1-基本结构" class="headerlink" title="3.1 基本结构"></a>3.1 基本结构</h3><p>用于从当前页面进行跳转，超链接本身属于行内元素。</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2675,35 +2703,59 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>常用属性如下：</p>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>href</td>
+      <td>指定要跳转到的具体目标</td>
+      <td>目标地址</td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td>控制跳转时如何打开页面</td>
+      <td>
+        _self：在当前标签页打开，即替换当前页面的地址为目标地址并访问<br>
+        _blank：在新建标签页打开，当前标签页保留<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>注意：</p>
 <ul>
-<li>href：指定要跳转到的具体目标。</li>
-<li>target：控制跳转时如何打开页面。</li>
+<li>虽然<code>a</code>元素是行内元素，但是可以包裹<code>a</code>元素之外的其他元素，包括块级元素和行内元素。</li>
 </ul>
-<p>需要注意的是，虽然<code>a</code>元素是行内元素，但是可以包裹<code>a</code>元素之外的其他元素，包括块级元素和行内元素。</p>
 <h3 id="3-2-跳转方式"><a href="#3-2-跳转方式" class="headerlink" title="3.2 跳转方式"></a>3.2 跳转方式</h3><h4 id="3-2-1-跳转到页面"><a href="#3-2-1-跳转到页面" class="headerlink" title="3.2.1 跳转到页面"></a>3.2.1 跳转到页面</h4><p>使用<code>href</code>属性指定页面，那么点击超链接会跳转到指定的页面。</p>
-<p>使用<code>target</code>属性指定打开目标页面的方式：</p>
-<ul>
-<li>_self：在当前标签页打开，即替换当前页面的地址为目标地址并访问。</li>
-<li>_blank：在新建标签页打开，当前标签页保留。</li>
-</ul>
+<p>使用<code>target</code>属性指定打开目标页面的方式。</p>
 <h4 id="3-2-2-跳转到文件"><a href="#3-2-2-跳转到文件" class="headerlink" title="3.2.2 跳转到文件"></a>3.2.2 跳转到文件</h4><p>使用<code>href</code>属性指定文件，那么点击超链接会跳转到指定的文件。</p>
 <p>如果浏览器能打开指定的文件就在浏览器展示，比如图片文件，如果浏览器不能打开指定的文件就引导用户下载，比如压缩文件。</p>
 <h4 id="3-2-3-跳转到锚点"><a href="#3-2-3-跳转到锚点" class="headerlink" title="3.2.3 跳转到锚点"></a>3.2.3 跳转到锚点</h4><p>使用<code>href</code>属性指定锚点，那么点击超链接会跳转到指定的锚点。</p>
-<p>锚点是<code>#</code>符号和在其他元素中<code>id</code>属性值拼接得到的，代码：</p>
+<p>锚点是<code>#</code>符号和在其他元素中<code>id</code>属性值拼接得到的。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#test&quot;</span>&gt;</span>点击前往测试内容<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 其他内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span>&gt;</span>测试内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>也可以跳转到页面顶部：</p>
+<p>也可以跳转到页面顶部。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#top&quot;</span>&gt;</span>点击前往页面顶部<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>如果<code>href</code>属性空白，页面上不会有超链接样式，可以使用<code>#</code>符号占位，点击会跳转到当前页：</p>
+<p>如果<code>href</code>属性空白，页面上不会有超链接样式，可以使用<code>#</code>符号占位，点击会跳转到当前页。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>占位链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>如果不想在点击后触发跳转的操作，或者在开发阶段不确定要跳转到哪个页面，可以将<code>href</code>属性设为<code>javascript:;</code>实现。示例：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:;&quot;</span>&gt;</span>占位链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="3-2-4-跳转到应用"><a href="#3-2-4-跳转到应用" class="headerlink" title="3.2.4 跳转到应用"></a>3.2.4 跳转到应用</h4><p>使用<code>href</code>属性指定应用，那么点击超链接会跳转到指定的应用，需要应用支持，比如邮箱等。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:momashanhe@163.com&quot;</span>&gt;</span>点击发送邮件<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="4-列表"><a href="#4-列表" class="headerlink" title="4 列表"></a>4 列表</h2><h3 id="4-1-有序列表"><a href="#4-1-有序列表" class="headerlink" title="4.1 有序列表"></a>4.1 有序列表</h3><p>有顺序或侧重顺序的列表，属于块级元素，如下：</p>
+<h2 id="4-列表"><a href="#4-列表" class="headerlink" title="4 列表"></a>4 列表</h2><h3 id="4-1-有序列表"><a href="#4-1-有序列表" class="headerlink" title="4.1 有序列表"></a>4.1 有序列表</h3><p>有顺序或侧重顺序的列表，属于块级元素。</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2726,10 +2778,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>要把大象放冰箱总共分几步<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>把冰箱门打开<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>把大象放进去<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>把冰箱门关上<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-2-无序列表"><a href="#4-2-无序列表" class="headerlink" title="4.2 无序列表"></a>4.2 无序列表</h3><p>无顺序或不侧重顺序的列表，属于块级元素，如下：</p>
+<h3 id="4-2-无序列表"><a href="#4-2-无序列表" class="headerlink" title="4.2 无序列表"></a>4.2 无序列表</h3><p>无顺序或不侧重顺序的列表，属于块级元素。</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2752,14 +2805,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我想去的几个城市<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>成都<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>西安<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>武汉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="4-3-嵌套列表"><a href="#4-3-嵌套列表" class="headerlink" title="4.3 嵌套列表"></a>4.3 嵌套列表</h3><p>有序列表和无序列表支持嵌套列表。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>我想去的几个城市<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>成都<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>外滩<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>杜莎夫人蜡像馆<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://www.opg.cn/&quot;</span>&gt;</span>东方明珠<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>迪士尼乐园<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>西安<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>武汉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="4-4-自定义列表"><a href="#4-4-自定义列表" class="headerlink" title="4.4 自定义列表"></a>4.4 自定义列表</h3><p>包含术语名称以及术语描述的列表，属于块级元素，如下：</p>
+<h3 id="4-4-自定义列表"><a href="#4-4-自定义列表" class="headerlink" title="4.4 自定义列表"></a>4.4 自定义列表</h3><p>包含术语名称以及术语描述的列表，属于块级元素。</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2787,13 +2841,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>如何高效的学习<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>做好笔记<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>笔记是我们以后复习的一个抓手<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>笔记可以是电子版，也可以是纸质版<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>多加练习<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>只有敲出来的代码，才是自己的<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>别怕出错<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>错很正常，改正后并记住，就是经验<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="5-表格"><a href="#5-表格" class="headerlink" title="5 表格"></a>5 表格</h2><h3 id="5-1-基本结构"><a href="#5-1-基本结构" class="headerlink" title="5.1 基本结构"></a>5.1 基本结构</h3><p>一个完整的表格由四部分组成：表格标题、表格头部、表格主体、表格脚注。</p>
 <p>表格的某些部分可以省略，各个部分都属于块级元素。</p>
 <p>表格结构如图：<br><img src="/@image/101001/002001-155240.jpg" alt="001-表格结构"></p>
-<p>表格涉及到的元素：</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2847,60 +2901,164 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <p>表格详细结构如图：<br><img src="/@image/101001/002002-163046.jpg" alt="002-表格头部"><br><img src="/@image/101001/002003-163104.jpg" alt="003-表格主体"><br><img src="/@image/101001/002004-163215.jpg" alt="004-表格脚注"></p>
-<p>表格详细结构代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 表格标题 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">caption</span>&gt;</span>学生信息<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 表格头部 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>民族<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">th</span>&gt;</span>政治面貌<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 表格主体 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>18<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>汉族<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>团员<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>20<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>满族<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>群众<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>王五<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>男<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>20<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>回族<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>党员<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>赵六<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>21<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>壮族<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>团员<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 表格脚注 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tfoot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>共计：4人<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tfoot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="5-2-常用属性"><a href="#5-2-常用属性" class="headerlink" title="5.2 常用属性"></a>5.2 常用属性</h3><p><code>table</code>元素常用属性：</p>
-<ul>
-<li>width：设置表格宽度。</li>
-<li>height：设置表格最小高度，表格最终高度可能比设置的值大。</li>
-<li>border：设置表格边框宽度。</li>
-<li>cellspacing：设置单元格之间的间距。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>width</td>
+      <td>设置表格宽度</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>设置表格最小高度，表格最终高度可能比设置的值大</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>border</td>
+      <td>设置表格边框宽度</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>cellspacing</td>
+      <td>设置单元格之间的间距</td>
+      <td>长度值</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><code>thead</code>元素常用属性：</p>
-<ul>
-<li>height：设置表格头部高度。</li>
-<li>align：设置单元格的水平对齐方式。</li>
-<li>valign：设置单元格的垂直对齐方式。</li>
-</ul>
-<p><code>thead</code>元素中的<code>align</code>属性可选值如下：</p>
-<ul>
-<li>left：左边对齐。</li>
-<li>center：中间对齐。</li>
-<li>right：右边对齐。</li>
-</ul>
-<p><code>thead</code>元素中的<code>valign</code>属性可选值如下：</p>
-<ul>
-<li>top：顶部对齐。</li>
-<li>middle：中间对齐。</li>
-<li>bottom：底部对齐。</li>
-</ul>
-<p><code>tbody</code>元素常用属性与<code>thead</code>元素常用属性相同。</p>
-<p><code>tfoot</code>元素常用属性与<code>thead</code>元素常用属性相同。</p>
-<p><code>tr</code>元素常用属性与<code>thead</code>元素常用属性相同。</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>height</td>
+      <td>设置表格头部高度</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>align</td>
+      <td>设置单元格的水平对齐方式</td>
+      <td>
+        left：左边对齐<br>
+        right：右边对齐<br>
+        center：中间对齐<br>
+      </td>
+    </tr>
+    <tr>
+      <td>valign</td>
+      <td>设置单元格的垂直对齐方式</td>
+      <td>
+        top：顶部对齐<br>
+        middle：中间对齐<br>
+        bottom：底部对齐<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code>tbody</code>元素常用属性：<br>与<code>thead</code>元素常用的属性相同。</p>
+<p><code>tfoot</code>元素常用属性：<br>与<code>thead</code>元素常用的属性相同。</p>
+<p><code>tr</code>元素常用属性：<br>与<code>thead</code>元素常用的属性相同。</p>
 <p><code>th</code>元素常用属性：</p>
-<ul>
-<li>width：设置单元格的宽度，同列所有单元格全都受影响。</li>
-<li>heigth：设置单元格的高度，同行所有单元格全都受影响。</li>
-<li>align：设置单元格的水平对齐方式。</li>
-<li>valign：设置单元格的垂直对齐方式。</li>
-<li>rowspan：指定要跨的行数。</li>
-<li>colspan：指定要跨的列数。</li>
-</ul>
-<p><code>td</code>元素常用属性与<code>th</code>元素常用属性相同。</p>
-<h3 id="5-3-跨行跨列"><a href="#5-3-跨行跨列" class="headerlink" title="5.3 跨行跨列"></a>5.3 跨行跨列</h3><p>涉及属性：</p>
-<ul>
-<li>rowspan：指定要跨的行数。</li>
-<li>colspan：指定要跨的列数。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>width</td>
+      <td>设置单元格的宽度，同列所有单元格全都受影响</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>设置单元格的高度，同行所有单元格全都受影响</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>align</td>
+      <td>设置单元格的水平对齐方式</td>
+      <td>
+        left：左边对齐<br>
+        right：右边对齐<br>
+        center：中间对齐<br>
+      </td>
+    </tr>
+    <tr>
+      <td>valign</td>
+      <td>设置单元格的垂直对齐方式</td>
+      <td>
+        top：顶部对齐<br>
+        middle：中间对齐<br>
+        bottom：底部对齐<br>
+      </td>
+    </tr>
+    <tr>
+      <td>rowspan</td>
+      <td>指定要跨的行数</td>
+      <td>行数</td>
+    </tr>
+    <tr>
+      <td>colspan</td>
+      <td>指定要跨的列数</td>
+      <td>列数</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code>td</code>元素常用属性：<br>与<code>th</code>元素常用的属性相同。</p>
+<h3 id="5-3-跨行跨列"><a href="#5-3-跨行跨列" class="headerlink" title="5.3 跨行跨列"></a>5.3 跨行跨列</h3><p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>rowspan</td>
+      <td>指定要跨的行数</td>
+      <td>行数</td>
+    </tr>
+    <tr>
+      <td>colspan</td>
+      <td>指定要跨的列数</td>
+      <td>列数</td>
+    </tr>
+  </tbody>
+</table>
+
 <p>使用属性实现跨行跨列：</p>
-<div class="tabs" id="tab-tab-id-3"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-3-1">原始表格</a></li><li class="tab"><a class="#tab-id-3-2">使用colspan跨行</a></li><li class="tab"><a class="#tab-id-3-3">使用rowspan跨列</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-3-1"><p>代码：</p>
-<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab-id-3-2"><p>代码：</p>
-<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- &lt;td&gt;2-1&lt;/td&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab-id-3-3"><p>代码：</p>
+<div class="tabs" id="tab-tab-id-3"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-3-1">原始表格</a></li><li class="tab"><a class="#tab-id-3-2">使用colspan跨行</a></li><li class="tab"><a class="#tab-id-3-3">使用rowspan跨列</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-3-1"><p>示例：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab-id-3-2"><p>示例：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- &lt;td&gt;2-1&lt;/td&gt; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane" id="tab-id-3-3"><p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span> <span class="attr">valign</span>=<span class="string">&quot;middle&quot;</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- &lt;td&gt;1-2&lt;/td&gt; --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></div></div></div>
 
 <h2 id="6-表单"><a href="#6-表单" class="headerlink" title="6 表单"></a>6 表单</h2><h3 id="6-1-基本元素"><a href="#6-1-基本元素" class="headerlink" title="6.1 基本元素"></a>6.1 基本元素</h3><p>表单是一个包含交互的区域，用于收集用户提供的数据，整个表单属于块级元素，表单中的控件一般属于行内元素。</p>
-<p>表单中常见的元素：</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -2937,7 +3095,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </tr>
     <tr>
       <td>option</td>
-      <td>表示下拉框的选项</td>
+      <td>表示下拉框的选项，用在<code>select</code>元素</td>
       <td>双标签</td>
     </tr>
     <tr>
@@ -2952,157 +3110,412 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     </tr>
     <tr>
       <td>legend</td>
-      <td>表示表单元素分组的标题</td>
+      <td>表示表单元素分组的标题，用在<code>fieldset</code>元素</td>
       <td>双标签</td>
     </tr>
   </tbody>
 </table>
 
 <p><code>form</code>元素常用属性：</p>
-<ul>
-<li>action：表单提交的地址，需要和后端沟通确定。</li>
-<li>target：表单提交后，页面的打开方式，同<code>a</code>元素中的<code>target</code>属性。</li>
-<li>method：表单提交的请求方式，比如<code>get</code>和<code>post</code>等。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>action</td>
+      <td>表单提交的地址，需要和后端沟通确定</td>
+      <td>地址</td>
+    </tr>
+    <tr>
+      <td>target</td>
+      <td>表单提交后，页面的打开方式</td>
+      <td>
+        _self：在当前标签页打开，即替换当前页面的地址为目标地址并访问<br>
+        _blank：在新建标签页打开，当前标签页保留<br>
+      </td>
+    </tr>
+    <tr>
+      <td>method</td>
+      <td>表单提交的请求方式</td>
+      <td>
+        get：默认值，表单数据会附加在URL中发送，一般用于不敏感信息，如分页等<br>
+        post：表单数据会包含在表单体内发送，用于提交敏感数据，如用户名与密码等<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <p><code>input</code>元素常用属性：</p>
-<ul>
-<li>type：设置控件的类型，比如<code>text</code>表示普通文本。</li>
-<li>name：设置控件的数据名称，需要和后端沟通确定。</li>
-<li>value：获取控件的数据，不同的表单控件有不同的获取方式。</li>
-<li>disabled：设置控件不可用。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>设置控件的类型</td>
+      <td>
+        text：默认值，普通文本<br>
+        input：文本输入框<br>
+        password：密码输入框<br>
+        radio：单选框<br>
+        checkbox：多选框<br>
+        hidden：隐藏域<br>
+        submit：提交按钮<br>
+        reset：重置按钮<br>
+        button：普通按钮<br>
+      </td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>设置控件的数据名称，需要和后端沟通确定</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置控件的数据，不同的表单控件有不同的获取方式</td>
+      <td>数据</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>设置控件不可用</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><code>button</code>元素常用属性：</p>
-<ul>
-<li>disabled：设置按钮不可用。</li>
-<li>type：设置按钮的类型，不同的类型对表单数据的处理方式不同，比如<code>submit</code>会提交表单。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>disabled</td>
+      <td>设置按钮不可用</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>type</td>
+      <td>设置按钮的类型，不同的类型对表单数据的处理方式不同</td>
+      <td>
+        submit：默认值，提交表单<br>
+        reset：重置表单<br>
+        button：普通按钮<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <p><code>textarea</code>元素常用属性：</p>
-<ul>
-<li>name：设置文本域的数据名称。</li>
-<li>rows：设置文本域默认显示的行数，影响文本域的高度。</li>
-<li>cols：设置文本域默认显示的列数，影响文本域的宽度。</li>
-<li>disabled：设置文本域不可用。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置文本域的数据名称</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>rows</td>
+      <td>设置文本域默认显示的行数，影响文本域的高度</td>
+      <td>行数</td>
+    </tr>
+    <tr>
+      <td>cols</td>
+      <td>设置文本域默认显示的列数，影响文本域的宽度</td>
+      <td>列数</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>设置文本域不可用</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><code>select</code>元素常用属性：</p>
-<ul>
-<li>name：设置下拉框的数据名称。</li>
-<li>disabled：设置下拉框不可用。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置下拉框的数据名称</td>
+      <td>名称</td>
+    </tr>
+      <td>disabled</td>
+      <td>设置下拉框不可用</td>
+      <td>无</td>
+  </tbody>
+</table>
+
 <p><code>option</code>元素常用属性：</p>
-<ul>
-<li>disabled：设置下拉选项不可用。</li>
-<li>value：设置下拉选项的数据，在省略的情况下，会使用下拉选项的元素内容作为数据。</li>
-<li>selected：设置下拉选项在加载后默认选中。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>value</td>
+      <td>设置下拉选项的数据，在省略的情况下，会使用下拉选项的元素内容作为数据</td>
+      <td>数据</td>
+    </tr>
+    <tr>
+      <td>selected</td>
+      <td>设置下拉选项在加载后默认选中</td>
+      <td>无</td>
+    </tr>
+    <tr>
+      <td>disabled</td>
+      <td>设置下拉选项不可用</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+
 <p><code>label</code>元素常用属性：</p>
-<ul>
-<li>for：属性值与表单控件的<code>id</code>属性值相同。</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>for</td>
+      <td>用于指定要匹配的表单控件</td>
+      <td>表单控件的<code>id</code>属性值</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="6-2-常用控件"><a href="#6-2-常用控件" class="headerlink" title="6.2 常用控件"></a>6.2 常用控件</h3><h4 id="6-2-1-文本输入框"><a href="#6-2-1-文本输入框" class="headerlink" title="6.2.1 文本输入框"></a>6.2.1 文本输入框</h4><p>最常用的表单控件，支持输入一行文本。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请输入文本：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>属性：</p>
-<ul>
-<li>name：设置输入框的数据名称。</li>
-<li>value：设置输入框的默认值。</li>
-<li>maxlength：设置输入框最大可输入长度。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置输入框的数据名称</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置输入框的默认值</td>
+      <td>默认值</td>
+    </tr>
+    <tr>
+      <td>maxlength</td>
+      <td>设置输入框可输入的最大长度</td>
+      <td>最大长度</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="6-2-2-密码输入框"><a href="#6-2-2-密码输入框" class="headerlink" title="6.2.2 密码输入框"></a>6.2.2 密码输入框</h4><p>和文本输入框类似，但是输入的内容会显示为<code>*</code>号，避免密码泄露。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请输入密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>属性：</p>
-<ul>
-<li>name：设置输入框的数据名称。</li>
-<li>value：设置输入框的默认值，作为密码时无意义，可以省略。</li>
-<li>maxlength：设置输入框最大可输入长度。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置输入框的数据名称</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置输入框的默认值，作为密码时无意义，可以省略</td>
+      <td>默认值</td>
+    </tr>
+    <tr>
+      <td>maxlength</td>
+      <td>设置输入框可输入的最大长度</td>
+      <td>最大长度</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="6-2-3-单选框"><a href="#6-2-3-单选框" class="headerlink" title="6.2.3 单选框"></a>6.2.3 单选框</h4><p>支持单选的控件。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请选择性别：</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span>&gt;</span>女</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;sex&quot;</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span>&gt;</span>男</span><br></pre></td></tr></table></figure>
 
-<p>属性：</p>
-<ul>
-<li>name：设置单选框的数据名称，同组控件的<code>name</code>属性值要保持一致。</li>
-<li>value：设置单选框提交的数据值，会提交被选中的控件的<code>value</code>属性。</li>
-<li>checked：设置单选框在加载后默认选中。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置单选框的数据名称，同组控件要保持一致</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置单选框提交的数据值，会提交被选中的控件的<code>value</code>属性</td>
+      <td>数据值</td>
+    </tr>
+    <tr>
+      <td>checked</td>
+      <td>设置单选框在加载后默认选中</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="6-2-4-多选框"><a href="#6-2-4-多选框" class="headerlink" title="6.2.4 多选框"></a>6.2.4 多选框</h4><p>多选框也称为复选框，支持多选的控件。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">请选择爱好：</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;smoke&quot;</span>&gt;</span>抽烟</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;drink&quot;</span>&gt;</span>喝酒</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> <span class="attr">name</span>=<span class="string">&quot;hobby&quot;</span> <span class="attr">value</span>=<span class="string">&quot;perm&quot;</span>&gt;</span>烫头</span><br></pre></td></tr></table></figure>
 
-<p>属性：</p>
-<ul>
-<li>name：设置多选框的数据名称，同组控件的<code>name</code>属性值要保持一致。</li>
-<li>value：设置多选框提交的数据值，会提交被选中的控件的<code>value</code>属性，多个值会组成数组。</li>
-<li>checked：设置多选框在加载后默认选中。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置多选框的数据名称，同组控件要保持一致</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置多选框提交的数据值，会提交被选中的控件的<code>value</code>属性，多个值会组成数组</td>
+      <td>数据值</td>
+    </tr>
+    <tr>
+      <td>checked</td>
+      <td>设置多选框在加载后默认选中</td>
+      <td>无</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="6-2-5-隐藏域"><a href="#6-2-5-隐藏域" class="headerlink" title="6.2.5 隐藏域"></a>6.2.5 隐藏域</h4><p>不会让用户看到的特殊控件，可以在<code>检查</code>后看到，通常用于提交特殊数据。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;tag&quot;</span> <span class="attr">value</span>=<span class="string">&quot;100&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>属性：</p>
-<ul>
-<li>name：设置隐藏域的数据名称。</li>
-<li>value：设置隐藏域提交的数据值，通常由操作自动存储，不需要用户处理。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>设置隐藏域的数据名称</td>
+      <td>名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>设置隐藏域提交的数据值，通常由操作自动存储，不需要用户处理</td>
+      <td>数据值</td>
+    </tr>
+  </tbody>
+</table>
+
 <h4 id="6-2-6-提交按钮"><a href="#6-2-6-提交按钮" class="headerlink" title="6.2.6 提交按钮"></a>6.2.6 提交按钮</h4><p>用于将表单数据提交到指定地址。</p>
-<p>使用<code>input</code>元素，代码：</p>
+<p>使用<code>input</code>元素。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交表单&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>使用<code>input</code>元素涉及的属性：</p>
-<ul>
-<li>name：设置按钮的数据名称，作为按钮时无意义，可以省略。</li>
-<li>value：设置按钮要显示的内容。</li>
-</ul>
-<p>也可以使用<code>button</code>元素，代码：</p>
+<p>也可以使用<code>button</code>元素。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span>提交表单<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>使用<code>button</code>元素时可以省略<code>type</code>属性，默认就是<code>submit</code>类型。</p>
 <h4 id="6-2-7-重置按钮"><a href="#6-2-7-重置按钮" class="headerlink" title="6.2.7 重置按钮"></a>6.2.7 重置按钮</h4><p>用于将表单数据清空，恢复到页面加载后的状态。</p>
-<p>使用<code>input</code>元素，代码：</p>
+<p>使用<code>input</code>元素。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;重置表单&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>使用<code>input</code>元素涉及的属性：</p>
-<ul>
-<li>name：设置按钮的数据名称，作为按钮时无意义，可以省略。</li>
-<li>value：设置按钮要显示的内容。</li>
-</ul>
-<p>也可以使用<code>button</code>元素，代码：</p>
+<p>也可以使用<code>button</code>元素。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span>重置表单<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="6-2-8-普通按钮"><a href="#6-2-8-普通按钮" class="headerlink" title="6.2.8 普通按钮"></a>6.2.8 普通按钮</h4><p>用于触发特定操作。</p>
-<p>使用<code>input</code>元素，代码：</p>
+<p>使用<code>input</code>元素。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;普通按钮&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>使用<code>input</code>元素涉及的属性：</p>
-<ul>
-<li>name：设置按钮的数据名称，作为按钮时无意义，可以省略。</li>
-<li>value：设置按钮要显示的内容。</li>
-</ul>
-<p>也可以使用<code>button</code>元素，代码：</p>
+<p>也可以使用<code>button</code>元素。示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span>&gt;</span>普通按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="6-2-9-文本域"><a href="#6-2-9-文本域" class="headerlink" title="6.2.9 文本域"></a>6.2.9 文本域</h4><p>用于存储多行文本。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">请输入多行文本：<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">&quot;msg&quot;</span> <span class="attr">rows</span>=<span class="string">&quot;3&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;3&quot;</span>&gt;</span>我是文本域<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>使用<code>textarea</code>元素时不需要使用<code>type</code>属性，其他和<code>input</code>元素的文本输入框一致。</p>
 <h4 id="6-2-10-下拉框"><a href="#6-2-10-下拉框" class="headerlink" title="6.2.10 下拉框"></a>6.2.10 下拉框</h4><p>用于选择下拉选项。</p>
-<p>代码：</p>
-<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">请选择省份：</span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;from&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;黑&quot;</span>&gt;</span>黑龙江<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;辽&quot;</span>&gt;</span>辽宁<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;吉&quot;</span>&gt;</span>吉林<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;粤&quot;</span> <span class="attr">selected</span>&gt;</span>广东<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">请选择省份：</span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">&quot;from&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;黑&quot;</span>&gt;</span>黑龙江<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;辽&quot;</span>&gt;</span>辽宁<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;吉&quot;</span>&gt;</span>吉林<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">&quot;粤&quot;</span> <span class="attr">selected</span>&gt;</span>广东<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>使用<code>option</code>元素时如果没有设置<code>value</code>属性，会将元素内容作为数据提交。</p>
-<h4 id="6-2-11-标记"><a href="#6-2-11-标记" class="headerlink" title="6.2.11 标记"></a>6.2.11 标记</h4><p>和表单控件关联，点击元素可使表单控件获得焦点。</p>
-<p>需要配合表单控件使用，代码：</p>
+<h4 id="6-2-11-标记"><a href="#6-2-11-标记" class="headerlink" title="6.2.11 标记"></a>6.2.11 标记</h4><p>和表单控件关联，点击元素可使表单控件获得焦点，需要配合表单控件使用。</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;password&quot;</span>&gt;</span>请输入密码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="6-2-12-分组"><a href="#6-2-12-分组" class="headerlink" title="6.2.12 分组"></a>6.2.12 分组</h4><p>用于对表单元素进行分组，和其他控件不同，分组元素属于块级元素。</p>
-<p>代码：</p>
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">legend</span>&gt;</span>主要信息<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>账户：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;10&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;password&quot;</span>&gt;</span>密码：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">maxlength</span>=<span class="string">&quot;6&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  性别：</span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;male&quot;</span> <span class="attr">id</span>=<span class="string">&quot;male&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;male&quot;</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;radio&quot;</span> <span class="attr">name</span>=<span class="string">&quot;gender&quot;</span> <span class="attr">value</span>=<span class="string">&quot;female&quot;</span> <span class="attr">id</span>=<span class="string">&quot;female&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;female&quot;</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="7-框架"><a href="#7-框架" class="headerlink" title="7 框架"></a>7 框架</h2><p>用于在当前页面加载其他内容，属于行内元素，如下：</p>
+<h2 id="7-框架"><a href="#7-框架" class="headerlink" title="7 框架"></a>7 框架</h2><p>用于在当前页面加载其他内容，属于行内元素。</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -3120,18 +3533,51 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<p>常用属性如下：</p>
-<ul>
-<li>name：框架名字，可以与其他元素的<code>target</code>属性配合，实现在框架中展示页面的效果。</li>
-<li>src：框架内容，可以是网址，也可以是资源文件地址。</li>
-<li>width：框架宽度。</li>
-<li>height：框架高度。</li>
-<li>frameborder：是否显示边框，取值0否1是。</li>
-</ul>
-<p>代码：</p>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>框架名字，可以与其他元素的<code>target</code>属性配合，实现在框架中展示页面的效果</td>
+      <td>框架名字</td>
+    </tr>
+    <tr>
+      <td>src</td>
+      <td>框架内容，可以是网址，也可以是资源文件地址</td>
+      <td>框架内容</td>
+    </tr>
+    <tr>
+      <td>width</td>
+      <td>框架宽度</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>height</td>
+      <td>框架高度</td>
+      <td>长度值</td>
+    </tr>
+    <tr>
+      <td>frameborder</td>
+      <td>是否显示边框</td>
+      <td>
+        0：默认值，否，不显示边框<br>
+        1：是，显示边框<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>示例：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;https://momashanhe.com&quot;</span>&gt;</span>查看博客<span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="8-全局属性"><a href="#8-全局属性" class="headerlink" title="8 全局属性"></a>8 全局属性</h2><p>常用的全局属性：</p>
+<h2 id="8-全局属性"><a href="#8-全局属性" class="headerlink" title="8 全局属性"></a>8 全局属性</h2><p>常用属性：</p>
 <table>
   <thead>
     <tr>
@@ -3142,7 +3588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>id</td>
-      <td>元素唯一标识，一个页面中的id属性值不能重复。可以配合CSS和JS使用，也可以在其他元素中使用</td>
+      <td>元素唯一标识，一个页面中的<code>id</code>属性值不能重复。可以配合CSS和JS使用，也可以在其他元素中使用</td>
     </tr>
     <tr>
       <td>class</td>
@@ -3165,9 +3611,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>一般来说，在<code>html</code>元素中设置<code>lang</code>属性设置语言即可，很少会在其他元素中使用<code>lang</code>属性，除非想要使用其他语言显示某个元素。</p>
 <p>虽然这些属性是全局属性，但是在一些特殊元素上使用是没有意义的，不建议使用，也没有必要使用，比如<code>html</code>元素，以及<code>head</code>元素及其内部元素，等一些其他特殊元素。</p>
-<p>完整的全局属性可以参考文档：<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">MDN全局属性</a></p>
+<p>完整的全局属性可以参考文档：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">MDN全局属性</a></p>
 <h2 id="9-元数据"><a href="#9-元数据" class="headerlink" title="9 元数据"></a>9 元数据</h2><h3 id="9-1-基本结构"><a href="#9-1-基本结构" class="headerlink" title="9.1 基本结构"></a>9.1 基本结构</h3><p>元数据就是描述数据的数据，对于HTML而言，元数据就是描述HTML页面的数据。</p>
-<p>元数据的具体使用方式是在<code>head</code>元素中使用<code>meta</code>元素：</p>
+<p>常用的元素：</p>
 <table>
   <thead>
     <tr>
@@ -3179,7 +3625,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>meta</td>
-      <td>表示元数据</td>
+      <td>表示元数据，用在<code>head</code>元素</td>
       <td>单标签</td>
     </tr>
   </tbody>
@@ -3192,12 +3638,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;refresh&quot;</span> <span class="attr">content</span>=<span class="string">&quot;10;url=https://momashanhe.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>刷新说明：</p>
-<ol>
+<ul>
 <li>数字表示秒数，非负整数有效。</li>
 <li>url表示地址，省略或地址无效会刷新当前页面。</li>
-</ol>
+</ul>
 <p>针对IE浏览器的兼容性配置：</p>
-<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;x-ua-compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=Edge&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>针对移动端的兼容性配置：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -3264,7 +3710,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>配置网页版权信息：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;copyright&quot;</span> <span class="attr">content</span>=<span class="string">&quot;2020-2050©版权所有&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>完整的网页元数据可以参考文档：<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta">MDN元数据</a></p>
+<p>完整的网页元数据可以参考文档：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/meta">MDN元数据</a></p>
 
   </div>
   
@@ -3295,7 +3741,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年4月8日</div>
+                <div class="license-meta-text">2024年5月11日</div>
               </div>
               
               
@@ -3514,6 +3960,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           <div class='name'>
             
             HTML4进阶
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20240414/221920/" href="/posts/20240414/221920/"
+          
+          
+          active-action="action-posts20240414221920"
+          >
+          <div class='name'>
+            
+            HTML5新特性
           </div>
           
         </a></li>
@@ -4018,7 +4476,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240314/163125/","name":"HTML4进阶"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"HTML4进阶","description":"摘要：本文主要介绍了HTML常见的元素及其特点。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240314/163125/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240314/163125/","wordCount":24,"datePublished":"2024-03-14T08:31:25.000Z","dateModified":"2024-04-08T00:44:17.671Z","articleSection":"大前端","keywords":"HTML,CSS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240314/163125/","name":"HTML4进阶"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"HTML4进阶","description":"摘要：本文主要介绍了HTML常见的元素及其特点。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240314/163125/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240314/163125/","wordCount":24,"datePublished":"2024-03-14T08:31:25.000Z","dateModified":"2024-05-11T07:28:00.495Z","articleSection":"大前端","keywords":"HTML,CSS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
