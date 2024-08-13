@@ -6,7 +6,7 @@
   <link href="https://momashanhe.com/atom.xml" rel="self"/>
   
   <link href="https://momashanhe.com/"/>
-  <updated>2024-08-02T07:20:03.756Z</updated>
+  <updated>2024-08-13T04:19:09.379Z</updated>
   <id>https://momashanhe.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://momashanhe.com/posts/20240802/145526/"/>
     <id>https://momashanhe.com/posts/20240802/145526/</id>
     <published>2024-08-02T06:55:26.000Z</published>
-    <updated>2024-08-02T07:20:03.756Z</updated>
+    <updated>2024-08-13T04:19:09.379Z</updated>
     
     <content type="html"><![CDATA[<p>摘要：本文主要学习了如何使用Babel解决ES5之后的版本的兼容问题。</p><span id="more"></span><h2 id="1-说明"><a href="#1-说明" class="headerlink" title="1 说明"></a>1 说明</h2><p>Babel是一个工具链，主要用于将采用ES5以后的语法编写的代码转换为ES5语法，以便能够运行在当前和旧版本的浏览器或其他环境中。</p><p>官网地址：<a href="https://www.babeljs.cn/">https://www.babeljs.cn/</a></p><h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><p>进行初始化：</p><figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init --yes</span><br></pre></td></tr></table></figure><p>安装相关的开发依赖：</p><figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i babel-cli babel-preset-env browserify -D</span><br></pre></td></tr></table></figure><p>说明：</p><ul><li>babel-cli：命令行工具</li><li>babel-preset-env：预设包，进行转换</li><li>browserify：打包工具，比webpack更简单</li></ul><p>进行转换：</p><figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx babel 原路径 -d 新路径 --presets=babel-preset-env</span><br></pre></td></tr></table></figure><p>说明：</p><ul><li>局部安装需要使用<code>npx</code>命令，全局安装可以直接使用<code>babel</code>命令。</li><li>在未设置配置文件的情况下，需要使用<code>--presets</code>指定配置。</li></ul><p>进行打包：</p><figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm browserify 转换后的新文件 -o 打包后的新文件</span><br></pre></td></tr></table></figure><p>网页中只要引用最后打包后的新文件即可，在修改原JS文件后，需要重新执行打包的命令。</p>]]></content>
     
@@ -130,11 +130,11 @@
   </entry>
   
   <entry>
-    <title>CSS3新特性</title>
+    <title>移动端</title>
     <link href="https://momashanhe.com/posts/20240519/111744/"/>
     <id>https://momashanhe.com/posts/20240519/111744/</id>
     <published>2024-05-19T03:17:44.000Z</published>
-    <updated>2024-05-23T03:34:01.044Z</updated>
+    <updated>2024-08-13T04:27:52.238Z</updated>
     
     <content type="html"><![CDATA[<p>摘要：本文主要介绍了在移动端开发需要注意的一些问题。</p><span id="more"></span><h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1 背景"></a>1 背景</h2><p>一般来说，移动端需要在屏幕远小于电脑端时，支持显示几乎相同分辨率的图像，所以移动端的逻辑像素要比电脑端的逻辑像素小。</p><p>默认情况下，如果未对网页适配移动端，移动端的浏览器会将视口设置为980px，以确保网页可以在移动端正常访问，此时将980px作为物理像素。</p><p>当网页宽度不超过980px时，将980px作为逻辑像素，像素比为980px&#x2F;980px&#x3D;1，网页能正常显示。当网页宽度超过了980px时，将网页宽度作为逻辑像素，像素比为980px&#x2F;网页宽度&lt;1，网页会被缩小。</p><p>为了能让移动端正常显示网页，大部分网站都会专门为移动端设计网页。</p><h2 id="2-完美视口"><a href="#2-完美视口" class="headerlink" title="2 完美视口"></a>2 完美视口</h2><p>为了让网页能在移动端合理显示，避免网页被缩小，需要根据网页的逻辑像素和移动端屏幕的最佳像素比调整视口的物理像素，可以在<code>meta</code>元素设置：</p><figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=200px&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><p>设置最佳视口，可以让浏览器根据网页的逻辑像素，自动计算视口最佳的物理像素，实现完美视口：</p><figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure><p>设置了视口的物理像素后，当网页的逻辑像素超出后，会使用滚动条加载页面，不会缩放页面，保证文字和内容显示正常。</p><h2 id="3-适配不同屏幕"><a href="#3-适配不同屏幕" class="headerlink" title="3 适配不同屏幕"></a>3 适配不同屏幕</h2><p>虽然设置完美视口能够解决缩放的问题，但不同设备的完美视口是不同的，在某个设备上使用200px能够撑满宽度，但是在其他设备上可能就只显示半屏，所以还需要适配不同的屏幕。</p><h3 id="3-1-使用百分比"><a href="#3-1-使用百分比" class="headerlink" title="3.1 使用百分比"></a>3.1 使用百分比</h3><p>使用百分比代替像素值，依据父元素的内容大小使用百分比。</p><p>这种方式可以避免使用像素带来的问题，但是如果父元素设置了边框或者边距，使用起来就比较麻烦。</p><p>只能在某些场景下使用，并不是完全取代像素的解决方案。</p><h3 id="3-2-使用视口百分比"><a href="#3-2-使用视口百分比" class="headerlink" title="3.2 使用视口百分比"></a>3.2 使用视口百分比</h3><p>使用视口的百分比代替像素值，单位是vw和vh，分别是水平方向和垂直方向。</p><p>在使用时，需要按照视口设置的物理像素，将设计图里的逻辑像素转化为视口百分比。</p><p>示例：</p><ul><li>第一步：假设网页宽度为750px，计算1px对应的vw：100÷750≈0.1333vw</li><li>第二步：假设容器宽度为200px，计算对应的vw：200×0.1333&#x3D;26.6666vw</li><li>第三步：使用26.6666vw作为容器宽度，替换200px</li></ul><p>这种方式不依赖父元素，能够按照比例适配不同屏幕，但是在计算的时候比较麻烦。</p><h3 id="3-3-使用字体倍数"><a href="#3-3-使用字体倍数" class="headerlink" title="3.3 使用字体倍数"></a>3.3 使用字体倍数</h3><p>使用字体倍数rem代替像素值，rem对应的是根元素的字体大小，这种方式是使用视口百分比的补充。</p><p>实例：</p><ul><li>第一步：假设网页宽度为750px，计算1px对应的vw：100÷750≈0.1333vw</li><li>第二步：为了防止字体过小被浏览器改为默认的12px，建议设置网页根元素的字体大小为40px，计算对应的vw：40×0.1333&#x3D;5.3333vw</li><li>第三步：使用5.3333vw作为网页根元素的字体大小，替换40px</li><li>第四步：假设容器宽度为200px，使用字体大小将px转为rem：200÷40&#x3D;5rem</li><li>第五步：使用5rem作为容器宽度，替换200px</li></ul><p>这种方式本质上使用的还是视口百分比，但是在计算的时候使用字体大小计算，更简单一些。</p><p>在实际开发中，并不是完全禁止使用px作为单位，如果需要根据屏幕进行缩放，才需要考虑避免使用px带来的问题。</p><h2 id="4-响应式布局"><a href="#4-响应式布局" class="headerlink" title="4 响应式布局"></a>4 响应式布局</h2><h3 id="4-1-匹配媒体查询"><a href="#4-1-匹配媒体查询" class="headerlink" title="4.1 匹配媒体查询"></a>4.1 匹配媒体查询</h3><p>浏览器可以通过媒体查询得到当前访问浏览器的设备类型，使用<code>@media</code>指定对不同媒体的样式处理，在不同设备访问时得到不同样式。</p><p>匹配媒体类型：</p><figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> 媒体类型 &#123;</span><br><span class="line">  <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>媒体查询也遵循样式的覆盖原则，所以需要将媒体查询写在正常样式下面，避免被覆盖失效。</p><p>常用媒体类型：</p><ul><li>all：匹配所有设备。</li><li>screen：匹配屏幕，包括电脑屏幕、平板屏幕、手机屏幕、等等。</li><li>print：匹配打印机，在打印时使用的样式。</li></ul><p>示例：</p><figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> print &#123;</span><br><span class="line">  <span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>完整的媒体类型可以参考文档：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/@media">MDN媒体类型</a></p><h3 id="4-2-匹配媒体特性"><a href="#4-2-匹配媒体特性" class="headerlink" title="4.2 匹配媒体特性"></a>4.2 匹配媒体特性</h3><p>除了通过媒体类型设置不同的样式，也可以通过媒体特征匹配不同的样式。</p><p>匹配媒体特征：</p><figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (属性名: 属性值) &#123;</span><br><span class="line">  <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">10px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>当匹配到指定的特征时，应用指定的样式。</p><p>常用媒体特征：</p><table>  <thead>    <tr>      <th>属性名</th>      <th>作用</th>      <th>取值</th>    </tr>  </thead>  <tbody>    <tr>      <td>width</td>      <td>匹配视口宽度，视口宽度匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>max-width</td>      <td>匹配视口最大宽度，视口宽度小于等于匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>min-width</td>      <td>匹配视口最小宽度，视口宽度大于等于匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>height</td>      <td>匹配视口高度，视口高度匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>max-height</td>      <td>匹配视口最大高度，视口高度小于等于匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>min-height</td>      <td>匹配视口最小高度，视口高度大于等于匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>device-width</td>      <td>匹配设备屏幕的宽度，设备屏幕宽度匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>max-device-width</td>      <td>匹配设备屏幕的最大宽度，设备屏幕宽度小于等于匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>min-device-width</td>      <td>匹配设备屏幕的最小宽度，设备屏幕宽度大于等于匹配时应用样式</td>      <td>长度值</td>    </tr>    <tr>      <td>orientation</td>      <td>检测视口的旋转方向，即屏幕是否横屏</td>      <td>        portrait：视口处于纵向，即高度大于等于宽度<br>        landscape：视口处于横向，即宽度大于高度<br>      </td>    </tr>  </tbody></table><p>示例：</p><figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">width</span>: <span class="number">10px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>常见用于区分不同等级屏幕的阈值：</p><ul><li>小屏幕：宽度在768px以下。</li><li>中屏幕：宽度在769px到992px之间。</li><li>大屏幕：宽度在992px到1200px之间。</li><li>超大屏幕：宽度在1200px以上。</li></ul><h3 id="4-3-匹配复杂条件"><a href="#4-3-匹配复杂条件" class="headerlink" title="4.3 匹配复杂条件"></a>4.3 匹配复杂条件</h3><p>支持复杂匹配，如果需要同时满足，可以使用运算符连接，如果需要满足任意一个，可以使用逗号分隔。</p><p>可以混合使用媒体查询和媒体特征进行匹配。</p><p>支持的运算符：</p><ul><li>and：并且，匹配全部条件。</li><li>or：或者，匹配任意条件，支持使用逗号<code>,</code>分隔。</li><li>not：否定，匹配相反条件。</li><li>only：肯定，用于让IE浏览器忽略设置的条件和样式，避免部分匹配，对现代浏览器无影响。</li></ul><p>示例：</p><figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在使用时也可以通过指定条件使用不同的样式文件。示例：</p><figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen and (max-width:768px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./index-small.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -226,15 +226,21 @@
     <link href="https://momashanhe.com/posts/20240407/114739/"/>
     <id>https://momashanhe.com/posts/20240407/114739/</id>
     <published>2024-04-07T03:47:39.000Z</published>
-    <updated>2024-04-07T03:47:51.044Z</updated>
+    <updated>2024-08-13T04:33:52.549Z</updated>
     
-    <content type="html"><![CDATA[<p>摘要：</p><span id="more"></span><p><a href="https://blog.csdn.net/O3O_O3O_/article/details/121255024">https://blog.csdn.net/O3O_O3O_/article/details/121255024</a></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;摘要：&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>摘要：尚未完成</p><span id="more"></span><p><a href="https://blog.csdn.net/O3O_O3O_/article/details/121255024">https://blog.csdn.net/O3O_O3O_/article/details/121255024</a></p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;摘要：尚未完成&lt;/p&gt;</summary>
     
+    
+    
+    <category term="大前端" scheme="https://momashanhe.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="HTML" scheme="https://momashanhe.com/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://momashanhe.com/tags/CSS/"/>
     
   </entry>
   
@@ -243,15 +249,21 @@
     <link href="https://momashanhe.com/posts/20240407/104745/"/>
     <id>https://momashanhe.com/posts/20240407/104745/</id>
     <published>2024-04-07T02:47:45.000Z</published>
-    <updated>2024-04-07T02:47:45.459Z</updated>
+    <updated>2024-08-13T04:33:54.644Z</updated>
     
-    <content type="html"><![CDATA[<p>摘要：</p><span id="more"></span>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;摘要：&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>摘要：尚未完成</p><span id="more"></span>]]></content>
     
     
+    <summary type="html">&lt;p&gt;摘要：尚未完成&lt;/p&gt;</summary>
     
+    
+    
+    <category term="大前端" scheme="https://momashanhe.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="HTML" scheme="https://momashanhe.com/tags/HTML/"/>
+    
+    <category term="CSS" scheme="https://momashanhe.com/tags/CSS/"/>
     
   </entry>
   
