@@ -49,19 +49,19 @@
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>JS高级 - 墨码山河</title>
+  <title>高级 - 墨码山河</title>
   <meta name="keywords" content="JS,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要总结了JS中容易混淆的知识点。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文总结了JS中易混淆的概念，并学习了JS的线程、事件、存储以及防抖和节流。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS高级">
+<meta property="og:title" content="高级">
 <meta property="og:url" content="https://momashanhe.com/posts/20240708/113151/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要总结了JS中容易混淆的知识点。">
+<meta property="og:description" content="摘要：本文总结了JS中易混淆的概念，并学习了JS的线程、事件、存储以及防抖和节流。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-07-08T03:31:51.000Z">
-<meta property="article:modified_time" content="2024-07-18T07:59:11.916Z">
+<meta property="article:modified_time" content="2025-02-24T02:23:54.957Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1732583168816),
+    lastupdate: new Date(1741501329340),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2444,7 +2444,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        JS高级
+        高级
       </h1>
       <div class='new-meta-box'>
         
@@ -2464,13 +2464,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>3.6k 字</p>
+      <p>4.3k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>14 分钟</p>
+      <p>16 分钟</p>
     </a>
   </div>
 
@@ -2525,7 +2525,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要总结了JS中容易混淆的知识点。</p>
+    <p>摘要：本文总结了JS中易混淆的概念，并学习了JS的线程、事件、存储以及防抖和节流。</p>
 <span id="more"></span>
 
 <h2 id="1-数据类型的判断"><a href="#1-数据类型的判断" class="headerlink" title="1 数据类型的判断"></a>1 数据类型的判断</h2><h3 id="1-1-typeof"><a href="#1-1-typeof" class="headerlink" title="1.1 typeof"></a>1.1 typeof</h3><p>使用<code>typeof</code>关键字，得到字符串类型的返回结果：</p>
@@ -2656,7 +2656,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>组合继承，同时使用原型链和构造函数：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义父类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Parent</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">parent</span> = <span class="string">&#x27;parent property&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 定义子类</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Child</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="property">child</span> = <span class="string">&#x27;child property&#x27;</span>;</span><br><span class="line">  <span class="comment">// 调用父类的构造方法，将父类的属性设置到子类的对象上</span></span><br><span class="line">  <span class="title class_">Parent</span>.<span class="title function_">call</span>(<span class="variable language_">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 将父类的对象赋值给子类的显示调用的原型，这样子类的对象就可以通过隐式调用的原型访问父类定义的属性和方法</span></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span> = <span class="keyword">new</span> <span class="title class_">Parent</span>()</span><br><span class="line"><span class="comment">// 子类显示调用的原型指向了父类的对象，其constructor属性也指向了父类的构造方法，所以还需要改为子类的构造方法</span></span><br><span class="line"><span class="title class_">Child</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">constructor</span> = <span class="title class_">Child</span></span><br><span class="line"><span class="comment">// 创建子类的实例</span></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> <span class="title class_">Child</span>()</span><br><span class="line"><span class="comment">// 通过子类调用父类的方法</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child.<span class="property">parent</span>);<span class="comment">// parent property</span></span><br><span class="line"><span class="comment">// 通过子类调用自身的方法</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(child.<span class="property">child</span>);<span class="comment">// child property</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="8-线程机制"><a href="#8-线程机制" class="headerlink" title="8 线程机制"></a>8 线程机制</h2><p>进程：</p>
+<h2 id="8-线程"><a href="#8-线程" class="headerlink" title="8 线程"></a>8 线程</h2><p>进程：</p>
 <ul>
 <li>进程是程序的一次执行，是程序在计算机中运行的实体。</li>
 <li>进程是系统进行资源分配的最小单位，每个进程都有各自独立的内存空间，各个进程互不干扰。</li>
@@ -2673,7 +2673,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>线程池可以复用线程，减少线程创建和销毁的次数，减少了性能浪费，提高程序的运行效率。</li>
 <li>线程池可以控制线程的最大并发数，避免过高的并发量导致系统卡死。</li>
 </ul>
-<h2 id="9-事件机制"><a href="#9-事件机制" class="headerlink" title="9 事件机制"></a>9 事件机制</h2><p>定时器的调用问题：</p>
+<h2 id="9-事件"><a href="#9-事件" class="headerlink" title="9 事件"></a>9 事件</h2><p>定时器的调用问题：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="title class_">Date</span>.<span class="title function_">now</span>();</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;1秒后打印 &#x27;</span> + name);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>() - time);</span><br><span class="line">&#125;, <span class="number">1000</span>, <span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params">name</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;2秒后打印 &#x27;</span> + name);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>() - time);</span><br><span class="line">&#125;, <span class="number">2000</span>, <span class="string">&#x27;test&#x27;</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">2000000000</span>; i++) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>第一个定时函数不是在1秒后执行的，第二个定时函数不是在2秒后执行的，并且两个定时函数是同时执行的。</p>
@@ -2695,7 +2695,36 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>当事件发生时，管理模块会将回调函数及其数据添加到回调列队中</li>
 <li>只有当初始化代码执行完后，才会遍历读取回调队列中的回调函数执行</li>
 </ul>
+<h2 id="10-存储"><a href="#10-存储" class="headerlink" title="10 存储"></a>10 存储</h2><p>WebStorage是一种新的浏览器存储机制，旨在克服传统Cookie存储方式的一些限制。</p>
+<p>WebStorage包括LocalStorage和SessionStorage。</p>
+<p>通用的API：</p>
+<ul>
+<li>setItem(key, value)：保存数据，如果键名已存在，则更新其对应的值。</li>
+<li>getItem(key)：根据键名读取数据。</li>
+<li>removeItem(key)：根据键名删除数据。</li>
+<li>clear()：删除所有数据。</li>
+<li>key(index)：获取某个索引位置的键名。</li>
+</ul>
+<h3 id="10-1-LocalStorage"><a href="#10-1-LocalStorage" class="headerlink" title="10.1 LocalStorage"></a>10.1 LocalStorage</h3><p>即本地存储，数据是持久化的，即使关闭浏览器窗口或浏览器后，数据也不会消失，除非主动删除。</p>
+<p>存储数据大小通常为5MB，并且只能存储字符串类型的数据，复杂类型的需要转为JSON字符串存储。</p>
+<p>适用于需要长期存储的数据，例如缓存静态资源、前端数据库存储介质等。</p>
+<h3 id="10-2-SessionStorage"><a href="#10-2-SessionStorage" class="headerlink" title="10.2 SessionStorage"></a>10.2 SessionStorage</h3><p>即会话存储，数据是非持久化的，仅在本次会话期间（URL不变）有效，关闭浏览器窗口后数据会被销毁。</p>
+<p>存储数据大小通常为5MB，并且只能存储字符串类型的数据，复杂类型的需要转为JSON字符串存储。</p>
+<p>适用于存储会话级别的信息，例如用户在表单中输入的内容，以便在页面刷新后能够恢复。</p>
+<h2 id="11-防抖和节流"><a href="#11-防抖和节流" class="headerlink" title="11 防抖和节流"></a>11 防抖和节流</h2><h3 id="11-1-防抖"><a href="#11-1-防抖" class="headerlink" title="11.1 防抖"></a>11.1 防抖</h3><p>通常事件触发之后，会立即执行相对应的函数，而防抖就是，事件触发之后，过一段时间才会触发相应的函数。如果事件不断的触发，执行函数会无限制的延后。</p>
+<p>防抖可以确保函数在指定时间内最多执行一次，可以减少不必要的函数调用，提高性能。</p>
+<p>防抖的基本思想：在事件触发时，设置一个定时器，在指定的延迟时间后执行函数。如果在这段时间内再次触发事件，则取消之前的定时器，并重新设置一个新的定时器。</p>
+<p>防抖的应用场景：</p>
+<ul>
+<li>在输入内容时触发的检查，或者在输入内容时触发的显示建议。</li>
+<li>在调整窗口时触发的resize事件。</li>
+<li>在滚动窗口时触发的加载更多内容。</li>
+<li>在点击按钮时触发的请求。</li>
+</ul>
+<p>防抖的简单实现：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">func, wait</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> timeout;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> <span class="title function_">executedFunction</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="title function_">later</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timeout);</span><br><span class="line">      <span class="title function_">func</span>(...args);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">clearTimeout</span>(timeout);</span><br><span class="line">    timeout = <span class="built_in">setTimeout</span>(later, wait);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="11-2-节流"><a href="#11-2-节流" class="headerlink" title="11.2 节流"></a>11.2 节流</h3>
   </div>
   
   
@@ -2710,7 +2739,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">JS高级</div>
+            <div class="license-title">高级</div>
             <div class="license-link"><a href="https://momashanhe.com/posts/20240708/113151/">https://momashanhe.com/posts/20240708/113151/</a>
             </div>
             <div class="license-meta">
@@ -2725,7 +2754,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年7月18日</div>
+                <div class="license-meta-text">2025年2月24日</div>
               </div>
               
               
@@ -2798,14 +2827,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
         <a class='prev' href='/posts/20240712/154239/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>JS多线程</p>
-          <p class='content'>摘要：本文主要学习了如何使用Web Work实现JS多线程的功能。</p>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>多线程</p>
+          <p class='content'>摘要：本文学习了如何使用Web Work实现多线程的功能。</p>
         </a>
       
       
         <a class='next' href='/posts/20240627/155926/'>
-          <p class='title'>JS入门<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要介绍了JS中常用的概念，以及基本语法。</p>
+          <p class='title'>入门<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>摘要：本文介绍了JS中常用的概念、基础语法、对象以及两种对象模型。</p>
         </a>
       
     </div>
@@ -2931,7 +2960,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            JS入门
+            入门
           </div>
           
         </a></li>
@@ -2943,7 +2972,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            JS高级
+            高级
           </div>
           
         </a></li>
@@ -2955,7 +2984,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            JS多线程
+            多线程
           </div>
           
         </a></li>
@@ -2967,7 +2996,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            ES学习
+            学习ES
           </div>
           
         </a></li>
@@ -3005,7 +3034,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD"><span class="toc-text">1 数据类型的判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-typeof"><span class="toc-text">1.1 typeof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-instanceof"><span class="toc-text">1.2 instanceof</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0"><span class="toc-text">2 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">2.1 创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">2.2 调用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-text">2.3 回调函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">3 this关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">4 执行上下文和执行上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-text">4.1 执行上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">4.2 执行上下文栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">5 作用域和作用域链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">5.1 作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">5.2 作用域链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%97%AD%E5%8C%85"><span class="toc-text">6 闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AF%B9%E8%B1%A1"><span class="toc-text">7 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%88%9B%E5%BB%BA"><span class="toc-text">7.1 创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E7%BB%A7%E6%89%BF"><span class="toc-text">7.2 继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BA%BF%E7%A8%8B%E6%9C%BA%E5%88%B6"><span class="toc-text">8 线程机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%BA%8B%E4%BB%B6%E6%9C%BA%E5%88%B6"><span class="toc-text">9 事件机制</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%88%A4%E6%96%AD"><span class="toc-text">1 数据类型的判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-typeof"><span class="toc-text">1.1 typeof</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-instanceof"><span class="toc-text">1.2 instanceof</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0"><span class="toc-text">2 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA%E6%96%B9%E5%BC%8F"><span class="toc-text">2.1 创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E8%B0%83%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">2.2 调用方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-text">2.3 回调函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-this%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">3 this关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">4 执行上下文和执行上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-text">4.1 执行上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E6%A0%88"><span class="toc-text">4.2 执行上下文栈</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">5 作用域和作用域链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">5.1 作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">5.2 作用域链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%97%AD%E5%8C%85"><span class="toc-text">6 闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%AF%B9%E8%B1%A1"><span class="toc-text">7 对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E5%88%9B%E5%BB%BA"><span class="toc-text">7.1 创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E7%BB%A7%E6%89%BF"><span class="toc-text">7.2 继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BA%BF%E7%A8%8B"><span class="toc-text">8 线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E4%BA%8B%E4%BB%B6"><span class="toc-text">9 事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%AD%98%E5%82%A8"><span class="toc-text">10 存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-LocalStorage"><span class="toc-text">10.1 LocalStorage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-SessionStorage"><span class="toc-text">10.2 SessionStorage</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="toc-text">11 防抖和节流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-1-%E9%98%B2%E6%8A%96"><span class="toc-text">11.1 防抖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-2-%E8%8A%82%E6%B5%81"><span class="toc-text">11.2 节流</span></a></li></ol></li></ol>
   </div>
 </section>
 
@@ -3472,7 +3501,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240708/113151/","name":"JS高级"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JS高级","description":"摘要：本文主要总结了JS中容易混淆的知识点。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240708/113151/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240708/113151/","wordCount":22,"datePublished":"2024-07-08T03:31:51.000Z","dateModified":"2024-07-18T07:59:11.916Z","articleSection":"大前端","keywords":"JS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240708/113151/","name":"高级"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"高级","description":"摘要：本文总结了JS中易混淆的概念，并学习了JS的线程、事件、存储以及防抖和节流。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240708/113151/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240708/113151/","wordCount":41,"datePublished":"2024-07-08T03:31:51.000Z","dateModified":"2025-02-24T02:23:54.957Z","articleSection":"大前端","keywords":"JS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
