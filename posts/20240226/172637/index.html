@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-02-26T09:26:37.000Z">
-<meta property="article:modified_time" content="2024-12-07T00:54:44.241Z">
+<meta property="article:modified_time" content="2025-03-21T12:06:57.102Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="GitHub">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741501329340),
+    lastupdate: new Date(1742739217991),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,7 +2465,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>310 字</p>
+      <p>300 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2537,14 +2537,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h2 id="1-创建私有源码仓库"><a href="#1-创建私有源码仓库" class="headerlink" title="1 创建私有源码仓库"></a>1 创建私有源码仓库</h2><p>登录GitHub，创建一个名称为<code>username.source</code>的私有仓库，把<code>username</code>改为GitHub的用户名。</p>
 <h2 id="2-创建说明文档和许可证明"><a href="#2-创建说明文档和许可证明" class="headerlink" title="2 创建说明文档和许可证明"></a>2 创建说明文档和许可证明</h2><p>进入博客目录，创建<code>README.md</code>说明文档，输入对项目的简单介绍，创建<code>LICENSE</code>许可证明，并设置许可类型。</p>
-<h2 id="3-同步源码"><a href="#3-同步源码" class="headerlink" title="3 同步源码"></a>3 同步源码</h2><p>进入博客目录，右键进入bash命令行，执行命令初始化为Git仓库：</p>
-<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>结果如下：<br><img src="/@image/001001/003001-153238.jpg" alt="001-初始化目录"></p>
+<h2 id="3-同步源码"><a href="#3-同步源码" class="headerlink" title="3 同步源码"></a>3 同步源码</h2><p>进入博客目录，右键进入bash命令行，执行<code>git init</code>命令初始化Git仓库。</p>
 <p>因为GitHub新的仓库默认分支已经改成了main，但本地还是master，所以执行命令将本地分支改为main：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br></pre></td></tr></table></figure>
 
-<p>结果如下：<br><img src="/@image/001001/003002-155621.jpg" alt="002-默认分支"></p>
 <p>修改<code>.gitignore</code>配置文件：</p>
 <figure class="highlight txt"><figcaption><span>.gitignore</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br><span class="line">.deploy_git*/</span><br><span class="line">_multiconfig.yml</span><br><span class="line">.github*/</span><br></pre></td></tr></table></figure>
 
@@ -2592,7 +2588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年12月7日</div>
+                <div class="license-meta-text">2025年3月21日</div>
               </div>
               
               
@@ -2776,6 +2772,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
 
 
   
@@ -2869,19 +2880,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
-
   
   
 
@@ -2926,7 +2924,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020-2023 墨码山河 All Rights Reserved</a></p>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
 
         </div>
       
@@ -3363,7 +3361,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240226/172637/","name":"将博客源码上传到GitHub"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"将博客源码上传到GitHub","description":"摘要：本文介绍了如何将博客源码上传到GitHub。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240226/172637/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240226/172637/","wordCount":25,"datePublished":"2024-02-26T09:26:37.000Z","dateModified":"2024-12-07T00:54:44.241Z","articleSection":"建站技术","keywords":"Hexo,GitHub","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240226/172637/","name":"将博客源码上传到GitHub"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"将博客源码上传到GitHub","description":"摘要：本文介绍了如何将博客源码上传到GitHub。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240226/172637/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240226/172637/","wordCount":25,"datePublished":"2024-02-26T09:26:37.000Z","dateModified":"2025-03-21T12:06:57.102Z","articleSection":"建站技术","keywords":"Hexo,GitHub","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-03-03T07:21:02.000Z">
-<meta property="article:modified_time" content="2024-12-07T00:56:51.567Z">
+<meta property="article:modified_time" content="2025-03-21T12:22:47.600Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="Vercel">
@@ -2023,7 +2023,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741501329340),
+    lastupdate: new Date(1742739217991),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2467,7 +2467,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>909 字</p>
+      <p>901 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2542,30 +2542,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>MongoDB中文官网：<a target="_blank" rel="noopener" href="https://www.mongodb.com/zh-cn/">https://www.mongodb.com/zh-cn/</a></p>
 <p>如果有云服务器，可以在服务器上使用MongoDB本地数据库，如果没有云服务器，可以使用MongoDB Atlas云数据库。</p>
 <h3 id="2-2-注册账号并创建集群"><a href="#2-2-注册账号并创建集群" class="headerlink" title="2.2 注册账号并创建集群"></a>2.2 注册账号并创建集群</h3><p>注册MongoDB账号，然后在邮箱中验证邮件完成注册。</p>
-<p>在<code>Overview</code>界面中可以设置组织名和项目名，然后创建一个集群：<br><img src="/@image/001002/004001-141923.jpg" alt="001-创建集群"></p>
+<p>在<code>Overview</code>界面中可以设置组织名和项目名，然后创建一个集群：<br><img src="/@image/001002/004-20240308141923.jpg" alt="20240308141923-创建集群"></p>
 <p>在区域选择界面，选择免费的，提供商Provider选择<code>AWS</code>亚马逊即可，区域Region选择<code>N. Virginia (us-east-1)</code>弗吉尼亚州，也可以选择其他的。</p>
 <p>继续设置Name集群名称，默认使用<code>Cluster0</code>作为集群名称，可以自定义，一旦设定不可修改。</p>
 <p>继续设置Tag标签，这是可选的。</p>
 <p>点击页面下方的<code>Create</code>创建免费集群。</p>
 <h3 id="2-3-创建用户"><a href="#2-3-创建用户" class="headerlink" title="2.3 创建用户"></a>2.3 创建用户</h3><p>进入<code>Database Access</code>界面，创建用户。</p>
-<p>选择<code>Password</code>作为认证方式，输入用户和密码，这个用户是用来登录云数据库的，因此密码尽量设置的难一些：<br><img src="/@image/001002/004002-142832.jpg" alt="002-创建用户"></p>
-<p>继续设置用户权限，点击<code>Add Built In Role</code>并选择<code>Atlas Admin</code>选项：<br><img src="/@image/001002/004003-143613.jpg" alt="003-设置用户角色"></p>
+<p>选择<code>Password</code>作为认证方式，输入用户和密码，这个用户是用来登录云数据库的，因此密码尽量设置的难一些：<br><img src="/@image/001002/004-20240308142832.jpg" alt="20240308142832-创建用户"></p>
+<p>继续设置用户权限，点击<code>Add Built In Role</code>并选择<code>Atlas Admin</code>选项：<br><img src="/@image/001002/004-20240308143613.jpg" alt="20240308143613-设置用户角色"></p>
 <p>点击页面下方的<code>Add User</code>创建用户。</p>
 <h3 id="2-4-设置IP地址"><a href="#2-4-设置IP地址" class="headerlink" title="2.4 设置IP地址"></a>2.4 设置IP地址</h3><p>进入<code>Network Access</code>界面，添加能访问云数据库的IP地址。</p>
-<p>点击<code>Allow Access from Anywhere</code>或者在<code>Access List Entry</code>输入<code>0.0.0.0/0</code>表示允许所有IP地址的连接，点击<code>Confirm</code>保存设置：<br><img src="/@image/001002/004004-143955.jpg" alt="004-添加IP地址"></p>
-<h3 id="2-5-查看如何连接"><a href="#2-5-查看如何连接" class="headerlink" title="2.5 查看如何连接"></a>2.5 查看如何连接</h3><p>进入<code>Database</code>界面，点击集群后面的<code>Connect</code>建立连接，连接方式选择<code>Drivers</code>使用驱动连接：<br><img src="/@image/001002/004005-144127.jpg" alt="005-创建连接"></p>
-<p>使用Driver默认的<code>Node.js</code>作为驱动，使用Version默认的<code>5.5 or later</code>作为版本：<br><img src="/@image/001002/004006-144638.jpg" alt="006-配置连接"></p>
+<p>点击<code>Allow Access from Anywhere</code>或者在<code>Access List Entry</code>输入<code>0.0.0.0/0</code>表示允许所有IP地址的连接，点击<code>Confirm</code>保存设置：<br><img src="/@image/001002/004-20240308143955.jpg" alt="20240308143955-添加IP地址"></p>
+<h3 id="2-5-查看如何连接"><a href="#2-5-查看如何连接" class="headerlink" title="2.5 查看如何连接"></a>2.5 查看如何连接</h3><p>进入<code>Database</code>界面，点击集群后面的<code>Connect</code>建立连接，连接方式选择<code>Drivers</code>使用驱动连接：<br><img src="/@image/001002/004-20240308144127.jpg" alt="20240308144127-创建连接"></p>
+<p>使用Driver默认的<code>Node.js</code>作为驱动，使用Version默认的<code>5.5 or later</code>作为版本：<br><img src="/@image/001002/004-20240308144638.jpg" alt="20240308144638-配置连接"></p>
 <p>复制下方<code>mongodb+srv</code>开头的字符串，并将<code>&lt;password&gt;</code>修改为创建用户时设置的密码，将这个数据库连接字符串复制并保存，后面需要用到。</p>
 <p>点击页面下方的<code>Close</code>关闭退出即可。</p>
 <h2 id="3-使用Vercel"><a href="#3-使用Vercel" class="headerlink" title="3 使用Vercel"></a>3 使用Vercel</h2><h3 id="3-1-创建项目"><a href="#3-1-创建项目" class="headerlink" title="3.1 创建项目"></a>3.1 创建项目</h3><p>创建账户并登录到Vercel，在Twikoo提供的文档里找到快速创建Vercel项目的链接。</p>
 <p>快速链接：<a target="_blank" rel="noopener" href="https://vercel.com/import/project?template=https://github.com/twikoojs/twikoo/tree/main/src/server/vercel-min">部署Twikoo到Vercel</a></p>
 <p>输入GitHub项目名称后会自动在GitHub上创建项目，然后会在Vercel上自动部署，首次部署后会提示需要设置<code>MONGODB_URI</code>环境变量。</p>
 <h3 id="3-2-配置项目"><a href="#3-2-配置项目" class="headerlink" title="3.2 配置项目"></a>3.2 配置项目</h3><p>进入刚刚创建的项目界面，切换到<code>Settings</code>标签。</p>
-<p>在左侧导航栏点击<code>Environment Variables</code>设置，在Key中输入<code>MONGODB_URI</code>，在Value中输入前面设置MongoDB保存的数据库连接字符串，点击<code>Save</code>保存：<br><img src="/@image/001002/004007-145352.jpg" alt="007-设置环境变量"></p>
-<p>在左侧导航栏点击<code>Environment Variables</code>设置，将<code>Vercel Authentication</code>设置为<code>Disable</code>，点击<code>Save</code>保存，这是关闭对项目的登录保护，支持任何人访问项目：<br><img src="/@image/001002/004008-150308.jpg" alt="008-关闭登录保护"></p>
-<p>切换到<code>Deployments</code>标签，点击任意一项后面的<code>...</code>并在下拉选项中选择<code>Redeploy</code>，点击弹出界面下方的<code>Redeploy</code>重新部署，如果环境配置正确，可以看到提示：<br><img src="/@image/001002/004009-151026.jpg" alt="009-部署成功"></p>
+<p>在左侧导航栏点击<code>Environment Variables</code>设置，在Key中输入<code>MONGODB_URI</code>，在Value中输入前面设置MongoDB保存的数据库连接字符串，点击<code>Save</code>保存：<br><img src="/@image/001002/004-20240308145352.jpg" alt="20240308145352-设置环境变量"></p>
+<p>在左侧导航栏点击<code>Environment Variables</code>设置，将<code>Vercel Authentication</code>设置为<code>Disable</code>，点击<code>Save</code>保存，这是关闭对项目的登录保护，支持任何人访问项目：<br><img src="/@image/001002/004-20240308150308.jpg" alt="20240308150308-关闭登录保护"></p>
+<p>切换到<code>Deployments</code>标签，点击任意一项后面的<code>...</code>并在下拉选项中选择<code>Redeploy</code>，点击弹出界面下方的<code>Redeploy</code>重新部署，如果环境配置正确，可以看到提示：<br><img src="/@image/001002/004-20240308151026.jpg" alt="20240308151026-部署成功"></p>
 <p>在<code>Domains</code>中的<code>https://xxx.vercel.app</code>地址即为环境ID。</p>
-<h2 id="4-前端部署"><a href="#4-前端部署" class="headerlink" title="4 前端部署"></a>4 前端部署</h2><h3 id="4-1-选择评论系统"><a href="#4-1-选择评论系统" class="headerlink" title="4.1 选择评论系统"></a>4.1 选择评论系统</h3><p>在主题的配置文件中选择Twikoo作为评论系统。</p>
+<h2 id="4-前端部署"><a href="#4-前端部署" class="headerlink" title="4 前端部署"></a>4 前端部署</h2><p>在主题的配置文件中选择Twikoo作为评论系统。</p>
 <p>特殊配置参考官方文档即可。</p>
 
   </div>
@@ -2617,7 +2617,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2024年12月7日</div>
+                <div class="license-meta-text">2025年3月21日</div>
               </div>
               
               
@@ -2801,6 +2801,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
 
 
   
@@ -2918,19 +2933,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
-
   
   
 
@@ -2945,7 +2947,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Twikoo%E8%AF%84%E8%AE%BA"><span class="toc-text">1 Twikoo评论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8MongoDB"><span class="toc-text">2 使用MongoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E5%B9%B6%E5%88%9B%E5%BB%BA%E9%9B%86%E7%BE%A4"><span class="toc-text">2.2 注册账号并创建集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-text">2.3 创建用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%AE%BE%E7%BD%AEIP%E5%9C%B0%E5%9D%80"><span class="toc-text">2.4 设置IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%9F%A5%E7%9C%8B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5"><span class="toc-text">2.5 查看如何连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8Vercel"><span class="toc-text">3 使用Vercel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">3.1 创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE"><span class="toc-text">3.2 配置项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-text">4 前端部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%80%89%E6%8B%A9%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="toc-text">4.1 选择评论系统</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Twikoo%E8%AF%84%E8%AE%BA"><span class="toc-text">1 Twikoo评论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8MongoDB"><span class="toc-text">2 使用MongoDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">2.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%B3%A8%E5%86%8C%E8%B4%A6%E5%8F%B7%E5%B9%B6%E5%88%9B%E5%BB%BA%E9%9B%86%E7%BE%A4"><span class="toc-text">2.2 注册账号并创建集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-text">2.3 创建用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E8%AE%BE%E7%BD%AEIP%E5%9C%B0%E5%9D%80"><span class="toc-text">2.4 设置IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%9F%A5%E7%9C%8B%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5"><span class="toc-text">2.5 查看如何连接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8Vercel"><span class="toc-text">3 使用Vercel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">3.1 创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE"><span class="toc-text">3.2 配置项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2"><span class="toc-text">4 前端部署</span></a></li></ol>
   </div>
 </section>
 
@@ -2975,7 +2977,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020-2023 墨码山河 All Rights Reserved</a></p>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
 
         </div>
       
@@ -3412,7 +3414,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/152102/","name":"给博客加装Twikoo评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Twikoo评论","description":"摘要：本文介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/152102/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/152102/","wordCount":51,"datePublished":"2024-03-03T07:21:02.000Z","dateModified":"2024-12-07T00:56:51.567Z","articleSection":"建站技术","keywords":"Hexo,Vercel,MongoDB,Twikoo","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240303/152102/","name":"给博客加装Twikoo评论"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"给博客加装Twikoo评论","description":"摘要：本文介绍了通过使用MongoDB数据库和Vercel服务器将Twikoo评论部署到Hexo博客。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240303/152102/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240303/152102/","wordCount":51,"datePublished":"2024-03-03T07:21:02.000Z","dateModified":"2025-03-21T12:22:47.600Z","articleSection":"建站技术","keywords":"Hexo,Vercel,MongoDB,Twikoo","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

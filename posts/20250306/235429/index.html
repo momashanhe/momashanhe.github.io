@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>文件系统 - 墨码山河</title>
   <meta name="keywords" content="JS,Node,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要学习了Node的文件系统相关的API接口。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文主要学习了Node处理文件和目录的相关接口，包括读取、写入、复制，以及移动和重命名。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件系统">
 <meta property="og:url" content="https://momashanhe.com/posts/20250306/235429/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要学习了Node的文件系统相关的API接口。">
+<meta property="og:description" content="摘要：本文主要学习了Node处理文件和目录的相关接口，包括读取、写入、复制，以及移动和重命名。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-06T15:54:29.000Z">
-<meta property="article:modified_time" content="2025-03-08T11:26:53.676Z">
+<meta property="article:modified_time" content="2025-03-21T06:49:51.871Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="Node">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741501329340),
+    lastupdate: new Date(1742739217991),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,13 +2465,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>68 字</p>
+      <p>2.5k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>1 分钟</p>
+      <p>11 分钟</p>
     </a>
   </div>
 
@@ -2526,16 +2526,256 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要学习了Node的文件系统相关的API接口。</p>
+    <p>摘要：本文主要学习了Node处理文件和目录的相关接口，包括读取、写入、复制，以及移动和重命名。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
               <div class='content'>
-              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NVM 1.1.12</p>
+              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NPM 9.3.1<br>NVM 1.1.12</p>
               </div>
             </details>
 
-<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h2><p>文件系统即FS（File System），是Node中的内置模块，可以对计算机中的磁盘进行操作。</p>
+<h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1 概念"></a>1 概念</h2><p>文件系统是计算机用于管理数据的一种系统，负责在存储设备上进行文件的存储、检索和更新操作。</p>
+<h2 id="2-使用"><a href="#2-使用" class="headerlink" title="2 使用"></a>2 使用</h2><p>Node中内置了<code>fs</code>模块，可以对计算机中的数据进行操作。</p>
+<h3 id="2-1-文件写入"><a href="#2-1-文件写入" class="headerlink" title="2.1 文件写入"></a>2.1 文件写入</h3><h4 id="2-1-1-异步写入"><a href="#2-1-1-异步写入" class="headerlink" title="2.1.1 异步写入"></a>2.1.1 异步写入</h4><p>主线程不会等待异步线程，执行效率高。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">writeFile</span>(file, data[, options], callback)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>file：文件名。</li>
+<li>data：待写入的数据。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="string">&#x27;异步写入数据&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 写入失败传入错误对象，写入成功传入null</span></span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步写入失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步写入成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>可以在选项中使用flag标志：</p>
+<table>
+  <thead>
+    <tr>
+      <th>标志</th>
+      <th>说明</th>
+      <th>是否创建文件</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>r</td>
+      <td>此标志打开文件进行读取</td>
+      <td>否</td>
+    </tr>
+    <tr>
+      <td>r+</td>
+      <td>此标志打开文件进行读写</td>
+      <td>否</td>
+    </tr>
+    <tr>
+      <td>w+</td>
+      <td>此标志打开文件进行读写，并将流定位在文件开头</td>
+      <td>是</td>
+    </tr>
+    <tr>
+      <td>a+</td>
+      <td>此标志打开文件进行读写，并将流定位在文件末尾</td>
+      <td>是</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="string">&#x27;异步写入数据&#x27;</span>, &#123; <span class="attr">flag</span>:<span class="string">&#x27;a+&#x27;</span> &#125;, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 写入失败传入错误对象，写入成功传入null</span></span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步写入失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步写入成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-同步写入"><a href="#2-1-2-同步写入" class="headerlink" title="2.1.2 同步写入"></a>2.1.2 同步写入</h4><p>主线程等待同步线程，程序执行过程易于理解。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">writeFileSync</span>(file, data[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数与<code>writeFile()</code>方法一致，只是没有callback参数。</p>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="string">&#x27;同步写入数据&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;同步写入成功&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-异步追加写入"><a href="#2-1-3-异步追加写入" class="headerlink" title="2.1.3 异步追加写入"></a>2.1.3 异步追加写入</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">appendFile</span>(path, data[, options], callback)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>data：待写入的数据。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="string">&#x27;异步追加写入数据&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步追加写入失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步追加写入成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-4-同步追加写入"><a href="#2-1-4-同步追加写入" class="headerlink" title="2.1.4 同步追加写入"></a>2.1.4 同步追加写入</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">appendFileSync</span>(path, data[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数：与<code>appendFile()</code>方法一致，只是没有callback参数。</p>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">appendFileSync</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="string">&#x27;同步追加写入数据&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;同步追加写入成功&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-5-流式写入"><a href="#2-1-5-流式写入" class="headerlink" title="2.1.5 流式写入"></a>2.1.5 流式写入</h4><p>程序打开一个文件是需要消耗资源的，流式写入可以减少打开关闭文件的次数，适用于大文件写入或者频繁写入的场景。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">createWriteStream</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<ul>
+<li>Object对象，封装了文件流。</li>
+</ul>
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;./info.txt&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&#x27;456&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">end</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;流式写入成功&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-文件读取"><a href="#2-2-文件读取" class="headerlink" title="2.2 文件读取"></a>2.2 文件读取</h3><h4 id="2-2-1-异步读取"><a href="#2-2-1-异步读取" class="headerlink" title="2.2.1 异步读取"></a>2.2.1 异步读取</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(path[, options], callback)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步读取失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步读取成功&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>());</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-同步读取"><a href="#2-2-2-同步读取" class="headerlink" title="2.2.2 同步读取"></a>2.2.2 同步读取</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFileSync</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<ul>
+<li>Buffer对象，封装了文件内容。</li>
+</ul>
+<p>参数：与<code>readFile()</code>方法一致，只是没有callback参数。</p>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> data = fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./info.txt&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;同步读取成功&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>());</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3-流式读取"><a href="#2-2-3-流式读取" class="headerlink" title="2.2.3 流式读取"></a>2.2.3 流式读取</h4><p>流式读取可以减少打开关闭文件的次数，适用于大文件读取或者频繁读取的场景。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">createReadStream</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<ul>
+<li>Object对象，封装了文件流。</li>
+</ul>
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;./info.txt&#x27;</span>);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">trunk</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(trunk.<span class="title function_">toString</span>());</span><br><span class="line">&#125;);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;流式读取成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-文件复制"><a href="#2-3-文件复制" class="headerlink" title="2.3 文件复制"></a>2.3 文件复制</h3><p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;./img.jpg&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;./img_back.jpg&#x27;</span>);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">trunk</span> =&gt;</span> &#123;</span><br><span class="line">  ws.<span class="title function_">write</span>(trunk);</span><br><span class="line">&#125;);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  ws.<span class="title function_">end</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;流式复制成功&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用<code>pipe()</code>方法进行复制：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;./img.jpg&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;./img_back.jpg&#x27;</span>);</span><br><span class="line">rs.<span class="title function_">pipe</span>(ws);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-4-文件重命名和移动"><a href="#2-4-文件重命名和移动" class="headerlink" title="2.4 文件重命名和移动"></a>2.4 文件重命名和移动</h3><p>文件重命名和移动可以用同一个方法实现，也有异步和同步两种方式，同步方法比异步方法少了callback参数。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">rename</span>(oldPath, newPath, callback)</span><br><span class="line">fs.<span class="title function_">renameSync</span>(oldPath, newPath)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>oldPath：原文件路径。</li>
+<li>newPath：新文件路径。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="string">&#x27;./info_new.txt&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步重命名失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步重命名成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// fs.renameSync(&#x27;./info.txt&#x27;, &#x27;./info_new.txt&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步重命名成功&#x27;);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-文件删除"><a href="#2-5-文件删除" class="headerlink" title="2.5 文件删除"></a>2.5 文件删除</h3><p>文件删除也有异步和同步两种方式，同步方法比异步方法少了callback参数。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">unlink</span>(path, callback)</span><br><span class="line">fs.<span class="title function_">unlinkSync</span>(path)</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">unlink</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步删除失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步删除成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// fs.unlinkSync(&#x27;./info.txt&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步删除成功&#x27;);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>从14.14.0版本开始，还可以使用<code>rm()</code>和<code>rmSync()</code>方法实现。</p>
+<p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">rm</span>(path[, options], callback)</span><br><span class="line">fs.<span class="title function_">rmSync</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">rm</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步删除失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步删除成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// fs.rmSync(&#x27;./info.txt&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步删除成功&#x27;);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6-目录管理"><a href="#2-6-目录管理" class="headerlink" title="2.6 目录管理"></a>2.6 目录管理</h3><h4 id="2-6-1-创建目录"><a href="#2-6-1-创建目录" class="headerlink" title="2.6.1 创建目录"></a>2.6.1 创建目录</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">mkdir</span>(path[, options], callback)</span><br><span class="line">fs.<span class="title function_">mkdirSync</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&#x27;./info&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步创建目录失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步创建目录成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// fs.mkdirSync(&#x27;./info&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步创建目录成功&#x27;);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>支持递归创建目录：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&#x27;./info/1/2/3&#x27;</span>, &#123; <span class="attr">recursive</span>:<span class="literal">true</span> &#125;, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;递归创建目录失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;递归创建目录成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-6-2-读取目录"><a href="#2-6-2-读取目录" class="headerlink" title="2.6.2 读取目录"></a>2.6.2 读取目录</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readdir</span>(path[, options], callback)</span><br><span class="line">fs.<span class="title function_">readdirSync</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">readdir</span>(<span class="string">&#x27;./info&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步读取目录失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步读取目录成功&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// let data = fs.readdirSync(&#x27;./info&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步读取目录成功&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(data);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-6-3-删除目录"><a href="#2-6-3-删除目录" class="headerlink" title="2.6.3 删除目录"></a>2.6.3 删除目录</h4><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">rmdir</span>(path[, options], callback)</span><br><span class="line">fs.<span class="title function_">rmdirSync</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">rmdir</span>(<span class="string">&#x27;./info&#x27;</span>, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步删除目录失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步删除目录成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// fs.rmdirSync(&#x27;./info&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步删除目录成功&#x27;);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>支持递归删除目录：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">rmdir</span>(<span class="string">&#x27;./info&#x27;</span>, &#123; <span class="attr">recursive</span>:<span class="literal">true</span> &#125;, <span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;递归删除目录失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;递归删除目录成功&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>由于该方法已经被标记为过期了，建议使用<code>rm()</code>和<code>rmSync()</code>方法实现。</p>
+<h3 id="2-7-查看资源状态"><a href="#2-7-查看资源状态" class="headerlink" title="2.7 查看资源状态"></a>2.7 查看资源状态</h3><p>语法：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">stat</span>(path[, options], callback)</span><br><span class="line">fs.<span class="title function_">statSync</span>(path[, options])</span><br></pre></td></tr></table></figure>
+
+<p>参数：</p>
+<ul>
+<li>path：文件路径。</li>
+<li>options：选项，可选。</li>
+<li>callback：回调方法。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">stat</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步查看资源状态失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步查看资源状态成功&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// let data = fs.statSync(&#x27;./info.txt&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(&#x27;同步查看资源状态成功&#x27;);</span></span><br><span class="line"><span class="comment">// console.log(data);</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>判断资源类型：</p>
+<ul>
+<li>使用<code>isFile()</code>命令判断资源是否文件。</li>
+<li>使用<code>isDirectory()</code>命令判断资源是否目录。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line">fs.<span class="title function_">stat</span>(<span class="string">&#x27;./info.txt&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;异步查看资源状态失败: &#x27;</span> + err);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;异步查看资源状态成功&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;判断资源是否文件: &#x27;</span> + data.<span class="title function_">isFile</span>());</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;判断资源是否目录: &#x27;</span> + data.<span class="title function_">isDirectory</span>());</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主方法执行结束&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2566,7 +2806,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月8日</div>
+                <div class="license-meta-text">2025年3月21日</div>
               </div>
               
               
@@ -2638,10 +2878,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
+        <a class='prev' href='/posts/20250309/205946/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>路径管理</p>
+          <p class='content'>摘要：本文主要学习了如何在编写代码时规范使用路径。</p>
+        </a>
+      
       
         <a class='next' href='/posts/20250306/190456/'>
           <p class='title'>缓冲器<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要学习了Node的缓冲器。</p>
+          <p class='content'>摘要：本文主要学习了Node的缓冲器，包括其特点和使用。</p>
         </a>
       
     </div>
@@ -2745,6 +2990,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
 
 
   
@@ -2844,24 +3104,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250309/205946/" href="/posts/20250309/205946/"
+          
+          
+          active-action="action-posts20250309205946"
+          >
+          <div class='name'>
+            
+            路径管理
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250310/151012/" href="/posts/20250310/151012/"
+          
+          
+          active-action="action-posts20250310151012"
+          >
+          <div class='name'>
+            
+            网络通信
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
 
 
-
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
 
   
   
@@ -2877,7 +3148,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="toc-text">1 概念</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="toc-text">1 概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8"><span class="toc-text">2 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%96%87%E4%BB%B6%E5%86%99%E5%85%A5"><span class="toc-text">2.1 文件写入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E5%BC%82%E6%AD%A5%E5%86%99%E5%85%A5"><span class="toc-text">2.1.1 异步写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%90%8C%E6%AD%A5%E5%86%99%E5%85%A5"><span class="toc-text">2.1.2 同步写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E5%BC%82%E6%AD%A5%E8%BF%BD%E5%8A%A0%E5%86%99%E5%85%A5"><span class="toc-text">2.1.3 异步追加写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-%E5%90%8C%E6%AD%A5%E8%BF%BD%E5%8A%A0%E5%86%99%E5%85%A5"><span class="toc-text">2.1.4 同步追加写入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5-%E6%B5%81%E5%BC%8F%E5%86%99%E5%85%A5"><span class="toc-text">2.1.5 流式写入</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96"><span class="toc-text">2.2 文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E5%BC%82%E6%AD%A5%E8%AF%BB%E5%8F%96"><span class="toc-text">2.2.1 异步读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E5%90%8C%E6%AD%A5%E8%AF%BB%E5%8F%96"><span class="toc-text">2.2.2 同步读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E6%B5%81%E5%BC%8F%E8%AF%BB%E5%8F%96"><span class="toc-text">2.2.3 流式读取</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6"><span class="toc-text">2.3 文件复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%96%87%E4%BB%B6%E9%87%8D%E5%91%BD%E5%90%8D%E5%92%8C%E7%A7%BB%E5%8A%A8"><span class="toc-text">2.4 文件重命名和移动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4"><span class="toc-text">2.5 文件删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86"><span class="toc-text">2.6 目录管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-1-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="toc-text">2.6.1 创建目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-2-%E8%AF%BB%E5%8F%96%E7%9B%AE%E5%BD%95"><span class="toc-text">2.6.2 读取目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-6-3-%E5%88%A0%E9%99%A4%E7%9B%AE%E5%BD%95"><span class="toc-text">2.6.3 删除目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E6%9F%A5%E7%9C%8B%E8%B5%84%E6%BA%90%E7%8A%B6%E6%80%81"><span class="toc-text">2.7 查看资源状态</span></a></li></ol></li></ol>
   </div>
 </section>
 
@@ -2907,7 +3178,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020-2023 墨码山河 All Rights Reserved</a></p>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
 
         </div>
       
@@ -3344,7 +3615,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250306/235429/","name":"文件系统"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"文件系统","description":"摘要：本文主要学习了Node的文件系统相关的API接口。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250306/235429/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250306/235429/","wordCount":28,"datePublished":"2025-03-06T15:54:29.000Z","dateModified":"2025-03-08T11:26:53.676Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250306/235429/","name":"文件系统"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"文件系统","description":"摘要：本文主要学习了Node处理文件和目录的相关接口，包括读取、写入、复制，以及移动和重命名。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250306/235429/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250306/235429/","wordCount":47,"datePublished":"2025-03-06T15:54:29.000Z","dateModified":"2025-03-21T06:49:51.871Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

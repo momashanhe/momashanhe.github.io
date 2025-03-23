@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>管理工具 - 墨码山河</title>
   <meta name="keywords" content="JS,Node,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要学习了Node的管理工具，包括包管理和版本管理，以及源码管理。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文主要学习了Node的管理工具，包括NPM和NVM，以及NRM，还介绍了Yarn管理工具，并比较了NPM和Yarn的区别。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="管理工具">
 <meta property="og:url" content="https://momashanhe.com/posts/20250306/121736/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要学习了Node的管理工具，包括包管理和版本管理，以及源码管理。">
+<meta property="og:description" content="摘要：本文主要学习了Node的管理工具，包括NPM和NVM，以及NRM，还介绍了Yarn管理工具，并比较了NPM和Yarn的区别。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-06T04:17:36.000Z">
-<meta property="article:modified_time" content="2025-03-09T06:05:13.340Z">
+<meta property="article:modified_time" content="2025-03-22T03:21:56.189Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="Node">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741501329340),
+    lastupdate: new Date(1742739217991),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,13 +2465,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>4.7k 字</p>
+      <p>5.1k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>18 分钟</p>
+      <p>19 分钟</p>
     </a>
   </div>
 
@@ -2526,29 +2526,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要学习了Node的管理工具，包括包管理和版本管理，以及源码管理。</p>
+    <p>摘要：本文主要学习了Node的管理工具，包括NPM和NVM，以及NRM，还介绍了Yarn管理工具，并比较了NPM和Yarn的区别。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
               <div class='content'>
-              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NVM 1.1.12</p>
+              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NPM 9.3.1<br>NVM 1.1.12</p>
               </div>
             </details>
 
 <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><h3 id="1-1-NPM（Node-Package-Manager）"><a href="#1-1-NPM（Node-Package-Manager）" class="headerlink" title="1.1 NPM（Node Package Manager）"></a>1.1 NPM（Node Package Manager）</h3><p>NPM是Node的默认包管理工具，用于安装、更新、卸载和管理JS包。它还支持依赖管理、脚本运行等功能，并且是Node安装时自带的一部分。</p>
-<p>包是对模块的封装，包的根目录必须包含<code>package.json</code>文件，包的范围要比模块大一些，在使用第三方的包时，可以将包看做模块。</p>
+<p>包是特殊的模块，将根目录包含<code>package.json</code>文件的模块称为包，并且包通常由多个模块组成。</p>
 <h3 id="1-2-NRM（NPM-Registry-Manager）"><a href="#1-2-NRM（NPM-Registry-Manager）" class="headerlink" title="1.2 NRM（NPM Registry Manager）"></a>1.2 NRM（NPM Registry Manager）</h3><p>NRM是NPM的镜像源管理工具，用于快速切换NPM的镜像源。由于NPM默认的镜像源在国外，访问速度可能较慢，NRM可以帮助开发者切换到国内镜像源，从而提高包的下载速度。</p>
 <h3 id="1-3-NVM（Node-Version-Manager）"><a href="#1-3-NVM（Node-Version-Manager）" class="headerlink" title="1.3 NVM（Node Version Manager）"></a>1.3 NVM（Node Version Manager）</h3><p>NVM是Node版本管理工具，用于在同一台机器上安装、管理和切换多个Node版本。它解决了不同项目对不同Node版本的需求，避免版本冲突。</p>
 <h2 id="2-NPM"><a href="#2-NPM" class="headerlink" title="2 NPM"></a>2 NPM</h2><h3 id="2-1-查看版本和配置信息"><a href="#2-1-查看版本和配置信息" class="headerlink" title="2.1 查看版本和配置信息"></a>2.1 查看版本和配置信息</h3><p>在安装Node时会自动安装NPM工具。</p>
 <p>使用<code>npm -v</code>命令查看NPM的版本：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">npm</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function">9.3.1</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ npm -v</span><br><span class="line">9.3.1</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
 <p>使用<code>npm config list</code>命令查看Node和NPM的版本信息及其他信息。</p>
 <h3 id="2-2-包管理"><a href="#2-2-包管理" class="headerlink" title="2.2 包管理"></a>2.2 包管理</h3><h4 id="2-2-1-初始化包"><a href="#2-2-1-初始化包" class="headerlink" title="2.2.1 初始化包"></a>2.2.1 初始化包</h4><p>创建包对应的目录，使用<code>npm init</code>命令初始化包：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>\<span class="title">codes</span>\<span class="title">work</span>&gt;<span class="title">npm</span> <span class="title">init</span></span></span><br><span class="line"><span class="function">...</span></span><br><span class="line"><span class="function"><span class="title">Press</span> ^<span class="title">C</span> <span class="title">at</span> <span class="title">any</span> <span class="title">time</span> <span class="title">to</span> <span class="title">quit</span>.</span></span><br><span class="line"><span class="function"><span class="title">package</span> <span class="title">name</span>: (<span class="title">work</span>)</span></span><br><span class="line"><span class="function"><span class="title">version</span>: (1.0.0)</span></span><br><span class="line"><span class="function"><span class="title">description</span>:</span></span><br><span class="line"><span class="function"><span class="title">entry</span> <span class="title">point</span>: (<span class="title">index.js</span>)</span></span><br><span class="line"><span class="function"><span class="title">test</span> <span class="title">command</span>:</span></span><br><span class="line"><span class="function"><span class="title">git</span> <span class="title">repository</span>:</span></span><br><span class="line"><span class="function"><span class="title">keywords</span>:</span></span><br><span class="line"><span class="function"><span class="title">author</span>:</span></span><br><span class="line"><span class="function"><span class="title">license</span>: (<span class="title">ISC</span>)</span></span><br><span class="line"><span class="function">...</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ npm init</span><br><span class="line">...</span><br><span class="line">Press ^C at any time to quit.</span><br><span class="line">package name: (momashanhe)</span><br><span class="line">version: (1.0.0)</span><br><span class="line">description:</span><br><span class="line">entry point: (index.js)</span><br><span class="line"><span class="built_in">test</span> <span class="built_in">command</span>:</span><br><span class="line">git repository:</span><br><span class="line">keywords:</span><br><span class="line">author:</span><br><span class="line">license: (ISC)</span><br><span class="line">...</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
 <p>支持交互式的创建<code>package.json</code>文件，该文件是包的配置文件，每个包都必须存在：</p>
-<figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;work&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;momashanhe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>文件内容说明如下：</p>
 <ul>
@@ -2569,12 +2569,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h4 id="2-2-2-搜索包"><a href="#2-2-2-搜索包" class="headerlink" title="2.2.2 搜索包"></a>2.2.2 搜索包</h4><p>搜索包的方式有两种：</p>
 <ul>
-<li>在命令行使用<code>npm s 关键字</code>搜索包含指定关键字的包，其中的<code>s</code>是<code>search</code>的简写。</li>
+<li>在命令行使用<code>npm search 关键字</code>搜索包含指定关键字的包。</li>
 <li>在NPM网站搜索：<a target="_blank" rel="noopener" href="https://www.npmjs.com/">https://www.npmjs.com/</a></li>
 </ul>
 <p>也可以使用<code>npm view 包名 versions</code>命令搜索包版本。</p>
 <h4 id="2-2-3-下载并安装包"><a href="#2-2-3-下载并安装包" class="headerlink" title="2.2.3 下载并安装包"></a>2.2.3 下载并安装包</h4><p>下载和安装包需要在包目录中执行，需要有<code>package.json</code>文件。</p>
-<p>使用<code>npm i 包名</code>命令下载并安装包，其中的<code>i</code>是<code>install</code>的简写，也可以使用<code>npm add 包名</code>命令。</p>
+<p>使用<code>npm install 包名</code>命令下载并安装包，也可以使用<code>npm add 包名</code>命令。</p>
 <p>支持多个包同时下载和安装，只需要将多个包名用空格分开即可。</p>
 <p>在下载并安装后，会在当前包目录下增加两个资源：</p>
 <ul>
@@ -2583,19 +2583,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <p>依赖指的是当前包安装的其他包，可以认为当前包依赖了其他包，将其他包看做是当前包的依赖包。</p>
 <p>在安装指定包时，安装命令会在<code>node_modules</code>目录先安装指定包的依赖包，然后再安装指定包。</p>
-<p>如果需要指定包的版本，可以使用<code>npm i 包名@版本</code>命令下载并安装指定版本的包。</p>
+<p>如果需要指定包的版本，可以使用<code>npm install 包名@版本</code>命令下载并安装指定版本的包。</p>
 <p>默认使用国外的镜像源，使用<code>npm get registry</code>命令查看当前使用的镜像源。</p>
 <p>使用<code>npm config set registry https://registry.npmmirror.com/</code>命令设置为淘宝镜像源可以加速下载。</p>
 <p>使用<code>npm config set registry https://registry.npmjs.org/</code>命令设置为默认的官方镜像源。</p>
-<h4 id="2-2-4-使用包"><a href="#2-2-4-使用包" class="headerlink" title="2.2.4 使用包"></a>2.2.4 使用包</h4><p>使用包的方式同导入模块一样，只不过是将模块路径改为包名：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;包名&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-4-使用包"><a href="#2-2-4-使用包" class="headerlink" title="2.2.4 使用包"></a>2.2.4 使用包</h4><p>使用包的方式同使用模块一样：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;模块&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>导入后就能使用包暴露的资源了。</p>
-<p>在导入模块时，遵循以下流程：<br><img src="/@image/104001/005001-102018.jpg" alt="001-流程"></p>
+<p>导入模块后就能使用暴露的资源了，在导入时遵循以下流程：<br><img src="/@image/104001/005-20250308102018.jpg" alt="20250308102018-流程"></p>
 <h4 id="2-2-5-根据环境安装"><a href="#2-2-5-根据环境安装" class="headerlink" title="2.2.5 根据环境安装"></a>2.2.5 根据环境安装</h4><p>在安装包时可以将包安装到不同的环境：</p>
 <ul>
-<li>生产环境：默认安装的环境就是生产环境，支持在生产环境和开发环境使用，可以使用<code>npm i 包名 -S</code>命令指定，其中的<code>-S</code>是<code>--save</code>的简写。</li>
-<li>开发环境：开发环境的包仅支持在开发环境使用，在生产环境会被忽略，需要使用<code>npm i 包名 -D</code>命令指定，其中的<code>-D</code>是<code>--save-dev</code>的简写。</li>
+<li>生产环境：默认安装的环境就是生产环境，支持在生产环境和开发环境使用，可以使用<code>npm install 包名 -S</code>命令指定，其中的<code>-S</code>是<code>--save</code>的简写。</li>
+<li>开发环境：开发环境的包仅支持在开发环境使用，在生产环境会被忽略，需要使用<code>npm install 包名 -D</code>命令指定，其中的<code>-D</code>是<code>--save-dev</code>的简写。</li>
 </ul>
 <p>在<code>package.json</code>文件中存储的位置也不一样：</p>
 <ul>
@@ -2605,7 +2604,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="2-2-6-根据作用范围安装"><a href="#2-2-6-根据作用范围安装" class="headerlink" title="2.2.6 根据作用范围安装"></a>2.2.6 根据作用范围安装</h4><p>在安装包时可以选择安装位置：</p>
 <ul>
 <li>本地安装：将包安装到当前包的<code>node_modules</code>目录，默认安装到本地。</li>
-<li>全局安装：将包安装到全局的<code>node_modules</code>目录，使用<code>npm i 包名 -g</code>命令安装到全局，其中的<code>-g</code>是<code>--global</code>的简写。</li>
+<li>全局安装：将包安装到全局的<code>node_modules</code>目录，使用<code>npm install 包名 -g</code>命令安装到全局，其中的<code>-g</code>是<code>--global</code>的简写。</li>
 </ul>
 <p>查看安装列表：</p>
 <ul>
@@ -2620,10 +2619,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>全局安装的包可以在任何目录执行，本地安装的包只能在本地目录中执行。</p>
 <p>全局安装的包版本由NPM管理，不会在项目的<code>package.json</code>文件中体现。这意味着全局安装的包可能在不同项目之间共享，但也可能因为版本冲突而导致问题。</p>
 <h4 id="2-2-7-删除包"><a href="#2-2-7-删除包" class="headerlink" title="2.2.7 删除包"></a>2.2.7 删除包</h4><p>删除包需要在包目录中执行，需要有<code>package.json</code>文件。</p>
-<p>使用<code>npm uni 包名</code>命令删除依赖包，其中的<code>uni</code>是<code>uninstall</code>的简写，也可以使用<code>npm remove 包名</code>命令。</p>
-<p>使用<code>npm uni 包名 -g</code>命令删除全局依赖包。</p>
+<p>使用<code>npm uninstall 包名</code>命令删除依赖包，也可以使用<code>npm remove 包名</code>命令。</p>
+<p>使用<code>npm uninstall 包名 -g</code>命令删除全局依赖包。</p>
 <h4 id="2-2-8-重新安装包"><a href="#2-2-8-重新安装包" class="headerlink" title="2.2.8 重新安装包"></a>2.2.8 重新安装包</h4><p>在上传提交项目代码到Git仓库时，不会提交<code>node_modules</code>目录，因为该目录占用的磁盘空间比较大，并且该目录可以重新生成。</p>
-<p>当下载项目后，就需要执行<code>npm i</code>命令重新安装依赖包，重新生成<code>node_modules</code>目录。</p>
+<p>当下载项目后，就需要执行<code>npm install</code>命令重新安装依赖包，重新生成<code>node_modules</code>目录。</p>
 <h3 id="2-3-命令别名"><a href="#2-3-命令别名" class="headerlink" title="2.3 命令别名"></a>2.3 命令别名</h3><p>通过配置命令别名可以更简单的执行命令，只需要配置<code>package.json</code>文件中的<code>scripts</code>属性：</p>
 <figure class="highlight json"><figcaption><span>package.json</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;test&quot;</span><span class="punctuation">:</span> <span class="string">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;start&quot;</span><span class="punctuation">:</span> <span class="string">&quot;node index.js&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 
@@ -2696,44 +2695,61 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>即使删除了包的某个版本，在以后发布版本的时候，也不能发布该版本，必须发布新版本。</li>
 <li>如果删除包的所有版本，则要等到24小时后才能重新发布该包。</li>
 </ul>
-<h2 id="3-NRM"><a href="#3-NRM" class="headerlink" title="3 NRM"></a>3 NRM</h2><h3 id="3-1-下载安装"><a href="#3-1-下载安装" class="headerlink" title="3.1 下载安装"></a>3.1 下载安装</h3><p>除了在NPM使用命令修改配置切换镜像源，还可以使用NRM切换，更推荐使用这种方式。</p>
+<h2 id="3-NPX"><a href="#3-NPX" class="headerlink" title="3 NPX"></a>3 NPX</h2><h3 id="3-1-作用"><a href="#3-1-作用" class="headerlink" title="3.1 作用"></a>3.1 作用</h3><p>对于只在某个项目中使用的包，如果也将其安装到全局目录，势必会造成全局目录的混乱和冗余。</p>
+<p>如果将包安装到本地目录，在使用包里的命令时就不能在命令行直接执行，需要指明所在的目录才能执行。</p>
+<p>使用NPX的主要目的就是为了解决在将包安装到本地目录后，调用包里的命令时不能在命令行直接执行的问题。</p>
+<p>在安装了NPX以后，对于安装在本地目录的包，也可以在命令行通过NPX直接执行包里的命令。</p>
+<p>另外，如果既没有在全局安装，也没用在本地安装，在通过NPX使用的时候，会自动从远程下载，并将包进行临时安装，在使用后会自动删除临时安装的包。</p>
+<h3 id="3-2-下载安装"><a href="#3-2-下载安装" class="headerlink" title="3.2 下载安装"></a>3.2 下载安装</h3><p>从NPM的5.2.0版本开始，安装NPM的时候会同时将NPX自动安装，不需要手动安装。</p>
+<p>也可以使用<code>npm install npx -g</code>命令手动安装。</p>
+<h3 id="3-3-原理"><a href="#3-3-原理" class="headerlink" title="3.3 原理"></a>3.3 原理</h3><p>使用NPX执行命令的原理：</p>
+<ol>
+<li>查找本地目录中是否有指定的命令，如果有就直接使用，如果没有就继续查找。</li>
+<li>查找全局目录中是否有指定的命令，如果有就直接使用，如果没有就继续查找。</li>
+<li>查找远程仓库中是否有指定的命令，如果有就临时安装，如果没有就返回错误。</li>
+</ol>
+<h3 id="3-4-使用"><a href="#3-4-使用" class="headerlink" title="3.4 使用"></a>3.4 使用</h3><p>使用<code>npx 命令</code>执行指定命令。</p>
+<p>使用<code>npx --no-install 命令</code>执行指定命令，如果本地目录没有就返回作错误，不从远程仓库安装。</p>
+<p>使用<code>npx --ignore-existing 命令</code>执行指定命令，强制从远程仓库安装，忽略本地目录中安装的包。</p>
+<p>使用<code>npx -p 命令1 -p 命令2</code>安装多个命令。</p>
+<h2 id="4-NRM"><a href="#4-NRM" class="headerlink" title="4 NRM"></a>4 NRM</h2><h3 id="4-1-下载安装"><a href="#4-1-下载安装" class="headerlink" title="4.1 下载安装"></a>4.1 下载安装</h3><p>除了在NPM使用命令修改配置切换镜像源，还可以使用NRM切换，更推荐使用这种方式。</p>
 <p>NRM依赖NPM，可以管理NPM使用的镜像源。</p>
-<p>使用<code>npm i nrm -g</code>命令将NRM安装到全局目录。</p>
-<h3 id="3-2-常用命令"><a href="#3-2-常用命令" class="headerlink" title="3.2 常用命令"></a>3.2 常用命令</h3><h4 id="3-2-1-查看镜像源"><a href="#3-2-1-查看镜像源" class="headerlink" title="3.2.1 查看镜像源"></a>3.2.1 查看镜像源</h4><p>安装后可以使用<code>nrm ls</code>命令查看镜像源：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nrm</span> <span class="title">ls</span></span></span><br><span class="line"><span class="function">  <span class="title">npm</span> ---------- <span class="title">https</span>://<span class="title">registry.npmjs.org</span>/</span></span><br><span class="line"><span class="function">  <span class="title">yarn</span> --------- <span class="title">https</span>://<span class="title">registry.yarnpkg.com</span>/</span></span><br><span class="line"><span class="function">  <span class="title">tencent</span> ------ <span class="title">https</span>://<span class="title">mirrors.tencent.com</span>/<span class="title">npm</span>/</span></span><br><span class="line"><span class="function">  <span class="title">cnpm</span> --------- <span class="title">https</span>://<span class="title">r.cnpmjs.org</span>/</span></span><br><span class="line"><span class="function">  <span class="title">taobao</span> ------- <span class="title">https</span>://<span class="title">registry.npmmirror.com</span>/</span></span><br><span class="line"><span class="function">  <span class="title">npmMirror</span> ---- <span class="title">https</span>://<span class="title">skimdb.npmjs.com</span>/<span class="title">registry</span>/</span></span><br><span class="line"><span class="function">  <span class="title">huawei</span> ------- <span class="title">https</span>://<span class="title">repo.huaweicloud.com</span>/<span class="title">repository</span>/<span class="title">npm</span>/</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用<code>npm install nrm -g</code>命令将NRM安装到全局目录。</p>
+<h3 id="4-2-常用命令"><a href="#4-2-常用命令" class="headerlink" title="4.2 常用命令"></a>4.2 常用命令</h3><h4 id="4-2-1-查看镜像源"><a href="#4-2-1-查看镜像源" class="headerlink" title="4.2.1 查看镜像源"></a>4.2.1 查看镜像源</h4><p>安装后可以使用<code>nrm ls</code>命令查看镜像源：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nrm <span class="built_in">ls</span></span><br><span class="line">  npm ---------- https://registry.npmjs.org/</span><br><span class="line">  yarn --------- https://registry.yarnpkg.com/</span><br><span class="line">  tencent ------ https://mirrors.tencent.com/npm/</span><br><span class="line">  cnpm --------- https://r.cnpmjs.org/</span><br><span class="line">  taobao ------- https://registry.npmmirror.com/</span><br><span class="line">  npmMirror ---- https://skimdb.npmjs.com/registry/</span><br><span class="line">  huawei ------- https://repo.huaweicloud.com/repository/npm/</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h4 id="3-2-2-切换镜像源"><a href="#3-2-2-切换镜像源" class="headerlink" title="3.2.2 切换镜像源"></a>3.2.2 切换镜像源</h4><p>使用<code>nrm use taobao</code>命令切换到淘宝的镜像源，淘宝是国内的镜像源，可以提高下载包的速度：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nrm</span> <span class="title">use</span> <span class="title">taobao</span></span></span><br><span class="line"><span class="function"> <span class="title">SUCCESS</span>  <span class="title">The</span> <span class="title">registry</span> <span class="title">has</span> <span class="title">been</span> <span class="title">changed</span> <span class="title">to</span> &#x27;<span class="title">taobao</span>&#x27;.</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-2-2-切换镜像源"><a href="#4-2-2-切换镜像源" class="headerlink" title="4.2.2 切换镜像源"></a>4.2.2 切换镜像源</h4><p>使用<code>nrm use taobao</code>命令切换到淘宝的镜像源，淘宝是国内的镜像源，可以提高下载包的速度：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nrm use taobao</span><br><span class="line"> SUCCESS  The registry has been changed to <span class="string">&#x27;taobao&#x27;</span>.</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
 <p>再次查看镜像源列表，正在使用的镜像源会在前面添加<code>*</code>符号进行提示：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nrm</span> <span class="title">ls</span></span></span><br><span class="line"><span class="function">  <span class="title">npm</span> ---------- <span class="title">https</span>://<span class="title">registry.npmjs.org</span>/</span></span><br><span class="line"><span class="function">  <span class="title">yarn</span> --------- <span class="title">https</span>://<span class="title">registry.yarnpkg.com</span>/</span></span><br><span class="line"><span class="function">  <span class="title">tencent</span> ------ <span class="title">https</span>://<span class="title">mirrors.tencent.com</span>/<span class="title">npm</span>/</span></span><br><span class="line"><span class="function">  <span class="title">cnpm</span> --------- <span class="title">https</span>://<span class="title">r.cnpmjs.org</span>/</span></span><br><span class="line"><span class="function">* <span class="title">taobao</span> ------- <span class="title">https</span>://<span class="title">registry.npmmirror.com</span>/</span></span><br><span class="line"><span class="function">  <span class="title">npmMirror</span> ---- <span class="title">https</span>://<span class="title">skimdb.npmjs.com</span>/<span class="title">registry</span>/</span></span><br><span class="line"><span class="function">  <span class="title">huawei</span> ------- <span class="title">https</span>://<span class="title">repo.huaweicloud.com</span>/<span class="title">repository</span>/<span class="title">npm</span>/</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nrm <span class="built_in">ls</span></span><br><span class="line">  npm ---------- https://registry.npmjs.org/</span><br><span class="line">  yarn --------- https://registry.yarnpkg.com/</span><br><span class="line">  tencent ------ https://mirrors.tencent.com/npm/</span><br><span class="line">  cnpm --------- https://r.cnpmjs.org/</span><br><span class="line">* taobao ------- https://registry.npmmirror.com/</span><br><span class="line">  npmMirror ---- https://skimdb.npmjs.com/registry/</span><br><span class="line">  huawei ------- https://repo.huaweicloud.com/repository/npm/</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
 <p>需要注意的是，淘宝的镜像源是只读的，只能下载和安装包，不能上传包。如果想要上传包，还需要切换回原来的镜像源进行上传。</p>
-<h2 id="4-NVM"><a href="#4-NVM" class="headerlink" title="4 NVM"></a>4 NVM</h2><h3 id="4-1-下载安装"><a href="#4-1-下载安装" class="headerlink" title="4.1 下载安装"></a>4.1 下载安装</h3><p>NVM主要用于管理Node和NPM版本的工具，用来切换不同版本的Node和NPM以便适配不同的软件开发工具。</p>
+<h2 id="5-NVM"><a href="#5-NVM" class="headerlink" title="5 NVM"></a>5 NVM</h2><h3 id="5-1-下载安装"><a href="#5-1-下载安装" class="headerlink" title="5.1 下载安装"></a>5.1 下载安装</h3><p>NVM主要用于管理Node和NPM版本的工具，用来切换不同版本的Node和NPM以便适配不同的软件开发工具。</p>
 <p>NVM仅支持Linux系统和Mac系统，如果想在Windows系统使用，需要使用和NVM类似的<code>nvm-windows</code>软件。</p>
 <p>GitHub下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm-windows</a></p>
 <p>下载<code>nvm-setup.exe</code>并安装即可。</p>
 <p>重新打开命令行，输入命令查询版本：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nvm</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function">1.1.12</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nvm -v</span><br><span class="line">1.1.12</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
 <p>在安装NVM后，会将Node的原安装目录迁移到NVM的安装目录，并在Node的原安装目录的父级目录创建一个指向新安装目录的链接。</p>
 <p>使用<code>nvm root</code>命令可以查看NVM下载安装Node的目录，在该目录下有Node的原安装目录。</p>
-<h3 id="4-2-常用命令"><a href="#4-2-常用命令" class="headerlink" title="4.2 常用命令"></a>4.2 常用命令</h3><h4 id="4-2-1-查看已安装"><a href="#4-2-1-查看已安装" class="headerlink" title="4.2.1 查看已安装"></a>4.2.1 查看已安装</h4><p>使用<code>nvm list</code>命令查看已安装的Node列表：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nvm</span> <span class="title">list</span></span></span><br><span class="line"><span class="function">  * 18.14.0 (<span class="title">Currently</span> <span class="title">using</span> 64-<span class="title">bit</span> <span class="title">executable</span>)</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-2-常用命令"><a href="#5-2-常用命令" class="headerlink" title="5.2 常用命令"></a>5.2 常用命令</h3><h4 id="5-2-1-查看已安装"><a href="#5-2-1-查看已安装" class="headerlink" title="5.2.1 查看已安装"></a>5.2.1 查看已安装</h4><p>使用<code>nvm list</code>命令查看已安装的Node列表：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nvm list</span><br><span class="line">  * 18.14.0 (Currently using 64-bit executable)</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-2-2-查看可安装"><a href="#4-2-2-查看可安装" class="headerlink" title="4.2.2 查看可安装"></a>4.2.2 查看可安装</h4><p>使用<code>nvm list available</code>命令查看可以安装的Node列表：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nvm</span> <span class="title">list</span> <span class="title">available</span></span></span><br><span class="line"><span class="function">|   <span class="title">CURRENT</span>    |     <span class="title">LTS</span>      |  <span class="title">OLD</span> <span class="title">STABLE</span>  | <span class="title">OLD</span> <span class="title">UNSTABLE</span> |</span></span><br><span class="line"><span class="function">|--------------|--------------|--------------|--------------|</span></span><br><span class="line"><span class="function">|    23.6.0    |   22.11.0    |   0.12.14    |   0.11.12    |</span></span><br><span class="line"><span class="function">|    23.5.0    |   20.18.3    |   0.12.13    |   0.11.11    |</span></span><br><span class="line"><span class="function">|    23.4.0    |   20.18.2    |   0.12.12    |   0.11.10    |</span></span><br><span class="line"><span class="function">|    23.3.0    |   20.18.1    |   0.12.11    |    0.11.9    |</span></span><br><span class="line"><span class="function">|    23.2.0    |   20.18.0    |   0.12.10    |    0.11.8    |</span></span><br><span class="line"><span class="function">|    23.1.0    |   20.17.0    |    0.12.9    |    0.11.7    |</span></span><br><span class="line"><span class="function">|    23.0.0    |   20.16.0    |    0.12.8    |    0.11.6    |</span></span><br><span class="line"><span class="function">...</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-2-查看可安装"><a href="#5-2-2-查看可安装" class="headerlink" title="5.2.2 查看可安装"></a>5.2.2 查看可安装</h4><p>使用<code>nvm list available</code>命令查看可以安装的Node列表：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nvm list available</span><br><span class="line">|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |</span><br><span class="line">|--------------|--------------|--------------|--------------|</span><br><span class="line">|    23.6.0    |   22.11.0    |   0.12.14    |   0.11.12    |</span><br><span class="line">|    23.5.0    |   20.18.3    |   0.12.13    |   0.11.11    |</span><br><span class="line">|    23.4.0    |   20.18.2    |   0.12.12    |   0.11.10    |</span><br><span class="line">|    23.3.0    |   20.18.1    |   0.12.11    |    0.11.9    |</span><br><span class="line">|    23.2.0    |   20.18.0    |   0.12.10    |    0.11.8    |</span><br><span class="line">|    23.1.0    |   20.17.0    |    0.12.9    |    0.11.7    |</span><br><span class="line">|    23.0.0    |   20.16.0    |    0.12.8    |    0.11.6    |</span><br><span class="line">...</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-2-3-安装Node"><a href="#4-2-3-安装Node" class="headerlink" title="4.2.3 安装Node"></a>4.2.3 安装Node</h4><p>使用<code>nvm install 版本</code>命令安装指定版本的Node：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nvm</span> <span class="title">install</span> 23.1.0</span></span><br><span class="line"><span class="function"><span class="title">Downloading</span> <span class="title">node.js</span> <span class="title">version</span> 23.1.0 (64-<span class="title">bit</span>)...</span></span><br><span class="line"><span class="function"><span class="title">Extracting</span> <span class="title">node</span> <span class="title">and</span> <span class="title">npm</span>...</span></span><br><span class="line"><span class="function"><span class="title">Complete</span></span></span><br><span class="line"><span class="function"><span class="title">npm</span> <span class="title">v10</span>.9.0 <span class="title">installed</span> <span class="title">successfully</span>.</span></span><br><span class="line"><span class="function">...</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-3-安装Node"><a href="#5-2-3-安装Node" class="headerlink" title="5.2.3 安装Node"></a>5.2.3 安装Node</h4><p>使用<code>nvm install 版本</code>命令安装指定版本的Node：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nvm install 23.1.0</span><br><span class="line">Downloading node.js version 23.1.0 (64-bit)...</span><br><span class="line">Extracting node and npm...</span><br><span class="line">Complete</span><br><span class="line">npm v10.9.0 installed successfully.</span><br><span class="line">...</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-2-4-切换Node"><a href="#4-2-4-切换Node" class="headerlink" title="4.2.4 切换Node"></a>4.2.4 切换Node</h4><p>使用<code>nvm use 版本</code>命令切换指定版本的Node：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nvm</span> <span class="title">use</span> 23.1.0</span></span><br><span class="line"><span class="function"><span class="title">Now</span> <span class="title">using</span> <span class="title">node</span> <span class="title">v23</span>.1.0 (64-<span class="title">bit</span>)</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-4-切换Node"><a href="#5-2-4-切换Node" class="headerlink" title="5.2.4 切换Node"></a>5.2.4 切换Node</h4><p>使用<code>nvm use 版本</code>命令切换指定版本的Node：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nvm use 23.1.0</span><br><span class="line">Now using node v23.1.0 (64-bit)</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-2-5-卸载Node"><a href="#4-2-5-卸载Node" class="headerlink" title="4.2.5 卸载Node"></a>4.2.5 卸载Node</h4><p>使用<code>nvm uninstall 版本</code>命令卸载指定版本的Node：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">nvm</span> <span class="title">uninstall</span> 23.1.0</span></span><br><span class="line"><span class="function"><span class="title">Uninstalling</span> <span class="title">node</span> <span class="title">v23</span>.1.0... <span class="title">done</span></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-5-卸载Node"><a href="#5-2-5-卸载Node" class="headerlink" title="5.2.5 卸载Node"></a>5.2.5 卸载Node</h4><p>使用<code>nvm uninstall 版本</code>命令卸载指定版本的Node：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ nvm uninstall 23.1.0</span><br><span class="line">Uninstalling node v23.1.0... <span class="keyword">done</span></span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-Yarn"><a href="#5-Yarn" class="headerlink" title="5 Yarn"></a>5 Yarn</h2><h3 id="5-1-下载安装"><a href="#5-1-下载安装" class="headerlink" title="5.1 下载安装"></a>5.1 下载安装</h3><p>Yarn是由Facebook、Google、Exponent和Tilde联合推出了一个新的JS包管理工具，目的是为了弥补NPM的一些缺陷。</p>
+<h2 id="6-Yarn"><a href="#6-Yarn" class="headerlink" title="6 Yarn"></a>6 Yarn</h2><h3 id="6-1-下载安装"><a href="#6-1-下载安装" class="headerlink" title="6.1 下载安装"></a>6.1 下载安装</h3><p>Yarn是由Facebook、Google、Exponent和Tilde联合推出了一个新的JS包管理工具，目的是为了弥补NPM的一些缺陷。</p>
 <p>官网地址：<a target="_blank" rel="noopener" href="https://yarnpkg.com/">https://yarnpkg.com/</a></p>
 <p>Yarn的优点：</p>
 <ul>
@@ -2742,14 +2758,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>输出简洁：使用NPM打印的输出信息比较冗长，不容易识别报错的信息。使用Yarn打印的输出信息比较简洁，只打印出必要的信息，更加易读。</li>
 </ul>
 <p>使用NPM命令安装Yarn到全局：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">npm</span> <span class="title">i</span> <span class="title">yarn</span> -<span class="title">g</span></span></span><br><span class="line"><span class="function"><span class="title">added</span> 1 <span class="title">package</span> <span class="title">in</span> 949<span class="title">ms</span></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ npm install yarn -g</span><br><span class="line">added 1 package <span class="keyword">in</span> 949ms</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-2-常用命令"><a href="#5-2-常用命令" class="headerlink" title="5.2 常用命令"></a>5.2 常用命令</h3><h4 id="5-2-1-查看版本和配置信息"><a href="#5-2-1-查看版本和配置信息" class="headerlink" title="5.2.1 查看版本和配置信息"></a>5.2.1 查看版本和配置信息</h4><p>使用<code>yarn -v</code>命令查看NPM的版本：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;<span class="title">yarn</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function">1.22.22</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Work</span>\<span class="title">WebSite</span>\<span class="title">momashanhe</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-2-常用命令"><a href="#6-2-常用命令" class="headerlink" title="6.2 常用命令"></a>6.2 常用命令</h3><h4 id="6-2-1-查看版本和配置信息"><a href="#6-2-1-查看版本和配置信息" class="headerlink" title="6.2.1 查看版本和配置信息"></a>6.2.1 查看版本和配置信息</h4><p>使用<code>yarn -v</code>命令查看NPM的版本：</p>
+<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">momashanhe@localhost momashanhe $ yarn -v</span><br><span class="line">1.22.22</span><br><span class="line">momashanhe@localhost momashanhe $</span><br></pre></td></tr></table></figure>
 
 <p>使用<code>yarn config list</code>命令查看配置信息。</p>
-<h4 id="5-2-2-初始化包"><a href="#5-2-2-初始化包" class="headerlink" title="5.2.2 初始化包"></a>5.2.2 初始化包</h4><p>使用<code>yarn init</code>命令或<code>yarn init -y</code>命令初始化包。</p>
-<h4 id="5-2-3-下载并安装包"><a href="#5-2-3-下载并安装包" class="headerlink" title="5.2.3 下载并安装包"></a>5.2.3 下载并安装包</h4><p>使用<code>yarn add 包名</code>命令下载并安装包，默认安装到生产环境。</p>
+<h4 id="6-2-2-初始化包"><a href="#6-2-2-初始化包" class="headerlink" title="6.2.2 初始化包"></a>6.2.2 初始化包</h4><p>使用<code>yarn init</code>命令或<code>yarn init -y</code>命令初始化包。</p>
+<h4 id="6-2-3-下载并安装包"><a href="#6-2-3-下载并安装包" class="headerlink" title="6.2.3 下载并安装包"></a>6.2.3 下载并安装包</h4><p>使用<code>yarn add 包名</code>命令下载并安装包，默认安装到生产环境。</p>
 <p>使用<code>yarn add 包名 -S</code>命令下载并安装包，安装到生产环境，支持开发环境和生产环境使用。</p>
 <p>使用<code>yarn add 包名 -D</code>命令下载并安装包，安装到开发环境，仅支持开发环境使用。</p>
 <p>使用<code>yarn global add 包名</code>命令安装到全局。</p>
@@ -2761,14 +2777,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>默认使用国外的镜像源，使用<code>yarn config get registry</code>命令查看当前使用的镜像源。</p>
 <p>使用<code>yarn config set registry https://registry.npmmirror.com/</code>命令设置为淘宝镜像源可以加速下载。</p>
 <p>使用<code>yarn config set registry https://registry.yarnpkg.com</code>命令设置为默认的官方镜像源。</p>
-<h4 id="5-2-4-删除包"><a href="#5-2-4-删除包" class="headerlink" title="5.2.4 删除包"></a>5.2.4 删除包</h4><p>使用<code>yarn remove 包名</code>命令删除依赖包。</p>
+<h4 id="6-2-4-删除包"><a href="#6-2-4-删除包" class="headerlink" title="6.2.4 删除包"></a>6.2.4 删除包</h4><p>使用<code>yarn remove 包名</code>命令删除依赖包。</p>
 <p>使用<code>yarn global remove 包名</code>命令删除全局依赖包。</p>
-<h4 id="5-2-5-重新安装包"><a href="#5-2-5-重新安装包" class="headerlink" title="5.2.5 重新安装包"></a>5.2.5 重新安装包</h4><p>使用<code>yarn</code>命令重新安装依赖包，重新生成<code>node_modules</code>目录。</p>
-<h4 id="5-2-6-命令别名"><a href="#5-2-6-命令别名" class="headerlink" title="5.2.6 命令别名"></a>5.2.6 命令别名</h4><p>在<code>package.json</code>文件中配置好命令别名后，使用<code>yarn 别名</code>命令执行，不需要使用<code>run</code>参数。</p>
-<h4 id="5-2-7-发布服务包"><a href="#5-2-7-发布服务包" class="headerlink" title="5.2.7 发布服务包"></a>5.2.7 发布服务包</h4><p>使用<code>yarn login</code>命令登录到NPM服务器，填写用户名和密码，以及邮箱收到的验证码。</p>
+<h4 id="6-2-5-重新安装包"><a href="#6-2-5-重新安装包" class="headerlink" title="6.2.5 重新安装包"></a>6.2.5 重新安装包</h4><p>使用<code>yarn</code>命令重新安装依赖包，重新生成<code>node_modules</code>目录。</p>
+<h4 id="6-2-6-命令别名"><a href="#6-2-6-命令别名" class="headerlink" title="6.2.6 命令别名"></a>6.2.6 命令别名</h4><p>在<code>package.json</code>文件中配置好命令别名后，使用<code>yarn 别名</code>命令执行，不需要使用<code>run</code>参数。</p>
+<h4 id="6-2-7-发布服务包"><a href="#6-2-7-发布服务包" class="headerlink" title="6.2.7 发布服务包"></a>6.2.7 发布服务包</h4><p>使用<code>yarn login</code>命令登录到NPM服务器，填写用户名和密码，以及邮箱收到的验证码。</p>
 <p>使用<code>yarn publish</code>命令将包发布到NPM服务器。</p>
-<h4 id="5-2-8-更新服务包"><a href="#5-2-8-更新服务包" class="headerlink" title="5.2.8 更新服务包"></a>5.2.8 更新服务包</h4><p>使用<code>yarn publish</code>命令将包发布到NPM服务器。</p>
-<h4 id="5-2-9-删除服务包"><a href="#5-2-9-删除服务包" class="headerlink" title="5.2.9 删除服务包"></a>5.2.9 删除服务包</h4><p>Yarn不支持删除服务包，建议使用NPM删除服务包。</p>
+<h4 id="6-2-8-更新服务包"><a href="#6-2-8-更新服务包" class="headerlink" title="6.2.8 更新服务包"></a>6.2.8 更新服务包</h4><p>使用<code>yarn publish</code>命令将包发布到NPM服务器。</p>
+<h4 id="6-2-9-删除服务包"><a href="#6-2-9-删除服务包" class="headerlink" title="6.2.9 删除服务包"></a>6.2.9 删除服务包</h4><p>Yarn不支持删除服务包，建议使用NPM删除服务包。</p>
 
   </div>
   
@@ -2799,7 +2815,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月9日</div>
+                <div class="license-meta-text">2025年3月22日</div>
               </div>
               
               
@@ -2873,13 +2889,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/20250306/190456/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>缓冲器</p>
-          <p class='content'>摘要：本文主要学习了Node的缓冲器。</p>
+          <p class='content'>摘要：本文主要学习了Node的缓冲器，包括其特点和使用。</p>
         </a>
       
       
         <a class='next' href='/posts/20250306/100822/'>
           <p class='title'>模块化<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要学习了Node的模块化。</p>
+          <p class='content'>摘要：本文主要学习了Node的模块化，比较了CommonJS模块和ES模块的区别，以及缓存和分类。</p>
         </a>
       
     </div>
@@ -2983,6 +2999,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
 
 
   
@@ -3082,24 +3113,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250309/205946/" href="/posts/20250309/205946/"
+          
+          
+          active-action="action-posts20250309205946"
+          >
+          <div class='name'>
+            
+            路径管理
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250310/151012/" href="/posts/20250310/151012/"
+          
+          
+          active-action="action-posts20250310151012"
+          >
+          <div class='name'>
+            
+            网络通信
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
 
 
-
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
 
   
   
@@ -3115,7 +3157,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-NPM%EF%BC%88Node-Package-Manager%EF%BC%89"><span class="toc-text">1.1 NPM（Node Package Manager）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-NRM%EF%BC%88NPM-Registry-Manager%EF%BC%89"><span class="toc-text">1.2 NRM（NPM Registry Manager）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-NVM%EF%BC%88Node-Version-Manager%EF%BC%89"><span class="toc-text">1.3 NVM（Node Version Manager）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-NPM"><span class="toc-text">2 NPM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%92%8C%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">2.1 查看版本和配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-text">2.2 包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85"><span class="toc-text">2.2.1 初始化包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E6%90%9C%E7%B4%A2%E5%8C%85"><span class="toc-text">2.2.2 搜索包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">2.2.3 下载并安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-%E4%BD%BF%E7%94%A8%E5%8C%85"><span class="toc-text">2.2.4 使用包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-5-%E6%A0%B9%E6%8D%AE%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">2.2.5 根据环境安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-6-%E6%A0%B9%E6%8D%AE%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4%E5%AE%89%E8%A3%85"><span class="toc-text">2.2.6 根据作用范围安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-%E5%88%A0%E9%99%A4%E5%8C%85"><span class="toc-text">2.2.7 删除包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-8-%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">2.2.8 重新安装包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D"><span class="toc-text">2.3 命令别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-text">2.4 版本管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%8F%91%E5%B8%83%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">2.5 发布服务包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">2.6 更新服务包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E5%88%A0%E9%99%A4%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">2.7 删除服务包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-NRM"><span class="toc-text">3 NRM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">3.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">3.2 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">3.2.1 查看镜像源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">3.2.2 切换镜像源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-NVM"><span class="toc-text">4 NVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">4.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4.2 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85"><span class="toc-text">4.2.1 查看已安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-%E6%9F%A5%E7%9C%8B%E5%8F%AF%E5%AE%89%E8%A3%85"><span class="toc-text">4.2.2 查看可安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-3-%E5%AE%89%E8%A3%85Node"><span class="toc-text">4.2.3 安装Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-4-%E5%88%87%E6%8D%A2Node"><span class="toc-text">4.2.4 切换Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-5-%E5%8D%B8%E8%BD%BDNode"><span class="toc-text">4.2.5 卸载Node</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Yarn"><span class="toc-text">5 Yarn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">5.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">5.2 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%92%8C%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">5.2.1 查看版本和配置信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85"><span class="toc-text">5.2.2 初始化包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">5.2.3 下载并安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-4-%E5%88%A0%E9%99%A4%E5%8C%85"><span class="toc-text">5.2.4 删除包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-5-%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">5.2.5 重新安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-6-%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D"><span class="toc-text">5.2.6 命令别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-7-%E5%8F%91%E5%B8%83%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">5.2.7 发布服务包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-8-%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">5.2.8 更新服务包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-9-%E5%88%A0%E9%99%A4%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">5.2.9 删除服务包</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-NPM%EF%BC%88Node-Package-Manager%EF%BC%89"><span class="toc-text">1.1 NPM（Node Package Manager）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-NRM%EF%BC%88NPM-Registry-Manager%EF%BC%89"><span class="toc-text">1.2 NRM（NPM Registry Manager）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-NVM%EF%BC%88Node-Version-Manager%EF%BC%89"><span class="toc-text">1.3 NVM（Node Version Manager）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-NPM"><span class="toc-text">2 NPM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%92%8C%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">2.1 查看版本和配置信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8C%85%E7%AE%A1%E7%90%86"><span class="toc-text">2.2 包管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85"><span class="toc-text">2.2.1 初始化包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E6%90%9C%E7%B4%A2%E5%8C%85"><span class="toc-text">2.2.2 搜索包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">2.2.3 下载并安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-%E4%BD%BF%E7%94%A8%E5%8C%85"><span class="toc-text">2.2.4 使用包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-5-%E6%A0%B9%E6%8D%AE%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">2.2.5 根据环境安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-6-%E6%A0%B9%E6%8D%AE%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4%E5%AE%89%E8%A3%85"><span class="toc-text">2.2.6 根据作用范围安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-7-%E5%88%A0%E9%99%A4%E5%8C%85"><span class="toc-text">2.2.7 删除包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-8-%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">2.2.8 重新安装包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D"><span class="toc-text">2.3 命令别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-text">2.4 版本管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%8F%91%E5%B8%83%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">2.5 发布服务包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">2.6 更新服务包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-%E5%88%A0%E9%99%A4%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">2.7 删除服务包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-NPX"><span class="toc-text">3 NPX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E4%BD%9C%E7%94%A8"><span class="toc-text">3.1 作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">3.2 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%8E%9F%E7%90%86"><span class="toc-text">3.3 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%BD%BF%E7%94%A8"><span class="toc-text">3.4 使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-NRM"><span class="toc-text">4 NRM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">4.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">4.2 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">4.2.1 查看镜像源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-%E5%88%87%E6%8D%A2%E9%95%9C%E5%83%8F%E6%BA%90"><span class="toc-text">4.2.2 切换镜像源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-NVM"><span class="toc-text">5 NVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">5.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">5.2 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85"><span class="toc-text">5.2.1 查看已安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E6%9F%A5%E7%9C%8B%E5%8F%AF%E5%AE%89%E8%A3%85"><span class="toc-text">5.2.2 查看可安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-3-%E5%AE%89%E8%A3%85Node"><span class="toc-text">5.2.3 安装Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-4-%E5%88%87%E6%8D%A2Node"><span class="toc-text">5.2.4 切换Node</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-5-%E5%8D%B8%E8%BD%BDNode"><span class="toc-text">5.2.5 卸载Node</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Yarn"><span class="toc-text">6 Yarn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">6.1 下载安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">6.2 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-1-%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%92%8C%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="toc-text">6.2.1 查看版本和配置信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8C%85"><span class="toc-text">6.2.2 初始化包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-3-%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">6.2.3 下载并安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-4-%E5%88%A0%E9%99%A4%E5%8C%85"><span class="toc-text">6.2.4 删除包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-5-%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">6.2.5 重新安装包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-6-%E5%91%BD%E4%BB%A4%E5%88%AB%E5%90%8D"><span class="toc-text">6.2.6 命令别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-7-%E5%8F%91%E5%B8%83%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">6.2.7 发布服务包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-8-%E6%9B%B4%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">6.2.8 更新服务包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2-9-%E5%88%A0%E9%99%A4%E6%9C%8D%E5%8A%A1%E5%8C%85"><span class="toc-text">6.2.9 删除服务包</span></a></li></ol></li></ol></li></ol>
   </div>
 </section>
 
@@ -3145,7 +3187,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020-2023 墨码山河 All Rights Reserved</a></p>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
 
         </div>
       
@@ -3582,7 +3624,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250306/121736/","name":"管理工具"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"管理工具","description":"摘要：本文主要学习了Node的管理工具，包括包管理和版本管理，以及源码管理。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250306/121736/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250306/121736/","wordCount":38,"datePublished":"2025-03-06T04:17:36.000Z","dateModified":"2025-03-09T06:05:13.340Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250306/121736/","name":"管理工具"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"管理工具","description":"摘要：本文主要学习了Node的管理工具，包括NPM和NVM，以及NRM，还介绍了Yarn管理工具，并比较了NPM和Yarn的区别。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250306/121736/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250306/121736/","wordCount":65,"datePublished":"2025-03-06T04:17:36.000Z","dateModified":"2025-03-22T03:21:56.189Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-01-21T02:25:47.000Z">
-<meta property="article:modified_time" content="2025-02-14T01:48:08.588Z">
+<meta property="article:modified_time" content="2025-03-20T06:36:03.344Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="异步">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741501329340),
+    lastupdate: new Date(1742739217991),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2531,20 +2531,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h2 id="1-回调函数"><a href="#1-回调函数" class="headerlink" title="1 回调函数"></a>1 回调函数</h2><p>在微任务队列出现之前，JS实现异步的主要方式就是通过回调函数，即通过AJAX请求的回调函数实现异步调用。</p>
 <p>示例：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>:<span class="string">&#x27;/api/getData&#x27;</span>,</span><br><span class="line">  <span class="attr">type</span>:<span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (res.<span class="property">success</span>) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">&quot;调用成功&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>:<span class="string">&#x27;/api/getData&#x27;</span>,</span><br><span class="line">  <span class="attr">type</span>:<span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">res</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (res.<span class="property">success</span>) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">&#x27;调用成功&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>这种异步调用不能控制顺序，如果想在第一个回调函数执行后再执行第二个回调函数，就需要将第二个回调函数嵌套在第一个回调函数中，这种回调函数中嵌套回调函数的情况就叫做回调地狱。</p>
 <h2 id="2-Promise"><a href="#2-Promise" class="headerlink" title="2 Promise"></a>2 Promise</h2><p>Promise作为典型的微任务之一，它的出现可以使JS达到异步执行的效果。</p>
 <p>示例：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">adder</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(++arg)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">adder</span>(<span class="number">1</span>)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">val</span> =&gt;</span> <span class="title function_">adder</span>(val))</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">val</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(val))</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>()<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">adder</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(++arg);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="title function_">adder</span>(<span class="number">1</span>)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">val</span> =&gt;</span> <span class="title function_">adder</span>(val))</span><br><span class="line">    .<span class="title function_">then</span>(<span class="function"><span class="params">val</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(val));</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>();<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-Generator"><a href="#3-Generator" class="headerlink" title="3 Generator"></a>3 Generator</h2><p>Generator和Promise都是在ES6新增的，Generator返回的是一个Iterator对象。</p>
 <p>示例：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> * <span class="title function_">add</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(++arg)<span class="comment">// 2</span></span><br><span class="line">  <span class="keyword">yield</span> arg</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(++arg)<span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> iterator = <span class="title function_">add</span>(<span class="number">1</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(iterator.<span class="title function_">next</span>())<span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(iterator.<span class="title function_">next</span>())<span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> * <span class="title function_">add</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(++arg);<span class="comment">// 2</span></span><br><span class="line">  <span class="keyword">yield</span> arg;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(++arg);<span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> iterator = <span class="title function_">add</span>(<span class="number">1</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(iterator.<span class="title function_">next</span>());<span class="comment">// &#123;value: 2, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(iterator.<span class="title function_">next</span>());<span class="comment">// &#123;value: undefined, done: true&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="4-async和await"><a href="#4-async和await" class="headerlink" title="4 async和await"></a>4 async和await</h2><p>async和await是ES7提出的关于异步的终极解决方案，进一步简化了Promise的代码。</p>
 <p>示例：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">adder</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(++arg)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// adder(1)</span></span><br><span class="line">  <span class="comment">//   .then(val =&gt; adder(val))</span></span><br><span class="line">  <span class="comment">//   .then(val =&gt; console.log(val))</span></span><br><span class="line">  <span class="keyword">let</span> val = <span class="keyword">await</span> <span class="title function_">adder</span>(<span class="number">1</span>)</span><br><span class="line">  val = <span class="keyword">await</span> <span class="title function_">adder</span>(val)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(val)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>()<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">adder</span>(<span class="params">arg</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">resolve</span>(++arg);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">sum</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// adder(1)</span></span><br><span class="line">  <span class="comment">//   .then(val =&gt; adder(val))</span></span><br><span class="line">  <span class="comment">//   .then(val =&gt; console.log(val))</span></span><br><span class="line">  <span class="keyword">let</span> val = <span class="keyword">await</span> <span class="title function_">adder</span>(<span class="number">1</span>);</span><br><span class="line">  val = <span class="keyword">await</span> <span class="title function_">adder</span>(val);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sum</span>();<span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2575,7 +2575,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年2月14日</div>
+                <div class="license-meta-text">2025年3月20日</div>
               </div>
               
               
@@ -2649,7 +2649,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/20250214/102820/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>简介</p>
-          <p class='content'>摘要：本文介绍了Node相关的一些基础知识。</p>
+          <p class='content'>摘要：本文介绍了Node是什么，与浏览器的区别，以及其优势和作用。</p>
         </a>
       
       
@@ -2759,6 +2759,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
 
 
   
@@ -2804,19 +2819,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
-
   
   
 
@@ -2861,7 +2863,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020-2023 墨码山河 All Rights Reserved</a></p>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
 
         </div>
       
@@ -3298,7 +3300,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250121/102547/","name":"异步编程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"异步编程","description":"摘要：本文主要学习了常见的几种实现异步。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250121/102547/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250121/102547/","wordCount":20,"datePublished":"2025-01-21T02:25:47.000Z","dateModified":"2025-02-14T01:48:08.588Z","articleSection":"大前端","keywords":"JS,异步","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250121/102547/","name":"异步编程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"异步编程","description":"摘要：本文主要学习了常见的几种实现异步。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250121/102547/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250121/102547/","wordCount":20,"datePublished":"2025-01-21T02:25:47.000Z","dateModified":"2025-03-20T06:36:03.344Z","articleSection":"大前端","keywords":"JS,异步","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

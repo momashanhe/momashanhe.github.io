@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>模块化 - 墨码山河</title>
   <meta name="keywords" content="JS,Node,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要学习了Node的模块化。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文主要学习了Node的模块化，比较了CommonJS模块和ES模块的区别，以及缓存和分类。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="模块化">
 <meta property="og:url" content="https://momashanhe.com/posts/20250306/100822/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要学习了Node的模块化。">
+<meta property="og:description" content="摘要：本文主要学习了Node的模块化，比较了CommonJS模块和ES模块的区别，以及缓存和分类。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-06T02:08:22.000Z">
-<meta property="article:modified_time" content="2025-03-08T11:26:57.713Z">
+<meta property="article:modified_time" content="2025-03-22T02:18:03.169Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="Node">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1741501329340),
+    lastupdate: new Date(1742739217991),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2526,12 +2526,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要学习了Node的模块化。</p>
+    <p>摘要：本文主要学习了Node的模块化，比较了CommonJS模块和ES模块的区别，以及缓存和分类。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
               <div class='content'>
-              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NVM 1.1.12</p>
+              <p>Windows 10 企业版 LTSC 21H2<br>Node 18.14.0<br>NPM 9.3.1<br>NVM 1.1.12</p>
               </div>
             </details>
 
@@ -2608,7 +2608,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><figcaption><span>tool.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sex = <span class="string">&#x27;男&#x27;</span>;</span><br><span class="line"><span class="built_in">exports</span>.<span class="property">sex</span> = sex;</span><br></pre></td></tr></table></figure>
 
 <p>在<code>mjs</code>文件ES模块中使用<code>import</code>加载<code>js</code>文件CommonJS模块：</p>
-<figure class="highlight js"><figcaption><span>test.mjs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tools <span class="keyword">from</span> <span class="string">&quot;./tools.js&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(tools.<span class="property">sex</span>);<span class="comment">// 男</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>test.mjs</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tools <span class="keyword">from</span> <span class="string">&#x27;./tools.js&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(tools.<span class="property">sex</span>);<span class="comment">// 男</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-缓存"><a href="#3-缓存" class="headerlink" title="3 缓存"></a>3 缓存</h2><p>Node会缓存已加载的模块，而不必每次都重新加载。</p>
 <p>如果要重新加载模块，可以删除缓存：</p>
@@ -2618,8 +2618,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <ul>
 <li>内置模块：Node内置的模块，无需额外安装，通过<code>require(模块名)</code>引入。</li>
 <li>自定义模块：开发者创建的模块，通过<code>require(路径)</code>引入。</li>
-<li>本地模块：通过<code>npm install 包名</code>安装在本地<code>node_modules</code>目录的第三方模块，通过<code>require(模块名)</code>引入。</li>
-<li>全局模块：通过<code>npm install -g 包名</code>安装在全局<code>node_modules</code>目录的第三方模块，通过<code>require(模块名)</code>引入。</li>
+<li>本地模块：通过<code>npm install 模块</code>安装在本地<code>node_modules</code>目录的第三方模块，通过<code>require(模块名)</code>引入。</li>
+<li>全局模块：通过<code>npm install 模块 -g</code>安装在全局<code>node_modules</code>目录的第三方模块，通过<code>require(模块名)</code>引入。</li>
 </ul>
 <p>将内置模块以外的3种模块称为文件模块。</p>
 
@@ -2652,7 +2652,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月8日</div>
+                <div class="license-meta-text">2025年3月22日</div>
               </div>
               
               
@@ -2726,7 +2726,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/20250306/121736/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>管理工具</p>
-          <p class='content'>摘要：本文主要学习了Node的管理工具，包括包管理和版本管理，以及源码管理。</p>
+          <p class='content'>摘要：本文主要学习了Node的管理工具，包括NPM和NVM，以及NRM，还介绍了Yarn管理工具，并比较了NPM和Yarn的区别。</p>
         </a>
       
       
@@ -2836,6 +2836,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
 
 
   
@@ -2935,24 +2950,35 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250309/205946/" href="/posts/20250309/205946/"
+          
+          
+          active-action="action-posts20250309205946"
+          >
+          <div class='name'>
+            
+            路径管理
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250310/151012/" href="/posts/20250310/151012/"
+          
+          
+          active-action="action-posts20250310151012"
+          >
+          <div class='name'>
+            
+            网络通信
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
 
 
-
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
 
   
   
@@ -2998,7 +3024,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       
         <div class='copyright'>
-        <p><a href="/">Copyright © 2020-2023 墨码山河 All Rights Reserved</a></p>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
 
         </div>
       
@@ -3435,7 +3461,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250306/100822/","name":"模块化"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"模块化","description":"摘要：本文主要学习了Node的模块化。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250306/100822/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250306/100822/","wordCount":19,"datePublished":"2025-03-06T02:08:22.000Z","dateModified":"2025-03-08T11:26:57.713Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250306/100822/","name":"模块化"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"模块化","description":"摘要：本文主要学习了Node的模块化，比较了CommonJS模块和ES模块的区别，以及缓存和分类。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250306/100822/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250306/100822/","wordCount":49,"datePublished":"2025-03-06T02:08:22.000Z","dateModified":"2025-03-22T02:18:03.169Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
