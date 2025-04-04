@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-19T04:08:28.000Z">
-<meta property="article:modified_time" content="2025-03-23T03:50:32.389Z">
+<meta property="article:modified_time" content="2025-03-30T10:55:37.503Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1742739217991),
+    lastupdate: new Date(1743744004943),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2464,13 +2464,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>2.7k 字</p>
+      <p>2.9k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>10 分钟</p>
+      <p>11 分钟</p>
     </a>
   </div>
 
@@ -2539,7 +2539,25 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>执行<code>show collections</code>命令查看当前数据库的集合。</p>
 <p>执行<code>show users</code>命令查看当前数据库的用户。</p>
 <h3 id="1-2-数据库命令"><a href="#1-2-数据库命令" class="headerlink" title="1.2 数据库命令"></a>1.2 数据库命令</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.runCommand(&#123; 数据库命令 &#125;)</span><br><span class="line">db.adminCommand(&#123; 数据库命令 &#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.runCommand(&lt;command&gt;)</span><br><span class="line">db.adminCommand(&lt;command&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>command</td>
+      <td>文档</td>
+      <td>数据库命令。</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>注意：</p>
 <ul>
@@ -2559,43 +2577,53 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <h2 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3 用户管理"></a>3 用户管理</h2><h3 id="3-1-显示用户"><a href="#3-1-显示用户" class="headerlink" title="3.1 显示用户"></a>3.1 显示用户</h3><p>使用<code>show users</code>命令查看当前数据库的用户。</p>
 <h3 id="3-2-创建用户"><a href="#3-2-创建用户" class="headerlink" title="3.2 创建用户"></a>3.2 创建用户</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  &#123;</span><br><span class="line">    user: &quot;用户名&quot;,</span><br><span class="line">    pwd: &quot;密码&quot;,</span><br><span class="line">    customData: &#123; 用户信息 &#125;,</span><br><span class="line">    roles: [</span><br><span class="line">      &#123; role: &quot;角色&quot;, db: &quot;数据库&quot; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#123;</span><br><span class="line">  user: &lt;username&gt;,</span><br><span class="line">  pwd: &lt;password&gt;,</span><br><span class="line">  customData: &lt;userinfo&gt;,</span><br><span class="line">  roles: [</span><br><span class="line">    &#123; role: &lt;rolename&gt;, db: &lt;dbname&gt; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>user</td>
+      <td>username</td>
       <td>字符串</td>
       <td>用户的名称。</td>
     </tr>
     <tr>
-      <td>pwd</td>
+      <td>password</td>
       <td>字符串</td>
       <td>用户的密码。使用明文字符串表示用户密码，或使用passwordPrompt()方法提示输入用户密码。</td>
     </tr>
     <tr>
-      <td>customData</td>
+      <td>userinfo</td>
       <td>文档</td>
-      <td>可选。用户信息。此字段可用于存储管理员希望与此特定用户关联的任何数据。</td>
+      <td>可选。用户信息。此属性可用于存储管理员希望与此特定用户关联的任何数据。</td>
     </tr>
     <tr>
       <td>roles</td>
-      <td>集合</td>
+      <td>数组</td>
       <td>用户的角色。可以指定一个空数组创建无角色的用户。可以省略数据库，默认为当前数据库。</td>
+    </tr>
+    <tr>
+      <td>rolename</td>
+      <td>字符串</td>
+      <td>角色名。</td>
+    </tr>
+    <tr>
+      <td>dbname</td>
+      <td>字符串</td>
+      <td>数据库名。</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  &#123;</span><br><span class="line">    user: &quot;xz&quot;,</span><br><span class="line">    pwd: &quot;123456&quot;,</span><br><span class="line">    customData: &#123; name: &quot;校长&quot; &#125;,</span><br><span class="line">    roles: [</span><br><span class="line">      &#123; role: &quot;readWrite&quot;, db: &quot;school&quot; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#123;</span><br><span class="line">  user: &quot;xz&quot;,</span><br><span class="line">  pwd: &quot;123456&quot;,</span><br><span class="line">  customData: &#123; name: &quot;校长&quot; &#125;,</span><br><span class="line">  roles: [</span><br><span class="line">    &#123; role: &quot;readWrite&quot;, db: &quot;school&quot; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>用户的角色包括内置角色和自定义角色，内置角色如下：</p>
 <table>
@@ -2700,38 +2728,71 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <h3 id="3-3-删除用户"><a href="#3-3-删除用户" class="headerlink" title="3.3 删除用户"></a>3.3 删除用户</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropUser(&quot;用户名&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropUser(&lt;username&gt;)</span><br></pre></td></tr></table></figure>
 
-<p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropUser(&quot;xz&quot;);</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-4-更新用户"><a href="#3-4-更新用户" class="headerlink" title="3.4 更新用户"></a>3.4 更新用户</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.updateUser(</span><br><span class="line">  &quot;用户名&quot;,</span><br><span class="line">  &#123;</span><br><span class="line">    pwd: &quot;密码&quot;,</span><br><span class="line">    customData: &#123; 用户信息 &#125;,</span><br><span class="line">    roles: [</span><br><span class="line">      &#123; role: &quot;角色&quot;, db: &quot;数据库&quot; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>pwd</td>
+      <td>username</td>
+      <td>字符串</td>
+      <td>用户名。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>示例：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.dropUser(&quot;xz&quot;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-更新用户"><a href="#3-4-更新用户" class="headerlink" title="3.4 更新用户"></a>3.4 更新用户</h3><p>语法：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.updateUser(</span><br><span class="line">  &lt;username&gt;,</span><br><span class="line">  &#123;</span><br><span class="line">    pwd: &lt;password&gt;,</span><br><span class="line">    customData: &lt;userinfo&gt;,</span><br><span class="line">    roles: [</span><br><span class="line">      &#123; role: &lt;rolename&gt;, db: &lt;dbname&gt; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>username</td>
+      <td>字符串</td>
+      <td>用户名。</td>
+    </tr>
+    <tr>
+      <td>password</td>
       <td>字符串</td>
       <td>用户的密码。使用明文字符串表示用户密码，或使用passwordPrompt()方法提示输入用户密码。</td>
     </tr>
     <tr>
-      <td>customData</td>
+      <td>userinfo</td>
       <td>文档</td>
-      <td>可选。用户信息。此字段可用于存储管理员希望与此特定用户关联的任何数据。</td>
+      <td>可选。用户信息。此属性可用于存储管理员希望与此特定用户关联的任何数据。</td>
     </tr>
     <tr>
       <td>roles</td>
-      <td>集合</td>
+      <td>数组</td>
       <td>用户的角色。可以指定一个空数组创建无角色的用户。可以省略数据库，默认为当前数据库。</td>
+    </tr>
+    <tr>
+      <td>rolename</td>
+      <td>字符串</td>
+      <td>角色名。</td>
+    </tr>
+    <tr>
+      <td>dbname</td>
+      <td>字符串</td>
+      <td>数据库名。</td>
     </tr>
   </tbody>
 </table>
@@ -2740,20 +2801,79 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.updateUser(</span><br><span class="line">  &quot;xz&quot;,</span><br><span class="line">  &#123;</span><br><span class="line">    pwd: &quot;123456&quot;,</span><br><span class="line">    customData: &#123; name: &quot;校长&quot; &#125;,</span><br><span class="line">    roles: [</span><br><span class="line">      &#123; role: &quot;readWrite&quot;, db: &quot;school&quot; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-5-查询用户"><a href="#3-5-查询用户" class="headerlink" title="3.5 查询用户"></a>3.5 查询用户</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getUser(&quot;用户名&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getUser(&lt;username&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>username</td>
+      <td>字符串</td>
+      <td>用户名。</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>示例：</p>
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getUser(&quot;xz&quot;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-6-验证用户"><a href="#3-6-验证用户" class="headerlink" title="3.6 验证用户"></a>3.6 验证用户</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.auth(&quot;用户名&quot;, &quot;密码&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.auth(&lt;username&gt;, &lt;password&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>username</td>
+      <td>字符串</td>
+      <td>用户名。</td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>字符串</td>
+      <td>用户密码。</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>示例：</p>
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.auth(&quot;xz&quot;, &quot;123456&quot;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-集合管理"><a href="#4-集合管理" class="headerlink" title="4 集合管理"></a>4 集合管理</h2><h3 id="4-1-显示集合"><a href="#4-1-显示集合" class="headerlink" title="4.1 显示集合"></a>4.1 显示集合</h3><p>执行<code>show collections</code>命令查看当前数据库的集合。</p>
 <h3 id="4-2-创建集合"><a href="#4-2-创建集合" class="headerlink" title="4.2 创建集合"></a>4.2 创建集合</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;集合名&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&lt;name&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>字符串</td>
+      <td>要创建的集合名。</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>示例：</p>
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;student&quot;);</span><br></pre></td></tr></table></figure>
@@ -2764,14 +2884,43 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>示例：</p>
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.drop();</span><br></pre></td></tr></table></figure>
 
-<h2 id="5-文档管理"><a href="#5-文档管理" class="headerlink" title="5 文档管理"></a>5 文档管理</h2><h3 id="5-1-插入文档"><a href="#5-1-插入文档" class="headerlink" title="5.1 插入文档"></a>5.1 插入文档</h3><h4 id="5-1-1-插入单个文档"><a href="#5-1-1-插入单个文档" class="headerlink" title="5.1.1 插入单个文档"></a>5.1.1 插入单个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.insertOne(document)</span><br></pre></td></tr></table></figure>
+<h3 id="4-4-重命名集合"><a href="#4-4-重命名集合" class="headerlink" title="4.4 重命名集合"></a>4.4 重命名集合</h3><p>语法：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.renameCollection(&lt;name&gt;, &lt;drop&gt;)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
+      <th>类型</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>字符串</td>
+      <td>要重命名的新集合名。</td>
+    </tr>
+    <tr>
+      <td>drop</td>
+      <td>布尔</td>
+      <td>新集合已存在，是否删除现有的新集合，默认为false，true是删除，false是不删除。</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>示例：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.renameCollection(&quot;member&quot;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-文档管理"><a href="#5-文档管理" class="headerlink" title="5 文档管理"></a>5 文档管理</h2><h3 id="5-1-插入文档"><a href="#5-1-插入文档" class="headerlink" title="5.1 插入文档"></a>5.1 插入文档</h3><h4 id="5-1-1-插入单个文档"><a href="#5-1-1-插入单个文档" class="headerlink" title="5.1.1 插入单个文档"></a>5.1.1 插入单个文档</h4><p>语法：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.insertOne(&lt;document&gt;)</span><br></pre></td></tr></table></figure>
+
+<p>含义：</p>
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2790,17 +2939,17 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>说明：</p>
 <ul>
-<li>如果插入的文档不包含<code>_id</code>字段，会默认创建<code>_id</code>字段并分配唯一的<code>ObjectId()</code>值。如果插入的文档包含<code>_id</code>字段，会使用传入的字段，要求该字段必须是唯一值，否则会引发异常。</li>
-<li>插入后会将结果通过<code>acknowledged</code>返回，使用true表示插入成功，使用false表示插入失败。同时将<code>_id</code>字段通过<code>insertedId</code>返回。</li>
+<li>如果插入的文档不包含<code>_id</code>属性，会默认创建<code>_id</code>属性并分配唯一的<code>ObjectId()</code>值。如果插入的文档包含<code>_id</code>属性，会使用传入的属性，要求该属性必须是唯一值，否则会引发异常。</li>
+<li>插入后会将结果通过<code>acknowledged</code>返回，使用true表示插入成功，使用false表示插入失败。同时将<code>_id</code>属性通过<code>insertedId</code>返回。</li>
 </ul>
 <h4 id="5-1-2-插入多个文档"><a href="#5-1-2-插入多个文档" class="headerlink" title="5.1.2 插入多个文档"></a>5.1.2 插入多个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.insertMany(</span><br><span class="line">  documents,</span><br><span class="line">  &#123; ordered: &quot;是否按顺序插入&quot; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.insertMany(</span><br><span class="line">  &lt;documents&gt;,</span><br><span class="line">  &#123; ordered: &lt;flag&gt; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2812,7 +2961,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <td>要插入的文档数组。</td>
     </tr>
     <tr>
-      <td>ordered</td>
+      <td>flag</td>
       <td>布尔</td>
       <td>可选。指定执行有序插入还是无序插入，默认为true，true表示有序，false表示无序。</td>
     </tr>
@@ -2825,16 +2974,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>说明：</p>
 <ul>
 <li>如果使用有序插入，当插入某个文档失败时，不会继续插入文档。如果使用无序插入，当插入某个文档失败时，会跳过继续插入其他文档。</li>
-<li>每组中的操作次数不得超过数据库的<code>maxWriteBatchSize</code>值，默认值为100000个。该值会显示在<code>hello.maxWriteBatchSize</code>字段中。</li>
+<li>每组中的操作次数不得超过数据库的<code>maxWriteBatchSize</code>值，默认值为100000个。该值会显示在<code>hello.maxWriteBatchSize</code>属性中。</li>
 </ul>
 <h3 id="5-2-查询文档"><a href="#5-2-查询文档" class="headerlink" title="5.2 查询文档"></a>5.2 查询文档</h3><h4 id="5-2-1-查询单个文档"><a href="#5-2-1-查询单个文档" class="headerlink" title="5.2.1 查询单个文档"></a>5.2.1 查询单个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.findOne(query)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.findOne(&lt;query&gt;)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2852,13 +3001,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.findOne(&#123; name: &quot;张三&quot; &#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-2-2-查询多个文档"><a href="#5-2-2-查询多个文档" class="headerlink" title="5.2.2 查询多个文档"></a>5.2.2 查询多个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find(query)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find(&lt;query&gt;)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2873,16 +3022,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </table>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; name: &quot;张三&quot;, sex: &quot;男&quot; &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; sex: &quot;男&quot; &#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-3-删除文档"><a href="#5-3-删除文档" class="headerlink" title="5.3 删除文档"></a>5.3 删除文档</h3><h4 id="5-3-1-删除单个文档"><a href="#5-3-1-删除单个文档" class="headerlink" title="5.3.1 删除单个文档"></a>5.3.1 删除单个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.deleteOne(filter)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.deleteOne(&lt;filter&gt;)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2905,13 +3054,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>如果匹配到多个文档，只会删除第一个文档。</li>
 </ul>
 <h4 id="5-3-2-删除多个文档"><a href="#5-3-2-删除多个文档" class="headerlink" title="5.3.2 删除多个文档"></a>5.3.2 删除多个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.deleteMany(filter)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.deleteMany(&lt;filter&gt;)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2929,13 +3078,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.deleteMany(&#123; name: &quot;张三&quot;, sex: &quot;男&quot; &#125;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-4-更新文档"><a href="#5-4-更新文档" class="headerlink" title="5.4 更新文档"></a>5.4 更新文档</h3><h4 id="5-4-1-更新单个文档"><a href="#5-4-1-更新单个文档" class="headerlink" title="5.4.1 更新单个文档"></a>5.4.1 更新单个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.updateOne(</span><br><span class="line">  filter,</span><br><span class="line">  update,</span><br><span class="line">  &#123; upsert: &quot;是否插入文档&quot; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.updateOne(</span><br><span class="line">  &lt;filter&gt;,</span><br><span class="line">  &lt;update&gt;,</span><br><span class="line">  &#123; upsert: &lt;flag&gt; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2952,7 +3101,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <td>要应用更新的修改，只能使用更新操作符或管道。</td>
     </tr>
     <tr>
-      <td>upsert</td>
+      <td>flag</td>
       <td>布尔</td>
       <td>可选。指定未匹配时是否插入文档，默认为false，false表示不插入，true表示插入。</td>
     </tr>
@@ -2968,13 +3117,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>如果匹配到多个文档，只会更新第一个文档。</li>
 </ul>
 <h4 id="5-4-2-更新多个文档"><a href="#5-4-2-更新多个文档" class="headerlink" title="5.4.2 更新多个文档"></a>5.4.2 更新多个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.updateMany(</span><br><span class="line">  filter,</span><br><span class="line">  update,</span><br><span class="line">  &#123; upsert: &quot;是否插入文档&quot; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.updateMany(</span><br><span class="line">  &lt;filter&gt;,</span><br><span class="line">  &lt;update&gt;,</span><br><span class="line">  &#123; upsert: &lt;flag&gt; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -2991,7 +3140,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <td>要应用更新的修改，只能使用更新操作符或管道。</td>
     </tr>
     <tr>
-      <td>upsert</td>
+      <td>flag</td>
       <td>布尔</td>
       <td>可选。指定未匹配时是否插入文档，默认为false，false表示不插入，true表示插入。</td>
     </tr>
@@ -3002,13 +3151,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateMany(</span><br><span class="line">  &#123; name: &quot;张三&quot;, sex: &quot;男&quot; &#125;,</span><br><span class="line">  &#123; $set: &#123; name: &quot;赵六&quot; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h4 id="5-4-3-替换单个文档"><a href="#5-4-3-替换单个文档" class="headerlink" title="5.4.3 替换单个文档"></a>5.4.3 替换单个文档</h4><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.replaceOne(</span><br><span class="line">  filter,</span><br><span class="line">  replacement,</span><br><span class="line">  &#123; upsert: &quot;是否插入文档&quot; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.replaceOne(</span><br><span class="line">  &lt;filter&gt;,</span><br><span class="line">  &lt;replace&gt;,</span><br><span class="line">  &#123; upsert: &lt;flag&gt; &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>字段：</p>
+<p>含义：</p>
 <table>
   <thead>
     <tr>
-      <th>字段</th>
+      <th>名称</th>
       <th>类型</th>
       <th>说明</th>
     </tr>
@@ -3020,12 +3169,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <td>要替换的文档，如果为<code>&#123;&#125;</code>则替换第一个文档，支持通过查询操作符匹配。</td>
     </tr>
     <tr>
-      <td>replacement</td>
+      <td>replace</td>
       <td>文档</td>
       <td>要应用替换的文档，只能使用文档。</td>
     </tr>
     <tr>
-      <td>upsert</td>
+      <td>flag</td>
       <td>布尔</td>
       <td>可选。指定未匹配时是否插入文档，默认为false，false表示不插入，true表示插入。</td>
     </tr>
@@ -3070,7 +3219,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月23日</div>
+                <div class="license-meta-text">2025年3月30日</div>
               </div>
               
               
@@ -3332,6 +3481,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250324/100136/" href="/posts/20250324/100136/"
+          
+          
+          active-action="action-posts20250324100136"
+          >
+          <div class='name'>
+            
+            查询优化
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250324/105633/" href="/posts/20250324/105633/"
+          
+          
+          active-action="action-posts20250324105633"
+          >
+          <div class='name'>
+            
+            使用索引
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
@@ -3352,7 +3525,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%9A%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">1 通用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B8%AE%E5%8A%A9"><span class="toc-text">1.1 帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%91%BD%E4%BB%A4"><span class="toc-text">1.2 数据库命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86"><span class="toc-text">2 数据库管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2.1 显示数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%88%87%E6%8D%A2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2.2 切换数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2.3 删除数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">3 用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7"><span class="toc-text">3.1 显示用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-text">3.2 创建用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-text">3.3 删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%9B%B4%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-text">3.4 更新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7"><span class="toc-text">3.5 查询用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%AA%8C%E8%AF%81%E7%94%A8%E6%88%B7"><span class="toc-text">3.6 验证用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9B%86%E5%90%88%E7%AE%A1%E7%90%86"><span class="toc-text">4 集合管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%98%BE%E7%A4%BA%E9%9B%86%E5%90%88"><span class="toc-text">4.1 显示集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="toc-text">4.2 创建集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%88%A0%E9%99%A4%E9%9B%86%E5%90%88"><span class="toc-text">4.3 删除集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86"><span class="toc-text">5 文档管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-text">5.1 插入文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-1-%E6%8F%92%E5%85%A5%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.1.1 插入单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-2-%E6%8F%92%E5%85%A5%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.1.2 插入多个文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3"><span class="toc-text">5.2 查询文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E6%9F%A5%E8%AF%A2%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.2.1 查询单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.2.2 查询多个文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%88%A0%E9%99%A4%E6%96%87%E6%A1%A3"><span class="toc-text">5.3 删除文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-%E5%88%A0%E9%99%A4%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.3.1 删除单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-%E5%88%A0%E9%99%A4%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.3.2 删除多个文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E6%9B%B4%E6%96%B0%E6%96%87%E6%A1%A3"><span class="toc-text">5.4 更新文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.4.1 更新单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-%E6%9B%B4%E6%96%B0%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.4.2 更新多个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-3-%E6%9B%BF%E6%8D%A2%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.4.3 替换单个文档</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%80%9A%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">1 通用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B8%AE%E5%8A%A9"><span class="toc-text">1.1 帮助</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%91%BD%E4%BB%A4"><span class="toc-text">1.2 数据库命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86"><span class="toc-text">2 数据库管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2.1 显示数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%88%87%E6%8D%A2%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2.2 切换数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2.3 删除数据库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">3 用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7"><span class="toc-text">3.1 显示用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-text">3.2 创建用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-text">3.3 删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E6%9B%B4%E6%96%B0%E7%94%A8%E6%88%B7"><span class="toc-text">3.4 更新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7"><span class="toc-text">3.5 查询用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-%E9%AA%8C%E8%AF%81%E7%94%A8%E6%88%B7"><span class="toc-text">3.6 验证用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9B%86%E5%90%88%E7%AE%A1%E7%90%86"><span class="toc-text">4 集合管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%98%BE%E7%A4%BA%E9%9B%86%E5%90%88"><span class="toc-text">4.1 显示集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="toc-text">4.2 创建集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%88%A0%E9%99%A4%E9%9B%86%E5%90%88"><span class="toc-text">4.3 删除集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E9%87%8D%E5%91%BD%E5%90%8D%E9%9B%86%E5%90%88"><span class="toc-text">4.4 重命名集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86"><span class="toc-text">5 文档管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-text">5.1 插入文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-1-%E6%8F%92%E5%85%A5%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.1.1 插入单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-2-%E6%8F%92%E5%85%A5%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.1.2 插入多个文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3"><span class="toc-text">5.2 查询文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1-%E6%9F%A5%E8%AF%A2%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.2.1 查询单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-2-%E6%9F%A5%E8%AF%A2%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.2.2 查询多个文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%88%A0%E9%99%A4%E6%96%87%E6%A1%A3"><span class="toc-text">5.3 删除文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-1-%E5%88%A0%E9%99%A4%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.3.1 删除单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-2-%E5%88%A0%E9%99%A4%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.3.2 删除多个文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E6%9B%B4%E6%96%B0%E6%96%87%E6%A1%A3"><span class="toc-text">5.4 更新文档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-1-%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.4.1 更新单个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-2-%E6%9B%B4%E6%96%B0%E5%A4%9A%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.4.2 更新多个文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-4-3-%E6%9B%BF%E6%8D%A2%E5%8D%95%E4%B8%AA%E6%96%87%E6%A1%A3"><span class="toc-text">5.4.3 替换单个文档</span></a></li></ol></li></ol></li></ol>
   </div>
 </section>
 
@@ -3819,7 +3992,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250319/120828/","name":"基本操作"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"基本操作","description":"摘要：本文主要学习了常用的操作，包括对数据库和用户的管理，对集合的管理，以及对文档的增删改查。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250319/120828/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250319/120828/","wordCount":47,"datePublished":"2025-03-19T04:08:28.000Z","dateModified":"2025-03-23T03:50:32.389Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250319/120828/","name":"基本操作"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"基本操作","description":"摘要：本文主要学习了常用的操作，包括对数据库和用户的管理，对集合的管理，以及对文档的增删改查。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250319/120828/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250319/120828/","wordCount":47,"datePublished":"2025-03-19T04:08:28.000Z","dateModified":"2025-03-30T10:55:37.503Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

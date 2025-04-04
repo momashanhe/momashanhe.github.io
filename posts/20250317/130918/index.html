@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-17T05:09:18.000Z">
-<meta property="article:modified_time" content="2025-03-23T01:03:10.572Z">
+<meta property="article:modified_time" content="2025-03-28T01:57:31.346Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1742739217991),
+    lastupdate: new Date(1743744004943),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2464,13 +2464,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.3k 字</p>
+      <p>1.8k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>4 分钟</p>
+      <p>6 分钟</p>
     </a>
   </div>
 
@@ -2562,18 +2562,94 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>官网地址：<a target="_blank" rel="noopener" href="https://www.mongodb.com/">https://www.mongodb.com/</a></li>
 <li>文档地址：<a target="_blank" rel="noopener" href="https://www.mongodb.com/zh-cn/docs/">https://www.mongodb.com/zh-cn/docs/</a></li>
 </ul>
-<h3 id="2-2-原理"><a href="#2-2-原理" class="headerlink" title="2.2 原理"></a>2.2 原理</h3><p>MongoDB使用BSON（Binary JSON）格式存储数据，这种格式是JSON的二进制表示，具有更高的存储效率和处理速度。每个文档都可以包含不同数量和类型的字段，使得数据模型更加灵活。</p>
-<p>在MongoDB中，数据被组织成集合（Collection）和文档（Document）。集合是文档的集合，类似于关系型数据库中的表，但不需要预先定义固定的模式。文档则是数据的基本单位，由键值对组成，类似于JSON对象。</p>
-<p>所有存储在集合中的数据都是BSON格式，BSON是一种类似JSON的二进制形式的存储格式，是Binary JSON的简称。</p>
-<h3 id="2-3-特点"><a href="#2-3-特点" class="headerlink" title="2.3 特点"></a>2.3 特点</h3><ul>
+<h3 id="2-2-特点"><a href="#2-2-特点" class="headerlink" title="2.2 特点"></a>2.2 特点</h3><p>MongoDB数据库的特点如下：</p>
+<ul>
 <li>高可用性：通过复制集（Replica Set）机制，实现数据的自动备份和故障转移。复制集由多个节点组成，包括一个主节点和多个从节点，数据在这些节点之间自动同步。</li>
-<li>模式自由：使用动态模式（Schema-less）架构，同一集合中的文档可拥有不同字段，开发过程中可随时调整结构，减少迁移成本。</li>
+<li>模式自由：使用动态模式（Schema-less）架构，同一集合中的文档可拥有不同属性，开发过程中可随时调整结构，减少迁移成本。</li>
 <li>高性能：利用内存映射文件加速数据访问，支持多种索引类型（如复合、全文、地理空间）。</li>
 <li>水平扩展：支持分片（Sharding）技术，允许将数据集拆分成多个部分，每个部分存储在不同的服务器上，从而提高系统的处理能力和存储容量。</li>
 <li>复杂查询：支持复杂的查询表达式和操作符，包括聚合（Aggregation）、文本搜索（Text Search）和地理空间查询（Geospatial Queries）等，使得数据的检索和处理更加方便。</li>
 <li>事务支持：在4.0版本后支持跨文档事务，满足一致性要求较高的场景，但需权衡性能。</li>
 <li>多语言驱动：支持多种编程语言的驱动，比如Ruby、Java、C#、JavaScript、C、C++、PHP、Perl和Python等，方便开发者在不同的编程环境中使用。</li>
 </ul>
+<h3 id="2-3-术语"><a href="#2-3-术语" class="headerlink" title="2.3 术语"></a>2.3 术语</h3><p>MongoDB使用BSON（Binary JSON）格式存储数据，是一种类似JSON的二进制形式的存储格式，具有更高的存储效率和处理速度。每个文档都可以包含不同数量和类型的属性，使得数据模型更加灵活。</p>
+<p>MongoDB被称为“最像关系型数据库的NoSQL数据库”，其术语对比如下：</p>
+<table>
+  <thead>
+    <tr>
+      <th>SQL术语</th>
+      <th>SQL说明</th>
+      <th>MongoDB术语</th>
+      <th>MongoDB说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>database</td>
+      <td>数据库</td>
+      <td>database</td>
+      <td>数据库</td>
+    </tr>
+    <tr>
+      <td>table</td>
+      <td>表</td>
+      <td>collection</td>
+      <td>集合</td>
+    </tr>
+    <tr>
+      <td>row</td>
+      <td>行</td>
+      <td>document</td>
+      <td>文档</td>
+    </tr>
+    <tr>
+      <td>column</td>
+      <td>字段</td>
+      <td>field</td>
+      <td>属性</td>
+    </tr>
+    <tr>
+      <td>index</td>
+      <td>索引</td>
+      <td>index</td>
+      <td>索引</td>
+    </tr>
+    <tr>
+      <td>primary key</td>
+      <td>主键</td>
+      <td>primary key</td>
+      <td>主键，默认将_id作为主键</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>数据库用于存储集合，集合用于合并文档，文档则是数据的基本单位，由键值对组成，类似于JSON对象。</p>
+<p>在MongoDB中，数据库和集合都不需要手动创建，在创建文档时，如果文档所在的集合或者数据库不存在，则会自动创建数据库或者集合，不需要预先定义固定的模式，非常灵活。</p>
+<h3 id="2-4-业务场景"><a href="#2-4-业务场景" class="headerlink" title="2.4 业务场景"></a>2.4 业务场景</h3><p>具体的应用场景：</p>
+<ul>
+<li>社交场景，存储存储用户信息，以及用户发表的朋友圈信息，通过地理位置索引实现附近的人，地点等功能。</li>
+<li>游戏场景，存储游戏用户信息，用户的装备，积分等直接以内嵌文档的形式存储，方便查询，高效率存储和访问。</li>
+<li>物流场景，存储订单信息，订单状态在运送过程中会不断更新，以内嵌数组的形式来存储，一次查询就能将订单所有的变更读取出来。</li>
+<li>物联网场景，存储所有接入的智能设备信息，以及设备汇报的日志信息，并对这些信息进行多维度的分析。</li>
+<li>视频直播，存储用户信息，点赞互动信息等。</li>
+</ul>
+<p>这些应用场景中，数据操作方面的共同点有：</p>
+<ul>
+<li>数据量大。</li>
+<li>写入操作频繁。</li>
+<li>价值较低的数据，对事务性要求不高。</li>
+</ul>
+<p>在架构选型上，除了上述三个特点之外，还要考虑下面这些问题：</p>
+<ul>
+<li>应用不需要事务及复杂JOIN支持。</li>
+<li>应用需要快速迭代开发，数据模型无法确定。</li>
+<li>应用需要2000-3000以上的读写QPS。</li>
+<li>应用需要TB甚至PB级别数据存储。</li>
+<li>应用需要快速水平扩展。</li>
+<li>应用需要高可用，存储的数据不能丢失。</li>
+<li>应用需要大量的地理位置查询，文本查询。</li>
+</ul>
+<p>如果有1个符合，可以考虑使用MongoDB，如果2个及以上的符合，选择使用MongoDB绝不会后悔。</p>
 
   </div>
   
@@ -2604,7 +2680,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月23日</div>
+                <div class="license-meta-text">2025年3月28日</div>
               </div>
               
               
@@ -2866,6 +2942,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250324/100136/" href="/posts/20250324/100136/"
+          
+          
+          active-action="action-posts20250324100136"
+          >
+          <div class='name'>
+            
+            查询优化
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250324/105633/" href="/posts/20250324/105633/"
+          
+          
+          active-action="action-posts20250324105633"
+          >
+          <div class='name'>
+            
+            使用索引
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
@@ -2886,7 +2986,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1 数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%88%86%E7%B1%BB"><span class="toc-text">1.2 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.1 关系型数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2 非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-1-%E9%94%AE%E5%80%BC%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.1 键值存储数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-2-%E6%96%87%E6%A1%A3%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.2 文档型数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-3-%E5%88%97%E6%97%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.3 列族数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-4-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.4 图数据库</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%80%E4%BB%8B"><span class="toc-text">2 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">2.1 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8E%9F%E7%90%86"><span class="toc-text">2.2 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E7%89%B9%E7%82%B9"><span class="toc-text">2.3 特点</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1 数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%88%86%E7%B1%BB"><span class="toc-text">1.2 分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.1 关系型数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2 非关系型数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-1-%E9%94%AE%E5%80%BC%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.1 键值存储数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-2-%E6%96%87%E6%A1%A3%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.2 文档型数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-3-%E5%88%97%E6%97%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.3 列族数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-4-%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">1.2.2.4 图数据库</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%AE%80%E4%BB%8B"><span class="toc-text">2 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%A6%82%E8%BF%B0"><span class="toc-text">2.1 概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%89%B9%E7%82%B9"><span class="toc-text">2.2 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9C%AF%E8%AF%AD"><span class="toc-text">2.3 术语</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="toc-text">2.4 业务场景</span></a></li></ol></li></ol>
   </div>
 </section>
 
@@ -3353,7 +3453,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250317/130918/","name":"简介"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"简介","description":"摘要：本文主要学习了数据库的定义和分类，以及MongoDB数据库的基本知识。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250317/130918/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250317/130918/","wordCount":38,"datePublished":"2025-03-17T05:09:18.000Z","dateModified":"2025-03-23T01:03:10.572Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250317/130918/","name":"简介"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"简介","description":"摘要：本文主要学习了数据库的定义和分类，以及MongoDB数据库的基本知识。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250317/130918/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250317/130918/","wordCount":38,"datePublished":"2025-03-17T05:09:18.000Z","dateModified":"2025-03-28T01:57:31.346Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

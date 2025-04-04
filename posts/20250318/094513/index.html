@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-18T01:45:13.000Z">
-<meta property="article:modified_time" content="2025-03-23T03:26:09.134Z">
+<meta property="article:modified_time" content="2025-03-31T15:12:16.435Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1742739217991),
+    lastupdate: new Date(1743744004943),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2464,7 +2464,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>825 字</p>
+      <p>944 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2539,11 +2539,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li><a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/community">最新版本</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/community-edition/releases/archive">历史版本</a></li>
 </ul>
+<p>发布的版本号以X.Y.Z的形式记录，X是主版本号，Y是次版本号，Z是补丁版本号。</p>
+<p>在4.4以及更早的版本中，使用生产版本和开发版本发布，通过次版本号控制，偶数表示生产版本，奇数表示开发版本。</p>
+<p>从5.0开始，使用主要版本和快速版本发布。如果只有主版本号，那就是主要版本。如果有次版本号，那就是快速版本。其他情况就是补丁版本。</p>
 <h3 id="1-2-安装"><a href="#1-2-安装" class="headerlink" title="1.2 安装"></a>1.2 安装</h3><p>建议下载<code>zip</code>版本，在安装目录新建<code>MongoDB</code>目录，将<code>mongodb-windows-x86_64-6.0.21.zip</code>解压到<code>MongoDB</code>目录并重命名为<code>mongodb-6.0.21</code>。</p>
-<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2 配置"></a>2 配置</h2><h3 id="2-1-数据目录"><a href="#2-1-数据目录" class="headerlink" title="2.1 数据目录"></a>2.1 数据目录</h3><p>在<code>mongodb-6.0.21</code>目录下创建<code>data</code>目录，进入<code>data</code>目录并创建<code>db</code>目录和<code>log</code>目录。</p>
+<h2 id="2-配置"><a href="#2-配置" class="headerlink" title="2 配置"></a>2 配置</h2><h3 id="2-1-目录"><a href="#2-1-目录" class="headerlink" title="2.1 目录"></a>2.1 目录</h3><p>在<code>mongodb-6.0.21</code>目录下创建<code>db</code>目录和<code>log</code>目录。</p>
 <p>使用<code>db</code>目录存储数据文件，使用<code>log</code>目录存储日志。</p>
 <h3 id="2-2-配置文件"><a href="#2-2-配置文件" class="headerlink" title="2.2 配置文件"></a>2.2 配置文件</h3><p>在<code>mongodb-6.0.21</code>目录下创建<code>mongod.conf</code>文件：</p>
-<figure class="highlight txt"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># mongod.conf</span><br><span class="line"></span><br><span class="line">storage:</span><br><span class="line">  # 进程存储数据目录，对mongod进程有效，对mongos进程无效</span><br><span class="line">  dbPath: D:\Work\MongoDB\mongodb-6.0.21\data</span><br><span class="line"></span><br><span class="line">systemLog:</span><br><span class="line">  # 日志输出目的地，表示输出到日志文件，如果不指定，则会输出到标准输出中</span><br><span class="line">  destination: file</span><br><span class="line">  # 重启后如何记录日志，如果为true则将日志添加到尾部，如果为false则备份日志并创建新文件，默认为false</span><br><span class="line">  logAppend: true</span><br><span class="line">  # 日志路径，启动后自动创建</span><br><span class="line">  path: D:\Work\MongoDB\mongodb-6.0.21\data\log\mongod.log</span><br><span class="line"></span><br><span class="line">net:</span><br><span class="line">  # 设置MongoDB的端口</span><br><span class="line">  port: 27017</span><br><span class="line">  # 设置可以访问的ip地址，多个用逗号分隔</span><br><span class="line">  bindIp: 127.0.0.1</span><br><span class="line">  # 最大连接数</span><br><span class="line">  maxIncomingConnections: 10000</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># mongod.cfg</span><br><span class="line"></span><br><span class="line">systemLog:</span><br><span class="line">  # 日志输出目的地，表示输出到日志文件，如果不指定，则会输出到标准输出中</span><br><span class="line">  destination: file</span><br><span class="line">  # 日志路径，启动后自动创建</span><br><span class="line">  path: D:\Work\MongoDB\mongodb-6.0.21\log\mongod.log</span><br><span class="line">  # 重启后如何记录日志，如果为true则将日志添加到尾部，如果为false则备份日志并创建新文件，默认为false</span><br><span class="line">  logAppend: true</span><br><span class="line"></span><br><span class="line">net:</span><br><span class="line">  # 设置MongoDB的端口</span><br><span class="line">  port: 27017</span><br><span class="line">  # 设置可以访问的ip地址，多个用逗号分隔</span><br><span class="line">  bindIp: 127.0.0.1</span><br><span class="line"></span><br><span class="line">storage:</span><br><span class="line">  # 进程存储数据目录，对mongod进程有效，对mongos进程无效</span><br><span class="line">  dbPath: D:\Work\MongoDB\mongodb-6.0.21\db</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-3-服务"><a href="#2-3-服务" class="headerlink" title="2.3 服务"></a>2.3 服务</h3><p>使用管理员身份打开cmd命令行，执行命令安装服务：</p>
 <figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc create MongoDB binPath= &quot;D:\Work\MongoDB\mongodb-<span class="number">6</span>.<span class="number">0</span>.<span class="number">21</span>\bin\mongod.exe --service --config=D:\Work\MongoDB\mongodb-<span class="number">6</span>.<span class="number">0</span>.<span class="number">21</span>\mongod.conf&quot; <span class="built_in">start</span>= &quot;auto&quot; Displayname= &quot;MongoDB&quot;</span><br></pre></td></tr></table></figure>
@@ -2562,14 +2565,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>双击新建的连接，并点击新建查询，即可编写语句并执行。</p>
 <h2 id="4-权限验证"><a href="#4-权限验证" class="headerlink" title="4 权限验证"></a>4 权限验证</h2><p>在未使用权限验证的情况下任何人都可以访问数据库，存在安全风险，建议通过配置增加权限验证。</p>
 <p>修改<code>mongod.conf</code>配置文件，增加配置：</p>
-<figure class="highlight txt"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  # 开启强制身份验证，需要配置用户名和密码信息</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">security:</span><br><span class="line">  # 开启强制身份验证，需要配置用户名和密码信息</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
 
 <p>修改配置文件后需要重启MongoDB数据库服务。</p>
 <p>使用命令进入admin数据库：</p>
 <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use admin;</span><br></pre></td></tr></table></figure>
 
 <p>使用命令创建root用户：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#123; user: &quot;root&quot;, pwd: &quot;123456&quot;, roles: [&quot;root&quot;] &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(&#123; user: &quot;root&quot;, pwd: &quot;123456&quot;, roles: [ &quot;root&quot; ] &#125;);</span><br></pre></td></tr></table></figure>
 
 <p>修改连接，将验证方式改为Password表示通过账号密码登录，修改验证数据库为admin，填写账号密码，测试连接并保存。</p>
 <p>重新连接并新建查询，执行查看数据库列表：</p>
@@ -2604,7 +2607,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月23日</div>
+                <div class="license-meta-text">2025年3月31日</div>
               </div>
               
               
@@ -2866,6 +2869,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250324/100136/" href="/posts/20250324/100136/"
+          
+          
+          active-action="action-posts20250324100136"
+          >
+          <div class='name'>
+            
+            查询优化
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250324/105633/" href="/posts/20250324/105633/"
+          
+          
+          active-action="action-posts20250324105633"
+          >
+          <div class='name'>
+            
+            使用索引
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
@@ -2886,7 +2913,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text">1 下载和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%8B%E8%BD%BD"><span class="toc-text">1.1 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85"><span class="toc-text">1.2 安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE"><span class="toc-text">2 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95"><span class="toc-text">2.1 数据目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9C%8D%E5%8A%A1"><span class="toc-text">2.3 服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7"><span class="toc-text">3 连接工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81"><span class="toc-text">4 权限验证</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85"><span class="toc-text">1 下载和安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%8B%E8%BD%BD"><span class="toc-text">1.1 下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%AE%89%E8%A3%85"><span class="toc-text">1.2 安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE"><span class="toc-text">2 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%9B%AE%E5%BD%95"><span class="toc-text">2.1 目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">2.2 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E6%9C%8D%E5%8A%A1"><span class="toc-text">2.3 服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BF%9E%E6%8E%A5%E5%B7%A5%E5%85%B7"><span class="toc-text">3 连接工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9D%83%E9%99%90%E9%AA%8C%E8%AF%81"><span class="toc-text">4 权限验证</span></a></li></ol>
   </div>
 </section>
 
@@ -3353,7 +3380,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250318/094513/","name":"安装"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"安装","description":"摘要：本文主要学习了MongoDB的下载和安装，以及在安装后进行配置和开启权限验证。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250318/094513/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250318/094513/","wordCount":42,"datePublished":"2025-03-18T01:45:13.000Z","dateModified":"2025-03-23T03:26:09.134Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250318/094513/","name":"安装"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"安装","description":"摘要：本文主要学习了MongoDB的下载和安装，以及在安装后进行配置和开启权限验证。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250318/094513/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250318/094513/","wordCount":42,"datePublished":"2025-03-18T01:45:13.000Z","dateModified":"2025-03-31T15:12:16.435Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

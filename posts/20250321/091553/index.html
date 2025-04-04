@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-21T01:15:53.000Z">
-<meta property="article:modified_time" content="2025-03-23T14:09:40.578Z">
+<meta property="article:modified_time" content="2025-03-30T07:03:56.440Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1742739217991),
+    lastupdate: new Date(1743744004943),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2464,13 +2464,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.2k 字</p>
+      <p>1.6k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>5 分钟</p>
+      <p>7 分钟</p>
     </a>
   </div>
 
@@ -2534,304 +2534,134 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-<h2 id="1-查询操作符"><a href="#1-查询操作符" class="headerlink" title="1 查询操作符"></a>1 查询操作符</h2><h3 id="1-1-比较查询"><a href="#1-1-比较查询" class="headerlink" title="1.1 比较查询"></a>1.1 比较查询</h3><p>比较查询：</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$eq</code></td>
-    <td>等于</td>
-    <td>
-      查询age等于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $eq: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$ne</code></td>
-    <td>不等于</td>
-    <td>
-      查询age不等于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $ne: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$gt</code></td>
-    <td>大于</td>
-    <td>
-      查询age大于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $gt: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$lt</code></td>
-    <td>小于</td>
-    <td>
-      查询age小于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $lt: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$gte</code></td>
-    <td>大于等于</td>
-    <td>
-      查询age大于等于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $gte: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$lte</code></td>
-    <td>小于等于</td>
-    <td>
-      查询age小于等于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $lte: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$gte</code></td>
-    <td>包含</td>
-    <td>
-      查询age包含25和35的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $in: [ 25, 35 ] &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$lte</code></td>
-    <td>不包含</td>
-    <td>
-      查询age不包含25和35的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $nin: [ 25, 35 ] &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h2 id="1-查询操作符"><a href="#1-查询操作符" class="headerlink" title="1 查询操作符"></a>1 查询操作符</h2><h3 id="1-1-比较查询"><a href="#1-1-比较查询" class="headerlink" title="1.1 比较查询"></a>1.1 比较查询</h3><h4 id="1-1-1-eq"><a href="#1-1-1-eq" class="headerlink" title="1.1.1 eq"></a>1.1.1 eq</h4><p>等于，查询属性等于指定值的文档。</p>
+<p>查询age属性等于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $eq: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-2-逻辑查询"><a href="#1-2-逻辑查询" class="headerlink" title="1.2 逻辑查询"></a>1.2 逻辑查询</h3><p>逻辑查询:</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$and</code></td>
-    <td>逻辑与</td>
-    <td>
-      查询age等于25且sex为女的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; $and: [</span><br><span class="line">    &#123; age: &#123; $eq: 25 &#125; &#125;,</span><br><span class="line">    &#123; sex: &quot;女&quot; &#125;</span><br><span class="line">  ] &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$or</code></td>
-    <td>逻辑或</td>
-    <td>
-      查询age等于25或sex为女的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; $or: [</span><br><span class="line">    &#123; age: &#123; $eq: 25 &#125; &#125;,</span><br><span class="line">    &#123; sex: &quot;女&quot; &#125;</span><br><span class="line">  ] &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$nor</code></td>
-    <td>逻辑非或</td>
-    <td>
-      查询age不等于25且sex不为女的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; $nor: [</span><br><span class="line">    &#123; age: &#123; $eq: 25 &#125; &#125;,</span><br><span class="line">    &#123; sex: &quot;女&quot; &#125;</span><br><span class="line">  ] &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$not</code></td>
-    <td>逻辑非</td>
-    <td>
-      查询age不等于25的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $not: &#123; $eq: 25 &#125; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-      等价于：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $ne: 25 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h4 id="1-1-2-ne"><a href="#1-1-2-ne" class="headerlink" title="1.1.2 ne"></a>1.1.2 ne</h4><p>不等于，查询属性不等于指定值的文档。</p>
+<p>查询age属性不等于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $ne: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-3-元素查询"><a href="#1-3-元素查询" class="headerlink" title="1.3 元素查询"></a>1.3 元素查询</h3><p>元素查询：</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$exists</code></td>
-    <td>是否存在</td>
-    <td>
-      查询包含age字段的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $exists: true &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$type</code></td>
-    <td>数据类型</td>
-    <td>
-      查询age字段类型为整数的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; age: &#123; $type: &quot;int&quot; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h4 id="1-1-3-gt"><a href="#1-1-3-gt" class="headerlink" title="1.1.3 gt"></a>1.1.3 gt</h4><p>大于，查询属性大于指定值的文档。</p>
+<p>查询age属性大于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $gt: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-4-评估查询"><a href="#1-4-评估查询" class="headerlink" title="1.4 评估查询"></a>1.4 评估查询</h3><p>评估查询：</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$regex</code></td>
-    <td>支持正则表达式</td>
-    <td>
-      查询address以北京市开头的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; address: &#123; $regex: /^北京市/ &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h4 id="1-1-4-lt"><a href="#1-1-4-lt" class="headerlink" title="1.1.4 lt"></a>1.1.4 lt</h4><p>小于，查询属性小于指定值的文档。</p>
+<p>查询age属性小于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $lt: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="1-5-数组查询"><a href="#1-5-数组查询" class="headerlink" title="1.5 数组查询"></a>1.5 数组查询</h3><p>数组查询：</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$all</code></td>
-    <td>数组中所有元素都满足条件</td>
-    <td>
-      查询tags数组中同时包含age和sex的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; tags: &#123; $all: [&quot;age&quot;, &quot;sex&quot;] &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$elemMatch</code></td>
-    <td>匹配数组中的元素</td>
-    <td>
-      查询scores数组中存在大于80的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; scores: &#123; $elemMatch: &#123; $gt: 80 &#125; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$size</code></td>
-    <td>数组的大小</td>
-    <td>
-      查询book数组大小为2的文档：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(</span><br><span class="line">  &#123; book: &#123; $size: 2 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h4 id="1-1-5-gte"><a href="#1-1-5-gte" class="headerlink" title="1.1.5 gte"></a>1.1.5 gte</h4><p>大于等于，查询属性大于等于指定值的文档。</p>
+<p>查询age属性大于等于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $gte: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-更新操作符"><a href="#2-更新操作符" class="headerlink" title="2 更新操作符"></a>2 更新操作符</h2><h3 id="2-1-字段更新"><a href="#2-1-字段更新" class="headerlink" title="2.1 字段更新"></a>2.1 字段更新</h3><p>字段更新：</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$rename</code></td>
-    <td>更新字段名</td>
-    <td>
-      将name为张三的location字段名设置为address：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $rename: &#123; &quot;location&quot;: &quot;address&quot; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$set</code></td>
-    <td>更新字段值</td>
-    <td>
-      将name为张三的age字段值设置为30：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $set: &#123; age: 30 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$unset</code></td>
-    <td>删除字段</td>
-    <td>
-      将name为张三的age字段删除：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $unset: &#123; age: 0 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$inc</code></td>
-    <td>将字段按指定值相加</td>
-    <td>
-      将name为张三的age字段减1：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $inc: &#123; age: -1 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$mul</code></td>
-    <td>将字段按指定值相乘</td>
-    <td>
-      将name为张三的age字段乘2：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $mul: &#123; age: 2 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$min</code></td>
-    <td>设置最大值，当指定值小于字段值，更新为指定值</td>
-    <td>
-      将name为张三的age字段的最大值更新为16：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $min: &#123; age: 16 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$max</code></td>
-    <td>设置最小值，当指定值大于字段值，更新为指定值</td>
-    <td>
-      将name为张三的age字段的最小值更新为18：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $max: &#123; age: 18 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h4 id="1-1-6-lte"><a href="#1-1-6-lte" class="headerlink" title="1.1.6 lte"></a>1.1.6 lte</h4><p>小于等于，查询属性小于等于指定值的文档。</p>
+<p>查询age属性小于等于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $lte: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-2-数组更新"><a href="#2-2-数组更新" class="headerlink" title="2.2 数组更新"></a>2.2 数组更新</h3><p>数组更新：</p>
-<table>
-  <tr>
-    <th>操作符</th>
-    <th>描述</th>
-    <th>示例</th>
-  </tr>
-  <tr>
-    <td><code>$pop</code></td>
-    <td>从数组的开头或结尾移除元素，末尾是1，开头是-1</td>
-    <td>
-      将name为张三的scores数组移除末尾元素：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $pop: &#123; score: 1 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$push</code></td>
-    <td>将元素添加到数组的末尾</td>
-    <td>
-      将name为张三的scores数组末尾添加100元素：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $push: &#123; score: 100 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$pull</code></td>
-    <td>从数组中移除所有匹配的元素</td>
-    <td>
-      将name为张三的scores数组移除90元素：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $pull: &#123; score: 90 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-  <tr>
-    <td><code>$pullAll</code></td>
-    <td>从数组中移除所有匹配的元素，支持多个</td>
-    <td>
-      将name为张三的scores数组移除70元素和80元素：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $pullAll: &#123; score: [ 70, 80 ] &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-      等价于：
-      <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;, &#123; $pull: &#123; score: &#123; $in: [ 70, 80 ] &#125; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-    </td>
-  </tr>
-</table>
+<h4 id="1-1-7-in"><a href="#1-1-7-in" class="headerlink" title="1.1.7 in"></a>1.1.7 in</h4><p>包含，查询属性在指定范围的文档。</p>
+<p>查询age属性在25和35的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $in: [ 25, 35 ] &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-8-nin"><a href="#1-1-8-nin" class="headerlink" title="1.1.8 nin"></a>1.1.8 nin</h4><p>不包含，查询属性不在指定范围的文档。</p>
+<p>查询age属性不在25和35的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $nin: [ 25, 35 ] &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-逻辑查询"><a href="#1-2-逻辑查询" class="headerlink" title="1.2 逻辑查询"></a>1.2 逻辑查询</h3><h4 id="1-2-1-and"><a href="#1-2-1-and" class="headerlink" title="1.2.1 and"></a>1.2.1 and</h4><p>逻辑与，查询指定条件全都满足的文档。</p>
+<p>查询age属性等于25且sex属性为女的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;</span><br><span class="line">  $and: [</span><br><span class="line">    &#123; age: &#123; $eq: 25 &#125; &#125;,</span><br><span class="line">    &#123; sex: &quot;女&quot; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>可以省略操作符：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;</span><br><span class="line">  age: &#123; $eq: 25 &#125;,</span><br><span class="line">  sex: &quot;女&quot;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-or"><a href="#1-2-2-or" class="headerlink" title="1.2.2 or"></a>1.2.2 or</h4><p>逻辑或，查询指定条件部分满足的文档。</p>
+<p>查询age属性等于25或sex属性为女的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;</span><br><span class="line">  $or: [</span><br><span class="line">    &#123; age: &#123; $eq: 25 &#125; &#125;,</span><br><span class="line">    &#123; sex: &quot;女&quot; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-nor"><a href="#1-2-3-nor" class="headerlink" title="1.2.3 nor"></a>1.2.3 nor</h4><p>逻辑非或，查询指定条件都不满足的文档。</p>
+<p>查询age属性不等于25且sex属性不为女的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;</span><br><span class="line">  $nor: [</span><br><span class="line">    &#123; age: &#123; $eq: 25 &#125; &#125;,</span><br><span class="line">    &#123; sex: &quot;女&quot; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-not"><a href="#1-2-4-not" class="headerlink" title="1.2.4 not"></a>1.2.4 not</h4><p>逻辑非，查询指定条件不满足的文档。</p>
+<p>查询age属性不等于25的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $not: &#123; $eq: 25 &#125; &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $ne: 25 &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-元素查询"><a href="#1-3-元素查询" class="headerlink" title="1.3 元素查询"></a>1.3 元素查询</h3><h4 id="1-3-1-exists"><a href="#1-3-1-exists" class="headerlink" title="1.3.1 exists"></a>1.3.1 exists</h4><p>查询指定属性是否存在的文档。</p>
+<p>查询存在age属性的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $exists: true &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-type"><a href="#1-3-2-type" class="headerlink" title="1.3.2 type"></a>1.3.2 type</h4><p>查询指定属性是否符合指定类型的文档。</p>
+<p>查询age属性类型为整数的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $type: [ &quot;double&quot;, &quot;int&quot; ] &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-评估查询"><a href="#1-4-评估查询" class="headerlink" title="1.4 评估查询"></a>1.4 评估查询</h3><h4 id="1-4-1-expr"><a href="#1-4-1-expr" class="headerlink" title="1.4.1 expr"></a>1.4.1 expr</h4><p>允许使用聚合操作符查询文档。</p>
+<p>查询income属性大于expenditure属性的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; $expr: &#123; $gt: [ &quot;$income&quot;, &quot;$expenditure&quot; ] &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-2-regex"><a href="#1-4-2-regex" class="headerlink" title="1.4.2 regex"></a>1.4.2 regex</h4><p>允许使用正则表达式查询文档。</p>
+<p>查询address属性以北京市开头的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; address: &#123; $regex: /^北京市/ &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-数组查询"><a href="#1-5-数组查询" class="headerlink" title="1.5 数组查询"></a>1.5 数组查询</h3><h4 id="1-5-1-all"><a href="#1-5-1-all" class="headerlink" title="1.5.1 all"></a>1.5.1 all</h4><p>查询属性是数组并且包含所有元素的文档。</p>
+<p>查询tags数组中同时包含age和sex的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; tags: &#123; $all: [ &quot;age&quot;, &quot;sex&quot; ] &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-2-elemMatch"><a href="#1-5-2-elemMatch" class="headerlink" title="1.5.2 elemMatch"></a>1.5.2 elemMatch</h4><p>查询属性是数组并且满足指定条件的文档。</p>
+<p>查询scores数组中存在大于80的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; scores: &#123; $elemMatch: &#123; $gt: 80 &#125; &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-5-3-size"><a href="#1-5-3-size" class="headerlink" title="1.5.3 size"></a>1.5.3 size</h4><p>查询属性是数组并且符合指定大小的文档。</p>
+<p>查询books数组大小为2的文档：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; books: &#123; $size: 2 &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-更新操作符"><a href="#2-更新操作符" class="headerlink" title="2 更新操作符"></a>2 更新操作符</h2><h3 id="2-1-属性更新"><a href="#2-1-属性更新" class="headerlink" title="2.1 属性更新"></a>2.1 属性更新</h3><h4 id="2-1-1-rename"><a href="#2-1-1-rename" class="headerlink" title="2.1.1 rename"></a>2.1.1 rename</h4><p>根据条件修改指定属性名。</p>
+<p>查询name属性为张三的文档，将location属性名修改为address：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $rename: &#123; &quot;location&quot;: &quot;address&quot; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-2-set"><a href="#2-1-2-set" class="headerlink" title="2.1.2 set"></a>2.1.2 set</h4><p>根据条件修改指定属性值。</p>
+<p>查询name属性为张三的文档，将age属性值设置为30：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $set: &#123; age: 30 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-3-unset"><a href="#2-1-3-unset" class="headerlink" title="2.1.3 unset"></a>2.1.3 unset</h4><p>根据条件删除指定属性。</p>
+<p>查询name属性为张三的文档，将age属性删除：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $unset: &#123; age: 0 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-4-inc"><a href="#2-1-4-inc" class="headerlink" title="2.1.4 inc"></a>2.1.4 inc</h4><p>根据条件将属性按指定值相加。</p>
+<p>查询name属性为张三的文档，将age属性减1：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $inc: &#123; age: -1 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-5-mul"><a href="#2-1-5-mul" class="headerlink" title="2.1.5 mul"></a>2.1.5 mul</h4><p>根据条件将属性按指定值相乘。</p>
+<p>查询name属性为张三的文档，将age属性乘2：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $mul: &#123; age: 2 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-6-min"><a href="#2-1-6-min" class="headerlink" title="2.1.6 min"></a>2.1.6 min</h4><p>根据条件设置最大值，当指定值小于属性值，更新为指定值。</p>
+<p>查询name属性为张三的文档，将age属性的最大值更新为16：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $min: &#123; age: 16 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-1-7-max"><a href="#2-1-7-max" class="headerlink" title="2.1.7 max"></a>2.1.7 max</h4><p>根据条件设置最小值，当指定值大于属性值，更新为指定值。</p>
+<p>查询name属性为张三的文档，将age属性的最小值更新为18：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $max: &#123; age: 18 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-数组更新"><a href="#2-2-数组更新" class="headerlink" title="2.2 数组更新"></a>2.2 数组更新</h3><h4 id="2-2-1-pop"><a href="#2-2-1-pop" class="headerlink" title="2.2.1 pop"></a>2.2.1 pop</h4><p>将元素从数组的开头或末尾移除，末尾是1，开头是-1。</p>
+<p>查询name属性为张三的文档，将元素从scores数组的末尾移除：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $pop: &#123; scores: 1 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-2-push"><a href="#2-2-2-push" class="headerlink" title="2.2.2 push"></a>2.2.2 push</h4><p>将元素添加到数组的末尾。</p>
+<p>查询name属性为张三的文档，将元素添加到scores数组的末尾：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $push: &#123; scores: 100 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-3-pull"><a href="#2-2-3-pull" class="headerlink" title="2.2.3 pull"></a>2.2.3 pull</h4><p>将元素从数组中移除。</p>
+<p>查询name属性为张三的文档，将元素从scores数组移除：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $pull: &#123; scores: 90 &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-4-pullAll"><a href="#2-2-4-pullAll" class="headerlink" title="2.2.4 pullAll"></a>2.2.4 pullAll</h4><p>将多个元素从数组中移除。</p>
+<p>查询name属性为张三的文档，将多个元素从scores数组移除：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $pullAll: &#123; scores: [ 70, 80 ] &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>等价于：</p>
+<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.student.updateOne(</span><br><span class="line">  &#123; name: &quot;张三&quot; &#125;,</span><br><span class="line">  &#123; $pull: &#123; scores: &#123; $in: [ 70, 80 ] &#125; &#125; &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2862,7 +2692,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月23日</div>
+                <div class="license-meta-text">2025年3月30日</div>
               </div>
               
               
@@ -3124,6 +2954,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
+        <li><a class="flat-box" title="/posts/20250324/100136/" href="/posts/20250324/100136/"
+          
+          
+          active-action="action-posts20250324100136"
+          >
+          <div class='name'>
+            
+            查询优化
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250324/105633/" href="/posts/20250324/105633/"
+          
+          
+          active-action="action-posts20250324105633"
+          >
+          <div class='name'>
+            
+            使用索引
+          </div>
+          
+        </a></li>
+      
     </ul>
   </div>
 </section>
@@ -3144,7 +2998,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">1 查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%AF%94%E8%BE%83%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.1 比较查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%80%BB%E8%BE%91%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.2 逻辑查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%85%83%E7%B4%A0%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.3 元素查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E8%AF%84%E4%BC%B0%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.4 评估查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.5 数组查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">2 更新操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AD%97%E6%AE%B5%E6%9B%B4%E6%96%B0"><span class="toc-text">2.1 字段更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0"><span class="toc-text">2.2 数组更新</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">1 查询操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%AF%94%E8%BE%83%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.1 比较查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-eq"><span class="toc-text">1.1.1 eq</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-ne"><span class="toc-text">1.1.2 ne</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-gt"><span class="toc-text">1.1.3 gt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-lt"><span class="toc-text">1.1.4 lt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-5-gte"><span class="toc-text">1.1.5 gte</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-6-lte"><span class="toc-text">1.1.6 lte</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-7-in"><span class="toc-text">1.1.7 in</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-8-nin"><span class="toc-text">1.1.8 nin</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%80%BB%E8%BE%91%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.2 逻辑查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-and"><span class="toc-text">1.2.1 and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-or"><span class="toc-text">1.2.2 or</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-nor"><span class="toc-text">1.2.3 nor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-not"><span class="toc-text">1.2.4 not</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%85%83%E7%B4%A0%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.3 元素查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-exists"><span class="toc-text">1.3.1 exists</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-type"><span class="toc-text">1.3.2 type</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E8%AF%84%E4%BC%B0%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.4 评估查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-expr"><span class="toc-text">1.4.1 expr</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-regex"><span class="toc-text">1.4.2 regex</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E6%95%B0%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="toc-text">1.5 数组查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1-all"><span class="toc-text">1.5.1 all</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-elemMatch"><span class="toc-text">1.5.2 elemMatch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-3-size"><span class="toc-text">1.5.3 size</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="toc-text">2 更新操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%B1%9E%E6%80%A7%E6%9B%B4%E6%96%B0"><span class="toc-text">2.1 属性更新</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-rename"><span class="toc-text">2.1.1 rename</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-set"><span class="toc-text">2.1.2 set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-unset"><span class="toc-text">2.1.3 unset</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4-inc"><span class="toc-text">2.1.4 inc</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-5-mul"><span class="toc-text">2.1.5 mul</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-6-min"><span class="toc-text">2.1.6 min</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-7-max"><span class="toc-text">2.1.7 max</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%95%B0%E7%BB%84%E6%9B%B4%E6%96%B0"><span class="toc-text">2.2 数组更新</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-pop"><span class="toc-text">2.2.1 pop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-push"><span class="toc-text">2.2.2 push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-pull"><span class="toc-text">2.2.3 pull</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-pullAll"><span class="toc-text">2.2.4 pullAll</span></a></li></ol></li></ol></li></ol>
   </div>
 </section>
 
@@ -3611,7 +3465,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250321/091553/","name":"操作符"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"操作符","description":"摘要：本文主要学习了查询操作符和更新操作符。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250321/091553/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250321/091553/","wordCount":22,"datePublished":"2025-03-21T01:15:53.000Z","dateModified":"2025-03-23T14:09:40.578Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250321/091553/","name":"操作符"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"操作符","description":"摘要：本文主要学习了查询操作符和更新操作符。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250321/091553/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250321/091553/","wordCount":22,"datePublished":"2025-03-21T01:15:53.000Z","dateModified":"2025-03-30T07:03:56.440Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
