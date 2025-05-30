@@ -49,19 +49,19 @@
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>LowDB - 墨码山河</title>
+  <title>使用LowDB数据库 - 墨码山河</title>
   <meta name="keywords" content="JS,Node,LowDB,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="LowDB">
+<meta property="og:title" content="使用LowDB数据库">
 <meta property="og:url" content="https://momashanhe.com/posts/20250316/124242/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。">
+<meta property="og:description" content="摘要：本文学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-16T04:42:42.000Z">
-<meta property="article:modified_time" content="2025-03-21T06:51:50.719Z">
+<meta property="article:modified_time" content="2025-04-21T03:36:21.319Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="Node">
@@ -2022,7 +2022,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1743744004943),
+    lastupdate: new Date(1748647890022),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2446,7 +2446,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        LowDB
+        使用LowDB数据库
       </h1>
       <div class='new-meta-box'>
         
@@ -2466,7 +2466,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>773 字</p>
+      <p>802 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2527,7 +2527,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。</p>
+    <p>摘要：本文学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
@@ -2547,7 +2547,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2 安装"></a>2 安装</h2><p>使用<code>npm install lowdb@1.0.0</code>命令安装。</p>
 <p>因为最新版本需要通过ES模块引入，所以需要安装早起版本以便能通过CommonJS模块引入。</p>
-<h2 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h2><p>初始化数据库：</p>
+<h2 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h2><h3 id="3-1-初始化"><a href="#3-1-初始化" class="headerlink" title="3.1 初始化"></a>3.1 初始化</h3><p>初始化数据库：</p>
 <figure class="highlight js"><figcaption><span>app.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入模块</span></span><br><span class="line"><span class="keyword">const</span> low = <span class="built_in">require</span>(<span class="string">&#x27;lowdb&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">FileSync</span> = <span class="built_in">require</span>(<span class="string">&#x27;lowdb/adapters/FileSync&#x27;</span>);</span><br><span class="line"><span class="comment">// 指定数据文件</span></span><br><span class="line"><span class="keyword">const</span> file = path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;db.json&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建同步适配器</span></span><br><span class="line"><span class="keyword">const</span> adapter = <span class="keyword">new</span> <span class="title class_">FileSync</span>(file);</span><br><span class="line"><span class="comment">// 创建LowDB实例</span></span><br><span class="line"><span class="keyword">const</span> db = <span class="title function_">low</span>(adapter);</span><br></pre></td></tr></table></figure>
 
 <p>在命令行执行<code>node app.js</code>命令会在当前目录生成个<code>db.json</code>文件，存储了默认数据：</p>
@@ -2556,16 +2556,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>默认数据：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="title function_">defaults</span>(&#123;<span class="attr">posts</span>: [], <span class="attr">user</span>: &#123;&#125;, <span class="attr">count</span>: <span class="number">0</span> &#125;).<span class="title function_">write</span>();</span><br></pre></td></tr></table></figure>
 
-<p>写入数据：</p>
+<h3 id="3-2-增删改查"><a href="#3-2-增删改查" class="headerlink" title="3.2 增删改查"></a>3.2 增删改查</h3><h4 id="3-2-1-增加"><a href="#3-2-1-增加" class="headerlink" title="3.2.1 增加"></a>3.2.1 增加</h4><p>写入数据：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从尾部写入</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>).<span class="title function_">push</span>(&#123;<span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">&#x27;天气不错&#x27;</span>&#125;).<span class="title function_">write</span>();</span><br><span class="line"><span class="comment">// 从头部写入</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>).<span class="title function_">unshift</span>(&#123;<span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">&#x27;天气不错&#x27;</span>&#125;, &#123;<span class="attr">id</span>: <span class="number">3</span>, <span class="attr">title</span>: <span class="string">&#x27;天气不好&#x27;</span>&#125;).<span class="title function_">write</span>();</span><br></pre></td></tr></table></figure>
 
-<p>删除数据：</p>
+<h4 id="3-2-2-删除"><a href="#3-2-2-删除" class="headerlink" title="3.2.2 删除"></a>3.2.2 删除</h4><p>删除数据：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除对象属性</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;user&#x27;</span>).<span class="title function_">unset</span>(<span class="string">&#x27;name&#x27;</span>).<span class="title function_">write</span>();</span><br><span class="line"><span class="comment">// 删除列表单条或多条</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>).<span class="title function_">remove</span>(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;).<span class="title function_">write</span>();</span><br><span class="line"><span class="comment">// 删除列表所有数据</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>).<span class="title function_">remove</span>().<span class="title function_">write</span>();</span><br></pre></td></tr></table></figure>
 
-<p>更新数据：</p>
+<h4 id="3-2-3-修改"><a href="#3-2-3-修改" class="headerlink" title="3.2.3 修改"></a>3.2.3 修改</h4><p>修改数据：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置对象属性</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;user&#x27;</span>).<span class="title function_">set</span>(<span class="string">&#x27;sex&#x27;</span>, <span class="string">&#x27;男&#x27;</span>).<span class="title function_">set</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;张三&#x27;</span>).<span class="title function_">write</span>();</span><br><span class="line"><span class="comment">// 设置列表记录</span></span><br><span class="line">db.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>).<span class="title function_">find</span>(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;).<span class="title function_">assign</span>(&#123;<span class="attr">title</span>: <span class="string">&#x27;天气很好&#x27;</span>&#125;).<span class="title function_">write</span>();</span><br></pre></td></tr></table></figure>
 
-<p>查询单条数据：</p>
+<h4 id="3-3-4-查询"><a href="#3-3-4-查询" class="headerlink" title="3.3.4 查询"></a>3.3.4 查询</h4><p>查询单条数据：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> result = db.<span class="title function_">get</span>(<span class="string">&#x27;posts&#x27;</span>).<span class="title function_">find</span>(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;).<span class="title function_">value</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result);<span class="comment">// &#123; id: 1, title: &#x27;天气不错&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>查询多条数据：</p>
@@ -2594,7 +2594,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">LowDB</div>
+            <div class="license-title">使用LowDB数据库</div>
             <div class="license-link"><a href="https://momashanhe.com/posts/20250316/124242/">https://momashanhe.com/posts/20250316/124242/</a>
             </div>
             <div class="license-meta">
@@ -2609,7 +2609,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月21日</div>
+                <div class="license-meta-text">2025年4月21日</div>
               </div>
               
               
@@ -2682,14 +2682,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class="prev-next">
       
         <a class='prev' href='/posts/20250317/130918/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>简介</p>
-          <p class='content'>摘要：本文主要学习了数据库的定义和分类，以及MongoDB数据库的基本知识。</p>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>入门</p>
+          <p class='content'>摘要：本文学习了数据库的定义和分类，以及MongoDB数据库的基本知识。</p>
         </a>
       
       
-        <a class='next' href='/posts/20250312/140523/'>
-          <p class='title'>Express<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要学习了Express框架，包括安装和简单使用，以及如何防盗链和使用模板引擎渲染页面等等。</p>
+        <a class='next' href='/posts/20250313/153305/'>
+          <p class='title'>初体验<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>摘要：。</p>
         </a>
       
     </div>
@@ -2793,6 +2793,51 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
+
+
+  
+<section class="widget list group desktop mobile">
+  
+  <header>
+    
+      <a href='/groups/104003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>大前端:Node:数据库</span></a>
+    
+  </header>
+
+
+  <div class='content'>
+    <ul class="list entry navigation">
+      
+        <li><a class="flat-box" title="/posts/20250316/124242/" href="/posts/20250316/124242/"
+          
+          
+          active-action="action-posts20250316124242"
+          >
+          <div class='name'>
+            
+            使用LowDB数据库
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250401/132206/" href="/posts/20250401/132206/"
+          
+          
+          active-action="action-posts20250401132206"
+          >
+          <div class='name'>
+            
+            使用MongoDB数据库
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+
     
   
 
@@ -2810,53 +2855,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-  
-<section class="widget list group desktop mobile">
-  
-  <header>
-    
-      <a href='/groups/104002/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>大前端:Node:进阶</span></a>
-    
-  </header>
-
-
-  <div class='content'>
-    <ul class="list entry navigation">
-      
-        <li><a class="flat-box" title="/posts/20250312/140523/" href="/posts/20250312/140523/"
-          
-          
-          active-action="action-posts20250312140523"
-          >
-          <div class='name'>
-            
-            Express
-          </div>
-          
-        </a></li>
-      
-        <li><a class="flat-box" title="/posts/20250316/124242/" href="/posts/20250316/124242/"
-          
-          
-          active-action="action-posts20250316124242"
-          >
-          <div class='name'>
-            
-            LowDB
-          </div>
-          
-        </a></li>
-      
-    </ul>
-  </div>
-</section>
-
-
-
-  
-  
-
-
 <section class="widget toc-wrapper desktop mobile" id="toc-div" >
   
   <header>
@@ -2867,7 +2865,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9D%E8%AF%86"><span class="toc-text">1 初识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%89%B9%E7%82%B9"><span class="toc-text">1.2 特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85"><span class="toc-text">2 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="toc-text">3 使用</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9D%E8%AF%86"><span class="toc-text">1 初识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%89%B9%E7%82%B9"><span class="toc-text">1.2 特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85"><span class="toc-text">2 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="toc-text">3 使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">3.1 初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-text">3.2 增删改查</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E5%A2%9E%E5%8A%A0"><span class="toc-text">3.2.1 增加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E5%88%A0%E9%99%A4"><span class="toc-text">3.2.2 删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E4%BF%AE%E6%94%B9"><span class="toc-text">3.2.3 修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-%E6%9F%A5%E8%AF%A2"><span class="toc-text">3.3.4 查询</span></a></li></ol></li></ol></li></ol>
   </div>
 </section>
 
@@ -3334,7 +3332,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250316/124242/","name":"LowDB"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"LowDB","description":"摘要：本文主要学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250316/124242/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250316/124242/","wordCount":43,"datePublished":"2025-03-16T04:42:42.000Z","dateModified":"2025-03-21T06:51:50.719Z","articleSection":"大前端","keywords":"JS,Node,LowDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250316/124242/","name":"使用LowDB数据库"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用LowDB数据库","description":"摘要：本文学习了什么是LowDB数据库，如何在Node项目中实现对数据的增删改查。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250316/124242/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250316/124242/","wordCount":41,"datePublished":"2025-03-16T04:42:42.000Z","dateModified":"2025-04-21T03:36:21.319Z","articleSection":"大前端","keywords":"JS,Node,LowDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

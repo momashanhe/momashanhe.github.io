@@ -49,19 +49,19 @@
   <!-- feed -->
       <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
   <!-- 页面元数据 -->
-  <title>移动端 - 墨码山河</title>
+  <title>移动端适配 - 墨码山河</title>
   <meta name="keywords" content="HTML,CSS,代码改变世界">
   <meta desc name="description" content="摘要：本文探讨了移动端开发中的视口设置、适配不同屏幕的方法以及响应式布局的实现策略。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="移动端">
+<meta property="og:title" content="移动端适配">
 <meta property="og:url" content="https://momashanhe.com/posts/20240519/111744/index.html">
 <meta property="og:site_name" content="墨码山河">
 <meta property="og:description" content="摘要：本文探讨了移动端开发中的视口设置、适配不同屏幕的方法以及响应式布局的实现策略。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-05-19T03:17:44.000Z">
-<meta property="article:modified_time" content="2025-03-12T12:10:25.006Z">
+<meta property="article:modified_time" content="2025-04-21T03:36:23.855Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1743744004943),
+    lastupdate: new Date(1748647890022),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2445,7 +2445,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        移动端
+        移动端适配
       </h1>
       <div class='new-meta-box'>
         
@@ -2465,7 +2465,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.9k 字</p>
+      <p>2k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2540,6 +2540,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>设置了视口的物理像素后，当网页的逻辑像素超出后，会使用滚动条加载页面，不会缩放页面，保证文字和内容显示正常。</p>
+<p>为了保证页面显示比例不被破坏，可以禁止缩放，保持缩放比例：</p>
+<figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=no&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="3-适配不同屏幕"><a href="#3-适配不同屏幕" class="headerlink" title="3 适配不同屏幕"></a>3 适配不同屏幕</h2><p>虽然设置完美视口能够解决缩放的问题，但不同设备的完美视口是不同的，在某个设备上使用200px能够撑满宽度，但是在其他设备上可能就只显示半屏，所以还需要适配不同的屏幕。</p>
 <h3 id="3-1-使用百分比"><a href="#3-1-使用百分比" class="headerlink" title="3.1 使用百分比"></a>3.1 使用百分比</h3><p>使用百分比代替像素值，依据父元素的内容大小使用百分比。</p>
 <p>这种方式可以避免使用像素带来的问题，但是如果父元素设置了边框或者边距，使用起来就比较麻烦。</p>
@@ -2548,19 +2551,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>在使用时，需要按照视口设置的物理像素，将设计图里的逻辑像素转化为视口百分比。</p>
 <p>示例：</p>
 <ul>
-<li>第一步：假设网页宽度为750px，计算1px对应的vw：100÷750≈0.1333vw</li>
-<li>第二步：假设容器宽度为200px，计算对应的vw：200×0.1333&#x3D;26.6666vw</li>
-<li>第三步：使用26.6666vw作为容器宽度，替换200px</li>
+<li>第一步，假设网页宽度为750px，计算1px对应的vw：100÷750≈0.1333vw</li>
+<li>第二步，假设容器宽度为200px，计算对应的vw：200×0.1333&#x3D;26.6666vw</li>
+<li>第三步，使用26.6666vw作为容器宽度，替换200px</li>
 </ul>
 <p>这种方式不依赖父元素，能够按照比例适配不同屏幕，但是在计算的时候比较麻烦。</p>
 <h3 id="3-3-使用字体倍数"><a href="#3-3-使用字体倍数" class="headerlink" title="3.3 使用字体倍数"></a>3.3 使用字体倍数</h3><p>使用字体倍数rem代替像素值，rem对应的是根元素的字体大小，这种方式是使用视口百分比的补充。</p>
 <p>实例：</p>
 <ul>
-<li>第一步：假设网页宽度为750px，计算1px对应的vw：100÷750≈0.1333vw</li>
-<li>第二步：为了防止字体过小被浏览器改为默认的12px，建议设置网页根元素的字体大小为40px，计算对应的vw：40×0.1333&#x3D;5.3333vw</li>
-<li>第三步：使用5.3333vw作为网页根元素的字体大小，替换40px</li>
-<li>第四步：假设容器宽度为200px，使用字体大小将px转为rem：200÷40&#x3D;5rem</li>
-<li>第五步：使用5rem作为容器宽度，替换200px</li>
+<li>第一步，假设网页宽度为750px，计算1px对应的vw：100÷750≈0.1333vw</li>
+<li>第二步，为了防止字体过小被浏览器改为默认的12px，建议设置网页根元素的字体大小为40px，计算对应的vw：40×0.1333&#x3D;5.3333vw</li>
+<li>第三步，使用5.3333vw作为网页根元素的字体大小，替换40px</li>
+<li>第四步，假设容器宽度为200px，使用字体大小将px转为rem：200÷40&#x3D;5rem</li>
+<li>第五步，使用5rem作为容器宽度，替换200px</li>
 </ul>
 <p>这种方式本质上使用的还是视口百分比，但是在计算的时候使用字体大小计算，更简单一些。</p>
 <p>在实际开发中，并不是完全禁止使用px作为单位，如果需要根据屏幕进行缩放，才需要考虑避免使用px带来的问题。</p>
@@ -2672,7 +2675,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>示例：</p>
 <figure class="highlight css"><figcaption><span>css</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">768px</span>) &#123;</span><br><span class="line">  <span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在使用时也可以通过指定条件使用不同的样式文件。示例：</p>
+<p>在使用时也可以通过指定条件使用不同的样式文件：</p>
 <figure class="highlight html"><figcaption><span>html</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;screen and (max-width:768px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./index-small.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
   </div>
@@ -2689,7 +2692,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           
           <div class="copyright license">
-            <div class="license-title">移动端</div>
+            <div class="license-title">移动端适配</div>
             <div class="license-link"><a href="https://momashanhe.com/posts/20240519/111744/">https://momashanhe.com/posts/20240519/111744/</a>
             </div>
             <div class="license-meta">
@@ -2704,7 +2707,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月12日</div>
+                <div class="license-meta-text">2025年4月21日</div>
               </div>
               
               
@@ -2888,21 +2891,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
-
-  
-  
 
 
   
@@ -2925,7 +2913,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            CSS2入门
+            入门
           </div>
           
         </a></li>
@@ -2937,7 +2925,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            CSS2进阶
+            进阶
           </div>
           
         </a></li>
@@ -2961,7 +2949,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           >
           <div class='name'>
             
-            移动端
+            移动端适配
           </div>
           
         </a></li>
@@ -2971,6 +2959,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </section>
 
 
+
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
 
   
   
@@ -3453,7 +3454,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240519/111744/","name":"移动端"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"移动端","description":"摘要：本文探讨了移动端开发中的视口设置、适配不同屏幕的方法以及响应式布局的实现策略。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240519/111744/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240519/111744/","wordCount":42,"datePublished":"2024-05-19T03:17:44.000Z","dateModified":"2025-03-12T12:10:25.006Z","articleSection":"大前端","keywords":"HTML,CSS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240519/111744/","name":"移动端适配"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"移动端适配","description":"摘要：本文探讨了移动端开发中的视口设置、适配不同屏幕的方法以及响应式布局的实现策略。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240519/111744/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240519/111744/","wordCount":42,"datePublished":"2024-05-19T03:17:44.000Z","dateModified":"2025-04-21T03:36:23.855Z","articleSection":"大前端","keywords":"HTML,CSS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

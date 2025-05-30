@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>AJAX - 墨码山河</title>
   <meta name="keywords" content="JS,AJAX,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要学习了AJAX的原理和使用。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文学习了AJAX的原理和使用。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="AJAX">
 <meta property="og:url" content="https://momashanhe.com/posts/20250117/115818/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要学习了AJAX的原理和使用。">
+<meta property="og:description" content="摘要：本文学习了AJAX的原理和使用。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-01-17T03:58:18.000Z">
-<meta property="article:modified_time" content="2025-03-13T02:46:57.772Z">
+<meta property="article:modified_time" content="2025-05-14T01:25:48.965Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="AJAX">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1743744004943),
+    lastupdate: new Date(1748647890022),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,7 +2465,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>1.9k 字</p>
+      <p>2.1k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2526,7 +2526,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要学习了AJAX的原理和使用。</p>
+    <p>摘要：本文学习了AJAX的原理和使用。</p>
 <span id="more"></span>
 
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>AJAX是异步的JS和XML，即：Asynchronous JavaScript And XML。</p>
@@ -2537,18 +2537,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>这就带来了非常糟糕的用户体验。首先，同步请求时，用户只能等待服务器的响应，而不能做任何操作。其次，如果请求时间过长可能会给用户一个卡死的感觉。最后，同步请求的最大缺点，就是即使整个页面中只有一小部分内容发生改变也要刷新整个页面。</p>
 <h3 id="2-2-异步处理"><a href="#2-2-异步处理" class="headerlink" title="2.2 异步处理"></a>2.2 异步处理</h3><p>异步处理指的是在浏览网页的同时，通过AJAX向服务器发送请求，发送请求的过程中浏览网页的行为并不会收到任何影响，甚至主观上感知不到在向服务器发送请求。当服务器正常响应请求后，响应信息会直接发送到AJAX中，AJAX可以根据服务器响应的内容做一些操作。</p>
 <p>使用AJAX的异步请求基本上完美的解决了同步请求带来的问题。首先，发送请求时不会影响到用户的正常访问。其次，即使请求时间过长，用户不会有任何感知。最后，AJAX可以根据服务器的响应信息局部的修改页面，而不需要整个页面刷新。</p>
-<h2 id="3-工作原理"><a href="#3-工作原理" class="headerlink" title="3 工作原理"></a>3 工作原理</h2><h3 id="3-1-XMLHttpRequest对象"><a href="#3-1-XMLHttpRequest对象" class="headerlink" title="3.1 XMLHttpRequest对象"></a>3.1 XMLHttpRequest对象</h3><p>如果需要向服务器发送请求，就需要使用Http协议，需要通过JS向服务器发送一个请求报文。</p>
+<h2 id="3-工作原理"><a href="#3-工作原理" class="headerlink" title="3 工作原理"></a>3 工作原理</h2><h3 id="3-1-XMLHttpRequest对象"><a href="#3-1-XMLHttpRequest对象" class="headerlink" title="3.1 XMLHttpRequest对象"></a>3.1 XMLHttpRequest对象</h3><p>如果需要向服务器发送请求，就需要使用HTTP协议，需要通过JS向服务器发送一个请求报文。</p>
 <p>浏览器为开发人员提供了XMLHttpRequest对象，用于封装请求报文，浏览器向服务器发送的请求信息全部都需要封装到该对象中。</p>
 <h3 id="3-2-获取XMLHttpRequest对象"><a href="#3-2-获取XMLHttpRequest对象" class="headerlink" title="3.2 获取XMLHttpRequest对象"></a>3.2 获取XMLHttpRequest对象</h3><p>由于浏览器之间的差异，不同浏览器中获取XMLHttpRequest的方式不同，但总的来说一共有三种方式：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();<span class="comment">//目前主流浏览器都支持</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Msxml2.XMLHTTP&#x27;</span>);<span class="comment">//IE6支持的方式</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Microsoft.XMLHTTP&#x27;</span>);<span class="comment">//IE5.5以下支持的方式</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();<span class="comment">// 目前主流浏览器都支持</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Msxml2.XMLHTTP&#x27;</span>);<span class="comment">// IE6支持的方式</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> <span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Microsoft.XMLHTTP&#x27;</span>);<span class="comment">// IE5.5以下支持的方式</span></span><br></pre></td></tr></table></figure>
 
 <p>使用兼容方式获取XMLHttpRequest对象：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">createXMLHttpRequest</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="title class_">XMLHttpRequest</span> === <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">XMLHttpRequest</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> <span class="variable language_">window</span>.<span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Msxml2.XMLHTTP.6.0&#x27;</span>); &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">      <span class="keyword">try</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> <span class="variable language_">window</span>.<span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Msxml2.XMLHTTP.3.0&#x27;</span>); &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">      <span class="keyword">try</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> <span class="variable language_">window</span>.<span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Msxml2.XMLHTTP&#x27;</span>); &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">      <span class="keyword">try</span> &#123; <span class="keyword">return</span> <span class="keyword">new</span> <span class="variable language_">window</span>.<span class="title class_">ActiveXObject</span>(<span class="string">&#x27;Microsoft.XMLHTTP&#x27;</span>); &#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>(<span class="string">&#x27;This browser does not support XMLHttpRequest.&#x27;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-3-使用XMLHttpRequest对象"><a href="#3-3-使用XMLHttpRequest对象" class="headerlink" title="3.3 使用XMLHttpRequest对象"></a>3.3 使用XMLHttpRequest对象</h3><h4 id="3-3-1-发送请求"><a href="#3-3-1-发送请求" class="headerlink" title="3.3.1 发送请求"></a>3.3.1 发送请求</h4><p>如果需要将请求发送到服务器，可以使用XMLHttpRequest对象的open方法和send方法。</p>
-<ol>
-<li>使用open方法规定请求的类型、URL以及是否异步处理请求。</li>
-</ol>
+<h5 id="3-3-1-1-使用open方法"><a href="#3-3-1-1-使用open方法" class="headerlink" title="3.3.1.1 使用open方法"></a>3.3.1.1 使用open方法</h5><p>使用open方法规定请求的类型、URL以及是否异步处理请求。</p>
 <p>格式：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">open</span>(method,url,<span class="keyword">async</span>)</span><br></pre></td></tr></table></figure>
 
@@ -2558,9 +2556,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>uri：XMLHttpRequest对象把请求发送到的服务器相应的URI。</li>
 <li>async：是否请求是异步的，缺省值为true（异步）。</li>
 </ul>
-<ol start="2">
-<li>使用send方法将请求发送到服务器。</li>
-</ol>
+<h5 id="3-3-1-2-使用send方法"><a href="#3-3-1-2-使用send方法" class="headerlink" title="3.3.1.2 使用send方法"></a>3.3.1.2 使用send方法</h5><p>使用send方法将请求发送到服务器。</p>
 <p>格式：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">send</span>(string)</span><br></pre></td></tr></table></figure>
 
@@ -2570,10 +2566,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h4 id="3-3-2-获取响应"><a href="#3-3-2-获取响应" class="headerlink" title="3.3.2 获取响应"></a>3.3.2 获取响应</h4><p>如果要获取服务器的响应，需要使用responseText或者responseXML属性。</p>
 <p>如果响应返回的数据是文本就使用responseText，如果响应返回的数据是XML就使用responseXML。</p>
-<p>状态相关的属性有readyState和status：</p>
-<ol>
-<li>readyState描述XMLHttpRequest对象的状态，从0到4变化：</li>
-</ol>
+<p>状态相关的属性有readyState和status。</p>
+<h5 id="3-3-2-1-readyState"><a href="#3-3-2-1-readyState" class="headerlink" title="3.3.2.1 readyState"></a>3.3.2.1 readyState</h5><p>readyState描述XMLHttpRequest对象的状态，从0到4变化：</p>
 <ul>
 <li>0表示未初始化，XMLHttpRequest对象已创建，但还未初始化。</li>
 <li>1表示服务器连接已建立。</li>
@@ -2581,22 +2575,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>3表示响应正在接收。</li>
 <li>4表示响应已接收。</li>
 </ul>
-<ol start="2">
-<li>status描述HTTP状态码，当且仅当readyStatus的值为3或4时，这个属性才可以用：</li>
-</ol>
+<p>readyState的值在发生改变时，XMLHttpRequest对象会激发一个readystatechange事件，可以在readystatechange事件中设置回调。</p>
+<h5 id="3-3-2-2-status"><a href="#3-3-2-2-status" class="headerlink" title="3.3.2.2 status"></a>3.3.2.2 status</h5><p>status描述HTTP状态码，当且仅当readyStatus的值为3或4时，这个属性才可以用：</p>
 <ul>
-<li>200表示一切正常(ok)</li>
-<li>304表示没有被修改(not modified)</li>
-<li>403表示禁止访问(forbidden)</li>
-<li>404表示没找到页面(not found)</li>
-<li>500表示内部服务器出错(internal service error)</li>
+<li>200表示一切正常（OK）。</li>
+<li>304表示没有被修改（Not Modified）。</li>
+<li>403表示禁止访问（Forbidden）。</li>
+<li>404表示没找到页面（Not Found）。</li>
+<li>500表示内部服务器出错（Internal Service Error）。</li>
 </ul>
-<p>每当readyState的值发生改变，XMLHttpRequest对象就会激发一个readystatechange事件，可以在readystatechange事件中设置回调。</p>
 <h3 id="3-4-举例"><a href="#3-4-举例" class="headerlink" title="3.4 举例"></a>3.4 举例</h3><p>使用GET方式：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="title function_">getXMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;AJAXServlet?name=xxx&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.<span class="property">readyState</span> == <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;div_area&#x27;</span>).<span class="property">innerHTML</span> = xhr.<span class="property">responseText</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="title function_">getXMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;get&#x27;</span>, <span class="string">&#x27;AJAXServlet?name=xxx&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>();</span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.<span class="property">readyState</span> == <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> == <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;div_area&#x27;</span>).<span class="property">innerHTML</span> = xhr.<span class="property">responseText</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>使用POST方式：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="title function_">getXMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;AJAXServlet&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-type&#x27;</span>, <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>(<span class="string">&#x27;email=xxx@163.com&#x27;</span>);</span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.<span class="property">readyState</span> == <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> == <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;div_area&#x27;</span>).<span class="property">innerHTML</span> = xhr.<span class="property">responseText</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="title function_">getXMLHttpRequest</span>();</span><br><span class="line">xhr.<span class="title function_">open</span>(<span class="string">&#x27;post&#x27;</span>, <span class="string">&#x27;AJAXServlet&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">xhr.<span class="title function_">setRequestHeader</span>(<span class="string">&#x27;Content-type&#x27;</span>, <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>);</span><br><span class="line">xhr.<span class="title function_">send</span>(<span class="string">&#x27;email=xxx@163.com&#x27;</span>);</span><br><span class="line">xhr.<span class="property">onreadystatechange</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.<span class="property">readyState</span> == <span class="number">4</span> &amp;&amp; xhr.<span class="property">status</span> == <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;div_area&#x27;</span>).<span class="property">innerHTML</span> = xhr.<span class="property">responseText</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-JQuery对AJAX的封装"><a href="#4-JQuery对AJAX的封装" class="headerlink" title="4 JQuery对AJAX的封装"></a>4 JQuery对AJAX的封装</h2><p>JQuery中提供了一些方法，封装了原生的AJAX。</p>
 <h3 id="4-1-get方法"><a href="#4-1-get方法" class="headerlink" title="4.1 get方法"></a>4.1 get方法</h3><p>格式：</p>
@@ -2609,7 +2601,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>callback：载入成功时回调函数。</li>
 <li>type：预期服务器返回的数据类型，支持xml、html、script、json、text、_default等类型。</li>
 </ul>
-<p>举例：</p>
+<p>示例：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">get</span>(<span class="string">&#x27;$&#123;pageContext.request.contextPath&#125;/getPassword&#x27;</span>,</span><br><span class="line">    &#123;<span class="string">&#x27;username&#x27;</span>:<span class="string">&#x27;admin&#x27;</span>&#125;,</span><br><span class="line">    <span class="keyword">function</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    $(<span class="string">&#x27;#password&#x27;</span>).<span class="title function_">html</span>(data);<span class="comment">// 123456</span></span><br><span class="line">    &#125;, <span class="string">&#x27;json&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-2-post方法"><a href="#4-2-post方法" class="headerlink" title="4.2 post方法"></a>4.2 post方法</h3><p>格式：</p>
@@ -2622,7 +2614,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>callback：载入成功时回调函数。</li>
 <li>type：预期服务器返回的数据类型，支持xml、html、script、json、text、_default等类型。</li>
 </ul>
-<p>举例：</p>
+<p>示例：</p>
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">post</span>(<span class="string">&#x27;$&#123;pageContext.request.contextPath&#125;/getPassword&#x27;</span>,</span><br><span class="line">    &#123;<span class="string">&#x27;username&#x27;</span>:<span class="string">&#x27;admin&#x27;</span>&#125;,</span><br><span class="line">    <span class="keyword">function</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    $(<span class="string">&#x27;#password&#x27;</span>).<span class="title function_">html</span>(data);<span class="comment">// 123456</span></span><br><span class="line">    &#125;, <span class="string">&#x27;json&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-3-底层方法"><a href="#4-3-底层方法" class="headerlink" title="4.3 底层方法"></a>4.3 底层方法</h3><p>封装好的get方法和post方法可扩展性差，不能实现定制化开发，所以JQuery提供了底层的方法。</p>
@@ -2633,17 +2625,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <ul>
 <li>url：发送请求的url地址。</li>
 <li>type：请求方式，POST或者GET，默认GET。</li>
-<li>async：请求是同步（true）还是异步（false），默认是true（同步）。</li>
-<li>cache：是否缓存页面，默认是true（缓存）。</li>
+<li>async：请求是同步还是异步，默认为true，true表示同步，false表示异步。</li>
+<li>cache：是否缓存页面，适用于GET请求，默认为true，true表示缓存，false表示不缓存。</li>
 <li>data：发送到服务器的数据，支持<code>k=v&amp;k=v</code>字符串和<code>&#123;k:v,k:v&#125;</code>对象两种格式。</li>
-<li>dataType：预期服务器返回的数据类型，支持xml、html、script、json、text、_default等类型。</li>
+<li>processData：是否将对象类型的数据拼接为键值对字符串，默认为true，true表示拼接，false表示不拼接。</li>
+<li>contentType：发送到服务器的数据类型，默认是application&#x2F;x-www-form-urlencoded类型，支持JSON&#x2F;XML&#x2F;HTML&#x2F;TXT等类型。</li>
+<li>dataType：预期服务器返回的数据类型，支持JSON&#x2F;XML&#x2F;HTML&#x2F;TXT等类型。</li>
 <li>success：请求成功时的回调函数。</li>
 <li>error：请求失败时的回调函数。</li>
 <li>complete：请求完成后的回调函数，成功或失败之后都会调用。</li>
 <li>statusCode：一组数值的HTTP代码和函数对象，当响应时调用了相应的代码。</li>
 </ul>
-<p>举例：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>:<span class="string">&#x27;$&#123;pageContext.request.contextPath&#125;/getPassword&#x27;</span>,</span><br><span class="line">    <span class="attr">type</span>:<span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">    <span class="attr">async</span>:<span class="literal">true</span>,</span><br><span class="line">    <span class="attr">cache</span>:<span class="literal">false</span>,</span><br><span class="line">    <span class="attr">data</span>:<span class="string">&#x27;id=1&amp;name=hello&#x27;</span>,</span><br><span class="line">    <span class="attr">dataType</span>:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">    <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">        $(<span class="string">&#x27;#password&#x27;</span>).<span class="title function_">html</span>(data);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&#x27;请求错误了&#x27;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">complete</span>:<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="title function_">alert</span>(<span class="string">&#x27;请求完成了&#x27;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">statusCode</span>:&#123;</span><br><span class="line">        <span class="number">200</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="title function_">alert</span>(<span class="string">&#x27;操作完成&#x27;</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="number">500</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="title function_">alert</span>(<span class="string">&#x27;服务器错误&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;$&#123;pageContext.request.contextPath&#125;/getPassword&#x27;</span>,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">async</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">cache</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">data</span>: <span class="string">&#x27;id=1&amp;name=hello&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">    $(<span class="string">&#x27;#password&#x27;</span>).<span class="title function_">html</span>(data);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;请求错误了&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">complete</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;请求完成了&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">statusCode</span>: &#123;</span><br><span class="line">    <span class="number">200</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">&#x27;操作完成&#x27;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="number">500</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="title function_">alert</span>(<span class="string">&#x27;服务器错误&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2674,7 +2668,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年3月13日</div>
+                <div class="license-meta-text">2025年5月14日</div>
               </div>
               
               
@@ -2748,13 +2742,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/20250121/102547/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>异步编程</p>
-          <p class='content'>摘要：本文主要学习了常见的几种实现异步。</p>
+          <p class='content'>摘要：本文学习了常见的几种实现异步。</p>
         </a>
       
       
         <a class='next' href='/posts/20250117/115122/'>
           <p class='title'>JQuery<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要学习了JQuery库，包括选择器、文档处理、事件、效果，以及AJAX调用。</p>
+          <p class='content'>摘要：本文学习了JQuery库，包括选择器、文档处理、事件、效果，以及AJAX调用。</p>
         </a>
       
     </div>
@@ -2858,21 +2852,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
-
-  
-  
 
 
   
@@ -2912,14 +2891,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         </a></li>
       
-        <li><a class="flat-box" title="/posts/20250220/092707/" href="/posts/20250220/092707/"
+        <li><a class="flat-box" title="/posts/20250313/153305/" href="/posts/20250313/153305/"
           
           
-          active-action="action-posts20250220092707"
+          active-action="action-posts20250313153305"
           >
           <div class='name'>
             
-            简写优化技术
+            初体验
           </div>
           
         </a></li>
@@ -2929,6 +2908,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </section>
 
 
+
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
 
   
   
@@ -2944,7 +2936,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-text">2 同步和异步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%90%8C%E6%AD%A5%E5%A4%84%E7%90%86"><span class="toc-text">2.1 同步处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86"><span class="toc-text">2.2 异步处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">3 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.1 XMLHttpRequest对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%8E%B7%E5%8F%96XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.2 获取XMLHttpRequest对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%BD%BF%E7%94%A8XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.3 使用XMLHttpRequest对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82"><span class="toc-text">3.3.1 发送请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94"><span class="toc-text">3.3.2 获取响应</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%B8%BE%E4%BE%8B"><span class="toc-text">3.4 举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-JQuery%E5%AF%B9AJAX%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-text">4 JQuery对AJAX的封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-get%E6%96%B9%E6%B3%95"><span class="toc-text">4.1 get方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-post%E6%96%B9%E6%B3%95"><span class="toc-text">4.2 post方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%BA%95%E5%B1%82%E6%96%B9%E6%B3%95"><span class="toc-text">4.3 底层方法</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="toc-text">1 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5"><span class="toc-text">2 同步和异步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%90%8C%E6%AD%A5%E5%A4%84%E7%90%86"><span class="toc-text">2.1 同步处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%BC%82%E6%AD%A5%E5%A4%84%E7%90%86"><span class="toc-text">2.2 异步处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">3 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.1 XMLHttpRequest对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%8E%B7%E5%8F%96XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.2 获取XMLHttpRequest对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%BD%BF%E7%94%A8XMLHttpRequest%E5%AF%B9%E8%B1%A1"><span class="toc-text">3.3 使用XMLHttpRequest对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82"><span class="toc-text">3.3.1 发送请求</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-1-%E4%BD%BF%E7%94%A8open%E6%96%B9%E6%B3%95"><span class="toc-text">3.3.1.1 使用open方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-1-2-%E4%BD%BF%E7%94%A8send%E6%96%B9%E6%B3%95"><span class="toc-text">3.3.1.2 使用send方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94"><span class="toc-text">3.3.2 获取响应</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-2-1-readyState"><span class="toc-text">3.3.2.1 readyState</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-3-2-2-status"><span class="toc-text">3.3.2.2 status</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E4%B8%BE%E4%BE%8B"><span class="toc-text">3.4 举例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-JQuery%E5%AF%B9AJAX%E7%9A%84%E5%B0%81%E8%A3%85"><span class="toc-text">4 JQuery对AJAX的封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-get%E6%96%B9%E6%B3%95"><span class="toc-text">4.1 get方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-post%E6%96%B9%E6%B3%95"><span class="toc-text">4.2 post方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%BA%95%E5%B1%82%E6%96%B9%E6%B3%95"><span class="toc-text">4.3 底层方法</span></a></li></ol></li></ol>
   </div>
 </section>
 
@@ -3411,7 +3403,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250117/115818/","name":"AJAX"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"AJAX","description":"摘要：本文主要学习了AJAX的原理和使用。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250117/115818/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250117/115818/","wordCount":21,"datePublished":"2025-01-17T03:58:18.000Z","dateModified":"2025-03-13T02:46:57.772Z","articleSection":"大前端","keywords":"JS,AJAX","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250117/115818/","name":"AJAX"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"AJAX","description":"摘要：本文学习了AJAX的原理和使用。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250117/115818/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250117/115818/","wordCount":19,"datePublished":"2025-01-17T03:58:18.000Z","dateModified":"2025-05-14T01:25:48.965Z","articleSection":"大前端","keywords":"JS,AJAX","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

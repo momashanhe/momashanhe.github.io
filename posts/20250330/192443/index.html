@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>副本集 - 墨码山河</title>
   <meta name="keywords" content="MongoDB,代码改变世界">
-  <meta desc name="description" content="摘要：本文主要学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="副本集">
 <meta property="og:url" content="https://momashanhe.com/posts/20250330/192443/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文主要学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。">
+<meta property="og:description" content="摘要：本文学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-30T11:24:43.000Z">
-<meta property="article:modified_time" content="2025-03-31T16:13:24.442Z">
+<meta property="article:modified_time" content="2025-04-24T02:25:43.653Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1743744004943),
+    lastupdate: new Date(1748647890022),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2525,7 +2525,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文主要学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。</p>
+    <p>摘要：本文学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
@@ -2569,21 +2569,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight plaintext"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replication:</span><br><span class="line">  # 副本集的名称</span><br><span class="line">  replSetName: mgrs</span><br></pre></td></tr></table></figure>
 
 <p>进入安装MongoDB的<code>bin</code>目录，通过<code>mongod.exe</code>文件启动：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe -f D:\momashanhe\mongodb\mgrs_27018\mongod.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe -f D:\Home\momashanhe\mongodb\mgrs_27018\mongod.conf</span><br></pre></td></tr></table></figure>
 
 <h4 id="4-1-2-创建从节点"><a href="#4-1-2-创建从节点" class="headerlink" title="4.1.2 创建从节点"></a>4.1.2 创建从节点</h4><p>创建<code>mgrs_27019</code>目录，在目录下创建<code>db</code>目录和<code>log</code>目录。</p>
 <p>在<code>mgrs_27019</code>目录下创建<code>mongod.conf</code>配置文件，修改目录位置和端口，增加副本集的配置：</p>
 <figure class="highlight plaintext"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replication:</span><br><span class="line">  # 副本集的名称</span><br><span class="line">  replSetName: mgrs</span><br></pre></td></tr></table></figure>
 
 <p>进入安装MongoDB的<code>bin</code>目录，通过<code>mongod.exe</code>文件启动：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe -f D:\momashanhe\mongodb\mgrs_27019\mongod.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe -f D:\Home\momashanhe\mongodb\mgrs_27019\mongod.conf</span><br></pre></td></tr></table></figure>
 
 <h4 id="4-1-3-创建仲裁节点"><a href="#4-1-3-创建仲裁节点" class="headerlink" title="4.1.3 创建仲裁节点"></a>4.1.3 创建仲裁节点</h4><p>创建<code>mgrs_27020</code>目录，在目录下创建<code>db</code>目录和<code>log</code>目录。</p>
 <p>在<code>mgrs_27020</code>目录下创建<code>mongod.conf</code>配置文件，修改目录位置和端口，增加副本集的配置：</p>
 <figure class="highlight plaintext"><figcaption><span>mongod.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">replication:</span><br><span class="line">  # 副本集的名称</span><br><span class="line">  replSetName: mgrs</span><br></pre></td></tr></table></figure>
 
 <p>进入安装MongoDB的<code>bin</code>目录，通过<code>mongod.exe</code>文件启动：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe -f D:\momashanhe\mongodb\mgrs_27020\mongod.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod.exe -f D:\Home\momashanhe\mongodb\mgrs_27020\mongod.conf</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-2-连接节点"><a href="#4-2-连接节点" class="headerlink" title="4.2 连接节点"></a>4.2 连接节点</h3><p>需要使用命令行工具连接，官方推荐的工具下载地址：<a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/tools">下载地址</a></p>
 <p>进入命令行工具安装目录下的<code>bin</code>目录，使用命令指定主机和端口号连接：</p>
@@ -2794,7 +2794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年4月1日</div>
+                <div class="license-meta-text">2025年4月24日</div>
               </div>
               
               
@@ -2868,13 +2868,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/20250331/022412/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>分片</p>
-          <p class='content'>摘要：本文主要学习了什么是分片，以及如何配置简单的分片集群。</p>
+          <p class='content'>摘要：本文学习了什么是分片，以及如何配置简单的分片集群。</p>
         </a>
       
       
         <a class='next' href='/posts/20250328/144102/'>
           <p class='title'>聚合查询<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>摘要：本文主要学习了如何使用聚合查询，包括管道操作符和聚合操作符的使用。</p>
+          <p class='content'>摘要：本文学习了如何使用聚合查询，包括管道操作符和聚合操作符的使用。</p>
         </a>
       
     </div>
@@ -2978,21 +2978,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       
-    
-  
-
-  
-    
-    
-      
-    
-  
-
-
-<div class="widget-sticky">
-
-  
-  
 
 
   
@@ -3049,6 +3034,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </section>
 
 
+
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
 
   
   
@@ -3531,7 +3529,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250330/192443/","name":"副本集"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"副本集","description":"摘要：本文主要学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250330/192443/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250330/192443/","wordCount":40,"datePublished":"2025-03-30T11:24:43.000Z","dateModified":"2025-03-31T16:13:24.442Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250330/192443/","name":"副本集"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"副本集","description":"摘要：本文学习了什么是副本集，包括副本集的角色和选举，节点的管理和故障模拟。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250330/192443/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250330/192443/","wordCount":38,"datePublished":"2025-03-30T11:24:43.000Z","dateModified":"2025-04-24T02:25:43.653Z","articleSection":"大数据","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
