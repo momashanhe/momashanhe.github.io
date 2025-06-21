@@ -1,5 +1,4 @@
 #!/bin/bash
-# cd /d/Work/WebSite/momashanhe/source/@image
 # rm -rf .git
 # git init
 # git config --local user.name momashanhe
@@ -10,7 +9,6 @@
 # git commit -m "init commit on $(date +'%Y-%m-%d %H:%M:%S')"
 # git push -f origin main
 
-cd /d/Work/WebSite/momashanhe/source/@image
 git add .
 git commit -m "update commit on $(date +'%Y-%m-%d %H:%M:%S')"
 git push origin main
