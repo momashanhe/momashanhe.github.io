@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-05-12T13:59:37.000Z">
-<meta property="article:modified_time" content="2025-05-12T15:45:00.999Z">
+<meta property="article:modified_time" content="2025-06-21T09:09:00.714Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1749293803927),
+    lastupdate: new Date(1750499296041),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2464,7 +2464,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>907 字</p>
+      <p>899 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2547,33 +2547,33 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="4-1-2-Path"><a href="#4-1-2-Path" class="headerlink" title="4.1.2 Path"></a>4.1.2 Path</h4><p>需要把安装目录下的<code>bin</code>目录增加到现有的<code>PATH</code>变量中，<code>bin</code>目录中包含经常要用到的可执行文件，设置后可以在任何目录下执行命令。</p>
 <p>打开环境变量窗口，在下方的系统环境变量里找到<code>Path</code>环境变量并编辑，新建变量<code>%MYSQL_HOME%\bin</code>并保存。</p>
 <h3 id="4-2-配置系统文件"><a href="#4-2-配置系统文件" class="headerlink" title="4.2 配置系统文件"></a>4.2 配置系统文件</h3><p>从5.7.18版本开始，不在压缩包中提供<code>my-default.ini</code>文件，在安装目录下创建<code>my.ini</code>文件：</p>
-<figure class="highlight ini"><figcaption><span>my.ini</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment"># 设置3306端口</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="comment"># 设置mysql的安装目录</span></span><br><span class="line"><span class="attr">basedir</span>=D:\Work\MySQL\mysql-<span class="number">5.7</span>.<span class="number">40</span></span><br><span class="line"><span class="comment"># 设置mysql数据库的数据的存放目录</span></span><br><span class="line"><span class="attr">datadir</span>=D:\Work\MySQL\mysql-<span class="number">5.7</span>.<span class="number">40</span>\data</span><br><span class="line"><span class="comment"># 允许最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">1024</span></span><br><span class="line"><span class="comment"># 允许连接失败的次数。</span></span><br><span class="line"><span class="attr">max_connect_errors</span>=<span class="number">10</span></span><br><span class="line"><span class="comment"># 服务端默认字符集</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"><span class="comment"># 设置导入导出文件夹</span></span><br><span class="line"><span class="attr">secure-file-priv</span>=D:\Work\MySQL\file</span><br><span class="line"><span class="comment"># default_authentication_plugin</span></span><br><span class="line"><span class="attr">default_authentication_plugin</span>=mysql_native_password</span><br><span class="line"><span class="comment"># sql_mode</span></span><br><span class="line"><span class="attr">sql_mode</span>=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line"><span class="comment"># explicit_defaults_for_timestamp</span></span><br><span class="line"><span class="attr">explicit_defaults_for_timestamp</span>=<span class="literal">true</span></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment"># 客户端默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="comment"># 客户端连接服务端时默认使用的端口</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="comment"># 客户端连接服务端时默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><figcaption><span>my.ini</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="comment"># 设置3306端口</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="comment"># 设置mysql的安装目录</span></span><br><span class="line"><span class="attr">basedir</span>=D:\Work\MySQL\mysql-<span class="number">5.7</span>.<span class="number">40</span></span><br><span class="line"><span class="comment"># 设置mysql数据库的数据的存放目录</span></span><br><span class="line"><span class="attr">datadir</span>=D:\Work\MySQL\mysql-<span class="number">5.7</span>.<span class="number">40</span>\data</span><br><span class="line"><span class="comment"># 允许最大连接数</span></span><br><span class="line"><span class="attr">max_connections</span>=<span class="number">1024</span></span><br><span class="line"><span class="comment"># 允许连接失败的次数</span></span><br><span class="line"><span class="attr">max_connect_errors</span>=<span class="number">10</span></span><br><span class="line"><span class="comment"># 服务端默认字符集</span></span><br><span class="line"><span class="attr">character-set-server</span>=utf8mb4</span><br><span class="line"><span class="comment"># 创建新表时将使用的默认存储引擎</span></span><br><span class="line"><span class="attr">default-storage-engine</span>=INNODB</span><br><span class="line"><span class="comment"># 设置导入导出文件夹</span></span><br><span class="line"><span class="attr">secure-file-priv</span>=D:\Work\MySQL\file</span><br><span class="line"><span class="comment"># 设置存储进程ID文件的位置</span></span><br><span class="line"><span class="attr">pid-file</span>=mysql.pid</span><br><span class="line"><span class="comment"># default_authentication_plugin</span></span><br><span class="line"><span class="attr">default_authentication_plugin</span>=mysql_native_password</span><br><span class="line"><span class="comment"># sql_mode</span></span><br><span class="line"><span class="attr">sql_mode</span>=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span><br><span class="line"><span class="comment"># explicit_defaults_for_timestamp</span></span><br><span class="line"><span class="attr">explicit_defaults_for_timestamp</span>=<span class="literal">true</span></span><br><span class="line"><span class="section">[mysql]</span></span><br><span class="line"><span class="comment"># 客户端默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br><span class="line"><span class="section">[client]</span></span><br><span class="line"><span class="comment"># 客户端连接服务端时默认使用的端口</span></span><br><span class="line"><span class="attr">port</span>=<span class="number">3306</span></span><br><span class="line"><span class="comment"># 客户端连接服务端时默认字符集</span></span><br><span class="line"><span class="attr">default-character-set</span>=utf8mb4</span><br></pre></td></tr></table></figure>
 
-<h3 id="4-3-配置服务"><a href="#4-3-配置服务" class="headerlink" title="4.3 配置服务"></a>4.3 配置服务</h3><p>使用超级管理员的权限打开cmd窗口，进入安装目录的bin文件夹里。</p>
+<h3 id="4-3-配置服务"><a href="#4-3-配置服务" class="headerlink" title="4.3 配置服务"></a>4.3 配置服务</h3><p>使用超级管理员的权限打开cmd窗口。</p>
 <p>初始化数据库，设置root密码为空：</p>
 <figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize-insecure</span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
 <ul>
-<li>使用initialize设置root密码为随机数。</li>
-<li>使用initialize-insecure设置root密码为空。</li>
+<li>–initialize：设置root密码为随机数。</li>
+<li>–initialize-insecure：设置root密码为空。</li>
 </ul>
 <p>安装服务，默认自动启动：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install MySQL</span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
 <ul>
-<li>使用install安装服务，默认自动启动。</li>
-<li>使用install-manual安装服务，设置手动启动。</li>
-<li>使用remove删除服务。</li>
+<li>–install：安装服务，默认自动启动。</li>
+<li>–install-manual：安装服务，设置手动启动。</li>
+<li>–remove：删除服务。</li>
 </ul>
 <p>启动服务：</p>
-<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> MySQL</span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
 <ul>
-<li>使用start启动服务。</li>
-<li>使用stop停止服务。</li>
+<li>start：启动服务。</li>
+<li>stop：停止服务。</li>
 </ul>
 <h2 id="5-登录测试"><a href="#5-登录测试" class="headerlink" title="5 登录测试"></a>5 登录测试</h2><h3 id="5-1-登录"><a href="#5-1-登录" class="headerlink" title="5.1 登录"></a>5.1 登录</h3><p>打开cmd窗口，输入<code>mysql -u root -p</code>使用root用户登录，回车后提示输入密码，因为之前配置的时候设置了root用户的密码为空，所以直接回车即可登录成功了：</p>
 <figure class="highlight cmd"><figcaption><span>cmd</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is <span class="number">2</span></span><br><span class="line">Server version: <span class="number">5</span>.<span class="number">7</span>.<span class="number">40</span> MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) <span class="number">2000</span>, <span class="number">2022</span>, Oracle and/or its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line"><span class="built_in">Type</span> &#x27;<span class="built_in">help</span>;&#x27; or &#x27;\h&#x27; <span class="keyword">for</span> <span class="built_in">help</span>. <span class="built_in">Type</span> &#x27;\c&#x27; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
@@ -2583,7 +2583,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>使用<code>exit</code>命令退出登录，以后登录就需要输入刚刚设置的密码了。</p>
 <h2 id="6-使用工具"><a href="#6-使用工具" class="headerlink" title="6 使用工具"></a>6 使用工具</h2><p>建议使用Navicat工具连接数据库。</p>
-<p>打开Navicat并新建连接：<br><img src="/@image/302001/002-20250512234303.jpg" alt="20250512234303-新建连接"></p>
+<p>打开Navicat并新建连接：<br><img src="/@image/E02001/002-20250512234303.jpg" alt="20250512234303-新建连接"></p>
 <p>点击测试连接提示连接成功，点击确定保存连接。</p>
 <p>双击新建的连接，并点击新建查询，即可编写语句并执行。</p>
 
@@ -2614,6 +2614,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                 <div class="license-meta-text">2025年5月12日</div>
               </div>
               
+              <div class="license-meta-item">
+                <div class="license-meta-title">更新于</div>
+                <div class="license-meta-text">2025年6月21日</div>
+              </div>
+              
               
               <div class="license-meta-item">
                 <div class="license-meta-title">许可协议</div>
@@ -2642,10 +2647,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
+    <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" itemprop="url"><span itemprop="name">大数据</span></a>
+        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url"><span itemprop="name">数据库</span></a>
       </span>
     
   </div>
@@ -2802,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/302001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>大数据:MySQL:基础</span></a>
+      <a href='/groups/E02001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>数据库:MySQL:基础</span></a>
     
   </header>
 
@@ -3490,7 +3495,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大数据/","name":"大数据"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250512/215937/","name":"安装"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"安装","description":"摘要：本文学习了如何在Windows中安装MySQL。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250512/215937/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250512/215937/","wordCount":27,"datePublished":"2025-05-12T13:59:37.000Z","dateModified":"2025-05-12T15:45:00.999Z","articleSection":"大数据","keywords":"MySQL","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/数据库/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250512/215937/","name":"安装"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"安装","description":"摘要：本文学习了如何在Windows中安装MySQL。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250512/215937/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250512/215937/","wordCount":27,"datePublished":"2025-05-12T13:59:37.000Z","dateModified":"2025-06-21T09:09:00.714Z","articleSection":"数据库","keywords":"MySQL","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-02-26T07:34:29.000Z">
-<meta property="article:modified_time" content="2025-04-24T02:16:30.953Z">
+<meta property="article:modified_time" content="2025-06-21T08:51:12.959Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="GitHub">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1749293803927),
+    lastupdate: new Date(1750499296041),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2550,7 +2550,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>继续执行，还会提示设置密码和确认密码，回车设置为空。</p>
 <p>执行结束会在登录用户目录里生成<code>.ssh</code>目录，打开<code>id_rsa.pub</code>公钥文件并复制内容。</p></div></div></div>
 
-<h3 id="1-3-配置SSH公钥"><a href="#1-3-配置SSH公钥" class="headerlink" title="1.3 配置SSH公钥"></a>1.3 配置SSH公钥</h3><p>进入GitHub点击个人头像，选择<code>Settings</code>进入设置页面，在左侧找到<code>SSH and GPG keys</code>设置，在顶部的<code>SSH keys</code>模块中，点击右侧的<code>New SSH key</code>按钮新增配置：<br><img src="/@image/001001/002-20240225122513.jpg" alt="20240225122513-配置公钥"></p>
+<h3 id="1-3-配置SSH公钥"><a href="#1-3-配置SSH公钥" class="headerlink" title="1.3 配置SSH公钥"></a>1.3 配置SSH公钥</h3><p>进入GitHub点击个人头像，选择<code>Settings</code>进入设置页面，在左侧找到<code>SSH and GPG keys</code>设置，在顶部的<code>SSH keys</code>模块中，点击右侧的<code>New SSH key</code>按钮新增配置：<br><img src="/@image/B01001/002-20240225122513.jpg" alt="20240225122513-配置公钥"></p>
 <p>在添加配置的页面中，设置<code>Title</code>的配置名称，然后设置<code>Key</code>中的公钥，粘贴刚刚复制的公钥文件内容，然后点击底部的<code>Add SSH key</code>按钮保存配置。</p>
 <p>使用命令测试通过SSH能否连接到GitHub：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
@@ -2567,7 +2567,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="2-3-发布"><a href="#2-3-发布" class="headerlink" title="2.3 发布"></a>2.3 发布</h3><p>进入博客目录，右键进入bash命令行，执行命令清理博客、生成博客、发布博客：</p>
 <figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>发布后如果提示未知身份：<br><img src="/@image/001001/002-20240225124513.jpg" alt="20240225124513-未知身份"></p>
+<p>发布后如果提示未知身份：<br><img src="/@image/B01001/002-20240225124513.jpg" alt="20240225124513-未知身份"></p>
 <p>说明需要设置用户名和邮箱，有两种方式：</p>
 <ul>
 <li>方式一，全局设置，按照提示设置全局用户名和邮箱：<figure class="highlight bash"><figcaption><span>bash</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name username</span><br><span class="line">git config --global user.email username@163.com</span><br></pre></td></tr></table></figure></li>
@@ -2616,7 +2616,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年4月24日</div>
+                <div class="license-meta-text">2025年6月21日</div>
               </div>
               
               
@@ -2807,7 +2807,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/001001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>建站技术:Hexo:搭建</span></a>
+      <a href='/groups/B01001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>建站技术:Hexo:搭建</span></a>
     
   </header>
 
@@ -3387,7 +3387,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240226/153429/","name":"将博客部署到GitHub"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"将博客部署到GitHub","description":"摘要：本文介绍了如何将博客部署到GitHub，并设置域名解析。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240226/153429/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240226/153429/","wordCount":31,"datePublished":"2024-02-26T07:34:29.000Z","dateModified":"2025-04-24T02:16:30.953Z","articleSection":"建站技术","keywords":"Hexo,GitHub","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/建站技术/","name":"建站技术"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240226/153429/","name":"将博客部署到GitHub"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"将博客部署到GitHub","description":"摘要：本文介绍了如何将博客部署到GitHub，并设置域名解析。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240226/153429/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240226/153429/","wordCount":31,"datePublished":"2024-02-26T07:34:29.000Z","dateModified":"2025-06-21T08:51:12.959Z","articleSection":"建站技术","keywords":"Hexo,GitHub","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

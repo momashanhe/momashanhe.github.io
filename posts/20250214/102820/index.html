@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-02-14T02:28:20.000Z">
-<meta property="article:modified_time" content="2025-04-17T16:22:31.311Z">
+<meta property="article:modified_time" content="2025-06-21T08:57:43.345Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="Node">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1749293803927),
+    lastupdate: new Date(1750499296041),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2465,7 +2465,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>976 字</p>
+      <p>960 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
@@ -2536,7 +2536,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
             </details>
 
 <h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h2><p>Node是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境。</p>
-<p>Node采用Google开发的V8引擎运行JavaScript代码，使用事件驱动、非阻塞和异步I&#x2F;O模型等技术来提高性能，可优化应用程序的传输量和规模。</p>
+<p>Node采用Google开发的V8引擎运行JavaScript代码，使用事件驱动、非阻塞和异步IO模型等技术来提高性能，可优化应用程序的传输量和规模。</p>
 <p>简单来说，Node是一个让JavaScript运行在服务器端的开发平台，它让JavaScript的触角伸到了服务器端。</p>
 <h2 id="2-与JavaScript和浏览器的区别"><a href="#2-与JavaScript和浏览器的区别" class="headerlink" title="2 与JavaScript和浏览器的区别"></a>2 与JavaScript和浏览器的区别</h2><p>JavaScript是一种高级编程语言，严格来说是指ECMAScript，不包含BOM和DOM。</p>
 <p>浏览器提供了JavaScript的运行环境，包括全局对象、BOM、DOM等工具方便JavaScript脚本的解析和执行，浏览器是客户端的一种。</p>
@@ -2545,10 +2545,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>以前的JavaScript只能在客户端运行，Node将Chrome浏览器里的V8引擎移植到自己的环境当中，在这个环境之上构建了一系列的底层API，提供了一些特定环境的编程接口。</p>
 <p>虽然Node不提供BOM和DOM等客户端用到的API，但提供了丰富的服务端API，这些API是对ECMAScript的扩展，使得JavaScript能够在服务器端进行高效的开发工作。</p>
 <h2 id="3-优势"><a href="#3-优势" class="headerlink" title="3 优势"></a>3 优势</h2><p>服务端的运行环境有很多，比如Tomcat，但Node具有其他运行环境没有的优势。</p>
-<h3 id="3-1-非阻塞I-O模型和事件驱动架构"><a href="#3-1-非阻塞I-O模型和事件驱动架构" class="headerlink" title="3.1 非阻塞I&#x2F;O模型和事件驱动架构"></a>3.1 非阻塞I&#x2F;O模型和事件驱动架构</h3><p>Node采用非阻塞I&#x2F;O模型和事件驱动架构，这是其核心优势之一。</p>
-<p>在传统的服务器端编程中，当一个请求需要进行I&#x2F;O操作时，采用的是阻塞I&#x2F;O模型。例如，当读取文件时，服务器会阻塞当前线程，直到操作完成。</p>
-<p>而Node通过非阻塞I&#x2F;O模型，允许服务器在等待I&#x2F;O操作完成时继续处理其他请求。例如，当请求需要读取文件时，Node不会阻塞线程，而是将读取操作交给底层系统，同时继续处理其他请求。当文件读取完成时，会触发一个事件，通知服务器继续处理该请求的后续逻辑。</p>
-<p>这种非阻塞I&#x2F;O和事件驱动的机制使得Node能够高效地处理大量并发请求，特别适合构建高性能的网络应用。</p>
+<h3 id="3-1-非阻塞IO模型和事件驱动架构"><a href="#3-1-非阻塞IO模型和事件驱动架构" class="headerlink" title="3.1 非阻塞IO模型和事件驱动架构"></a>3.1 非阻塞IO模型和事件驱动架构</h3><p>Node采用非阻塞IO模型和事件驱动架构，这是其核心优势之一。</p>
+<p>在传统的服务器端编程中，当一个请求需要进行IO操作时，采用的是阻塞IO模型。例如，当读取文件时，服务器会阻塞当前线程，直到操作完成。</p>
+<p>而Node通过非阻塞IO模型，允许服务器在等待IO操作完成时继续处理其他请求。例如，当请求需要读取文件时，Node不会阻塞线程，而是将读取操作交给底层系统，同时继续处理其他请求。当文件读取完成时，会触发一个事件，通知服务器继续处理该请求的后续逻辑。</p>
+<p>这种非阻塞IO和事件驱动的机制使得Node能够高效地处理大量并发请求，特别适合构建高性能的网络应用。</p>
 <h3 id="3-2-语言统一性"><a href="#3-2-语言统一性" class="headerlink" title="3.2 语言统一性"></a>3.2 语言统一性</h3><p>Node使用JavaScript作为开发语言，这意味着开发者可以在服务器端和客户端使用相同的语言进行编程。</p>
 <p>这种语言的统一性降低了学习成本，使得前端开发者能够更容易地进入后端开发领域，也使得代码的复用性更高，开发者可以将一些公共逻辑在客户端和服务器端共享。</p>
 <h3 id="3-3-丰富的生态系统"><a href="#3-3-丰富的生态系统" class="headerlink" title="3.3 丰富的生态系统"></a>3.3 丰富的生态系统</h3><p>Node使用NPM作为包管理器，NPM提供了庞大的JavaScript库和模块生态系统，开发者可以轻松找到所需的工具和框架。</p>
@@ -2587,7 +2587,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年4月18日</div>
+                <div class="license-meta-text">2025年6月21日</div>
               </div>
               
               
@@ -2618,10 +2618,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>
+    <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/" itemprop="url"><span itemprop="name">大前端</span></a>
+        <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url"><span itemprop="name">前端</span></a>
       </span>
     
   </div>
@@ -2778,7 +2778,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/104001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>大前端:Node:基础</span></a>
+      <a href='/groups/C04001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>前端:Node:基础</span></a>
     
   </header>
 
@@ -2951,7 +2951,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
   <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8EJavaScript%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2 与JavaScript和浏览器的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BC%98%E5%8A%BF"><span class="toc-text">3 优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%9D%9E%E9%98%BB%E5%A1%9EI-O%E6%A8%A1%E5%9E%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%9E%B6%E6%9E%84"><span class="toc-text">3.1 非阻塞I&#x2F;O模型和事件驱动架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%AF%AD%E8%A8%80%E7%BB%9F%E4%B8%80%E6%80%A7"><span class="toc-text">3.2 语言统一性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.3 丰富的生态系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%92%8C%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91"><span class="toc-text">3.4 轻量级和快速开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%9C%E7%94%A8"><span class="toc-text">4 作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-text">5 官方文档</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D"><span class="toc-text">1 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8EJavaScript%E5%92%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">2 与JavaScript和浏览器的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BC%98%E5%8A%BF"><span class="toc-text">3 优势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%9D%9E%E9%98%BB%E5%A1%9EIO%E6%A8%A1%E5%9E%8B%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E6%9E%B6%E6%9E%84"><span class="toc-text">3.1 非阻塞IO模型和事件驱动架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%AF%AD%E8%A8%80%E7%BB%9F%E4%B8%80%E6%80%A7"><span class="toc-text">3.2 语言统一性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%9F%E6%80%81%E7%B3%BB%E7%BB%9F"><span class="toc-text">3.3 丰富的生态系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%92%8C%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91"><span class="toc-text">3.4 轻量级和快速开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%BD%9C%E7%94%A8"><span class="toc-text">4 作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-text">5 官方文档</span></a></li></ol>
   </div>
 </section>
 
@@ -3418,7 +3418,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/大前端/","name":"大前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250214/102820/","name":"简介"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"简介","description":"摘要：本文介绍了Node是什么，与浏览器的区别，以及其优势和作用。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250214/102820/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250214/102820/","wordCount":33,"datePublished":"2025-02-14T02:28:20.000Z","dateModified":"2025-04-17T16:22:31.311Z","articleSection":"大前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/前端/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250214/102820/","name":"简介"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"简介","description":"摘要：本文介绍了Node是什么，与浏览器的区别，以及其优势和作用。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250214/102820/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250214/102820/","wordCount":33,"datePublished":"2025-02-14T02:28:20.000Z","dateModified":"2025-06-21T08:57:43.345Z","articleSection":"前端","keywords":"JS,Node","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
