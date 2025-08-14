@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-05-08T02:34:13.000Z">
-<meta property="article:modified_time" content="2025-06-21T08:58:50.981Z">
+<meta property="article:modified_time" content="2025-07-22T01:26:42.626Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1750504138578),
+    lastupdate: new Date(1755211219568),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2568,7 +2568,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>).filter(i -&gt; i &gt; <span class="number">5</span>);</span><br><span class="line"><span class="comment">// 为了看到效果，使用终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-2-截取"><a href="#2-2-2-截取" class="headerlink" title="2.2.2 截取"></a>2.2.2 截取</h4><p>获取指定的前几个元素组成新的Stream对象返回。</p>
 <p>语法：</p>
@@ -2578,7 +2578,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>).limit(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 为了看到效果，使用终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-3-跳过"><a href="#2-2-3-跳过" class="headerlink" title="2.2.3 跳过"></a>2.2.3 跳过</h4><p>跳过指定的前几个元素，将剩下的元素组成新的Stream对象返回。</p>
 <p>语法：</p>
@@ -2588,7 +2588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>).skip(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 为了看到效果，使用终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-4-去重"><a href="#2-2-4-去重" class="headerlink" title="2.2.4 去重"></a>2.2.4 去重</h4><p>调用元素的<code>equals()</code>方法进行比较，将去重后的元素组成新的Stream对象返回。</p>
 <p>语法：</p>
@@ -2598,7 +2598,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>).distinct();</span><br><span class="line"><span class="comment">// 为了看到效果，使用终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">8</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-5-排序"><a href="#2-2-5-排序" class="headerlink" title="2.2.5 排序"></a>2.2.5 排序</h4><p>调用传入比较器进行比较，将排序后的元素组成新的Stream对象返回。</p>
 <p>语法：</p>
@@ -2608,7 +2608,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>).sorted((m, n) -&gt; m - n);</span><br><span class="line"><span class="comment">// 为了看到效果，使用终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">5</span><br><span class="line">8</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-6-映射"><a href="#2-2-6-映射" class="headerlink" title="2.2.6 映射"></a>2.2.6 映射</h4><p>将Stream中的元素转换成其他元素或者提取信息，调用传入的函数处理每个元素，将处理后的元素组成新的Stream对象返回。</p>
 <p>语法：</p>
@@ -2618,7 +2618,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>).map(i -&gt; i + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// 为了看到效果，使用了终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">9</span></span><br><span class="line"><span class="number">6</span></span><br><span class="line"><span class="number">9</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">9</span><br><span class="line">6</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-7-扁平映射"><a href="#2-2-7-扁平映射" class="headerlink" title="2.2.7 扁平映射"></a>2.2.7 扁平映射</h4><p>将Stream中的元素转换成Stream对象，调用传入的函数处理每个Steam对象，将处理后的Stream对象组成新的Stream对象返回。</p>
 <p>语法：</p>
@@ -2628,7 +2628,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">&quot;1 8&quot;</span>, <span class="string">&quot;5 8&quot;</span>).flatMap(s -&gt; Stream.of(s.split(<span class="string">&quot; &quot;</span>)));</span><br><span class="line"><span class="comment">// 为了看到效果，使用了终止操作forEach()方法进行打印</span></span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">8</span><br><span class="line">5</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-3-终止操作"><a href="#2-3-终止操作" class="headerlink" title="2.3 终止操作"></a>2.3 终止操作</h3><p>终端操作会使用流水线生成结果，一旦执行终端操作，流就被使用使用了，无法再被使用。</p>
 <h4 id="2-3-1-遍历元素"><a href="#2-3-1-遍历元素" class="headerlink" title="2.3.1 遍历元素"></a>2.3.1 遍历元素</h4><p>语法：</p>
@@ -2638,7 +2638,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Integer&gt; stream = Stream.of(<span class="number">1</span>, <span class="number">8</span>, <span class="number">5</span>, <span class="number">8</span>);</span><br><span class="line">stream.forEach(e -&gt; System.out.println(e));</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">8</span><br><span class="line">5</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-3-2-检查是否所有元素匹配"><a href="#2-3-2-检查是否所有元素匹配" class="headerlink" title="2.3.2 检查是否所有元素匹配"></a>2.3.2 检查是否所有元素匹配</h4><p>如果所有元素都满足条件，那么返回true，否则返回false。</p>
 <p>语法：</p>
@@ -2829,7 +2829,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年6月21日</div>
+                <div class="license-meta-text">2025年7月22日</div>
               </div>
               
               
@@ -3576,7 +3576,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/后端/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250508/103413/","name":"流式处理"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"流式处理","description":"摘要：本文学习了流式处理，使用新增方法操作集合，以及通过Optional类判断空值。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250508/103413/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250508/103413/","wordCount":42,"datePublished":"2025-05-08T02:34:13.000Z","dateModified":"2025-06-21T08:58:50.981Z","articleSection":"后端","keywords":"Java","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/后端/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250508/103413/","name":"流式处理"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"流式处理","description":"摘要：本文学习了流式处理，使用新增方法操作集合，以及通过Optional类判断空值。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250508/103413/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250508/103413/","wordCount":42,"datePublished":"2025-05-08T02:34:13.000Z","dateModified":"2025-07-22T01:26:42.626Z","articleSection":"后端","keywords":"Java","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

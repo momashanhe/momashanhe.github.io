@@ -1,0 +1,3628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#6.0.0-alpha.1'>
+  <meta name="generator" content="Hexo 7.1.1">
+  <meta name="Volantis" content="6.0.0-alpha.1">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+  <link rel="canonical" href="https://momashanhe.com/posts/20250803/194843/"/>
+  <!-- 渲染优化 -->
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+      <link rel='dns-prefetch' href='https://unpkg.com'>
+      <link rel="preconnect" href="https://unpkg.com" crossorigin>
+      <link rel='dns-prefetch' href='https://cdn.bootcdn.net'>
+      <link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <!-- import head_begin begin -->
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-config" content="/@static/media/org.volantis/blog/favicon/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
+      <link rel="apple-touch-icon" sizes="180x180" href="/@static/media/org.volantis/blog/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/@static/media/org.volantis/blog/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/@static/media/org.volantis/blog/favicon/favicon-16x16.png">
+      <link rel="manifest" href="/@static/media/org.volantis/blog/favicon/manifest.json">
+      <link rel="mask-icon" href="/@static/media/org.volantis/blog/favicon/safari-pinned-tab.svg" color="#5bbad5">
+      <link rel="shortcut icon" href="/@static/media/org.volantis/blog/favicon/favicon.ico">
+      <meta name="apple-mobile-web-app-title" content="Volantis">
+      <meta name="application-name" content="Volantis">
+      <meta name="msapplication-TileColor" content="#f4f4f4">
+      <meta name="msapplication-TileImage" content="/@static/media/org.volantis/blog/favicon/favicon-32x32.png">
+      <meta name="theme-color" content="#f4f4f4" media="(prefers-color-scheme: light)">
+      <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  
+  <!-- Custom Files headBegin end-->
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="preload" href="/@static/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="/@static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <!-- feed -->
+      <link rel="alternate" href="/atom.xml" title="墨码山河" type="application/atom+xml">
+  <!-- 页面元数据 -->
+  <title>垃圾回收 - 墨码山河</title>
+  <meta name="keywords" content="Java,代码改变世界">
+  <meta desc name="description" content="摘要：本文主要学习了虚拟机的垃圾回收机制。 - 墨码山河 - 墨码山河">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="垃圾回收">
+<meta property="og:url" content="https://momashanhe.com/posts/20250803/194843/index.html">
+<meta property="og:site_name" content="墨码山河">
+<meta property="og:description" content="摘要：本文主要学习了虚拟机的垃圾回收机制。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2025-08-03T11:48:43.000Z">
+<meta property="article:modified_time" content="2025-08-06T03:49:14.873Z">
+<meta property="article:author" content="墨码山河">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+  <style>
+    /* 首屏样式 */
+    #safearea {
+  display: none;
+}
+:root {
+  --color-site-body: #f4f4f4;
+  --color-site-bg: #f4f4f4;
+  --color-site-inner: #fff;
+  --color-site-footer: #666;
+  --color-card: #fff;
+  --color-text: #444;
+  --color-block: #f6f6f6;
+  --color-inlinecode: #c74f00;
+  --color-codeblock: #fff7ea;
+  --color-h1: #3a3a3a;
+  --color-h2: #3a3a3a;
+  --color-h3: #333;
+  --color-h4: #444;
+  --color-h5: #555;
+  --color-h6: #666;
+  --color-p: #444;
+  --color-list: #666;
+  --color-list-hl: #30ad91;
+  --color-meta: #888;
+  --color-read-bkg: #e0d8c8;
+  --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #f5f5f5;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+html {
+  color: var(--color-text);
+  width: 100%;
+  height: 100%;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-size: 16px;
+}
+html >::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+html >::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html >::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+html >::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+body {
+  background-color: var(--color-site-body);
+  text-rendering: optimizelegibility;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body.modal-active {
+  overflow: hidden;
+}
+@media screen and (max-width: 680px) {
+  body.modal-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+a {
+  color: #2092ec;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+a:hover {
+  color: #ff5722;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+ul,
+ol {
+  padding-left: 0;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+header {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+img {
+  border: 0;
+  background: none;
+  max-width: 100%;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-bottom: 1px solid rgba(68,68,68,0.1);
+}
+button,
+input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur {
+    background: rgba(255,255,255,0.9) !important;
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur#comments {
+    backdrop-filter: unset;
+  }
+}
+#layoutHelper-comments {
+  margin-bottom: 100px;
+}
+.shadow {
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.shadow.floatable {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.shadow.floatable:hover {
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+}
+#l_cover {
+  min-height: 64px;
+}
+.cover-wrapper {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  color: var(--color-site-inner);
+  padding: 0 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+.cover-wrapper .cover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+.cover-wrapper .cover-bg.lazyload:not(.loaded) {
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+}
+.cover-wrapper .cover-bg.lazyload.loaded {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cover-wrapper#full {
+  height: calc(100vh + 100px);
+  padding-bottom: 100px;
+}
+.cover-wrapper#half {
+  max-height: 640px;
+  min-height: 400px;
+  height: calc(36vh - 64px + 200px);
+}
+.cover-wrapper #scroll-down {
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.cover-wrapper #scroll-down .scroll-down-effects {
+  color: #fff;
+  font-size: 24px;
+  line-height: 64px;
+  position: absolute;
+  width: 24px;
+  left: calc(50% - 12px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: scroll-down-effect 1.5s infinite;
+  -webkit-animation: scroll-down-effect 1.5s infinite;
+  -khtml-animation: scroll-down-effect 1.5s infinite;
+  -moz-animation: scroll-down-effect 1.5s infinite;
+  -o-animation: scroll-down-effect 1.5s infinite;
+  -ms-animation: scroll-down-effect 1.5s infinite;
+}
+@-moz-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  margin-top: 64px;
+  margin-bottom: 100px;
+}
+.cover-wrapper .cover-body,
+.cover-wrapper .cover-body .top,
+.cover-wrapper .cover-body .bottom {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  max-width: 100%;
+}
+.cover-wrapper .cover-body .bottom {
+  margin-top: 32px;
+}
+.cover-wrapper .cover-body .title {
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-size: 3.125rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cover-wrapper .cover-body .subtitle {
+  font-size: 20px;
+}
+.cover-wrapper .cover-body .logo {
+  max-height: 120px;
+  max-width: calc(100% - 4 * 16px);
+}
+@media screen and (min-height: 1024px) {
+  .cover-wrapper .cover-body .title {
+    font-size: 3rem;
+  }
+  .cover-wrapper .cover-body .subtitle {
+    font-size: 1.05rem;
+  }
+  .cover-wrapper .cover-body .logo {
+    max-height: 150px;
+  }
+}
+.cover-wrapper .cover-body .m_search {
+  position: relative;
+  max-width: calc(100% - 16px);
+  width: 320px;
+  vertical-align: middle;
+}
+.cover-wrapper .cover-body .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  width: 100%;
+}
+.cover-wrapper .cover-body .m_search .icon,
+.cover-wrapper .cover-body .m_search .input {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.cover-wrapper .cover-body .m_search .icon {
+  position: absolute;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  line-height: 2.5rem;
+  width: 32px;
+  top: 0;
+  left: 5px;
+  color: rgba(68,68,68,0.75);
+}
+.cover-wrapper .cover-body .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  padding-left: 36px;
+  border-radius: 1.4rem;
+  -webkit-border-radius: 1.4rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: var(--color-text);
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .cover-body .m_search .input {
+    padding-left: 36px;
+  }
+}
+.cover-wrapper .cover-body .m_search .input:hover {
+  background: rgba(255,255,255,0.8);
+}
+.cover-wrapper .cover-body .m_search .input:focus {
+  background: #fff;
+}
+.cover-wrapper .list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -khtml-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  align-items: stretch;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cover-wrapper .list-h a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  font-weight: 600;
+}
+.cover-wrapper .list-h a img {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  margin: 4px;
+  min-width: 40px;
+  max-width: 44px;
+}
+@media screen and (max-width: 768px) {
+  .cover-wrapper .list-h a img {
+    min-width: 36px;
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .list-h a img {
+    margin: 2px 4px;
+    min-width: 32px;
+    max-width: 36px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .cover-wrapper .list-h a img {
+    min-width: 28px;
+    max-width: 32px;
+  }
+}
+.cover-wrapper {
+  max-width: 100%;
+}
+.cover-wrapper.search .bottom .menu {
+  margin-top: 16px;
+}
+.cover-wrapper.search .bottom .menu .list-h a {
+  white-space: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 2px;
+  margin: 4px;
+  color: var(--color-site-inner);
+  opacity: 0.75;
+  -webkit-opacity: 0.75;
+  -moz-opacity: 0.75;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-bottom: 2px solid transparent;
+}
+.cover-wrapper.search .bottom .menu .list-h a i {
+  margin-right: 4px;
+}
+.cover-wrapper.search .bottom .menu .list-h a p {
+  font-size: 0.9375rem;
+}
+.cover-wrapper.search .bottom .menu .list-h a:hover,
+.cover-wrapper.search .bottom .menu .list-h a.active,
+.cover-wrapper.search .bottom .menu .list-h a:active {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  border-bottom: 2px solid var(--color-site-inner);
+}
+@font-face {
+  font-family: 'UbuntuMono';
+  src: url("/@static/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Varela Round';
+  src: url("/@static/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+.l_header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--color-card);
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.l_header.auto {
+  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -khtml-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  -ms-transition: opacity 0.4s ease;
+  visibility: hidden;
+}
+.l_header.auto.show {
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  visibility: visible;
+}
+.l_header .container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.l_header #wrapper {
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.l_header #wrapper .nav-main,
+.l_header #wrapper .nav-sub {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -khtml-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  align-items: center;
+}
+.l_header #wrapper .nav-main {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.l_header #wrapper.sub .nav-main {
+  transform: translateY(-64px);
+  -webkit-transform: translateY(-64px);
+  -khtml-transform: translateY(-64px);
+  -moz-transform: translateY(-64px);
+  -o-transform: translateY(-64px);
+  -ms-transform: translateY(-64px);
+}
+.l_header #wrapper .nav-sub {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  height: 64px;
+  width: calc(100% - 2 * 16px);
+  position: absolute;
+}
+.l_header #wrapper .nav-sub ::-webkit-scrollbar {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (min-width: 2048px) {
+  .l_header #wrapper .nav-sub {
+    max-width: 55vw;
+    margin: auto;
+  }
+}
+.l_header #wrapper.sub .nav-sub {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.l_header #wrapper .title {
+  position: relative;
+  color: var(--color-text);
+  padding-left: 24px;
+  max-height: 64px;
+}
+.l_header #wrapper .nav-main .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  line-height: 64px;
+  padding: 0 24px;
+  font-size: 1.25rem;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
+.l_header #wrapper .nav-main .title img {
+  height: 64px;
+}
+.l_header .nav-sub {
+  max-width: 1280px;
+  margin: auto;
+}
+.l_header .nav-sub .title {
+  font-weight: bold;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  line-height: 1.2;
+  max-height: 64px;
+  white-space: normal;
+  flex-shrink: 1;
+}
+.l_header .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  line-height: 64px;
+  align-items: center;
+}
+.l_header .switcher .s-toc {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .l_header .switcher .s-toc {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+  }
+}
+.l_header .switcher >li {
+  height: 48px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  margin: 2px;
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li {
+    margin: 0 1px;
+    height: 48px;
+  }
+}
+.l_header .switcher >li >a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0.85em 1.1em;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  color: #3dd9b6;
+}
+.l_header .switcher >li >a:hover {
+  border: none;
+}
+.l_header .switcher >li >a.active,
+.l_header .switcher >li >a:active {
+  border: none;
+  background: var(--color-site-bg);
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li >a {
+    width: 36px;
+    height: 48px;
+  }
+}
+.l_header .nav-sub .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+}
+.l_header .m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  height: 64px;
+  width: 240px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (max-width: 1024px) {
+  .l_header .m_search {
+    width: 44px;
+    min-width: 44px;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+  }
+  .l_header .m_search:hover {
+    width: 240px;
+  }
+  .l_header .m_search:hover input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search:hover .input {
+    width: 100%;
+  }
+  .l_header .m_search:hover .input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search {
+    min-width: 0;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.l_header .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.l_header .m_search .icon {
+  position: absolute;
+  width: 36px;
+  left: 5px;
+  color: var(--color-meta);
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .icon {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+.l_header .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.3;
+  width: 100%;
+  color: var(--color-text);
+  background: #fafafa;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 40px;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search .input:focus {
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .input {
+    background: var(--color-block);
+    padding-left: 8px;
+    border: none;
+  }
+  .l_header .m_search .input:hover,
+  .l_header .m_search .input:focus {
+    border: none;
+  }
+}
+@media (max-width: 500px) {
+  .l_header .m_search {
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    transition: all 0.28s ease;
+    -webkit-transition: all 0.28s ease;
+    -khtml-transition: all 0.28s ease;
+    -moz-transition: all 0.28s ease;
+    -o-transition: all 0.28s ease;
+    -ms-transition: all 0.28s ease;
+  }
+  .l_header .m_search .input {
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    margin-left: 16px;
+    padding-left: 16px;
+  }
+  .l_header.z_search-open .m_search {
+    width: 100%;
+  }
+  .l_header.z_search-open .m_search .input {
+    width: calc(100% - 120px);
+  }
+}
+ul.m-pc >li>a {
+  color: inherit;
+  border-bottom: 2px solid transparent;
+}
+ul.m-pc >li>a:active,
+ul.m-pc >li>a.active {
+  border-bottom: 2px solid #3dd9b6;
+}
+ul.m-pc li:hover >ul.list-v,
+ul.list-v li:hover >ul.list-v {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.nav-list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: stretch;
+}
+ul.nav-list-h>li {
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  height: 100%;
+  line-height: 2.4;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+ul.nav-list-h>li >a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+}
+ul.list-v {
+  z-index: 1;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: absolute;
+  background: var(--color-card);
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  margin-top: -6px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 8px 0;
+}
+ul.list-v.show {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.list-v hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+ul.list-v >li {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+ul.list-v >li.header {
+  font-size: 0.78125rem;
+  font-weight: bold;
+  line-height: 2em;
+  color: var(--color-meta);
+  margin: 8px 16px 4px;
+}
+ul.list-v >li.header i {
+  margin-right: 8px;
+}
+ul.list-v >li ul {
+  margin-left: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: -40px;
+}
+ul.list-v .aplayer-container {
+  min-height: 64px;
+  padding: 6px 16px;
+}
+ul.list-v >li>a {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  color: var(--color-list);
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 36px;
+  padding: 0 20px 0 16px;
+  text-overflow: ellipsis;
+  margin: 0 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+@media screen and (max-width: 1024px) {
+  ul.list-v >li>a {
+    line-height: 40px;
+  }
+}
+ul.list-v >li>a >i {
+  margin-right: 8px;
+}
+ul.list-v >li>a:active,
+ul.list-v >li>a.active {
+  color: var(--color-list-hl);
+}
+ul.list-v >li>a:hover {
+  color: var(--color-list-hl);
+  background: var(--color-site-bg);
+}
+.l_header .menu >ul>li>a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding: 0 16px;
+}
+.l_header .menu >ul>li>a >i {
+  margin-right: 4px;
+}
+.l_header ul.nav-list-h>li {
+  color: var(--color-list);
+  line-height: 64px;
+}
+.l_header ul.nav-list-h>li >a {
+  max-height: 64px;
+  overflow: hidden;
+  color: inherit;
+}
+.l_header ul.nav-list-h>li >a:active,
+.l_header ul.nav-list-h>li >a.active {
+  color: #3dd9b6;
+}
+.l_header ul.nav-list-h>li:hover>a {
+  color: var(--color-list-hl);
+}
+.l_header ul.nav-list-h>li i.music {
+  animation: rotate-effect 1.5s linear infinite;
+  -webkit-animation: rotate-effect 1.5s linear infinite;
+  -khtml-animation: rotate-effect 1.5s linear infinite;
+  -moz-animation: rotate-effect 1.5s linear infinite;
+  -o-animation: rotate-effect 1.5s linear infinite;
+  -ms-animation: rotate-effect 1.5s linear infinite;
+}
+@-moz-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+.menu-phone li ul.list-v {
+  right: calc(100% - 0.5 * 16px);
+}
+.menu-phone li ul.list-v ul {
+  right: calc(100% - 0.5 * 16px);
+}
+#wrapper {
+  max-width: 1280px;
+  margin: auto;
+}
+@media screen and (min-width: 2048px) {
+  #wrapper {
+    max-width: 55vw;
+  }
+}
+#wrapper .menu {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  margin: 0 16px 0 0;
+}
+#wrapper .menu .list-v ul {
+  left: calc(100% - 0.5 * 16px);
+}
+.menu-phone {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: 16px;
+  right: 8px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.menu-phone ul {
+  right: calc(100% - 0.5 * 16px);
+}
+@media screen and (max-width: 500px) {
+  .menu-phone {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: block;
+  }
+}
+.l_header {
+  max-width: 65vw;
+  left: calc((100% - 65vw) * 0.5);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+@media screen and (max-width: 2048px) {
+  .l_header {
+    max-width: 1312px;
+    left: calc((100% - 1312px) * 0.5);
+  }
+}
+@media screen and (max-width: 1312px) {
+  .l_header {
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .l_header #wrapper .nav-main .title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .l_header #wrapper .nav-sub {
+    width: 100%;
+  }
+  .l_header #wrapper .nav-sub .title {
+    overflow-y: scroll;
+    margin-top: 2px;
+    padding: 8px 16px;
+  }
+  .l_header #wrapper .switcher {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+    margin-right: 8px;
+  }
+  .l_header .menu {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .list-v li {
+    max-width: 270px;
+  }
+}
+#u-search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  z-index: 1001;
+}
+@media screen and (max-width: 680px) {
+  #u-search {
+    padding: 0px;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+    '.kill-t{'+
+      'font-size: 2rem;'+
+    '}'+
+    '.kill-c{'+
+      'font-size: 1.2rem;'+
+    '}'+
+		'#l_header,#l_body{'+
+			'display: none;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
+        `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
+        `<a target="_blank" rel="noopener" href="https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge/"><strong>了解详情 ></strong></a>`+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+    .kill-t{
+      font-size: 2rem;
+    }
+    .kill-c{
+      font-size: 1.2rem;
+    }
+		#l_header,#l_body{
+			display: none;
+		}
+	</style>
+    <div class="kill-noscript">
+        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>
+        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+
+  <script>
+  /************这个文件存放不需要重载的全局变量和全局函数*********/
+  window.volantis = {}; // volantis 全局变量
+  volantis.debug = "env"; // 调试模式
+  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+  /******************** volantis.dom.$ ********************************/
+  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
+  function volantisDom(ele) {
+    if (!ele) ele = document.createElement("div")
+    this.ele = ele;
+    // ==============================================================
+    this.ele.find = (c) => {
+      let q = this.ele.querySelector(c)
+      if (q)
+        return new volantisDom(q)
+    }
+    // ==============================================================
+    this.ele.hasClass = (c) => {
+      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+    }
+    this.ele.addClass = (c) => {
+      this.ele.classList.add(c);
+      return this.ele
+    }
+    this.ele.removeClass = (c) => {
+      this.ele.classList.remove(c);
+      return this.ele
+    }
+    this.ele.toggleClass = (c) => {
+      if (this.ele.hasClass(c)) {
+        this.ele.removeClass(c)
+      } else {
+        this.ele.addClass(c)
+      }
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.on = (c, f) => {
+      this.ele.addEventListener(c, f, false)
+      return this.ele
+    }
+    this.ele.click = (f, r) => {
+      this.ele.on("click", f, r)
+      return this.ele
+    }
+    this.ele.scroll = (f, r) => {
+      this.ele.on("scroll", f, r)
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.html = (c) => {
+      // if(c=== undefined){
+      //   return this.ele.innerHTML
+      // }else{
+      this.ele.innerHTML = c
+      return this.ele
+      // }
+    }
+    // ==============================================================
+    this.ele.hide = (c) => {
+      this.ele.style.display = "none"
+      return this.ele
+    }
+    this.ele.show = (c) => {
+      this.ele.style.display = "block"
+      return this.ele
+    }
+    // ==============================================================
+    return this.ele
+  }
+  volantis.dom.$ = (ele) => {
+    return !!ele ? new volantisDom(ele) : null;
+  }
+  /******************** RunItem ********************************/
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = () => {
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) => {
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index, 1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+  /******************** RightMenu ********************************/
+  // volantis.rightmenu.handle(callBack[,"callBackName"]) 外部菜单项控制
+  // 可在 volantis.mouseEvent 处获取右键事件
+  volantis.rightmenu = {};
+  volantis.rightmenu.method = {
+    handle: new RunItem(),
+  }
+  volantis.rightmenu = Object.assign(volantis.rightmenu, {
+    handle: volantis.rightmenu.method.handle.push,
+  });
+  /********************  Dark Mode  ********************************/
+  // /layout/_partial/scripts/darkmode.ejs
+  // volantis.dark.mode 当前模式 dark or light
+  // volantis.dark.toggle() 暗黑模式触发器
+  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  volantis.dark = {};
+  volantis.dark.method = {
+    toggle: new RunItem(),
+  };
+  volantis.dark = Object.assign(volantis.dark, {
+    push: volantis.dark.method.toggle.push,
+  });
+  /********************  Message  ********************************/
+  // VolantisApp.message
+  /********************  isMobile  ********************************/
+  // /source/js/app.js
+  // volantis.isMobile
+  // volantis.isMobileOld
+  /********************脚本动态加载函数********************************/
+  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
+  // volantis.css(src)
+
+  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
+  // (async () => {
+  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
+  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
+  // })();
+
+  // 已经加入了setTimeout
+  volantis.js = (src, cb) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+  volantis.css = (src) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  }
+  /********************按需加载的插件********************************/
+  // volantis.import.jQuery().then(()=>{})
+  volantis.import = {
+    jQuery: () => {
+      if (typeof jQuery == "undefined") {
+        return volantis.js("https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js")
+      } else {
+        return new Promise(resolve => {
+          resolve()
+        });
+      }
+    }
+  }
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn) => {
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /************************ layoutHelper *****************************************/
+  volantis.layoutHelper = (helper, html, opt) => {
+    opt = Object.assign({ clean: false}, opt)
+    function myhelper(helper, html, clean) {
+      volantis.tempDiv = document.createElement("div");
+      volantis.tempDiv.innerHTML = html;
+      let layoutHelper = document.querySelector("#layoutHelper-" + helper)
+      if (layoutHelper) {
+        if (clean) {
+          layoutHelper.innerHTML = ""
+        }
+        layoutHelper.append(volantis.tempDiv);
+      }
+    }
+    myhelper(helper, html, opt.clean)
+  }
+  /****************************** 滚动事件处理 ****************************************/
+  volantis.scroll = {
+    engine: new RunItem(),
+    unengine: new RunItem(),
+  };
+  volantis.scroll = Object.assign(volantis.scroll, {
+    push: volantis.scroll.engine.push,
+  });
+  // 滚动条距离顶部的距离
+  volantis.scroll.getScrollTop = () => {
+    let scrollPos;
+    if (window.pageYOffset) {
+      scrollPos = window.pageYOffset;
+    } else if (document.compatMode && document.compatMode != 'BackCompat') {
+      scrollPos = document.documentElement.scrollTop;
+    } else if (document.body) {
+      scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+  }
+  volantis.scroll.scrollHeight = function () {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+    )
+  }
+  volantis.scroll.offsetHeight = function () {
+    return Math.max(
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    )
+  }
+  volantis.scroll.progress = function () {
+    return volantis.scroll.getScrollTop() / (volantis.scroll.scrollHeight() - volantis.scroll.offsetHeight())
+  }
+  // 使用 requestAnimationFrame 处理滚动事件
+  // `volantis.scroll.del` 中存储了一个数值, 该数值检测一定时间间隔内滚动条滚动的位移, 数值的检测频率是浏览器的刷新频率. 数值为正数时, 表示向下滚动. 数值为负数时, 表示向上滚动.
+  volantis.scroll.handleScrollEvents = () => {
+    volantis.scroll.lastScrollTop = volantis.scroll.getScrollTop()
+    function loop() {
+      const scrollTop = volantis.scroll.getScrollTop();
+      if (volantis.scroll.lastScrollTop !== scrollTop) {
+        volantis.scroll.del = scrollTop - volantis.scroll.lastScrollTop;
+        volantis.scroll.lastScrollTop = scrollTop;
+        // if (volantis.scroll.del > 0) {
+        //   console.log("向下滚动");
+        // } else {
+        //   console.log("向上滚动");
+        // }
+        // 注销过期的unengine未滚动事件
+        volantis.scroll.unengine.list = []
+        volantis.scroll.engine.start();
+      } else {
+        volantis.scroll.unengine.start();
+      }
+      volantis.requestAnimationFrame(loop)
+    }
+    volantis.requestAnimationFrame(loop)
+  }
+  volantis.scroll.handleScrollEvents()
+  volantis.scroll.ele = null;
+  // 触发页面滚动至目标元素位置
+  volantis.scroll.to = (ele, option = {}) => {
+    if (!ele) return;
+    volantis.scroll.ele = ele;
+    // 默认配置
+    opt = {
+      top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
+      behavior: "smooth"
+    }
+    // 定义配置
+    if ("top" in option) {
+      opt.top = option.top
+    }
+    if ("behavior" in option) {
+      opt.behavior = option.behavior
+    }
+    if ("addTop" in option) {
+      opt.top += option.addTop
+    }
+    if (!("observerDic" in option)) {
+      option.observerDic = 100
+    }
+    // 滚动
+    window.scrollTo(opt);
+    // 监视器
+    // 监视并矫正元素滚动到指定位置
+    // 用于处理 lazyload 引起的 cls 导致的定位失败问题
+    // option.observer = false
+    if (option.observer) {
+      setTimeout(() => {
+        if (volantis.scroll.ele != ele) {
+          return
+        }
+        volantis.scroll.unengine.push(() => {
+          let me = ele.getBoundingClientRect().top
+          if (!(me >= -option.observerDic && me <= option.observerDic)) {
+            volantis.scroll.to(ele, option)
+          }
+          volantis.scroll.unengine.remove("unengineObserver")
+        }, "unengineObserver")
+      }, 1000)
+    }
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = () => {
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e => {
+        e.classList.remove("post-story")
+      })
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/
+  /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "/@static/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "/@static/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
+</script>
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  volantis.GLOBAL_CONFIG ={
+    root: '/',
+    debug: "env",
+    default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1755211219568),
+    cdn: {
+      izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
+      izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
+      fancybox_css: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.min.css',
+      fancybox_js: 'https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.33/fancybox/fancybox.umd.min.js'
+    },
+    sidebar: {
+      for_page: ["blogger","webinfo","category","tagcloud"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2024/03/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      
+      
+    },
+    search: {
+      
+
+      
+        dataPath: (("/" || "/").endsWith("/") ? "/" || "/" : "//" || "/") + "content.json",
+      
+
+      
+    },
+    languages: {
+      
+        search: {
+          hits_empty: "找不到您查询的内容：${query}",
+          hits_stats: "找到 ${hits} 条结果，用时 ${time} 毫秒",
+        }
+      
+    }
+  }
+</script>
+  <!-- import head_end begin -->
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
+  
+  <!-- Custom Files headEnd end-->
+</head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
+    
+    <!-- Custom Files bodyBegin end-->
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone'>
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/@static/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+          
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/groups/" title="专栏"
+                  
+                  
+                  
+                    active-action="action-groups"
+                  >
+                  <i class='fa-solid fa-bars fa-fw'></i>专栏
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                 title="社交"
+                  
+                  
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>社交
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/pages/friend/" title="通讯录"
+                  
+                  
+                  
+                    active-action="action-pagesfriend"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>通讯录
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/pages/board/" title="留言板"
+                  
+                  
+                  
+                    active-action="action-pagesboard"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>留言板
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/pages/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-pagesabout"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="输入关键字「回车」搜索" />
+        </form>
+      </div>
+      
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/groups/" title="专栏"
+                  
+                  
+                  
+                    active-action="action-groups"
+                  >
+                  <i class='fa-solid fa-bars fa-fw'></i>专栏
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                 title="社交"
+                  
+                  
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>社交
+                </a>
+                
+                  <ul class="list-v">
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/pages/friend/" title="通讯录"
+                  
+                  
+                  
+                    active-action="action-pagesfriend"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>通讯录
+                </a>
+                
+              </li>
+            
+          
+                    
+                      
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/pages/board/" title="留言板"
+                  
+                  
+                  
+                    active-action="action-pagesboard"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>留言板
+                </a>
+                
+              </li>
+            
+          
+                    
+                  </ul>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/pages/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-pagesabout"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+</div>
+
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class=''>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://momashanhe.com/posts/20250803/194843/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="墨码山河">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="墨码山河">
+    <meta itemprop="description" content="代码改变世界">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        垃圾回收
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="/@static/media/org.volantis/blog/favicon/apple-touch-icon.png">
+    <p itemprop="name">墨码山河</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item wordcount">
+    <a class='notlink'>
+      <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
+      <p>8.3k 字</p>
+    </a>
+  </div>
+  <div class="new-meta-item readtime">
+    <a class='notlink'>
+      <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
+      <p>31 分钟</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+    
+    <span data-path="/posts/20250803/194843/" class="waline-pageview-count">
+      <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+    </span>
+      
+    <p>次</p>
+  </a>
+</div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comment">
+   
+  
+  <a class="notlink" href="/posts/20250803/194843/#comments">
+    <i class="fa-solid fa-comment-dots fa-fw"></i>
+    <span data-path="/posts/20250803/194843/" class="waline-comment-count">
+      <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+    </span> 
+     
+      <p>条</p> 
+     
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>摘要：本文主要学习了虚拟机的垃圾回收机制。</p>
+<span id="more"></span>
+
+<details ><summary> 环境 </summary>
+              <div class='content'>
+              <p>Windows 10 企业版 LTSC 21H2<br>Java 1.8</p>
+              </div>
+            </details>
+
+<h2 id="1-垃圾回收"><a href="#1-垃圾回收" class="headerlink" title="1 垃圾回收"></a>1 垃圾回收</h2><h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>垃圾回收机制是由垃圾收集器GC（Garbage Collection）实现的，GC是后台的守护进程。</p>
+<p>GC的特别之处是它是一个低优先级进程，但是可以根据内存的使用情况调整优先级，在内存低到一定限度时会自动运行，从而实现对内存的回收。这就是垃圾回收的时间不确定的原因。</p>
+<h3 id="1-2-发生位置"><a href="#1-2-发生位置" class="headerlink" title="1.2 发生位置"></a>1.2 发生位置</h3><p>JVM的内存结构包括五大区域：程序计数器、本地方法栈、虚拟机栈、堆区、方法区。</p>
+<p>程序计数器、本地方法栈、虚拟机栈三个区域随线程而生、随线程而灭，因此这几个区域的内存分配和回收都具备确定性，就不需要过多考虑回收的问题，因为方法结束或者线程结束时，内存自然就跟随着回收了。</p>
+<p>堆区和方法区则不一样，这部分内存的分配和回收是动态的，正是垃圾收集器所需关注的部分。</p>
+<h3 id="1-3-内存泄漏"><a href="#1-3-内存泄漏" class="headerlink" title="1.3 内存泄漏"></a>1.3 内存泄漏</h3><p>内存泄漏指的是无法回收不再使用的对象，导致内存中没有空闲空间。</p>
+<p>内存泄漏的八种情况：</p>
+<ol>
+<li>单例模式，单例模式中的对象生命周期和应用程序是一样长的，如果单例程序中持有外部对象的引用，这个外部引用就不能被回收。</li>
+<li>资源未被关闭，数据库连接和网络连接以及输入输出流都需要手动关闭，否则不能被回收。</li>
+<li>静态集合类，如果这些容器为静态的，那么它们的生命周期与应用程序一致，容器中的对象在程序结束之前将不能被释放，不能被回收。</li>
+<li>内部类持有外部类，如果一个外部类的实例对象的方法返回了一个内部类的实例对象，这个内部类对象被长期引用了，即使那个外部类实例对象不再被使用也不能被回收。</li>
+<li>改变哈希值，当对象被存入HashSet中后，就不能再修改这个对象的哈希值了，否则就会导致无法从HashSet中检索到该对象，这个对象就不能被回收。</li>
+<li>不合理的作用域，变量定义的作用范围大于其使用范围，可能会导致内存泄漏，另外，如果没有及时将对象置空，这个对象就不能被回收。</li>
+<li>缓存泄漏，一旦将对象放入到缓存中，就会很容易遗忘缓存对象，缓存对象就不能被回收。</li>
+<li>监听器和回调，如果客户端在接口中注册回调，但没有显示取消，相关对象就不能被回收。</li>
+</ol>
+<h3 id="1-4-内存溢出"><a href="#1-4-内存溢出" class="headerlink" title="1.4 内存溢出"></a>1.4 内存溢出</h3><p>内存溢出指的是定义的对象占用的内存过大，需要的内存溢出了内存空间。</p>
+<h3 id="1-5-STW"><a href="#1-5-STW" class="headerlink" title="1.5 STW"></a>1.5 STW</h3><p>STW（Stop The World）指的是GC事件发生过程中，会产生应用程序的停顿，整个应用程序线程都会被暂停，没有任何响应，有点像卡死的感觉。</p>
+<h3 id="1-6-安全点和安全区域"><a href="#1-6-安全点和安全区域" class="headerlink" title="1.6 安全点和安全区域"></a>1.6 安全点和安全区域</h3><h4 id="1-6-1-安全点"><a href="#1-6-1-安全点" class="headerlink" title="1.6.1 安全点"></a>1.6.1 安全点</h4><p>从线程角度看，安全点（Safe Point）可以理解成是在代码执行过程中的一些特殊位置，在线程执行到这些位置时，说明虚拟机当前的状态是安全的。</p>
+<p>安全点的选择很重要，太少会导致等待进入安全点的时间过长，太多会导致性能问题，可以将执行时间较长的程序作为安全点，比如方法调用、循环跳转、异常跳转等。</p>
+<p>对于一些需要暂停的操作，比如STW，需要等线程进入安全点才能执行，线程进入安全点的方式有两种：</p>
+<ul>
+<li>抢先式中断：首先中断所有线程，如果还有线程不在安全点，就恢复线程，让线程跑到安全点。过时，目前没有虚拟机采用。</li>
+<li>主动式中断：设置一个中断标志，各个线程运行到安全点的时候主动轮询这个标志，如果中断标志为真，则将自己进行中断挂起。</li>
+</ul>
+<h4 id="1-6-2-安全区域"><a href="#1-6-2-安全区域" class="headerlink" title="1.6.2 安全区域"></a>1.6.2 安全区域</h4><p>当需要暂停线程时，如果线程正在执行可以等待进入安全点，但如果线程处于休眠状态或者阻塞状态，等待时间就会变得很长。</p>
+<p>为了解决这个问题，引入了安全区域的概念。</p>
+<p>安全区域是指在一段代码片中，引用关系不会发生改变，在这个区域中的任何位置开始GC都是安全的，可以看做是安全点的扩展。</p>
+<p>当线程进入安全区域时，会标识已经进入安全区域，此时发生GC会忽略进入安全区域的线程。</p>
+<p>当线程离开安全区域时，会检查是否完成GC，只有完成GC线程才可以离开，否则需要等待GC完成才可以离开。</p>
+<h2 id="2-对象存活判断"><a href="#2-对象存活判断" class="headerlink" title="2 对象存活判断"></a>2 对象存活判断</h2><h3 id="2-1-堆的存活判断"><a href="#2-1-堆的存活判断" class="headerlink" title="2.1 堆的存活判断"></a>2.1 堆的存活判断</h3><h4 id="2-1-1-引用计数算法"><a href="#2-1-1-引用计数算法" class="headerlink" title="2.1.1 引用计数算法"></a>2.1.1 引用计数算法</h4><p>每个对象有一个引用计数属性，新增一个引用时计数加1，引用释放时计数减1，计数为0时可以回收。</p>
+<p>此方法简单，但无法解决对象相互循环引用的问题：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">DemoGC</span> <span class="variable">demoA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoGC</span>();<span class="comment">// step 1</span></span><br><span class="line">        <span class="type">DemoGC</span> <span class="variable">demoB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DemoGC</span>();<span class="comment">// step 2</span></span><br><span class="line">        <span class="comment">// 相互引用</span></span><br><span class="line">        demoA.instance = demoB;<span class="comment">// step 3</span></span><br><span class="line">        demoB.instance = demoA;<span class="comment">// step 4</span></span><br><span class="line">        <span class="comment">// 释放对象</span></span><br><span class="line">        demoA = <span class="literal">null</span>;<span class="comment">// step 5</span></span><br><span class="line">        demoB = <span class="literal">null</span>;<span class="comment">// step 6</span></span><br><span class="line">        <span class="comment">// 发生CG</span></span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DemoGC</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">Object</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在第一步和第二步执行后，在堆中创建了两个实例对象：</p>
+<ul>
+<li>demoA引用实例对象A，引用数量变为1。</li>
+<li>demoB引用实例对象B，引用数量变为1。</li>
+</ul>
+<p>在第三步和第四步执行后：</p>
+<ul>
+<li>demoB的instance属性引用实例对象A，引用数量变为2。</li>
+<li>demoA的instance属性引用实例对象B，引用数量变为2。</li>
+</ul>
+<p>在第五步和第六步执行后：</p>
+<ul>
+<li>demoA不再引用实例对象A，引用数量变为1。</li>
+<li>demoB不再引用实例对象B，引用数量变为1。</li>
+</ul>
+<p>此时如果发生GC，虽然demoA和demoB均已经不再引用实例对象了，但是其内部的instance属性还在引用实例对象，所以此时实例对象的引用不为0，不能被GC回收。</p>
+<h4 id="2-1-2-可达性算法"><a href="#2-1-2-可达性算法" class="headerlink" title="2.1.2 可达性算法"></a>2.1.2 可达性算法</h4><p>从GCRoots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GCRoots没有任何引用链相连时，则证明此对象是不可用的，可以回收，但不一定会被回收，原因在于虚拟机的二次标记机制。</p>
+<p>可以作为GCRoots的对象：</p>
+<ul>
+<li>虚拟机栈的栈帧中的局部变量表引用的对象，比如各个线程中被调用的参数和局部变量等。</li>
+<li>本地方法栈中JNI（Native方法）引用的对象，比如线程中的<code>start()</code>方法中使用的对象。</li>
+<li>静态属性引用的对象，比如引用类型的静态变量。</li>
+<li>方法区中常量引用的对象，比如在方法区中使用字符串常量池中的对象。</li>
+<li>被synchronized所持有的对象。</li>
+<li>虚拟机内部的引用，比如基本类型对应的Class对象，常驻异常对象，系统类加载器等。</li>
+<li>本地代码缓存。</li>
+<li>除了固定的对象外，根据用户选用的垃圾回收器和当前回收的内存区域，还可以有临时对象加入，比如分代收集和局部收集。</li>
+</ul>
+<p>再回到相互循环引用的问题上，demoA和demoB是方法中的局部变量，其存储位置是虚拟机栈的栈帧中的局部变量表，可以作为GCRoots对象。instance属性是类中的成员属性，其存储位置是堆，不可以作为GCRoots对象。当demoA和demoB不再引用实例对象后，从GCRoots向下搜索，会发现实例对象没有引用链相连，可以被GC回收。</p>
+<h4 id="2-1-3-二次标记"><a href="#2-1-3-二次标记" class="headerlink" title="2.1.3 二次标记"></a>2.1.3 二次标记</h4><p>Object类有一个<code>finalize()</code>方法，该方法会在该对象被回收之前调用，并且任何一个对象的<code>fianlize()</code>方法都只会被系统自动调用一次。</p>
+<p>在被标记后，如果重写了<code>finalize()</code>方法，并且在方法里将该对象重新加入到了引用链中。此时虽然已经被标记了，但并不会被回收，原因在于虚拟机的二次标记机制：</p>
+<ul>
+<li>第一次标记，标记不在引用链的对象，判断是否需要执行<code>finalize()</code>方法。如果已经被执行或者没有被重写，就表示不需要执行，否则表示需要执行。</li>
+<li>将需要执行<code>finalize()</code>方法的对象放在F-Queue的队列中，由一个虚拟机自动创建的、低优先级的Finalizer线程去执行。</li>
+<li>第二次标记，遍历F-Queue队列中的对象，判断是否存在引用链。如果存在引用链，表示该对象不需要被回收，否则标记不存在引用链的对象，等待回收。</li>
+</ul>
+<p>该机制在JDK1.9已被弃用。</p>
+<h3 id="2-2-方法区的存活判断"><a href="#2-2-方法区的存活判断" class="headerlink" title="2.2 方法区的存活判断"></a>2.2 方法区的存活判断</h3><p>方法区主要回收废弃常量和无用的类。对于废弃常量也可通过引用的可达性来判断，但是对于无用的类则需要同时满足下面三个条件：</p>
+<ul>
+<li>该类所有的实例都已经被回收，也就是堆中不存在该类的任何实例。</li>
+<li>加载该类的ClassLoader已经被回收。</li>
+<li>该类对应的Class对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
+</ul>
+<h2 id="3-对象的引用"><a href="#3-对象的引用" class="headerlink" title="3 对象的引用"></a>3 对象的引用</h2><p>在JDK1.2以前的版本中，若一个对象不被任何变量引用，那么程序就无法再使用这个对象。也就是说，只有对象处于可达状态，程序才能使用它。</p>
+<p>从JDK1.2版本开始，对象的引用被划分为四种级别：</p>
+<ul>
+<li>强引用（StrongReference）：不会被垃圾回收器回收，即使以后也不会用到。</li>
+<li>软引用（SoftReference）：比强引用弱，当系统内存不足时才会被回收。通常用在对内存敏感的程序中，比如高速缓存。</li>
+<li>弱引用（WeakReference）：比软引用弱，生命周期更短，只要发生了垃圾回收，不管内存空间是否足够都会被回收。</li>
+<li>虚引用（PhantomReference）：最弱，在任何时候都有可能被垃圾回收器回收。通常配和引用队列联合使用，在被回收前能够收到系统通知。</li>
+</ul>
+<p>无论引用计数算法还是可达性分析算法都是基于强引用而言的。</p>
+<p>如果对象是不可达的，不管是哪种引用都会被垃圾回收器回收。</p>
+<h3 id="3-1-强引用"><a href="#3-1-强引用" class="headerlink" title="3.1 强引用"></a>3.1 强引用</h3><p>强引用是使用最普遍的引用。</p>
+<p>如果强引用的对象可达，虚拟机宁愿抛出OutOfMemoryError错误使程序异常终止，也不会回收对象来解决内存不足的问题。</p>
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> String test;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 声明原引用</span></span><br><span class="line">        test = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">// 声明强引用</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">strongReference</span> <span class="operator">=</span> test;</span><br><span class="line">        <span class="comment">// 打印强引用</span></span><br><span class="line">        System.out.println(strongReference);</span><br><span class="line">        <span class="comment">// 去除原引用</span></span><br><span class="line">        test = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// 发生CG</span></span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="comment">// 强制睡眠</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 打印强引用</span></span><br><span class="line">        System.out.println(strongReference);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test</span><br><span class="line">// 等待1s</span><br><span class="line">test</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-软引用"><a href="#3-2-软引用" class="headerlink" title="3.2 软引用"></a>3.2 软引用</h3><p>如果软引用的对象可达，只有当内存空间不足时才会被回收，当内存充足时不被回收。</p>
+<p>软引用通常用来实现内存敏感的缓存。</p>
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> String test;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 声明原引用</span></span><br><span class="line">        test = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">// 声明软引用</span></span><br><span class="line">        SoftReference&lt;String&gt; softReference = <span class="keyword">new</span> <span class="title class_">SoftReference</span>&lt;&gt;(test);</span><br><span class="line">        <span class="comment">// 打印软引用</span></span><br><span class="line">        System.out.println(softReference.get());</span><br><span class="line">        <span class="comment">// 去除原引用</span></span><br><span class="line">        test = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// 发生CG</span></span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="comment">// 强制睡眠</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 打印软引用，内存充足不被回收</span></span><br><span class="line">        System.out.println(softReference.get());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 分配大内存，强制抛出OOM</span></span><br><span class="line">            <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">7</span>];</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            <span class="comment">// 内存不足抛出OOM</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="comment">// 打印软引用，内存不足会被回收</span></span><br><span class="line">            System.out.println(softReference.get());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">test</span><br><span class="line">// 等待1s</span><br><span class="line">test</span><br><span class="line">java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">  at Demo.main(Demo.java:30)</span><br><span class="line">null</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-弱引用"><a href="#3-3-弱引用" class="headerlink" title="3.3 弱引用"></a>3.3 弱引用</h3><p>无论弱引用的对象是否可达，无论内存是否充足，在下一次垃圾回收时都会被回收。</p>
+<p>弱引用通常用来保存可有可无的缓存数据。</p>
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> String test;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 声明原引用</span></span><br><span class="line">        test = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">// 声明弱引用</span></span><br><span class="line">        WeakReference&lt;String&gt; weakReference = <span class="keyword">new</span> <span class="title class_">WeakReference</span>&lt;&gt;(test);</span><br><span class="line">        <span class="comment">// 打印弱引用</span></span><br><span class="line">        System.out.println(weakReference.get());</span><br><span class="line">        <span class="comment">// 去除原引用</span></span><br><span class="line">        test = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// 发生CG</span></span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="comment">// 强制睡眠</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 打印弱引用</span></span><br><span class="line">        System.out.println(weakReference.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">test</span><br><span class="line">// 等待1s</span><br><span class="line">null</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-虚引用"><a href="#3-4-虚引用" class="headerlink" title="3.4 虚引用"></a>3.4 虚引用</h3><p>与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么随时都可能被垃圾回收器回收。</p>
+<p>虚引用必须和引用队列联合使用，当垃圾回收器在回收有虚引用的对象之前，会加入到引用队列，以通知应用程序对象的回收情况。</p>
+<p>虚引用通常用来跟踪对象被垃圾回收器回收的活动，也可以将一些资源释放操作放置在虚引用中执行和记录。</p>
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> String test;</span><br><span class="line">    <span class="keyword">static</span> ReferenceQueue&lt;String&gt; referenceQueue = <span class="keyword">new</span> <span class="title class_">ReferenceQueue</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 设置守护线程</span></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CheckRefQueue</span>();</span><br><span class="line">        t.setDaemon(<span class="literal">true</span>);</span><br><span class="line">        t.start();</span><br><span class="line">        <span class="comment">// 声明原引用</span></span><br><span class="line">        test = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">        <span class="comment">// 声明引用队列</span></span><br><span class="line">        referenceQueue = <span class="keyword">new</span> <span class="title class_">ReferenceQueue</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">// 声明虚引用</span></span><br><span class="line">        PhantomReference&lt;String&gt; phantomReference = <span class="keyword">new</span> <span class="title class_">PhantomReference</span>&lt;&gt;(test, referenceQueue);</span><br><span class="line">        <span class="comment">// 打印虚引用</span></span><br><span class="line">        System.out.println(phantomReference.get());</span><br><span class="line">        <span class="comment">// 去除原引用</span></span><br><span class="line">        test = <span class="literal">null</span>;</span><br><span class="line">        <span class="comment">// 发生CG</span></span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">CheckRefQueue</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (referenceQueue != <span class="literal">null</span>) &#123;</span><br><span class="line">                    PhantomReference&lt;String&gt; str = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        str = (PhantomReference&lt;String&gt;) referenceQueue.remove();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (str != <span class="literal">null</span>) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;发生GC&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">null</span><br><span class="line">发生GC</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-垃圾回收算法"><a href="#4-垃圾回收算法" class="headerlink" title="4 垃圾回收算法"></a>4 垃圾回收算法</h2><h3 id="4-1-标记-清除算法"><a href="#4-1-标记-清除算法" class="headerlink" title="4.1 标记-清除算法"></a>4.1 标记-清除算法</h3><p>标记-清除（Mark-Sweep）算法分为两个阶段：</p>
+<ul>
+<li>标记阶段的任务是标记出所有需要被回收的对象.</li>
+<li>清除阶段的任务是回收被标记的对象所占用的空间。</li>
+</ul>
+<p>说明：<br><img src="/@image/D01004/004-20250804111135.jpg" alt="20250804111135-标记-清除算法"></p>
+<p>这种方法的标记和清除过程的效率都不高，并且在标记清除之后会产生大量不连续的内存碎片，当程序需要分配较大对象时，无法找到足够的连续内存，不得不提前触发另一次垃圾收集动作。</p>
+<h3 id="4-2-复制算法"><a href="#4-2-复制算法" class="headerlink" title="4.2 复制算法"></a>4.2 复制算法</h3><p>为了解决标记-清除算法的缺陷，复制（Copying）算法就被提了出来。</p>
+<p>它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用的内存空间一次清理掉，这样一来就不容易出现内存碎片的问题。</p>
+<p>很显然，复制算法的效率跟存活对象的多少有很大的关系，如果存活对象很多，那么复制算法的效率将大大降低。</p>
+<p>说明：<br><img src="/@image/D01004/004-20250804112127.jpg" alt="20250804112127-复制算法"></p>
+<p>这种算法虽然实现简单，运行高效且不容易产生内存碎片，但是却对内存空间的使用做出了高昂的代价，因为能够使用的内存缩减到原来的一半。</p>
+<h3 id="4-3-标记-压缩算法"><a href="#4-3-标记-压缩算法" class="headerlink" title="4.3 标记-压缩算法"></a>4.3 标记-压缩算法</h3><p>为了解决复制算法的缺陷，充分利用内存空间，提出了标记-压缩（Mark-Compact）算法。</p>
+<p>该算法标记阶段和标记-清除算法的标记阶段一样，但是在完成标记之后，它不是直接清理可回收对象，而是将存活对象都向一端移动，然后清理掉端边界以外的内存。</p>
+<p>说明：<br><img src="/@image/D01004/004-20250804112609.jpg" alt="20250804112609-标记-压缩算法"></p>
+<p>这种方法的效率比较低，并且在移动过程中，需要全面暂停应用程序，即会触发STW。</p>
+<h3 id="4-4-分代收集算法"><a href="#4-4-分代收集算法" class="headerlink" title="4.4 分代收集算法"></a>4.4 分代收集算法</h3><p>分代收集（Generational Collection）算法是目前大部分JVM的垃圾收集器采用的算法。它的核心思想是根据对象存活的生命周期将内存划分为若干个不同的区域，根据不同区域的特点采取最适合的收集算法。</p>
+<p>一般情况下将堆区划分为年轻代和老年代两个区域。</p>
+<h4 id="4-4-1-年轻代"><a href="#4-4-1-年轻代" class="headerlink" title="4.4.1 年轻代"></a>4.4.1 年轻代</h4><p>在年轻代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，所以选用复制算法。</p>
+<p>分配：</p>
+<ul>
+<li>因为大部分新生成的对象的生命周期都很短，所以将年轻代分为一块较大的Eden区和两块较小的Survivor区。</li>
+<li>一块较大的Eden区用来存放新生成的对象，两块较小的Survivor区用来存放在多次GC存活下来的对象，一块称为S0区，另一块称为S1区。</li>
+</ul>
+<p>年轻代发生的GC叫做MinorGC，也称为YoungGC，MinorGC发生频率比较高。</p>
+<p>过程：</p>
+<ul>
+<li>当第一次发生GC时，先将垃圾对象清除，然后将Eden区还存活的对象一次性复制到任意一个Survivor区，最后清空Eden区。为了区分方便，将使用的Survivor区称为From区，将空闲的Survivor区称为To区。</li>
+<li>当再次发生GC时，先将垃圾对象清除，然后将Eden区和From区还存活的对象一次性复制到To区，最后清空Eden区和From区。每次GC完成之后，将正在使用的To区称为From区，将空闲的From区称为To区。</li>
+<li>对象在放到Survivor区时都会设置一个年龄，并且每经过一次GC后都会将年龄加一，当对象的年龄超过虚拟机设置的阈值之后，会将对象放到老年代。</li>
+</ul>
+<h4 id="4-4-2-老年代"><a href="#4-4-2-老年代" class="headerlink" title="4.4.2 老年代"></a>4.4.2 老年代</h4><p>因为老年代中对象存活率高、没有额外空间对它进行分配担保，所以使用标记清除算法或标记压缩算法来进行回收。</p>
+<p>分配：</p>
+<ul>
+<li>大对象直接进入老年代。</li>
+<li>多次不被回收的对象，经过多次MinorGC后仍在Survivor区的对象进入老年代。</li>
+<li>动态年龄判断，计算某个年龄的对象数量超过了Survivor区总数量的一半，大于或等于这个年龄的对象进入老年代。</li>
+<li>空间分配担保，经过MinorGC后Survivor区不足以存放对象进入老年代。</li>
+</ul>
+<p>老年代发生的GC也叫做MajorGC，也称为OldGC，MajorGC发生频率比较低。</p>
+<h2 id="5-垃圾收集器"><a href="#5-垃圾收集器" class="headerlink" title="5 垃圾收集器"></a>5 垃圾收集器</h2><h3 id="5-1-Serial系列"><a href="#5-1-Serial系列" class="headerlink" title="5.1 Serial系列"></a>5.1 Serial系列</h3><p>Serial是年轻代垃圾收集器，串行运行，采用复制算法，响应速度优先，使用STW机制，停顿时间长。</p>
+<p>SerialOld是老年代垃圾收集器，串行运行，采用标记-压缩算法，响应速度优先，使用STW机制，停顿时间长。</p>
+<p>对于单个CPU环境而言，Serial系列的收集器由于没有线程交互开销，可以获取最高的单线程收集效率。</p>
+<p>配置：</p>
+<ul>
+<li>Serial系列的收集器是Client模式下默认的垃圾收集器。</li>
+<li>可以通过<code>-XX:+UseSerialGC</code>来指定年轻代和老年代都使用Serial系列的收集器。</li>
+</ul>
+<h3 id="5-2-ParNew"><a href="#5-2-ParNew" class="headerlink" title="5.2 ParNew"></a>5.2 ParNew</h3><p>年轻代垃圾收集器，并行运行，采用复制算法，响应速度优先，使用STW机制，停顿时间长。</p>
+<p>ParNew是Serial收集器的多线程版本，在多核CPU环境下有着比Serial更好的表现。</p>
+<p>配置：</p>
+<ul>
+<li>ParNew收集器是Server模式下默认的垃圾收集器。</li>
+<li>可以通过<code>-XX:+UseParNewGC</code>来指定年轻代使用ParNew收集器。</li>
+<li>可以通过<code>-XX:ParallelGCThreads</code>来限制垃圾收集的线程数，默认开启和CPU数据相同的线程数。</li>
+</ul>
+<h3 id="5-3-Parallel系列"><a href="#5-3-Parallel系列" class="headerlink" title="5.3 Parallel系列"></a>5.3 Parallel系列</h3><p>Parallel是年轻代垃圾收集器，并行运行，采用复制算法，吞吐量优先，使用STW机制，停顿时间长。</p>
+<p>ParallelOld是老年代垃圾收集器，并行运行，采用标记-压缩算法，吞吐量优先，使用STW机制，停顿时间长。</p>
+<p>追求高吞吐量，高效利用CPU，主要是为了达到可控的吞吐量，适合在后台运算而不需要太多交互的任务</p>
+<p>配置：</p>
+<ul>
+<li>Parallel系列的收集器是JDK1.8默认的垃圾收集器。</li>
+<li>可以通过<code>-XX:+UseParallelGC</code>来指定年轻代使用Parallel收集器。</li>
+<li>可以通过<code>-XX:+UseParallelOldGC</code>来指定老年代使用ParallelOld收集器。</li>
+<li>可以通过<code>-XX:ParallelGCThreads</code>来限制年轻代垃圾收集器的线程数。一般最好与CPU数量相等，以避免过多的线程数影响垃圾收集性能。</li>
+<li>可以通过<code>-XX:MaxGCPauseMillis</code>来指定垃圾收集器的STW的时间，单位是毫秒。</li>
+</ul>
+<h3 id="5-4-CMS"><a href="#5-4-CMS" class="headerlink" title="5.4 CMS"></a>5.4 CMS</h3><p>JDK1.5推出，JDK1.9废弃，JDK1.14移除。</p>
+<p>CMS（Current Mark Sweep）是老年代垃圾收集器，并发运行，采用标记-清除算法，响应速度优先，使用STW机制，停顿时间长。</p>
+<p>过程：</p>
+<ol>
+<li>初始标记，标记GCRoots能直接关联到的对象，有STW现象，暂停时间非常短。</li>
+<li>并发标记，进行可达性分析过程，时间很长，不需要暂停用户线程，可与其他垃圾收集线程并发运行。在这个阶段使用了三色标记。</li>
+<li>重新标记，修正并发标记期间因用户程序继续运作而导致标记产生变动的那一部分对象的标记记录，时间较长，不需要暂停用户线程。</li>
+<li>并发清除，回收内存空间，时间很长，不需要暂停用户线程。</li>
+</ol>
+<p>其中，并发标记与并发清除两个阶段耗时最长，但是可以与用户线程并发执行。</p>
+<p>优缺点：</p>
+<ul>
+<li>优点是并发收集和低延迟。</li>
+<li>缺点是会产生内存碎片，对CPU资源非常敏感，并且无法处理浮动垃圾。</li>
+</ul>
+<h3 id="5-5-G1"><a href="#5-5-G1" class="headerlink" title="5.5 G1"></a>5.5 G1</h3><p>JDK1.7推出，JDK1.9默认。</p>
+<p>G1（Garbage First）是年轻代和老年代垃圾收集器，支持并发运行和并行运行，采用复制算法和标记-压缩算法，响应速度优先，同时注重吞吐量。</p>
+<p>G1的目标是在延迟可控的情况下获得尽可能高的吞吐量。</p>
+<p>使用G1收集器时，将整个堆划分为多个大小相等的独立区域（Region），分区如图：<br><img src="/@image/D01004/004-20250804125541.jpg" alt="20250804125541-G1分区"></p>
+<p>说明：</p>
+<ul>
+<li>每个独立区域都按照分代收集算法代表一种分区，分区有Eden区，S0区，S1区等分类。</li>
+<li>所有的独立区域大小相同，且在JVM生命周期内不会被改变。</li>
+<li>增加Humongous内存区域，主要用于存储大对象，如果超过0.5个独立区域就会放到H区域，如果一个H区装不下就会寻找连续的H区来存储。</li>
+</ul>
+<p>过程：</p>
+<ul>
+<li>当Eden空间耗尽时，启动年轻代GC，只回收Eden区和Survivor区：<ul>
+<li>首先停止应用程序的执行触发STW机制，创建回收集，包含Eden区和Survivor区所有的内存分段。</li>
+<li>回收剩余存活的对象会被复制到新的S区，S区达到一定的阈值会被放到O区，或者S区空间不足也会被放到O区。</li>
+</ul>
+</li>
+<li>当堆内存使用达到一定值（默认45%）时，开始老年代并发标记过程：<ul>
+<li>初始标记，标记GCRoots直接可达的对象，会触发年轻代GC，也会触发STW机制。</li>
+<li>根区域标记，标记Survivor区引用老年代的对象，必须在下一次年轻代GC前完成，否则会阻塞年轻代GC。</li>
+<li>并发标记，在整个堆中进行并发标记，支持与用户线程并发。</li>
+<li>最终标记，由于应用程序持续进行，需要修正上一次的标记结果，使用SATB处理并发期间的引用变化，会触发STW机制。</li>
+<li>清理，计算各个区域的存活对象和GC回收比例，并进行排序，识别并清理完全空闲的区域，会触发STW机制。</li>
+</ul>
+</li>
+<li>当老年代中的对象进一步增加时，会触发MixedGC混合回收，回收整个年轻代和部分老年代：<ul>
+<li>并发标记结束以后，老年代中完全空闲的区域被回收了，部分空闲的区域被计算了出来。默认情况下，每个区域都会分8次回收。</li>
+<li>由于老年代中的内存分段默认分8次回收，G1会优先回收垃圾多的内存分段。垃圾占内存分段比例越高的，越会被先回收。</li>
+</ul>
+</li>
+<li>如果上述方式不能正常工作，G1会执行兜底的FullGC回收，G1收集器退化为SerialOld收集器，性能会非常差，会触发STW机制，触发条件：</li>
+<li>回收阶段没有足够的空间存放对象，解决办法是增加堆空间。</li>
+<li>并发标记过程完成之前空间耗尽，解决办法是调小触发老年代并发标记的阈值，默认是45%。</li>
+<li>最大GC停顿时间太短导致在规定的时间间隔内无法完成垃圾回收，解决办法是增加STW时间。</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>并行性：在回收期间，可以有多个GC线程同时工作，有效利用多核计算能力。</li>
+<li>并发性：拥有与应用程序交替执行的能力，部分工作可以和应用程序同时执行，不会在整个回收阶段发生完全阻塞应用程序的情况。</li>
+<li>无需连续：从堆的结构上看，不要求整个年轻代或者老年代都是连续的，也不再坚持固定大小和固定数量。</li>
+<li>分代收集：独立管理整个堆，但是能够采用不同的方式处理新对象和旧对象。</li>
+<li>空间整合：独立区域之间是复制算法，整体上可以看作是标记-压缩算法，这两种算法都能避免产生内存碎片。</li>
+<li>可预测的停顿：能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为M毫秒的时间片段内，消耗在垃圾收集上的时间不得超过N毫秒。</li>
+</ul>
+<p>配置：</p>
+<ul>
+<li>G1收集器是JDK1.9默认的垃圾收集器。</li>
+<li>可以通过<code>-XX:+UseG1GC</code>来指定使用G1收集器。</li>
+<li>可以通过<code>-XX:G1HeapRegionSize</code>来指定每个独立区域的大小。值是2的幂，范围是1MB到32MB之间。默认为堆内存的1&#x2F;2000大小。</li>
+<li>可以通过<code>-XX:ParallelGCThread</code>来指定工作线程数的值，最多设置为8。</li>
+<li>可以通过<code>-XX:ConcGCThreads</code>来指定并发标记的线程数。默认为工作线程数（ParallelGcThreads）的1&#x2F;4左右。</li>
+<li>可以通过<code>-XX:InitiatingHeapOccupancyPercent</code>来指定触发老年代并发标记的阈值，默认为45%。</li>
+<li>可以通过<code>-XX:G1MixedGCLiveThresholdPercent</code>来指定是否要回收区域垃圾占用的比例，当垃圾占用的比例达到比例时才会被混合回收，默认为65%。</li>
+<li>可以通过<code>-XX:G1HeapWastePercent</code>来指定允许垃圾占用的比例，当垃圾占用的比例低于比例时就不再进行混合回收，默认为10%。</li>
+<li>可以通过<code>-XX:MaxGCPauseMillis</code>来指定垃圾收集器的STW的时间，单位是毫秒。</li>
+</ul>
+<h2 id="6-调优配置"><a href="#6-调优配置" class="headerlink" title="6 调优配置"></a>6 调优配置</h2><p>配置日志的打印信息：</p>
+<figure class="highlight plaintext"><figcaption><span>conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 输出日志</span><br><span class="line">-XX:+PrintGC</span><br><span class="line"># 输出详细日志</span><br><span class="line">-XX:+PrintGCDetails</span><br><span class="line"># 输出时间戳（以基准时间的形式）</span><br><span class="line">-XX:+PrintGCTimeStamps</span><br><span class="line"># 输出时间戳（以日期的形式）</span><br><span class="line">-XX:+PrintGCDateStamps</span><br><span class="line"># 输出GC发生前后的堆信息</span><br><span class="line">-XX:+PrintHeapAtGC</span><br><span class="line"># 输出STW时间</span><br><span class="line">-XX:+PrintGCApplicationStoppedTime</span><br><span class="line"># 输出强软弱虚信息</span><br><span class="line">-XX:+PrintReferenceGC</span><br><span class="line"># 输出安全点信息</span><br><span class="line">-XX:+PrintSafepointStatistics</span><br><span class="line"># 输出打印安全点信息的次数</span><br><span class="line">-XX:PrintSafepointStatisticsCount=1</span><br></pre></td></tr></table></figure>
+
+<p>配置日志文件：</p>
+<figure class="highlight plaintext"><figcaption><span>conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 设置日志文件的输出路径</span><br><span class="line">-Xloggc:../logs/gc-%t.log</span><br><span class="line"># 开启日志文件分割</span><br><span class="line">-XX:+UseGCLogFileRotation </span><br><span class="line"># 设置日志文件个数，超过就从头开始写</span><br><span class="line">-XX:NumberOfGCLogFiles=10</span><br><span class="line"># 设置日志文件上限大小，超过就触发分割</span><br><span class="line">-XX:GCLogFileSize=10M</span><br></pre></td></tr></table></figure>
+
+<p>配置内存大小：</p>
+<figure class="highlight plaintext"><figcaption><span>conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 设置线程栈的大小，不建议修改</span><br><span class="line">-Xss128k</span><br><span class="line"># 设置堆内存的初始内存，默认为物理内存的1/64</span><br><span class="line">-Xms4096m</span><br><span class="line"># 设置堆内存的最大内存，默认为物理内存的1/4</span><br><span class="line">-Xmx4096m</span><br><span class="line"># 设置年轻代中Eden:S1:S0的比率，默认值为8，表示Eden:S1:S0=8:1:1</span><br><span class="line">-XX:SurvivorRatio=8</span><br><span class="line"># 设置年轻代:老年代的比率，默认值为2，表示年轻代:老年代=2:8</span><br><span class="line">-XX:NewRatio=2</span><br><span class="line"># 设置年轻代对象在经过多少次回收后能进入老年代，默认是15</span><br><span class="line">-XX:MaxTenuringThreshold=15</span><br><span class="line"># 设置元空间的初始内存，默认为21m</span><br><span class="line">-XX:MetaspaceSize=21m</span><br><span class="line"># 设置元空间的最大内存，默认没有限制</span><br><span class="line">-XX:MaxMetaspaceSize=-1</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-执行分析"><a href="#7-执行分析" class="headerlink" title="7 执行分析"></a>7 执行分析</h2><h3 id="7-1-查看内存"><a href="#7-1-查看内存" class="headerlink" title="7.1 查看内存"></a>7.1 查看内存</h3><p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max memory: 7260MB</span><br><span class="line">total memory: 491MB</span><br></pre></td></tr></table></figure>
+
+<p>本机电脑是32G，去掉一些自身的占用后，堆内存的最大值约为物理内存的1&#x2F;4，堆内存的初始值为物理内存的1&#x2F;64。</p>
+<h3 id="7-2-修改内存"><a href="#7-2-修改内存" class="headerlink" title="7.2 修改内存"></a>7.2 修改内存</h3><p>配置VM参数：</p>
+<figure class="highlight plaintext"><figcaption><span>conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms5m</span><br><span class="line">-Xmx20m</span><br><span class="line">-XX:+PrintGC</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[GC (Allocation Failure)  1012K-&gt;648K(5632K), 0.0005734 secs]</span><br><span class="line">max memory: 18MB</span><br><span class="line">total memory: 5MB</span><br></pre></td></tr></table></figure>
+
+<p>说明堆内存已经被修改了。</p>
+<h3 id="7-3-占用内存"><a href="#7-3-占用内存" class="headerlink" title="7.3 占用内存"></a>7.3 占用内存</h3><p>配置VM参数：</p>
+<figure class="highlight plaintext"><figcaption><span>conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms5m</span><br><span class="line">-Xmx20m</span><br><span class="line">-XX:+PrintGC</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;初始内存&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;free memory: &quot;</span> + Runtime.getRuntime().freeMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    <span class="type">byte</span>[] b1 = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1</span> * <span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    System.out.println(<span class="string">&quot;分配内存&quot;</span> + b1.length / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;M&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;free memory: &quot;</span> + Runtime.getRuntime().freeMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    <span class="type">byte</span>[] b2 = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">10</span> * <span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    System.out.println(<span class="string">&quot;分配内存&quot;</span> + b2.length / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;M&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;free memory: &quot;</span> + Runtime.getRuntime().freeMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[GC (Allocation Failure)  1012K-&gt;632K(5632K), 0.0009215 secs]</span><br><span class="line">初始内存</span><br><span class="line">max memory: 18MB</span><br><span class="line">free memory: 4MB</span><br><span class="line">total memory: 5MB</span><br><span class="line">分配内存1M</span><br><span class="line">max memory: 18MB</span><br><span class="line">free memory: 3MB</span><br><span class="line">total memory: 5MB</span><br><span class="line">分配内存10M</span><br><span class="line">max memory: 18MB</span><br><span class="line">free memory: 2MB</span><br><span class="line">total memory: 15MB</span><br></pre></td></tr></table></figure>
+
+<p>初始，最大内存约为20M，空闲内存约为4M，总内存约为5M。</p>
+<p>分配1M的内存，空闲内存足够，空闲内存约为3M，总内存约为5M。</p>
+<p>继续分配10M的内存，空闲内存不足，自动增加内存，空闲内存约为2M，总内存约为15M。</p>
+<h3 id="7-4-内存溢出"><a href="#7-4-内存溢出" class="headerlink" title="7.4 内存溢出"></a>7.4 内存溢出</h3><p>配置VM参数：</p>
+<figure class="highlight plaintext"><figcaption><span>conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-Xms5m</span><br><span class="line">-Xmx20m</span><br><span class="line">-XX:+PrintGC</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight java"><figcaption><span>java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;初始内存&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;free memory: &quot;</span> + Runtime.getRuntime().freeMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    <span class="type">byte</span>[] b1 = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1</span> * <span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    System.out.println(<span class="string">&quot;分配内存&quot;</span> + b1.length / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;M&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;free memory: &quot;</span> + Runtime.getRuntime().freeMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    <span class="type">byte</span>[] b2 = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">20</span> * <span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">    System.out.println(<span class="string">&quot;分配内存&quot;</span> + b2.length / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;M&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;max memory: &quot;</span> + Runtime.getRuntime().maxMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;free memory: &quot;</span> + Runtime.getRuntime().freeMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;total memory: &quot;</span> + Runtime.getRuntime().totalMemory() / <span class="number">1024</span> / <span class="number">1024</span> + <span class="string">&quot;MB&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[GC (Allocation Failure)  1012K-&gt;652K(5632K), 0.0005981 secs]</span><br><span class="line">初始内存</span><br><span class="line">max memory: 18MB</span><br><span class="line">free memory: 4MB</span><br><span class="line">total memory: 5MB</span><br><span class="line">分配内存1M</span><br><span class="line">max memory: 18MB</span><br><span class="line">free memory: 3MB</span><br><span class="line">total memory: 5MB</span><br><span class="line">[GC (Allocation Failure)  2357K-&gt;1817K(15360K), 0.0006138 secs]</span><br><span class="line">[GC (Allocation Failure)  1817K-&gt;1873K(15360K), 0.0004490 secs]</span><br><span class="line">[Full GC (Allocation Failure)  1873K-&gt;1678K(5632K), 0.0042680 secs]</span><br><span class="line">[GC (Allocation Failure)  1678K-&gt;1678K(16384K), 0.0002214 secs]</span><br><span class="line">[Full GC (Allocation Failure)  1678K-&gt;1660K(7680K), 0.0044765 secs]</span><br><span class="line">Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space</span><br><span class="line">  at Demo.main(Demo.java:14)</span><br></pre></td></tr></table></figure>
+
+<p>当年轻代内存不足时，触发MinorGC，当老年代内存不足时，触发MajorGC，当内存仍不足时，触发FullGC，如果内存还不足则触发OOM异常。</p>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+        
+          
+          <div class="copyright license">
+            <div class="license-title">垃圾回收</div>
+            <div class="license-link"><a href="https://momashanhe.com/posts/20250803/194843/">https://momashanhe.com/posts/20250803/194843/</a>
+            </div>
+            <div class="license-meta">
+              <div class="license-meta-item">
+                <div class="license-meta-title">本文作者</div>
+                <div class="license-meta-text">墨码山河</div>
+              </div>
+              <div class="license-meta-item">
+                <div class="license-meta-title">发布于</div>
+                <div class="license-meta-text">2025年8月3日</div>
+              </div>
+              
+              <div class="license-meta-item">
+                <div class="license-meta-title">更新于</div>
+                <div class="license-meta-text">2025年8月6日</div>
+              </div>
+              
+              
+              <div class="license-meta-item">
+                <div class="license-meta-title">许可协议</div>
+                <div class="license-meta-text"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh#" target="_blank">CC BY-NC-SA 4.0</a></div>
+              </div>
+            </div>
+            <div class="license-statement">博文难免存在纰漏，如有错误之处，无论大小，恳请读者指正，博主不胜感激。</div>
+          </div>
+        
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          
+  
+  
+  
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url"><span itemprop="name">后端</span></a>
+      </span>
+    
+  </div>
+  
+
+
+
+        
+      
+        
+          
+  
+  
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Java/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>Java</p></a></div>
+  <span hidden itemprop="keywords">Java</span>
+  
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+    
+    
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/posts/20250731/163910/'>
+          <p class='title'>数据存储<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>摘要：本文主要学习了虚拟机如何管理对象。</p>
+        </a>
+      
+    </div>
+  
+  <!-- 文章推荐 -->
+  
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/posts/20250803/194843/index.html#comments">
+    </span>
+    <p ct><i class="fa-solid fa-comments"></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
+  
+
+  
+    
+    
+      
+<section class="widget blogger desktop mobile ">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/pages/about/'>
+          <img no-lazy src='/@static/media/org.volantis/blog/Logo-NavBar@3x.png'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>墨码山河</h2>
+        
+        
+          <p>代码改变世界</p>
+
+        
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="https://github.com/momashanhe"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:momashanhe@163.com"
+              class="social fa-solid fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="/atom.xml"
+              class="social fa-solid fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+
+  
+    
+    
+      
+
+
+  
+<section class="widget list group desktop mobile">
+  
+  <header>
+    
+      <a href='/groups/D01004/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>后端:Java:虚拟机</span></a>
+    
+  </header>
+
+
+  <div class='content'>
+    <ul class="list entry navigation">
+      
+        <li><a class="flat-box" title="/posts/20250730/153323/" href="/posts/20250730/153323/"
+          
+          
+          active-action="action-posts20250730153323"
+          >
+          <div class='name'>
+            
+            整体架构
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250730/165326/" href="/posts/20250730/165326/"
+          
+          
+          active-action="action-posts20250730165326"
+          >
+          <div class='name'>
+            
+            加载过程
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250731/163910/" href="/posts/20250731/163910/"
+          
+          
+          active-action="action-posts20250731163910"
+          >
+          <div class='name'>
+            
+            数据存储
+          </div>
+          
+        </a></li>
+      
+        <li><a class="flat-box" title="/posts/20250803/194843/" href="/posts/20250803/194843/"
+          
+          
+          active-action="action-posts20250803194843"
+          >
+          <div class='name'>
+            
+            垃圾回收
+          </div>
+          
+        </a></li>
+      
+    </ul>
+  </div>
+</section>
+
+
+
+    
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky">
+
+  
+  
+
+
+<section class="widget toc-wrapper desktop mobile" id="toc-div" >
+  
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6"><span class="toc-text">1 垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%AE%9A%E4%B9%89"><span class="toc-text">1.1 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%8F%91%E7%94%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">1.2 发生位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="toc-text">1.3 内存泄漏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA"><span class="toc-text">1.4 内存溢出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-STW"><span class="toc-text">1.5 STW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-%E5%AE%89%E5%85%A8%E7%82%B9%E5%92%8C%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F"><span class="toc-text">1.6 安全点和安全区域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-1-%E5%AE%89%E5%85%A8%E7%82%B9"><span class="toc-text">1.6.1 安全点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-6-2-%E5%AE%89%E5%85%A8%E5%8C%BA%E5%9F%9F"><span class="toc-text">1.6.2 安全区域</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AF%B9%E8%B1%A1%E5%AD%98%E6%B4%BB%E5%88%A4%E6%96%AD"><span class="toc-text">2 对象存活判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%A0%86%E7%9A%84%E5%AD%98%E6%B4%BB%E5%88%A4%E6%96%AD"><span class="toc-text">2.1 堆的存活判断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%AE%97%E6%B3%95"><span class="toc-text">2.1.1 引用计数算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%8F%AF%E8%BE%BE%E6%80%A7%E7%AE%97%E6%B3%95"><span class="toc-text">2.1.2 可达性算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3-%E4%BA%8C%E6%AC%A1%E6%A0%87%E8%AE%B0"><span class="toc-text">2.1.3 二次标记</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%96%B9%E6%B3%95%E5%8C%BA%E7%9A%84%E5%AD%98%E6%B4%BB%E5%88%A4%E6%96%AD"><span class="toc-text">2.2 方法区的存活判断</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-text">3 对象的引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-text">3.1 强引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%BD%AF%E5%BC%95%E7%94%A8"><span class="toc-text">3.2 软引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="toc-text">3.3 弱引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-text">3.4 虚引用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95"><span class="toc-text">4 垃圾回收算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%A0%87%E8%AE%B0-%E6%B8%85%E9%99%A4%E7%AE%97%E6%B3%95"><span class="toc-text">4.1 标记-清除算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95"><span class="toc-text">4.2 复制算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E6%A0%87%E8%AE%B0-%E5%8E%8B%E7%BC%A9%E7%AE%97%E6%B3%95"><span class="toc-text">4.3 标记-压缩算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-%E5%88%86%E4%BB%A3%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-text">4.4 分代收集算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-1-%E5%B9%B4%E8%BD%BB%E4%BB%A3"><span class="toc-text">4.4.1 年轻代</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-2-%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-text">4.4.2 老年代</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-text">5 垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-Serial%E7%B3%BB%E5%88%97"><span class="toc-text">5.1 Serial系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-ParNew"><span class="toc-text">5.2 ParNew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-Parallel%E7%B3%BB%E5%88%97"><span class="toc-text">5.3 Parallel系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-CMS"><span class="toc-text">5.4 CMS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-G1"><span class="toc-text">5.5 G1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%B0%83%E4%BC%98%E9%85%8D%E7%BD%AE"><span class="toc-text">6 调优配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E6%89%A7%E8%A1%8C%E5%88%86%E6%9E%90"><span class="toc-text">7 执行分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1-%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98"><span class="toc-text">7.1 查看内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2-%E4%BF%AE%E6%94%B9%E5%86%85%E5%AD%98"><span class="toc-text">7.2 修改内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-%E5%8D%A0%E7%94%A8%E5%86%85%E5%AD%98"><span class="toc-text">7.3 占用内存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4-%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA"><span class="toc-text">7.4 内存溢出</span></a></li></ol></li></ol>
+  </div>
+</section>
+
+  
+
+</div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+        </div>
+        
+  
+  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        
+          <div><p><a target="_blank" href="https://github.com/" title="github"><img src="/@static/media/shields/github.svg"></a> <a target="_blank" href="https://vercel.com/" title="vercel"><img src="/@static/media/shields/vercel.svg"></a> <a target="_blank" href="https://hexo.io/zh-cn/" title="hexo"><img src="/@static/media/shields/hexo.svg"></a> <a target="_blank" href="https://volantis.js.org/" title="volantis"><img src="/@static/media/shields/volantis.svg"></a> <a target="_blank" href="https://waline.js.org/" title="waline"><img src="/@static/media/shields/waline.svg"></a> <a target="_blank" href="https://shields.io/" title="shields"><img src="/@static/media/shields/shields.svg"></a></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2020-2025 墨码山河 All Rights Reserved</a></p>
+
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
+
+
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
+
+<script>
+  
+  volantis.css("https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+  
+  
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+</script>
+
+
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="/@static/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+   <script type="text/javascript">
+  function p_scrollrebeal() {
+    ScrollReveal().reveal("#l_main .reveal", {
+      distance: "32px",
+      duration: "800",
+      interval: "20",
+      scale: "1",
+      easing: "ease-out",
+    });
+  }
+  function init_scrollrebeal() {
+    if (typeof ScrollReveal == "undefined") {
+      volantis.requestAnimationFrame(init_scrollrebeal);
+    } else {
+      p_scrollrebeal();
+    }
+  }
+  volantis.js("https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js");
+  document.addEventListener("DOMContentLoaded", init_scrollrebeal)
+</script>
+
+
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="waline"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
+  
+  function p_waline() {
+    if(!document.querySelector("#waline"))return;
+    let locale = {};
+    let path = pdata.commentPath;
+    let pagePlaceholder = pdata.commentPlaceholder || "良言一句三冬暖，恶语伤人六月寒。";
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    if(pagePlaceholder.length != 0) {
+      locale.placeholder = pagePlaceholder;
+    }
+
+    try {
+      Waline.init(Object.assign(Object.assign({"path":null,"placeholder":"良言一句三冬暖，恶语伤人六月寒。","serverURL":"https://waline.momashanhe.com","imageUploader":{"fileName":null,"tokenName":null,"api":null,"token":null,"resp":null},"pageview":true,"comment":true,"visitor":true}, {
+        el: '#waline',
+        path: path,
+        // https://github.com/volantis-x/hexo-theme-volantis/issues/713
+        
+        locale,
+      }),pdata.commentConfig));
+    } catch (error) {
+      alert(`Waline ${error}`)
+    }
+    fancybox_waline()
+  }
+
+  function fancybox_waline() {
+    if(typeof VolantisFancyBox === "undefined") {
+      const checkFancyBox = setInterval(() => {
+        if(typeof VolantisFancyBox === "undefined") return;
+        clearInterval(checkFancyBox);
+        VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+      })
+    } else {
+      VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+    }
+  }
+
+  volantis.css('https://cdn.bootcdn.net/ajax/libs/waline/2.15.8/waline.min.css')
+  volantis.js('https://cdn.bootcdn.net/ajax/libs/waline/2.15.8/waline.min.js').then(p_waline)
+</script>
+    
+
+
+
+
+  <script defer src="https://npm.elemecdn.com/penndu@1.0.0/bsz.js"></script>
+
+
+<!-- optional -->
+
+  <script>
+  async function loadSearchScript() {
+    
+        
+    
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>
+
+
+
+  function p_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(p_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://cdn.bootcdn.net/ajax/libs/Swiper/11.0.6/swiper-bundle.min.css");
+    volantis.js("https://cdn.bootcdn.net/ajax/libs/Swiper/11.0.6/swiper-bundle.min.js").then(() => {
+      p_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function p_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+</script>
+
+
+
+  <script>
+  volantis.css("https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.min.css");
+  volantis.js("https://cdn.bootcdn.net/ajax/libs/pace/1.2.4/pace.min.js").then(() => {
+    Pace.options.restartOnPushState = false;
+    // 阅读进度
+    volantis.scroll.push(() => {
+      Pace.stop();
+      Pace.trigger('start');
+      Pace.bar.update(volantis.scroll.progress() * 100);
+      document.body.className = document.body.className.replaceAll("pace-running ","");
+    },"阅读进度")
+    // todo：配置项开关, 哪些页面添加阅读进度
+  })
+</script>
+
+
+
+
+<script>
+  function listenSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    const targets = []
+    const sections = Array.from(navItems).forEach((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        link.getAttribute("href") ? decodeURI(link.getAttribute("href")).replace("#", "") : link.getAttribute("toc-action").split("toc-")[1] // 兼容 hexo-blog-encrypt
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      if (link.getAttribute("href")) {
+        link.setAttribute("toc-action", "toc-" + decodeURI(link.getAttribute("href")).replace("#", ""))
+        link.removeAttribute("href")
+      }
+      // 配置 点击 触发新的锚点定位
+      if (target && target.id) {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          // 这里的 addTop 是通过错位使得 toc 自动展开.
+          volantis.scroll.to(target, { addTop: 5, observer: true })
+          // Anchor id
+          history.pushState(null, document.title, "#" + target.id);
+        });
+      }
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex = 0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    if (targets[0]) {
+      volantis.scroll.push(() => {
+        if (targets[0].getBoundingClientRect().top >= 0) {
+          volantis.activateNavIndex = 0
+        } else if (targets[targets.length - 1].getBoundingClientRect().top < 0) {
+          volantis.activateNavIndex = targets.length - 1
+        } else {
+          for (let index = 0; index < targets.length; index++) {
+            const target0 = targets[index];
+            const target1 = targets[(index + 1) % targets.length];
+            if (target0.getBoundingClientRect().top < 0 && target1.getBoundingClientRect().top >= 0) {
+              volantis.activateNavIndex = index
+              break;
+            }
+          }
+        }
+        activateNavByIndex(navItems[volantis.activateNavIndex])
+      })
+    }
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    volantis.requestAnimationFrame(listenSidebarTOC)
+  });
+</script>
+
+
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/后端/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250803/194843/","name":"垃圾回收"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"垃圾回收","description":"摘要：本文主要学习了虚拟机的垃圾回收机制。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250803/194843/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250803/194843/","wordCount":21,"datePublished":"2025-08-03T11:48:43.000Z","dateModified":"2025-08-06T03:49:14.873Z","articleSection":"后端","keywords":"Java","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+
+    </div>
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
+    
+    <!-- Custom Files bodyEnd end-->
+  </body>
+</html>
