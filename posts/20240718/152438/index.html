@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-07-18T07:24:38.000Z">
-<meta property="article:modified_time" content="2025-06-21T08:57:47.067Z">
+<meta property="article:modified_time" content="2025-11-27T05:30:59.840Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="CSS">
@@ -2022,7 +2022,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1755211219568),
+    lastupdate: new Date(1765180570121),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2780,11 +2780,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>高维护性：模块之间独立运行，单个模块出现问题不会影响所有模块，模块支持单独升级。</li>
 </ul>
 <p>模块化规范比较：</p>
-<div class="tabs" id="tab-tab-id-1"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-1-1">CommonJS</a></li><li class="tab"><a class="#tab-id-1-2">AMD</a></li><li class="tab"><a class="#tab-id-1-3">CMD</a></li><li class="tab"><a class="#tab-id-1-4">ES6</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1-1"><p>专用于服务器端，默认不支持在浏览器执行。</p>
-<p>在服务器端使用，基于Node使用。<br>在浏览器端使用，使用Browserify编译打包JS文件，这个工具也是JS常用的打包工具。</p></div><div class="tab-pane" id="tab-id-1-2"><p>专用于浏览器端，模块的加载时异步的。</p>
-<p>在浏览器端使用，基于Require.js使用。</p></div><div class="tab-pane" id="tab-id-1-3"><p>专用于浏览器端，模块的加载时异步的，并且在模块使用时才会加载和执行。</p>
+<div class="tabs" id="tab-tab-id-1"><ul class="nav-tabs"><li class="tab active"><a class="#tab-id-1-1">CommonJS</a></li><li class="tab"><a class="#tab-id-1-2">AMD</a></li><li class="tab"><a class="#tab-id-1-3">CMD</a></li><li class="tab"><a class="#tab-id-1-4">ESM</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1-1"><p>专用于服务器端，默认不支持在浏览器执行。</p>
+<p>在服务器端使用，基于Node使用。<br>在浏览器端使用，使用Browserify编译打包JS文件，这个工具也是JS常用的打包工具。</p></div><div class="tab-pane" id="tab-id-1-2"><p>专用于浏览器端，模块的加载是异步的。</p>
+<p>在浏览器端使用，基于Require.js使用。</p></div><div class="tab-pane" id="tab-id-1-3"><p>专用于浏览器端，模块的加载是异步的，在模块使用时才会加载和执行。</p>
 <p>在浏览器端使用，基于Sea.js使用。</p></div><div class="tab-pane" id="tab-id-1-4"><p>专用于浏览器端。</p>
-<p>在浏览器端使用，使用Babel将ES6编译为兼容ES5的代码，使用Browserify编译打包JS文件。</p></div></div></div>
+<p>在浏览器端使用，从ES6开始提出。</p>
+<p>对于低版本不支持ES6的浏览器，需要使用Babel将ES6编译为兼容ES5的代码，使用Browserify编译打包JS文件。</p></div></div></div>
 
 <h4 id="3-18-2-导出方式"><a href="#3-18-2-导出方式" class="headerlink" title="3.18.2 导出方式"></a>3.18.2 导出方式</h4><p>使用<code>export</code>关键字将变量或方法导出。</p>
 <p>分别导出，在JS文件中分别指定导出的变量或方法：</p>
@@ -2795,7 +2796,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <p>统一导出提供的并不是对象，所以导出的不是对象的简写形式，而是导出的标记，可以认为是名称。</p>
 <p>默认导出，将要导出的变量和方法封装为对象：</p>
-<figure class="highlight js"><figcaption><span>test.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  hello, </span><br><span class="line">  test</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>test.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> hello = <span class="string">&#x27;hello&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  hello,</span><br><span class="line">  test</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>默认导出提供的是对象，导出的内容是对象的简写形式，这一点和统一导出不同。</p>
 <h4 id="3-18-3-导入方式"><a href="#3-18-3-导入方式" class="headerlink" title="3.18.3 导入方式"></a>3.18.3 导入方式</h4><p>使用<code>import</code>关键字将其他模块导出的变量或方法导入进来，同时设置<code>script</code>元素的<code>type</code>属性的值为<code>module</code>表示引入的是模块JS文件，并不是普通的JS文件。</p>
@@ -2932,7 +2933,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年6月21日</div>
+                <div class="license-meta-text">2025年11月27日</div>
               </div>
               
               
@@ -3679,7 +3680,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/前端/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240718/152438/","name":"ES规范"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"ES规范","description":"摘要：本文学习了ECMAScript的基本知识，包括简介和历史版本以及新特性。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240718/152438/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240718/152438/","wordCount":39,"datePublished":"2024-07-18T07:24:38.000Z","dateModified":"2025-06-21T08:57:47.067Z","articleSection":"前端","keywords":"HTML,CSS,JS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/前端/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240718/152438/","name":"ES规范"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"ES规范","description":"摘要：本文学习了ECMAScript的基本知识，包括简介和历史版本以及新特性。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240718/152438/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240718/152438/","wordCount":39,"datePublished":"2024-07-18T07:24:38.000Z","dateModified":"2025-11-27T05:30:59.840Z","articleSection":"前端","keywords":"HTML,CSS,JS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
