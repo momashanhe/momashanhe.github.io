@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-10-10T00:44:34.000Z">
-<meta property="article:modified_time" content="2025-10-24T09:22:34.814Z">
+<meta property="article:modified_time" content="2026-02-26T23:56:52.104Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Maven">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2530,7 +2530,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 <details ><summary> 环境 </summary>
               <div class='content'>
-              <p>Windows 10 企业版 LTSC 21H2<br>Java 1.8<br>Maven 3.6.0</p>
+              <p>Windows 10 企业版 LTSC 21H2<br>Java 1.8<br>Maven 3.6.3</p>
               </div>
             </details>
 
@@ -2567,7 +2567,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <p>Maven遵循“约定优于配置”的理念，定义标准化目录结构，避免手动配置资源位置，确保工具能自动识别源码、资源、测试代码等。</p>
 <p>Maven项目标准目录结构：</p>
-<figure class="highlight plaintext"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">项目根目录</span><br><span class="line">├── src/                # 源码与资源目录</span><br><span class="line">│   ├── main/           # 主程序目录（生产环境代码）</span><br><span class="line">│   │   ├── java/       # 主程序Java源码（如com.example.demo）</span><br><span class="line">│   │   └── resources/  # 主程序资源文件（如application.properties）</span><br><span class="line">│   └── test/           # 测试程序目录（单元测试代码）</span><br><span class="line">│       ├── java/       # 测试Java源码（如com.example.demo.Test）</span><br><span class="line">│       └── resources/  # 测试资源文件（如test.application.properties）</span><br><span class="line">├── target/             # 构建输出目录（自动生成）</span><br><span class="line">│   ├── classes/        # 编译后的主程序字节码文件</span><br><span class="line">│   ├── test-classes/   # 编译后的测试程序字节码文件</span><br><span class="line">│   └── xxx.jar/xxx.war # 打包产物（Jar包/War包）</span><br><span class="line">└── pom.xml             # Maven核心配置文件（项目元信息、依赖、构建规则等内容）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>code</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">项目根目录</span><br><span class="line">├── src/                # 源码与资源目录</span><br><span class="line">│   ├── main/           # 主程序目录（生产环境代码）</span><br><span class="line">│   │   ├── java/       # 主程序Java源码（如com.example.demo.Util）</span><br><span class="line">│   │   └── resources/  # 主程序资源文件（如application.properties）</span><br><span class="line">│   └── test/           # 测试程序目录（单元测试代码）</span><br><span class="line">│       ├── java/       # 测试Java源码（如com.example.demo.UtilTest）</span><br><span class="line">│       └── resources/  # 测试资源文件（如test.application.properties）</span><br><span class="line">├── target/             # 构建输出目录（自动生成）</span><br><span class="line">│   ├── classes/        # 编译后的主程序字节码文件</span><br><span class="line">│   ├── test-classes/   # 编译后的测试程序字节码文件</span><br><span class="line">│   └── xxx.jar/xxx.war # 打包产物（Jar包/War包）</span><br><span class="line">└── pom.xml             # Maven核心配置文件（项目元信息、依赖、构建规则等内容）</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2598,7 +2598,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年10月24日</div>
+                <div class="license-meta-text">2026年2月27日</div>
               </div>
               
               
@@ -2629,10 +2629,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    <a class="category-link" href="/categories/B03/">后端</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url"><span itemprop="name">后端</span></a>
+        <a href="/categories/B03/" itemprop="url"><span itemprop="name">后端</span></a>
       </span>
     
   </div>
@@ -2789,7 +2789,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/D02001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>后端:Maven:基础</span></a>
+      <a href='/groups/B03002001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:后端:Maven:基础</span></a>
     
   </header>
 
@@ -3345,7 +3345,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/后端/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20251010/084434/","name":"概述"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"概述","description":"摘要：本文学习了Maven相关的知识。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20251010/084434/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20251010/084434/","wordCount":19,"datePublished":"2025-10-10T00:44:34.000Z","dateModified":"2025-10-24T09:22:34.814Z","articleSection":"后端","keywords":"Maven","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B03/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20251010/084434/","name":"概述"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"概述","description":"摘要：本文学习了Maven相关的知识。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20251010/084434/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20251010/084434/","wordCount":19,"datePublished":"2025-10-10T00:44:34.000Z","dateModified":"2026-02-26T23:56:52.104Z","articleSection":"后端","keywords":"Maven","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

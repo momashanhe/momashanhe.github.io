@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-05-13T01:46:14.000Z">
-<meta property="article:modified_time" content="2025-11-27T05:30:21.540Z">
+<meta property="article:modified_time" content="2026-02-22T01:47:34.365Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2680,7 +2680,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <ul>
 <li>datetime占8个字节，timestamp占4个字节。</li>
 <li>由于大小的区别，datetime与timestamp能存储的时间范围也不同。</li>
-<li>datetime默认值为空，当插入的值为null时，该列的值就是null。timestamp默认值不为空，当插入的值为null时，该列的值取当前时间。</li>
+<li>datetime默认为空，当插入的值为null时，该列的值就是null。timestamp默认值不为空，当插入的值为null时，该列的值取当前时间。</li>
 <li>datetime存储的时间与时区无关，timestamp存储的时间及显示的时间都依赖于当前时区。</li>
 </ul>
 <p>在实际工作中，一张表往往会有两个默认字段，一个记录创建时间而另一个记录最新一次的更新时间，这种时候可以使用timestamp类型来实现。</p>
@@ -2741,12 +2741,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </ul>
 <h4 id="5-5-4-enum"><a href="#5-5-4-enum" class="headerlink" title="5.5.4 enum"></a>5.5.4 enum</h4><p>使用<code>enum</code>表示字符串对象，值为表创建时设定的枚举值，最多可以有65535个元素。</p>
 <p>语法：</p>
-<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段名 enum(<span class="string">&#x27;值1&#x27;</span>, <span class="string">&#x27;值1&#x27;</span>, ..., <span class="string">&#x27;值n&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段名 enum(<span class="string">&#x27;值1&#x27;</span>, <span class="string">&#x27;值2&#x27;</span>, ..., <span class="string">&#x27;值n&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>字段名是将要定义的字段，值n指枚举列表中第n个值。</p>
 <p>enum类型的字段在取值时，能在指定的枚举列表中获取，而且一次只能取一个。如果创建的成员中有空格，尾部的空格将自动被删除。</p>
 <p>enum值依照列索引顺序排列，并且空字符串排在非空字符串前，null值排在其他所有枚举值前。</p>
-<p>enum列总有一个默认值。如果将enum列声明为null，null值则为该列的一个有效值，并且默认值为null。如果enum列被声明为not null，其默认值为允许的值列表的第1个元素。</p>
+<p>enum列总有一个默认值。如果将enum列声明为null，null值则为该列的一个有效值，并且默认为null。如果enum列被声明为not null，其默认为允许的值列表的第1个元素。</p>
 <h4 id="5-5-5-set"><a href="#5-5-5-set" class="headerlink" title="5.5.5 set"></a>5.5.5 set</h4><p>使用<code>set</code>表示字符串的对象，值为表创建时规定的一列值，最多可以有64个成员。</p>
 <p>语法：</p>
 <figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字段名 <span class="keyword">set</span>(<span class="string">&#x27;值1&#x27;</span>, <span class="string">&#x27;值2&#x27;</span>, ..., <span class="string">&#x27;值n&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -2794,7 +2794,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   </tbody>
 </table>
 
-<h4 id="5-6-1-数字"><a href="#5-6-1-数字" class="headerlink" title="5.6.1 数字"></a>5.6.1 数字</h4><p>使用<code>bit(M)</code>表示二进制位数为M的数字，范围为1~64，默认值为1。如果长度小于M位，在值的左边使用<code>0</code>填充。</p>
+<h4 id="5-6-1-数字"><a href="#5-6-1-数字" class="headerlink" title="5.6.1 数字"></a>5.6.1 数字</h4><p>使用<code>bit(M)</code>表示二进制位数为M的数字，范围为1~64，默认为1。如果长度小于M位，在值的左边使用<code>0</code>填充。</p>
 <p>例如保存的值为3，二进制形式为<code>0101</code>，在这里需要M至少为4，大于二进制形式<code>1111</code>的数据不能插入。</p>
 <h4 id="5-6-2-字符串"><a href="#5-6-2-字符串" class="headerlink" title="5.6.2 字符串"></a>5.6.2 字符串</h4><p>使用<code>binary(M)</code>表示固定长度的二进制字符串。如果长度小于M位，在值的右边使用<code>\0</code>填充。</p>
 <p>使用<code>varbinary(M)</code>表示可变长度的二进制字符串。</p>
@@ -2835,7 +2835,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年11月27日</div>
+                <div class="license-meta-text">2026年2月22日</div>
               </div>
               
               
@@ -2866,10 +2866,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    <a class="category-link" href="/categories/B04/">数据库</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url"><span itemprop="name">数据库</span></a>
+        <a href="/categories/B04/" itemprop="url"><span itemprop="name">数据库</span></a>
       </span>
     
   </div>
@@ -3026,7 +3026,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/E02001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>数据库:MySQL:基础</span></a>
+      <a href='/groups/B04002001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:数据库:MySQL:基础</span></a>
     
   </header>
 
@@ -3714,7 +3714,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/数据库/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250513/094614/","name":"通用语法"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"通用语法","description":"摘要：本文学习了SQL语言中的通用语法。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250513/094614/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250513/094614/","wordCount":20,"datePublished":"2025-05-13T01:46:14.000Z","dateModified":"2025-11-27T05:30:21.540Z","articleSection":"数据库","keywords":"MySQL","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B04/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250513/094614/","name":"通用语法"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"通用语法","description":"摘要：本文学习了SQL语言中的通用语法。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250513/094614/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250513/094614/","wordCount":20,"datePublished":"2025-05-13T01:46:14.000Z","dateModified":"2026-02-22T01:47:34.365Z","articleSection":"数据库","keywords":"MySQL","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

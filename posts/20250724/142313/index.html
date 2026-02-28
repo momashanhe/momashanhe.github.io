@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>LockSupport - 墨码山河</title>
   <meta name="keywords" content="Java,代码改变世界">
-  <meta desc name="description" content="摘要：本文学习了ThreadLocal的用法和原理。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文学习了LockSupport的用法和原理。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="LockSupport">
 <meta property="og:url" content="https://momashanhe.com/posts/20250724/142313/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文学习了ThreadLocal的用法和原理。">
+<meta property="og:description" content="摘要：本文学习了LockSupport的用法和原理。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-07-24T06:23:13.000Z">
-<meta property="article:modified_time" content="2025-07-24T08:06:07.689Z">
+<meta property="article:modified_time" content="2026-02-22T01:43:35.025Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2525,7 +2525,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文学习了ThreadLocal的用法和原理。</p>
+    <p>摘要：本文学习了LockSupport的用法和原理。</p>
 <span id="more"></span>
 
 <details ><summary> 环境 </summary>
@@ -2534,31 +2534,31 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               </div>
             </details>
 
-<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>LockSupport是用来创建锁和其他同步类的基本线程阻塞原语，在内部使用凭证的概念来实现阻塞和唤醒，每个线程都有一个凭证，只有1和0两个值，默认是0。</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>LockSupport是用来创建锁和其他同步类的基本线程阻塞原语，在内部使用凭证的概念来实现阻塞和唤醒，每个线程都有一个凭证，只有1和0两个值，默认为0。</p>
 <p>LockSupport中提供了两个方法：</p>
 <ul>
-<li>park()方法会在凭证可用时执行，将凭证从1变成0，用于阻塞线程。</li>
-<li>unpark()方法会在凭证不可用时执行，将凭证从0变成1，用于唤醒线程。</li>
+<li><code>park()</code>方法会在凭证可用时执行，将凭证从1变成0，用于阻塞线程。</li>
+<li><code>unpark()</code>方法会在凭证不可用时执行，将凭证从0变成1，用于唤醒线程。</li>
 </ul>
 <p>LockSupport中的方法调用的是Unsafe类中的native代码。</p>
 <h2 id="2-比较"><a href="#2-比较" class="headerlink" title="2 比较"></a>2 比较</h2><p>比较三种阻塞唤醒线程的方式：</p>
 <ul>
-<li>使用Object的wait()方法和notify()方法：<ul>
-<li>使用wait()方法阻塞线程，使用notify()方法唤醒线程。</li>
+<li>使用Object的<code>wait()</code>方法和<code>notify()</code>方法：<ul>
+<li>使用<code>wait()</code>方法阻塞线程，使用<code>notify()</code>方法唤醒线程。</li>
 <li>必须在synchronized代码块内部执行，否则抛出IllegalMonitorStateException。</li>
-<li>必须先执行wait()方法再执行notify()方法，否则线程会一直等待无法被唤醒。</li>
+<li>必须先执行<code>wait()</code>方法再执行<code>notify()</code>方法，否则线程会一直等待无法被唤醒。</li>
 </ul>
 </li>
-<li>使用Condition的await()方法和signal()方法：<ul>
-<li>使用await()方法阻塞线程，使用signal()方法唤醒线程。</li>
+<li>使用Condition的<code>await()</code>方法和<code>signal()</code>方法：<ul>
+<li>使用<code>await()</code>方法阻塞线程，使用<code>signal()</code>方法唤醒线程。</li>
 <li>必须和Lock组队使用，否则抛出IllegalMonitorStateException。</li>
-<li>必须先执行await()方法再执行signal()方法，否则线程会一直等待无法被唤醒。</li>
+<li>必须先执行<code>await()</code>方法再执行<code>signal()</code>方法，否则线程会一直等待无法被唤醒。</li>
 </ul>
 </li>
-<li>使用LockSupport的park()方法和uppark()方法：<ul>
-<li>使用park()方法阻塞线程，使用uppark()方法唤醒线程。</li>
+<li>使用LockSupport的<code>park()</code>方法和<code>unpark()</code>方法：<ul>
+<li>使用<code>park()</code>方法阻塞线程，使用<code>unpark()</code>方法唤醒线程。</li>
 <li>不需要在任何代码块内执行，可以在任何地方执行。</li>
-<li>使用顺序无要求，即使先执行uppark()方法再执行park()方法，也能唤醒线程。</li>
+<li>使用顺序无要求，即使先执行<code>unpark()</code>方法再执行<code>park()</code>方法，也能唤醒线程。</li>
 </ul>
 </li>
 </ul>
@@ -2568,11 +2568,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>结果：</p>
 <figure class="highlight plaintext"><figcaption><span>log</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">b进入</span><br><span class="line">b执行</span><br><span class="line">// 等待1s</span><br><span class="line">a进入</span><br><span class="line">a执行</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h2><p>LockSuport是一个线程阻塞工具类，底层调用的Unsafe中的native代码，所有的方法都是静态方法，可以让线程在任意位置阻塞和唤醒。</p>
+<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h2><p>LockSupport是一个线程阻塞工具类，底层调用的Unsafe中的native代码，所有的方法都是静态方法，可以让线程在任意位置阻塞和唤醒。</p>
 <p>两个方法：</p>
 <ul>
-<li>调用park()方法，将凭证从1变成0，立即返回并继续执行。如果凭证为0则会阻塞，直到unpark()方法将凭证从0变为1。</li>
-<li>调用unpark()方法，将凭证从0变成1，立即返回并继续执行，多次调用unpark()方法不会累加凭证。如果凭证为1则会阻塞，直到park()方法将凭证从1变为0。</li>
+<li>调用<code>park()</code>方法，将凭证从1变成0，立即返回并继续执行。如果凭证为0则会阻塞，直到<code>unpark()</code>方法将凭证从0变为1。</li>
+<li>调用<code>unpark()</code>方法，将凭证从0变成1，立即返回并继续执行，多次调用<code>unpark()</code>方法不会累加凭证。如果凭证为1则会阻塞，直到<code>park()</code>方法将凭证从1变为0。</li>
 </ul>
 
   </div>
@@ -2600,6 +2600,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               <div class="license-meta-item">
                 <div class="license-meta-title">发布于</div>
                 <div class="license-meta-text">2025年7月24日</div>
+              </div>
+              
+              <div class="license-meta-item">
+                <div class="license-meta-title">更新于</div>
+                <div class="license-meta-text">2026年2月22日</div>
               </div>
               
               
@@ -2630,10 +2635,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    <a class="category-link" href="/categories/B03/">后端</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url"><span itemprop="name">后端</span></a>
+        <a href="/categories/B03/" itemprop="url"><span itemprop="name">后端</span></a>
       </span>
     
   </div>
@@ -2673,7 +2678,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/posts/20250724/160737/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>AQS</p>
-          <p class='content'>摘要：本文主要了解了JUC中的AQS抽象类。</p>
+          <p class='content'>摘要：本文了解了JUC中的AQS抽象类。</p>
         </a>
       
       
@@ -2790,7 +2795,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/D01003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>后端:Java:并发</span></a>
+      <a href='/groups/B03001003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:后端:Java:并发</span></a>
     
   </header>
 
@@ -3466,7 +3471,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/后端/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250724/142313/","name":"LockSupport"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"LockSupport","description":"摘要：本文学习了ThreadLocal的用法和原理。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250724/142313/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250724/142313/","wordCount":26,"datePublished":"2025-07-24T06:23:13.000Z","dateModified":"2025-07-24T08:06:07.689Z","articleSection":"后端","keywords":"Java","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B03/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250724/142313/","name":"LockSupport"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"LockSupport","description":"摘要：本文学习了LockSupport的用法和原理。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250724/142313/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250724/142313/","wordCount":26,"datePublished":"2025-07-24T06:23:13.000Z","dateModified":"2026-02-22T01:43:35.025Z","articleSection":"后端","keywords":"Java","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

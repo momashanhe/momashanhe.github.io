@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-06-05T02:07:52.000Z">
-<meta property="article:modified_time" content="2025-11-27T05:26:32.785Z">
+<meta property="article:modified_time" content="2026-02-22T01:47:33.267Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2553,12 +2553,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>以一个3叉B树为例，当m为3时，n的取值在1和2之间，当key的个数大于2时，中间节点分裂到父节点，两边节点分裂。</p>
 <p>插入<code>ACGBNMQW</code>的演变过程如下：</p>
 <ol>
-<li>插入AC<br><img src="/@image/E02002/003-20250607123907.jpg" alt="20250607123907-演变过程"></li>
-<li>插入G，n&gt;2，中间C向上分裂到新节点<br><img src="/@image/E02002/003-20250607124033.jpg" alt="20250607124033-演变过程"></li>
-<li>插入BN，不需要分裂<br><img src="/@image/E02002/003-20250607131246.jpg" alt="20250607131246-演变过程"></li>
-<li>插入M，中间M向上分裂到父节点<br><img src="/@image/E02002/003-20250607132809.jpg" alt="20250607132809-演变过程"></li>
-<li>插入Q，不需要分裂<br><img src="/@image/E02002/003-20250607135926.jpg" alt="20250607135926-演变过程"></li>
-<li>插入W，中间Q向上分裂到父节点，父节点中间M向上分裂到新节点<br><img src="/@image/E02002/003-20250607141521.jpg" alt="20250607141521-演变过程"></li>
+<li>插入AC<br><img src="/@image/B04002002/003-20250607123907.jpg" alt="20250607123907-演变过程"></li>
+<li>插入G，n&gt;2，中间C向上分裂到新节点<br><img src="/@image/B04002002/003-20250607124033.jpg" alt="20250607124033-演变过程"></li>
+<li>插入BN，不需要分裂<br><img src="/@image/B04002002/003-20250607131246.jpg" alt="20250607131246-演变过程"></li>
+<li>插入M，中间M向上分裂到父节点<br><img src="/@image/B04002002/003-20250607132809.jpg" alt="20250607132809-演变过程"></li>
+<li>插入Q，不需要分裂<br><img src="/@image/B04002002/003-20250607135926.jpg" alt="20250607135926-演变过程"></li>
+<li>插入W，中间Q向上分裂到父节点，父节点中间M向上分裂到新节点<br><img src="/@image/B04002002/003-20250607141521.jpg" alt="20250607141521-演变过程"></li>
 </ol>
 <p>和二叉树相比，B树有如下优点：：</p>
 <ul>
@@ -2577,12 +2577,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>以一个3叉B+树为例，2&lt;&#x3D;n&lt;&#x3D;3，当key的个数大于3时，中间节点分裂到父节点，两边节点分裂。</p>
 <p>插入<code>ACGBNMQW</code>的演变过程如下：</p>
 <ol>
-<li>插入ACG<br><img src="/@image/E02002/003-20250607173557.jpg" alt="20250607173557-演变过程"></li>
-<li>插入B，n&gt;3，分裂<br><img src="/@image/E02002/003-20250607174730.jpg" alt="20250607174730-演变过程"></li>
-<li>插入N，不需要分裂<br><img src="/@image/E02002/003-20250607174905.jpg" alt="20250607174905-演变过程"></li>
-<li>插入M，分裂<br><img src="/@image/E02002/003-20250607180243.jpg" alt="20250607180243-演变过程"></li>
-<li>插入Q，不需要分裂<br><img src="/@image/E02002/003-20250607180354.jpg" alt="20250607180354-演变过程"></li>
-<li>插入W，分裂<br><img src="/@image/E02002/003-20250607181106.jpg" alt="20250607181106-演变过程"></li>
+<li>插入ACG<br><img src="/@image/B04002002/003-20250607173557.jpg" alt="20250607173557-演变过程"></li>
+<li>插入B，n&gt;3，分裂<br><img src="/@image/B04002002/003-20250607174730.jpg" alt="20250607174730-演变过程"></li>
+<li>插入N，不需要分裂<br><img src="/@image/B04002002/003-20250607174905.jpg" alt="20250607174905-演变过程"></li>
+<li>插入M，分裂<br><img src="/@image/B04002002/003-20250607180243.jpg" alt="20250607180243-演变过程"></li>
+<li>插入Q，不需要分裂<br><img src="/@image/B04002002/003-20250607180354.jpg" alt="20250607180354-演变过程"></li>
+<li>插入W，分裂<br><img src="/@image/B04002002/003-20250607181106.jpg" alt="20250607181106-演变过程"></li>
 </ol>
 <p>和B树相比，B+树有如下优点：</p>
 <ul>
@@ -2602,7 +2602,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="2-2-非聚簇索引"><a href="#2-2-非聚簇索引" class="headerlink" title="2.2 非聚簇索引"></a>2.2 非聚簇索引</h3><h4 id="2-2-1-定义"><a href="#2-2-1-定义" class="headerlink" title="2.2.1 定义"></a>2.2.1 定义</h4><p>索引中的键值顺序与表中相应行的物理存储顺序无关。</p>
 <p>在非聚簇索引中，叶子节点存储的是索引节点，有一个指向对应数据页上的真实数据的指针。</p>
 <h4 id="2-2-2-使用"><a href="#2-2-2-使用" class="headerlink" title="2.2.2 使用"></a>2.2.2 使用</h4><p>所有不是聚簇索引的索引都叫非聚簇索引或者辅助索引。</p>
-<p>在InnDB存储引擎中，非聚簇索引的每条记录会包含对应的主键，InnoDB会使用这个主键来检索聚簇索引。</p>
+<p>在InnoDB存储引擎中，非聚簇索引的每条记录会包含对应的主键，InnoDB会使用这个主键来检索聚簇索引。</p>
 <p>因此应该尽可能将主键缩短，否则辅助索引占用空间会更大。</p>
 <h4 id="2-2-3-回表查询"><a href="#2-2-3-回表查询" class="headerlink" title="2.2.3 回表查询"></a>2.2.3 回表查询</h4><p>当要查询的列不属于主索引和辅助索引，并且在查询条件中使用了辅助索引而且没有使用主索引。</p>
 <p>此时，如果要的到查询结果，首先根据查询条件搜索辅助索引，找到符合的叶子节点，因为辅助索引没有索引覆盖查询的列，通过叶子节点上的主键搜索主索引，从而得到查询结果。</p>
@@ -2781,7 +2781,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年11月27日</div>
+                <div class="license-meta-text">2026年2月22日</div>
               </div>
               
               
@@ -2812,10 +2812,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    <a class="category-link" href="/categories/B04/">数据库</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url"><span itemprop="name">数据库</span></a>
+        <a href="/categories/B04/" itemprop="url"><span itemprop="name">数据库</span></a>
       </span>
     
   </div>
@@ -2972,7 +2972,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/E02002/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>数据库:MySQL:高级</span></a>
+      <a href='/groups/B04002002/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:数据库:MySQL:高级</span></a>
     
   </header>
 
@@ -3588,7 +3588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/数据库/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250605/100752/","name":"索引详解"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"索引详解","description":"摘要：本文学习了索引的数据结构和相关的概念，以及如何使用工具分析和优化。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250605/100752/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250605/100752/","wordCount":36,"datePublished":"2025-06-05T02:07:52.000Z","dateModified":"2025-11-27T05:26:32.785Z","articleSection":"数据库","keywords":"MySQL","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B04/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250605/100752/","name":"索引详解"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"索引详解","description":"摘要：本文学习了索引的数据结构和相关的概念，以及如何使用工具分析和优化。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250605/100752/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250605/100752/","wordCount":36,"datePublished":"2025-06-05T02:07:52.000Z","dateModified":"2026-02-22T01:47:33.267Z","articleSection":"数据库","keywords":"MySQL","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

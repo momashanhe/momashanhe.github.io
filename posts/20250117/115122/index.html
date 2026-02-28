@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-01-17T03:51:22.000Z">
-<meta property="article:modified_time" content="2025-11-27T05:31:00.349Z">
+<meta property="article:modified_time" content="2026-02-25T11:39:34.001Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta property="article:tag" content="JQuery">
@@ -2021,7 +2021,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2570,12 +2570,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(匿名函数)</span><br></pre></td></tr></table></figure>
 
 <p>当文档结构加载完毕之后JQuery函数调用匿名函数：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>)&#123; &#125;);<span class="comment">// 文档结构加载完毕后执行function函数中的代码</span></span><br><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123; &#125;);<span class="comment">// 将document节点转化为JQuery对象，在调用对象ready()方法实现文档加载完毕后再执行函数内代码</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);<span class="comment">// 文档结构加载完毕后执行function函数中的代码</span></span><br><span class="line">$(<span class="variable language_">document</span>).<span class="title function_">ready</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);<span class="comment">// 将document节点转化为JQuery对象，在调用对象ready()方法实现文档加载完毕后再执行函数内代码</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="3-2-2-JQuery对象和DOM对象"><a href="#3-2-2-JQuery对象和DOM对象" class="headerlink" title="3.2.2 JQuery对象和DOM对象"></a>3.2.2 JQuery对象和DOM对象</h4><p>JQuery对象是JQuery独有的，JQuery对象无法使用DOM对象的任何方法。同样的，DOM对象也不能使用JQuery里的任何方法。</p>
 <p>JQuery对象和DOM对象的转化：</p>
 <ul>
-<li>JQuery对象转化为DOM对象：<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>)[<span class="number">0</span>];<span class="comment">// 在JQuery对象后面添加数值下标即可选择其获取到的JQuery类数组对象中相应位置存放的DOM对象</span></span><br></pre></td></tr></table></figure></li>
+<li>JQuery对象转化为DOM对象：<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">&#x27;div&#x27;</span>)[<span class="number">0</span>];<span class="comment">// 在JQuery对象后面添加数值位置即可选择其获取到的JQuery类数组对象中相应位置存放的DOM对象</span></span><br></pre></td></tr></table></figure></li>
 <li>DOM对象转化为JQuery对象：<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;div&#x27;</span>);<span class="comment">// 多个div返回的是一个DOM类数组对象</span></span><br><span class="line"><span class="keyword">var</span> $div = $(div);<span class="comment">// 将DOM对象作为JQuery函数的参数即可将该DOM对象转化为JQuery对象</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>JQuery对象的操作实际上就是对JQuery数组中DOM对象的批量操作。</p>
@@ -2591,38 +2591,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>id选择器</td>
-      <td>
-        <code>$('#username')</code>
-      </td>
-      <td>匹配id属性为username的第一个元素。</td>
+      <td>$('#username')</td>
+      <td>匹配id属性为username的第一个元素</td>
     </tr>
     <tr>
       <td>class选择器</td>
-      <td>
-        <code>$('.red')</code>
-      </td>
-      <td>匹配class属性包含red的所有元素。</td>
+      <td>$('.red')</td>
+      <td>匹配class属性包含red的所有元素</td>
     </tr>
     <tr>
       <td>标签选择器</td>
-      <td>
-        <code>$('span')</code>
-      </td>
-      <td>匹配标签名为span的所有元素。</td>
+      <td>$('span')</td>
+      <td>匹配标签名为span的所有元素</td>
     </tr>
     <tr>
       <td>多选择器</td>
-      <td>
-        <code>$('#username,.red, span, div')</code>
-      </td>
-      <td>匹配多个选择器匹配的所有元素。</td>
+      <td>$('#username,.red, span, div')</td>
+      <td>匹配多个选择器匹配的所有元素</td>
     </tr>
     <tr>
       <td>全部选择器</td>
-      <td>
-        <code>$('*')</code>
-      </td>
-      <td>匹配页面上的所有元素。</td>
+      <td>$('*')</td>
+      <td>匹配页面上的所有元素</td>
     </tr>
   </tbody>
 </table>
@@ -2639,31 +2629,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>匹配子元素</td>
-      <td>
-        <code>$('form>input')</code>
-      </td>
-      <td>在所有form元素的子元素中匹配input元素。</td>
+      <td>$('form>input')</td>
+      <td>在所有form元素的子元素中匹配input元素</td>
     </tr>
     <tr>
       <td>匹配后代元素</td>
-      <td>
-        <code>$('form input')</code>
-      </td>
-      <td>在所有form元素的后代元素中匹配input元素，后代元素包括子元素和孙子元素。</td>
+      <td>$('form input')</td>
+      <td>在所有form元素的后代元素中匹配input元素，后代元素包括子元素和孙子元素</td>
     </tr>
     <tr>
       <td>匹配之后相邻的兄弟元素</td>
-      <td>
-        <code>$('label+input')</code>
-      </td>
-      <td>在所有label元素后相邻的兄弟元素中匹配input元素。</td>
+      <td>$('label+input')</td>
+      <td>在所有label元素后相邻的兄弟元素中匹配input元素</td>
     </tr>
     <tr>
       <td>匹配之后的兄弟元素</td>
-      <td>
-        <code>$('label~input')</code>
-      </td>
-      <td>在所有label元素后的兄弟元素中匹配input元素。</td>
+      <td>$('label~input')</td>
+      <td>在所有label元素后的兄弟元素中匹配input元素</td>
     </tr>
   </tbody>
 </table>
@@ -2681,59 +2663,43 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>匹配第一个元素</td>
-      <td>
-        <code>$('tr:first')</code>
-      </td>
-      <td>匹配第一个tr元素。</td>
+      <td>$('tr:first')</td>
+      <td>匹配第一个tr元素</td>
     </tr>
     <tr>
       <td>匹配最后一个元素</td>
-      <td>
-        <code>$('tr:last')</code>
-      </td>
-      <td>匹配最后一个tr元素。</td>
+      <td>$('tr:last')</td>
+      <td>匹配最后一个tr元素</td>
     </tr>
     <tr>
       <td>匹配偶数索引元素</td>
-      <td>
-        <code>$('tr:even')</code>
-      </td>
-      <td>匹配所有索引值为偶数的tr元素，从0开始计数。</td>
+      <td>$('tr:even')</td>
+      <td>匹配所有索引值为偶数的tr元素，从0开始计数</td>
     </tr>
     <tr>
       <td>匹配奇数索引元素</td>
-      <td>
-        <code>$('tr:odd')</code>
-      </td>
-      <td>匹配所有索引值为奇数的tr元素，从0开始计数。</td>
+      <td>$('tr:odd')</td>
+      <td>匹配所有索引值为奇数的tr元素，从0开始计数</td>
     </tr>
     <tr>
       <td>匹配等于指定索引的元素</td>
-      <td>
-        <code>$('tr:eq(3)')</code>
-      </td>
-      <td>匹配索引值等于3的tr元素，从0开始计数。</td>
+      <td>$('tr:eq(3)')</td>
+      <td>匹配索引值等于3的tr元素，从0开始计数</td>
     </tr>
     <tr>
       <td>匹配大于指定索引的元素</td>
-      <td>
-        <code>$('tr:gt(3)')</code>
-      </td>
-      <td>匹配所有索引值大于3的tr元素，从0开始计数。</td>
+      <td>$('tr:gt(3)')</td>
+      <td>匹配所有索引值大于3的tr元素，从0开始计数</td>
     </tr>
     <tr>
       <td>匹配小于指定索引的元素</td>
-      <td>
-        <code>$('tr:lt(3)')</code>
-      </td>
-      <td>匹配所有索引值小于3的tr元素，从0开始计数。</td>
+      <td>$('tr:lt(3)')</td>
+      <td>匹配所有索引值小于3的tr元素，从0开始计数</td>
     </tr>
     <tr>
       <td>匹配不被指定的元素</td>
-      <td>
-        <code>$('tr:not(:eq(3))')</code>
-      </td>
-      <td>匹配索引值不等于3的tr元素，从0开始计数。</td>
+      <td>$('tr:not(:eq(3))')</td>
+      <td>匹配索引值不等于3的tr元素，从0开始计数</td>
     </tr>
   </tbody>
 </table>
@@ -2750,24 +2716,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>匹配指定的子元素</td>
-      <td>
-        <code>$('td:nth-child(3)')</code>
-      </td>
-      <td>在所有父元素的第3个子元素中，匹配td元素。</td>
+      <td>$('td:nth-child(3)')</td>
+      <td>在所有父元素的第3个子元素中，匹配td元素</td>
     </tr>
     <tr>
       <td>匹配指定的第一个子元素</td>
-      <td>
-        <code>$('td:first-child()')</code>
-      </td>
-      <td>在所有父元素的第一个子元素中，匹配td元素。</td>
+      <td>$('td:first-child()')</td>
+      <td>在所有父元素的第一个子元素中，匹配td元素</td>
     </tr>
     <tr>
       <td>匹配指定的最后一个子元素</td>
-      <td>
-        <code>$('td:last-child()')</code>
-      </td>
-      <td>在所有父元素的最后一个子元素中，匹配td元素。</td>
+      <td>$('td:last-child()')</td>
+      <td>在所有父元素的最后一个子元素中，匹配td元素</td>
     </tr>
   </tbody>
 </table>
@@ -2784,45 +2744,33 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>匹配指定属性的元素</td>
-      <td>
-        <code>$('input[name]')</code>
-      </td>
-      <td>匹配name属性存在的input元素。</td>
+      <td>$('input[name]')</td>
+      <td>匹配name属性存在的input元素</td>
     </tr>
     <tr>
       <td>匹配属性和指定属性值相同的元素</td>
-      <td>
-        <code>$('input[name="username"]')</code>
-      </td>
-      <td>匹配name属性的属性值和username相同的input元素。</td>
+      <td>$('input[name="username"]')</td>
+      <td>匹配name属性的属性值和username相同的input元素</td>
     </tr>
     <tr>
       <td>匹配属性和指定属性值不同的元素</td>
-      <td>
-        <code>$('input[name!="username"]')</code>
-      </td>
-      <td>匹配name属性的属性值和username不同的input元素。</td>
+      <td>$('input[name!="username"]')</td>
+      <td>匹配name属性的属性值和username不同的input元素</td>
     </tr>
     <tr>
       <td>匹配属性以指定属性值开始的元素</td>
-      <td>
-        <code>$('input[name^="user"]')</code>
-      </td>
-      <td>匹配name属性的属性值以user开始的input元素。</td>
+      <td>$('input[name^="user"]')</td>
+      <td>匹配name属性的属性值以user开始的input元素</td>
     </tr>
     <tr>
       <td>匹配属性以指定属性值结束的元素</td>
-      <td>
-        <code>$('input[name$="user"]')</code>
-      </td>
-      <td>匹配name属性的属性值以user结束的input元素。</td>
+      <td>$('input[name$="user"]')</td>
+      <td>匹配name属性的属性值以user结束的input元素</td>
     </tr>
     <tr>
       <td>匹配属性包含指定属性值的元素</td>
-      <td>
-        <code>$('input[name*="user"]')</code>
-      </td>
-      <td>匹配name属性的属性值包含user的input元素。</td>
+      <td>$('input[name*="user"]')</td>
+      <td>匹配name属性的属性值包含user的input元素</td>
     </tr>
   </tbody>
 </table>
@@ -2839,59 +2787,43 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>匹配输入框元素</td>
-      <td>
-        <code>$(':input')</code>
-      </td>
-      <td>匹配所有input元素，即匹配所有输入框元素。</td>
+      <td>$(':input')</td>
+      <td>匹配所有input元素，即匹配所有输入框元素</td>
     </tr>
     <tr>
       <td>匹配文本框元素</td>
-      <td>
-        <code>$(':text')</code>
-      </td>
-      <td>匹配所有type属性值为text的input元素。</td>
+      <td>$(':text')</td>
+      <td>匹配所有type属性值为text的input元素</td>
     </tr>
     <tr>
       <td>匹配密码框元素</td>
-      <td>
-        <code>$(':password')</code>
-      </td>
-      <td>匹配所有type属性值为password的input元素。</td>
+      <td>$(':password')</td>
+      <td>匹配所有type属性值为password的input元素</td>
     </tr>
     <tr>
       <td>匹配单选框元素</td>
-      <td>
-        <code>$(':radio')</code>
-      </td>
-      <td>匹配所有type属性值为radio的input元素。</td>
+      <td>$(':radio')</td>
+      <td>匹配所有type属性值为radio的input元素</td>
     </tr>
     <tr>
       <td>匹配复选框元素</td>
-      <td>
-        <code>$(':checkbox')</code>
-      </td>
-      <td>匹配所有type属性值为checkbox的input元素。</td>
+      <td>$(':checkbox')</td>
+      <td>匹配所有type属性值为checkbox的input元素</td>
     </tr>
     <tr>
       <td>匹配按钮元素</td>
-      <td>
-        <code>$(':button')</code>
-      </td>
-      <td>匹配所有type属性值为button的input元素。</td>
+      <td>$(':button')</td>
+      <td>匹配所有type属性值为button的input元素</td>
     </tr>
     <tr>
       <td>匹配提交按钮元素</td>
-      <td>
-        <code>$(':submit')</code>
-      </td>
-      <td>匹配所有type属性值为submit的input元素。</td>
+      <td>$(':submit')</td>
+      <td>匹配所有type属性值为submit的input元素</td>
     </tr>
     <tr>
       <td>匹配重置按钮元素</td>
-      <td>
-        <code>$(':reset')</code>
-      </td>
-      <td>匹配所有type属性值为reset的input元素。</td>
+      <td>$(':reset')</td>
+      <td>匹配所有type属性值为reset的input元素</td>
     </tr>
   </tbody>
 </table>
@@ -2908,38 +2840,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>匹配禁用的表单元素</td>
-      <td>
-        <code>$('input:disabled')</code>
-      </td>
-      <td>匹配所有disabled属性值为true的input元素。</td>
+      <td>$('input:disabled')</td>
+      <td>匹配所有disabled属性值为true的input元素</td>
     </tr>
     <tr>
       <td>匹配启用的表单元素</td>
-      <td>
-        <code>$('input:enabled')</code>
-      </td>
-      <td>匹配所有disabled属性值为false的input元素。</td>
+      <td>$('input:enabled')</td>
+      <td>匹配所有disabled属性值为false的input元素</td>
     </tr>
     <tr>
       <td>匹配选中的选项元素</td>
-      <td>
-        <code>$('input:checked')</code>
-      </td>
-      <td>匹配选中的input选项元素，包括单选框和复选框。</td>
+      <td>$('input:checked')</td>
+      <td>匹配选中的input选项元素，包括单选框和复选框</td>
     </tr>
     <tr>
       <td>匹配选中的下拉项元素</td>
-      <td>
-        <code>$('select option:selected')</code>
-      </td>
-      <td>匹配选中的option选项元素。</td>
+      <td>$('select option:selected')</td>
+      <td>匹配选中的option选项元素</td>
     </tr>
     <tr>
       <td>匹配所有隐藏元素</td>
-      <td>
-        <code>$('div:hidden')</code>
-      </td>
-      <td>匹配所有隐藏的div元素。</td>
+      <td>$('div:hidden')</td>
+      <td>匹配所有隐藏的div元素</td>
     </tr>
   </tbody>
 </table>
@@ -2956,31 +2878,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>插入到内部尾部</td>
-      <td>
-        <code>$('p').append(插入内容)</code>
-      </td>
-      <td>向p元素内部的尾部插入指定内容，插入内容作为子节点。</td>
+      <td>$('p').append(插入内容)</td>
+      <td>向p元素内部的尾部插入指定内容，插入内容作为子节点</td>
     </tr>
     <tr>
       <td>插入到内部头部</td>
-      <td>
-        <code>$('p').prepend(插入内容)</code>
-      </td>
-      <td>向p元素内部的头部插入指定内容，插入内容作为子节点。</td>
+      <td>$('p').prepend(插入内容)</td>
+      <td>向p元素内部的头部插入指定内容，插入内容作为子节点</td>
     </tr>
     <tr>
       <td>插入到外部尾部</td>
-      <td>
-        <code>$('p').after(插入内容)</code>
-      </td>
-      <td>向p元素外部的尾部插入指定内容，插入内容作为兄弟节点。</td>
+      <td>$('p').after(插入内容)</td>
+      <td>向p元素外部的尾部插入指定内容，插入内容作为兄弟节点</td>
     </tr>
     <tr>
       <td>插入到外部头部</td>
-      <td>
-        <code>$('p').before(插入内容)</code>
-      </td>
-      <td>向p元素外部的头部插入指定内容，插入内容作为兄弟节点。</td>
+      <td>$('p').before(插入内容)</td>
+      <td>向p元素外部的头部插入指定内容，插入内容作为兄弟节点</td>
     </tr>
   </tbody>
 </table>
@@ -2997,17 +2911,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>删除子节点</td>
-      <td>
-        <code>$('div').empty()</code>
-      </td>
-      <td>删除div元素的子节点和内容节点，保留div元素本身。</td>
+      <td>$('div').empty()</td>
+      <td>删除div元素的子节点和内容节点，保留div元素本身</td>
     </tr>
     <tr>
       <td>删除节点</td>
-      <td>
-        <code>$('div').remove()</code>
-      </td>
-      <td>删除div元素，包括div元素本身，以及div元素的子节点和内容节点。</td>
+      <td>$('div').remove()</td>
+      <td>删除div元素，包括div元素本身，以及div元素的子节点和内容节点</td>
     </tr>
   </tbody>
 </table>
@@ -3024,19 +2934,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>查找节点</td>
-      <td>
-        <code>$('div').find('span')</code>
-      </td>
-      <td>在div元素中查找span元素，即匹配div元素的span后代元素。</td>
+      <td>$('div').find('span')</td>
+      <td>在div元素中查找span元素，即匹配div元素的span后代元素</td>
     </tr>
     <tr>
       <td>遍历节点</td>
+      <td>$('div').each(function (index,element) {})</td>
       <td>
-        <code>$('div').each(function(index,element)&#123; &#125;)</code>
-      </td>
-      <td>
-        遍历div元素，使用<code>index</code>表示当前下标，使用<code>element</code>表示当前元素。<br>
-        如果是匿名函数，还可以使用<code>$&#123;this&#125;</code>代替<code>element</code>表示当前元素。<br>
+        <dl>
+          <dt>遍历div元素：</dt>
+          <dd>如果是普通函数，使用<code>index</code>表示当前位置，使用<code>element</code>表示当前元素。</dd>
+          <dd>如果是匿名函数，使用<code>$&#123;this&#125;</code>代替<code>element</code>表示当前元素。</dd>
+        </dl>
       </td>
     </tr>
   </tbody>
@@ -3054,17 +2963,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>获取文本内容</td>
-      <td>
-        <code>$('#welcome').text()</code>
-      </td>
-      <td>获取id属性为<code>welcome</code>的元素的文本内容。</td>
+      <td>$('#welcome').text()</td>
+      <td>获取id属性为<code>welcome</code>的元素的文本内容</td>
     </tr>
     <tr>
       <td>修改文本内容</td>
-      <td>
-        <code>$('#welcome').text('欢迎')</code>
-      </td>
-      <td>修改id属性为<code>welcome</code>的元素的文本内容为<code>欢迎</code>。</td>
+      <td>$('#welcome').text('欢迎')</td>
+      <td>修改id属性为<code>welcome</code>的元素的文本内容为<code>欢迎</code></td>
     </tr>
   </tbody>
 </table>
@@ -3081,17 +2986,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>获取value属性</td>
-      <td>
-        <code>$('#username').val()</code>
-      </td>
-      <td>获取id属性为<code>username</code>的元素的文本内容。</td>
+      <td>$('#username').val()</td>
+      <td>获取id属性为<code>username</code>的元素的文本内容</td>
     </tr>
     <tr>
       <td>修改value属性</td>
-      <td>
-        <code>$('#username').val('佚名')</code>
-      </td>
-      <td>修改id属性为<code>username</code>的元素的文本内容为<code>佚名</code>。</td>
+      <td>$('#username').val('佚名')</td>
+      <td>修改id属性为<code>username</code>的元素的文本内容为<code>佚名</code></td>
     </tr>
   </tbody>
 </table>
@@ -3108,24 +3009,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>获取指定属性</td>
-      <td>
-        <code>$('#username').attr('readonly')</code>
-      </td>
-      <td>获取id属性为<code>username</code>的元素的<code>readonly</code>属性。</td>
+      <td>$('#username').attr('readonly')</td>
+      <td>获取id属性为<code>username</code>的元素的<code>readonly</code>属性</td>
     </tr>
     <tr>
       <td>修改指定属性</td>
-      <td>
-        <code>$('#username').attr('readonly',true)</code>
-      </td>
-      <td>修改id属性为<code>username</code>的元素的<code>readonly</code>属性为<code>true</code>。</td>
+      <td>$('#username').attr('readonly',true)</td>
+      <td>修改id属性为<code>username</code>的元素的<code>readonly</code>属性为<code>true</code></td>
     </tr>
     <tr>
       <td>删除指定属性</td>
-      <td>
-        <code>$('#username').removeAttr('readonly')</code>
-      </td>
-      <td>删除id属性为<code>username</code>的元素的<code>readonly</code>属性。</td>
+      <td>$('#username').removeAttr('readonly')</td>
+      <td>删除id属性为<code>username</code>的元素的<code>readonly</code>属性</td>
     </tr>
   </tbody>
 </table>
@@ -3142,17 +3037,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>增加指定类</td>
-      <td>
-        <code>$('#username').addClass('username')</code>
-      </td>
-      <td>给id属性为<code>username</code>的元素增加<code>username</code>类。</td>
+      <td>$('#username').addClass('username')</td>
+      <td>给id属性为<code>username</code>的元素增加<code>username</code>类</td>
     </tr>
     <tr>
       <td>删除指定类</td>
-      <td>
-        <code>$('#username').removeClass('username')</code>
-      </td>
-      <td>给id属性为<code>username</code>的元素删除<code>username</code>类。</td>
+      <td>$('#username').removeClass('username')</td>
+      <td>给id属性为<code>username</code>的元素删除<code>username</code>类</td>
     </tr>
   </tbody>
 </table>
@@ -3169,17 +3060,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>获取指定样式</td>
-      <td>
-        <code>$('#username').css('color')</code>
-      </td>
-      <td>获取id属性为<code>username</code>的元素的<code>color</code>样式。</td>
+      <td>$('#username').css('color')</td>
+      <td>获取id属性为<code>username</code>的元素的<code>color</code>样式</td>
     </tr>
     <tr>
       <td>修改指定样式</td>
-      <td>
-        <code>$('#username').css('color','red')</code>
-      </td>
-      <td>修改id属性为<code>username</code>的元素的<code>color</code>样式为<code>red</code>。</td>
+      <td>$('#username').css('color','red')</td>
+      <td>修改id属性为<code>username</code>的元素的<code>color</code>样式为<code>red</code></td>
     </tr>
   </tbody>
 </table>
@@ -3196,45 +3083,33 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>加载</td>
-      <td>
-        <code>$(document).ready(function()&#123; &#125;)</code>
-      </td>
-      <td>在页面加载DOM结构后执行方法。</td>
+      <td>$(document).ready(function () {})</td>
+      <td>在页面加载DOM结构后执行方法</td>
     </tr>
     <tr>
       <td>点击</td>
-      <td>
-        <code>$('#submit').click(function()&#123; &#125;)</code>
-      </td>
-      <td>当id属性为submit的元素在点击时执行方法。</td>
+      <td>$('#submit').click(function () {})</td>
+      <td>当id属性为submit的元素在点击时执行方法</td>
     </tr>
     <tr>
       <td>获得焦点</td>
-      <td>
-        <code>$('#username').focus(function()&#123; &#125;)</code>
-      </td>
-      <td>当id属性为username的元素在获得焦点时执行方法。</td>
+      <td>$('#username').focus(function () {})</td>
+      <td>当id属性为username的元素在获得焦点时执行方法</td>
     </tr>
     <tr>
       <td>失去焦点</td>
-      <td>
-        <code>$('#username').blur(function()&#123; &#125;)</code>
-      </td>
-      <td>当id属性为username的元素在失去焦点时执行方法。</td>
+      <td>$('#username').blur(function () {})</td>
+      <td>当id属性为username的元素在失去焦点时执行方法</td>
     </tr>
     <tr>
       <td>改变</td>
-      <td>
-        <code>$('#username').change(function()&#123; &#125;)</code>
-      </td>
-      <td>当id属性为username的元素在获得焦点后改变值时执行方法，也会在元素失去焦点时执行方法。</td>
+      <td>$('#username').change(function () {})</td>
+      <td>当id属性为username的元素在改变值后失去焦点时执行方法</td>
     </tr>
     <tr>
       <td>表单提交</td>
-      <td>
-        <code>$('#form').submit(function()&#123; &#125;)</code>
-      </td>
-      <td>当id属性为form的表单元素在提交时执行方法。</td>
+      <td>$('#form').submit(function () {})</td>
+      <td>当id属性为form的表单元素在提交时执行方法</td>
     </tr>
   </tbody>
 </table>
@@ -3251,36 +3126,30 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>显示</td>
-      <td>
-        <code>$('#username').show()</code>
-      </td>
-      <td>显示id属性为username的元素。</td>
+      <td>$('#username').show()</td>
+      <td>显示id属性为username的元素</td>
     </tr>
     <tr>
       <td>隐藏</td>
-      <td>
-        <code>$('#username').hide()</code>
-      </td>
-      <td>隐藏id属性为username的元素。</td>
+      <td>$('#username').hide()</td>
+      <td>隐藏id属性为username的元素</td>
     </tr>
     <tr>
       <td>切换</td>
-      <td>
-        <code>$('#username').toggle()</code>
-      </td>
-      <td>切换id属性为username的元素的可见性。</td>
+      <td>$('#username').toggle()</td>
+      <td>切换id属性为username的元素的可见性</td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="3-7-AJAX"><a href="#3-7-AJAX" class="headerlink" title="3.7 AJAX"></a>3.7 AJAX</h3><p>发送get请求：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">get</span>(url, &#123;<span class="attr">name</span>:<span class="string">&#x27;John&#x27;</span>,<span class="attr">location</span>:<span class="string">&#x27;Boston&#x27;</span>&#125;, <span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;Data Loaded: &#x27;</span> + data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">get</span>(url, &#123;<span class="attr">name</span>:<span class="string">&#x27;John&#x27;</span>,<span class="attr">location</span>:<span class="string">&#x27;Boston&#x27;</span>&#125;, <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;Data Loaded: &#x27;</span> + data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>发送post请求：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">post</span>(url, &#123;<span class="attr">name</span>:<span class="string">&#x27;John&#x27;</span>,<span class="attr">location</span>:<span class="string">&#x27;Boston&#x27;</span>&#125;, <span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;Data Loaded: &#x27;</span> + data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">post</span>(url, &#123;<span class="attr">name</span>:<span class="string">&#x27;John&#x27;</span>,<span class="attr">location</span>:<span class="string">&#x27;Boston&#x27;</span>&#125;, <span class="keyword">function</span> (<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="title function_">alert</span>(<span class="string">&#x27;Data Loaded: &#x27;</span> + data);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>发送ajax请求：</p>
-<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: url,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;<span class="attr">name</span>:<span class="string">&#x27;John&#x27;</span>,<span class="attr">location</span>:<span class="string">&#x27;Boston&#x27;</span>&#125;,</span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span>(<span class="params">msg</span>)&#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;Success&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">error</span>: <span class="keyword">function</span>(<span class="params">msg</span>)&#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;Error&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: url,</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">dataType</span>: <span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">  <span class="attr">data</span>: &#123;<span class="attr">name</span>:<span class="string">&#x27;John&#x27;</span>,<span class="attr">location</span>:<span class="string">&#x27;Boston&#x27;</span>&#125;,</span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;Success&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">msg</span>) &#123;</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">&#x27;Error&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -3311,7 +3180,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年11月27日</div>
+                <div class="license-meta-text">2026年2月25日</div>
               </div>
               
               
@@ -3342,10 +3211,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    <a class="category-link" href="/categories/B02/">前端</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url"><span itemprop="name">前端</span></a>
+        <a href="/categories/B02/" itemprop="url"><span itemprop="name">前端</span></a>
       </span>
     
   </div>
@@ -3502,7 +3371,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/C03003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>前端:JS:扩展</span></a>
+      <a href='/groups/B02003003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:前端:JS:扩展</span></a>
     
   </header>
 
@@ -4046,7 +3915,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/前端/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250117/115122/","name":"JQuery"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JQuery","description":"摘要：本文学习了JQuery库，包括选择器、文档处理、事件、效果，以及AJAX调用。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250117/115122/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250117/115122/","wordCount":42,"datePublished":"2025-01-17T03:51:22.000Z","dateModified":"2025-11-27T05:31:00.349Z","articleSection":"前端","keywords":"JS,JQuery","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B02/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250117/115122/","name":"JQuery"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JQuery","description":"摘要：本文学习了JQuery库，包括选择器、文档处理、事件、效果，以及AJAX调用。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250117/115122/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250117/115122/","wordCount":42,"datePublished":"2025-01-17T03:51:22.000Z","dateModified":"2026-02-25T11:39:34.001Z","articleSection":"前端","keywords":"JS,JQuery","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

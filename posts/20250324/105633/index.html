@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-03-24T02:56:33.000Z">
-<meta property="article:modified_time" content="2025-11-27T05:31:00.617Z">
+<meta property="article:modified_time" content="2026-02-26T00:21:01.105Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2546,7 +2546,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>哈希索引：用于对属性值进行哈希处理的索引。</li>
 </ul>
 <h2 id="2-创建"><a href="#2-创建" class="headerlink" title="2 创建"></a>2 创建</h2><h3 id="2-1-基本语法"><a href="#2-1-基本语法" class="headerlink" title="2.1 基本语法"></a>2.1 基本语法</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.createIndex(</span><br><span class="line">  &lt;keys&gt;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: &lt;indexName&gt;,</span><br><span class="line">    unique: &lt;isUnique&gt;,</span><br><span class="line">    hidden: &lt;isHidden&gt;</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.createIndex(</span><br><span class="line">  <span class="operator">&lt;</span>keys<span class="operator">&gt;</span>,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="operator">&lt;</span>indexName<span class="operator">&gt;</span>,</span><br><span class="line">    <span class="keyword">unique</span>: <span class="operator">&lt;</span>isUnique<span class="operator">&gt;</span>,</span><br><span class="line">    hidden: <span class="operator">&lt;</span>isHidden<span class="operator">&gt;</span></span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2561,22 +2561,22 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>keys</td>
       <td>文档</td>
-      <td>包含属性和值对的文档，其中属性是索引键，值描述该属性的索引类型。</td>
+      <td>包含属性和值对的文档，其中属性是索引键，值描述该属性的索引类型</td>
     </tr>
     <tr>
       <td>indexName</td>
       <td>字符串</td>
-      <td>可选。索引名称。默认使用索引属性的名称和排序顺序来生成索引名称。</td>
+      <td>索引名称，可选，默认使用索引属性的名称和排序顺序来生成索引名称</td>
     </tr>
     <tr>
       <td>isUnique</td>
       <td>布尔</td>
-      <td>可选。是否唯一索引，默认为false，true表示唯一索引，false表示非唯一索引。</td>
+      <td>是否唯一索引，可选，默认为<code>false</code>表示非唯一索引</td>
     </tr>
     <tr>
       <td>isHidden</td>
       <td>布尔</td>
-      <td>可选。是否隐藏索引，默认为false，true表示隐藏索引，false表示非隐藏索引。隐藏索引不会参与评估查询计划</td>
+      <td>是否隐藏索引，可选，默认为<code>false</code>表示非隐藏索引，隐藏索引不会参与评估查询计划</td>
     </tr>
   </tbody>
 </table>
@@ -2584,21 +2584,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="2-2-索引类型"><a href="#2-2-索引类型" class="headerlink" title="2.2 索引类型"></a>2.2 索引类型</h3><h4 id="2-2-1-单属性索引"><a href="#2-2-1-单属性索引" class="headerlink" title="2.2.1 单属性索引"></a>2.2.1 单属性索引</h4><p>单属性索引是在单个属性上创建的索引，适用于查询条件中只涉及该属性的情况。</p>
 <p>取值为1时表示升序索引，取值为-1时表示降序索引。</p>
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; age: 1 &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123;age: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-2-复合索引"><a href="#2-2-2-复合索引" class="headerlink" title="2.2.2 复合索引"></a>2.2.2 复合索引</h4><p>复合索引由多个单属性索引组成，适用于查询条件中涉及多个属性的情况。</p>
 <p>创建复合索引时，属性的顺序很重要，通常应将最常用且选择性高的属性放在索引的前面。</p>
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; age: 1, birthDate: 1 &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123;age: <span class="number">1</span>, birthDate: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-3-多键索引"><a href="#2-2-3-多键索引" class="headerlink" title="2.2.3 多键索引"></a>2.2.3 多键索引</h4><p>多键索引用于数组属性，当属性的值是一个数组时，会自动为数组中的每个元素创建索引键。</p>
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; scores: 1 &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123;scores: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-4-文本索引"><a href="#2-2-4-文本索引" class="headerlink" title="2.2.4 文本索引"></a>2.2.4 文本索引</h4><p>文本索引支持对包含字符串内容的属性进行文本搜索查询。当在字符串内容中搜索特定单词或字符串时，文本索引可以提高性能。</p>
 <p>文本索引使用<code>text</code>表示，一个集合只能有一个文本索引，但该索引可以包含多个属性。</p>
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; intro: &quot;text&quot;, desc: &quot;text&quot; &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123;intro: &quot;text&quot;, <span class="keyword">desc</span>: &quot;text&quot;&#125;);</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-2-5-地理空间索引"><a href="#2-2-5-地理空间索引" class="headerlink" title="2.2.5 地理空间索引"></a>2.2.5 地理空间索引</h4><p>地理空间索引用于存储地理位置信息，支持地理空间查询，如查找某个区域内的位置等。</p>
 <p>提供两种类型的地理空间索引：</p>
@@ -2613,17 +2613,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td><code>2d</code></td>
-      <td>支持在平面上解释几何图形的查询。</td>
-      <td>
-        <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; location: &quot;2d&quot; &#125;);</span><br></pre></td></tr></table></figure>
-      </td>
+      <td>支持在平面上解释几何图形的查询</td>
+      <td><code>db.student.createIndex(&#123;location: "2d"&#125;)</code></td>
     </tr>
     <tr>
       <td><code>2dsphere</code></td>
-      <td>支持解释球体上的几何形状的查询。</td>
-      <td>
-        <figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; location: &quot;2dsphere&quot; &#125;);</span><br></pre></td></tr></table></figure>
-      </td>
+      <td>支持解释球体上的几何形状的查询</td>
+      <td><code>db.student.createIndex(&#123;location: "2dsphere"&#125;)</code></td>
     </tr>
   </tbody>
 </table>
@@ -2631,10 +2627,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h4 id="2-2-6-哈希索引"><a href="#2-2-6-哈希索引" class="headerlink" title="2.2.6 哈希索引"></a>2.2.6 哈希索引</h4><p>哈希索引适用于基于等值匹配的查询，它将属性值映射到一个哈希值，从而加快等值比较的速度。</p>
 <p>哈希索引使用<code>hashed</code>表示。</p>
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; id: &quot;hashed&quot; &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123;id: &quot;hashed&quot;&#125;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-删除"><a href="#3-删除" class="headerlink" title="3 删除"></a>3 删除</h2><h3 id="3-1-删除一个索引"><a href="#3-1-删除一个索引" class="headerlink" title="3.1 删除一个索引"></a>3.1 删除一个索引</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.dropIndex(&lt;indexName&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.dropIndex(<span class="operator">&lt;</span>indexName<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2649,16 +2645,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>indexName</td>
       <td>字符串</td>
-      <td>要删除的索引名称。</td>
+      <td>要删除的索引名称</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.dropIndex(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.dropIndex(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-2-删除多个索引"><a href="#3-2-删除多个索引" class="headerlink" title="3.2 删除多个索引"></a>3.2 删除多个索引</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.dropIndexes(&lt;indexNames&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.dropIndexes(<span class="operator">&lt;</span>indexNames<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2673,18 +2669,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>indexNames</td>
       <td>数组</td>
-      <td>多个要删除的索引名称，如果为空会删除全部索引。</td>
+      <td>多个要删除的索引名称，如果为空会删除全部索引</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.dropIndexs([ &quot;age_1&quot;, &quot;birthDate_1&quot; ]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.dropIndexes([&quot;age_1&quot;, &quot;birthDate_1&quot;]);</span><br></pre></td></tr></table></figure>
 
 <p>注意：<br>不能删除_id属性索引，该索引是系统默认创建的，无法删除，只能删除非_id属性的索引。</p>
 <h3 id="3-3-设置隐藏索引"><a href="#3-3-设置隐藏索引" class="headerlink" title="3.3 设置隐藏索引"></a>3.3 设置隐藏索引</h3><p>可以在不实际删除索引的情况下评估删除索引的潜在影响。</p>
 <p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.hideIndex(&lt;indexName&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.hideIndex(<span class="operator">&lt;</span>indexName<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2699,16 +2695,16 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>indexName</td>
       <td>字符串</td>
-      <td>要设置隐藏的索引名称。</td>
+      <td>要设置隐藏的索引名称</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.hideIndex(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.hideIndex(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-4-解除隐藏索引"><a href="#3-4-解除隐藏索引" class="headerlink" title="3.4 解除隐藏索引"></a>3.4 解除隐藏索引</h3><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.unhideIndex(&lt;indexName&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.unhideIndex(<span class="operator">&lt;</span>indexName<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2723,23 +2719,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>indexName</td>
       <td>字符串</td>
-      <td>要解除隐藏的索引名称。</td>
+      <td>要解除隐藏的索引名称</td>
     </tr>
   </tbody>
 </table>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.unhideIndex(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.unhideIndex(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="4-查看"><a href="#4-查看" class="headerlink" title="4 查看"></a>4 查看</h2><p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.getIndexes()</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.getIndexes()</span><br></pre></td></tr></table></figure>
 
 <p>示例：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.getIndexes();</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.student.getIndexes();</span><br></pre></td></tr></table></figure>
 
 <h2 id="5-分析"><a href="#5-分析" class="headerlink" title="5 分析"></a>5 分析</h2><h3 id="5-1-分析计划"><a href="#5-1-分析计划" class="headerlink" title="5.1 分析计划"></a>5.1 分析计划</h3><p>使用<code>explain()</code>方法可以获取计划信息。</p>
 <p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find()</span><br><span class="line">  .explain(&lt;verbosity&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find()</span><br><span class="line">  .explain(<span class="operator">&lt;</span>verbosity<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2755,29 +2751,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <td>verbosity</td>
       <td>字符串</td>
       <td>
-        可选。指定分析返回信息的详细模式。详细模式支持三种：<br>
+        指定分析返回信息的详细模式，可选，详细模式支持三种：<br>
         <ul>
-          <li>queryPlanner：默认值，返回执行的计划信息。</li>
-          <li>executionStats：返回执行的计划信息以及统计信息。</li>
-          <li>allPlansExecution：返回所有的计划信息以及统计信息。</li>
+          <li>queryPlanner，返回执行的计划信息（默认）</li>
+          <li>executionStats：返回执行的计划信息以及统计信息</li>
+          <li>allPlansExecution：返回所有的计划信息以及统计信息</li>
         </ul>
-        为了向后兼容早期版本，设置为true等价于设置为allPlansExecution，设置为false等价于设置为queryPlanner。<br>
+        为了向后兼容早期版本，设置为<code>false</code>表示返回执行的计划信息，设置为<code>true</code>表示返回所有的计划信息以及统计信息。
       </td>
     </tr>
   </tbody>
 </table>
 
 <p>在使用索引前分析查询：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $eq: 25 &#125; &#125;)</span><br><span class="line">  .explain(&quot;allPlansExecution&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;age: &#123;$eq: <span class="number">25</span>&#125;&#125;)</span><br><span class="line">  .explain(&quot;allPlansExecution&quot;);</span><br></pre></td></tr></table></figure>
 
 <p>分析查询部分结果：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;queryPlanner&quot;: &#123;</span><br><span class="line">    &quot;namespace&quot;: &quot;school.student&quot;,</span><br><span class="line">    &quot;winningPlan&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;COLLSCAN&quot;,</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;age&quot;: &#123;</span><br><span class="line">          &quot;$eq&quot;: 25</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;direction&quot;: &quot;forward&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;rejectedPlans&quot;: []</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;executionStats&quot;: &#123;</span><br><span class="line">    &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;executionTimeMillis&quot;: NumberInt(&quot;0&quot;),</span><br><span class="line">    &quot;totalKeysExamined&quot;: NumberInt(&quot;0&quot;),</span><br><span class="line">    &quot;totalDocsExamined&quot;: NumberInt(&quot;4&quot;),</span><br><span class="line">    &quot;executionStages&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;COLLSCAN&quot;,</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;age&quot;: &#123;</span><br><span class="line">          &quot;$eq&quot;: 25</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">      &quot;executionTimeMillisEstimate&quot;: NumberInt(&quot;0&quot;)</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;allPlansExecution&quot;: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;queryPlanner&quot;: &#123;</span><br><span class="line">    &quot;namespace&quot;: &quot;school.student&quot;,</span><br><span class="line">    &quot;winningPlan&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;COLLSCAN&quot;,</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;age&quot;: &#123;</span><br><span class="line">          &quot;$eq&quot;: <span class="number">25</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;direction&quot;: &quot;forward&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;rejectedPlans&quot;: []</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;executionStats&quot;: &#123;</span><br><span class="line">    &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;executionTimeMillis&quot;: NumberInt(&quot;0&quot;),</span><br><span class="line">    &quot;totalKeysExamined&quot;: NumberInt(&quot;0&quot;),</span><br><span class="line">    &quot;totalDocsExamined&quot;: NumberInt(&quot;4&quot;),</span><br><span class="line">    &quot;executionStages&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;COLLSCAN&quot;,</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;age&quot;: &#123;</span><br><span class="line">          &quot;$eq&quot;: <span class="number">25</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">      &quot;executionTimeMillisEstimate&quot;: NumberInt(&quot;0&quot;)</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;allPlansExecution&quot;: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在使用索引后分析查询：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123; age: 1 &#125;);</span><br><span class="line">db.student.find(&#123; age: &#123; $eq: 25 &#125; &#125;)</span><br><span class="line">  .explain(&quot;allPlansExecution&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.student.createIndex(&#123;age: <span class="number">1</span>&#125;);</span><br><span class="line">db.student.find(&#123;age: &#123;$eq: <span class="number">25</span>&#125;&#125;)</span><br><span class="line">  .explain(&quot;allPlansExecution&quot;);</span><br></pre></td></tr></table></figure>
 
 <p>分析查询部分结果：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;queryPlanner&quot;: &#123;</span><br><span class="line">    &quot;namespace&quot;: &quot;school.student&quot;,</span><br><span class="line">    &quot;winningPlan&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;FETCH&quot;,</span><br><span class="line">      &quot;inputStage&quot;: &#123;</span><br><span class="line">        &quot;stage&quot;: &quot;IXSCAN&quot;,</span><br><span class="line">        &quot;keyPattern&quot;: &#123;</span><br><span class="line">          &quot;age&quot;: 1</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;indexName&quot;: &quot;age_1&quot;,</span><br><span class="line">        &quot;direction&quot;: &quot;forward&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;rejectedPlans&quot;: []</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;executionStats&quot;: &#123;</span><br><span class="line">    &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;executionTimeMillis&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;totalKeysExamined&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;totalDocsExamined&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;executionStages&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;FETCH&quot;,</span><br><span class="line">      &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">      &quot;executionTimeMillisEstimate&quot;: NumberInt(&quot;0&quot;),</span><br><span class="line">      &quot;inputStage&quot;: &#123;</span><br><span class="line">        &quot;stage&quot;: &quot;IXSCAN&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;allPlansExecution&quot;: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;queryPlanner&quot;: &#123;</span><br><span class="line">    &quot;namespace&quot;: &quot;school.student&quot;,</span><br><span class="line">    &quot;winningPlan&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;FETCH&quot;,</span><br><span class="line">      &quot;inputStage&quot;: &#123;</span><br><span class="line">        &quot;stage&quot;: &quot;IXSCAN&quot;,</span><br><span class="line">        &quot;keyPattern&quot;: &#123;</span><br><span class="line">          &quot;age&quot;: <span class="number">1</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;indexName&quot;: &quot;age_1&quot;,</span><br><span class="line">        &quot;direction&quot;: &quot;forward&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;rejectedPlans&quot;: []</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;executionStats&quot;: &#123;</span><br><span class="line">    &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;executionTimeMillis&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;totalKeysExamined&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;totalDocsExamined&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">    &quot;executionStages&quot;: &#123;</span><br><span class="line">      &quot;stage&quot;: &quot;FETCH&quot;,</span><br><span class="line">      &quot;nReturned&quot;: NumberInt(&quot;1&quot;),</span><br><span class="line">      &quot;executionTimeMillisEstimate&quot;: NumberInt(&quot;0&quot;),</span><br><span class="line">      &quot;inputStage&quot;: &#123;</span><br><span class="line">        &quot;stage&quot;: &quot;IXSCAN&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;allPlansExecution&quot;: []</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>分析查询部分说明：</p>
 <table>
@@ -2792,72 +2788,72 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>queryPlanner</td>
       <td>文档</td>
-      <td>查询的计划信息。</td>
+      <td>查询的计划信息</td>
     </tr>
     <tr>
       <td>queryPlanner.namespace</td>
       <td>字符串</td>
-      <td>使用数据库和集合指定的命名空间。</td>
+      <td>使用数据库和集合指定的命名空间</td>
     </tr>
     <tr>
       <td>queryPlanner.winningPlan</td>
       <td>文档</td>
-      <td>最终使用的计划。</td>
+      <td>最终使用的计划</td>
     </tr>
     <tr>
       <td>queryPlanner.winningPlan.stage</td>
       <td>字符串</td>
-      <td>计划的阶段，阶段是对操作的描述。</td>
+      <td>计划的阶段，阶段是对操作的描述</td>
     </tr>
     <tr>
       <td>queryPlanner.winningPlan.inputStage</td>
       <td>文档</td>
-      <td>计划的子阶段，为其父阶段提供文档或索引键。如果有一个子阶段，则该属性存在。</td>
+      <td>计划的子阶段，为其父阶段提供文档或索引键，如果有一个子阶段，则该属性存在</td>
     </tr>
     <tr>
       <td>queryPlanner.winningPlan.inputStages</td>
       <td>数组</td>
-      <td>计划的子阶段数组，为其父阶段提供文档或索引键。如果有多个子阶段，则该属性存在。</td>
+      <td>计划的子阶段数组，为其父阶段提供文档或索引键，如果有多个子阶段，则该属性存在</td>
     </tr>
     <tr>
       <td>queryPlanner.rejectedPlans</td>
       <td>数组</td>
-      <td>拒绝的候选计划数组。如果没有其他候选计划，则数组可能为空。</td>
+      <td>拒绝的候选计划数组，如果没有其他候选计划，则数组可能为空</td>
     </tr>
     <tr>
       <td>executionStats</td>
       <td>文档</td>
-      <td>查询的统计信息。只有设置为<code>executionStats</code>和<code>allPlansExecution</code>才会有此内容。</td>
+      <td>查询的统计信息，只有设置为<code>executionStats</code>和<code>allPlansExecution</code>才会有此内容</td>
     </tr>
     <tr>
       <td>executionStats.nReturned</td>
       <td>整型</td>
-      <td>查询的文档数。</td>
+      <td>查询的文档数</td>
     </tr>
     <tr>
       <td>executionStats.executionTimeMillis</td>
       <td>整型</td>
-      <td>查询的执行时间，单位是毫秒。包括选择计划和执行计划的总时间。</td>
+      <td>查询的执行时间，单位是毫秒，包括选择计划和执行计划的总时间</td>
     </tr>
     <tr>
       <td>executionStats.totalKeysExamined</td>
       <td>整型</td>
-      <td>扫描的索引键数量。</td>
+      <td>扫描的索引键数量</td>
     </tr>
     <tr>
       <td>executionStats.totalDocsExamined</td>
       <td>整型</td>
-      <td>扫描的文档数量。</td>
+      <td>扫描的文档数量</td>
     </tr>
     <tr>
       <td>executionStats.executionStages</td>
       <td>文档</td>
-      <td>以阶段树的形式详细说明计划的执行情况。</td>
+      <td>以阶段树的形式详细说明计划的执行情况</td>
     </tr>
     <tr>
       <td>executionStats.allPlansExecution</td>
       <td>数组</td>
-      <td>候选计划的部分统计信息。只有设置为<code>allPlansExecution</code>才会有此内容。</td>
+      <td>候选计划的部分统计信息，只有设置为<code>allPlansExecution</code>才会有此内容</td>
     </tr>
   </tbody>
 </table>
@@ -2873,51 +2869,51 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <tbody>
     <tr>
       <td>FETCH</td>
-      <td>索引文档，表示查询使用了索引，并且需要从索引中检索文档。</td>
+      <td>索引文档，表示查询使用了索引，并且需要从索引中检索文档</td>
     </tr>
     <tr>
       <td>IXSCAN</td>
-      <td>索引扫描，表示查询使用了索引，并且正在扫描索引键。</td>
+      <td>索引扫描，表示查询使用了索引，并且正在扫描索引键</td>
     </tr>
     <tr>
       <td>COLLSCAN</td>
-      <td>集合扫描，表示查询没有使用索引，直接扫描整个集合。</td>
+      <td>集合扫描，表示查询没有使用索引，直接扫描整个集合</td>
     </tr>
     <tr>
       <td>LIMIT</td>
-      <td>应用限制，限制返回的文档数量。</td>
+      <td>应用限制，限制返回的文档数量</td>
     </tr>
     <tr>
       <td>SKIP</td>
-      <td>应用跳过，跳过指定数量的文档。</td>
+      <td>应用跳过，跳过指定数量的文档</td>
     </tr>
     <tr>
       <td>SORT</td>
-      <td>应用排序，对结果进行排序。</td>
+      <td>应用排序，对结果进行排序</td>
     </tr>
     <tr>
       <td>COUNT</td>
-      <td>应用计数，对结果进行计数。</td>
+      <td>应用计数，对结果进行计数</td>
     </tr>
     <tr>
       <td>PROJECTION</td>
-      <td>应用投影，返回指定属性。</td>
+      <td>应用投影，返回指定属性</td>
     </tr>
     <tr>
       <td>PROJECTION_COVERED</td>
-      <td>覆盖查询，所有需要的属性都在索引中，不需要回表查询。</td>
+      <td>覆盖查询，所有需要的属性都在索引中，不需要回表查询</td>
     </tr>
     <tr>
       <td>IDHACK</td>
-      <td>对`_id`属性进行查询。</td>
+      <td>对<code>_id</code>属性进行查询</td>
     </tr>
     <tr>
       <td>TEXT</td>
-      <td>处理文本查询。</td>
+      <td>处理文本查询</td>
     </tr>
     <tr>
       <td>IXHASH</td>
-      <td>处理散列查询。</td>
+      <td>处理散列查询</td>
     </tr>
   </tbody>
 </table>
@@ -2925,7 +2921,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <h3 id="5-2-指定索引"><a href="#5-2-指定索引" class="headerlink" title="5.2 指定索引"></a>5.2 指定索引</h3><p>使用<code>hint()</code>方法可以强制使用指定的索引，或者强制不使用索引扫描集合。</p>
 <p>使用这种方式可以跳过选择计划的时间，直接通过索引执行计划，节省了查询时间。</p>
 <p>语法：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find()</span><br><span class="line">  .hint(&lt;index&gt;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.集合名.find()</span><br><span class="line">  .hint(<span class="operator">&lt;</span>index<span class="operator">&gt;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>含义：</p>
 <table>
@@ -2940,19 +2936,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <tr>
       <td>index</td>
       <td>字符串或文档</td>
-      <td>执行查询时强制使用指定的索引。通过索引名称或属性来指定索引。</td>
+      <td>执行查询时强制使用指定的索引，通过索引名称或属性来指定索引</td>
     </tr>
   </tbody>
 </table>
 
 <p>使用索引属性指定索引：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $eq: 25 &#125; &#125;)</span><br><span class="line">  .hint(&#123; &quot;age&quot;: 1 &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;age: &#123;$eq: <span class="number">25</span>&#125;&#125;)</span><br><span class="line">  .hint(&#123;&quot;age&quot;: <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>使用索引名称指定索引：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $eq: 25 &#125; &#125;)</span><br><span class="line">  .hint(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;age: &#123;$eq: <span class="number">25</span>&#125;&#125;)</span><br><span class="line">  .hint(&quot;age_1&quot;);</span><br></pre></td></tr></table></figure>
 
 <p>强制扫描集合，不使用任何索引：</p>
-<figure class="highlight plaintext"><figcaption><span>bson</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123; age: &#123; $eq: 25 &#125; &#125;)</span><br><span class="line">  .hint(&#123; $natural : 1 &#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><figcaption><span>sql</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.student.find(&#123;age: &#123;$eq: <span class="number">25</span>&#125;&#125;)</span><br><span class="line">  .hint(&#123;$<span class="keyword">natural</span> : <span class="number">1</span>&#125;);</span><br></pre></td></tr></table></figure>
 
   </div>
   
@@ -2983,7 +2979,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年11月27日</div>
+                <div class="license-meta-text">2026年2月26日</div>
               </div>
               
               
@@ -3014,10 +3010,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    <a class="category-link" href="/categories/B04/">数据库</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url"><span itemprop="name">数据库</span></a>
+        <a href="/categories/B04/" itemprop="url"><span itemprop="name">数据库</span></a>
       </span>
     
   </div>
@@ -3174,7 +3170,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/E01001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>数据库:MongoDB:基础</span></a>
+      <a href='/groups/B04001001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:数据库:MongoDB:基础</span></a>
     
   </header>
 
@@ -3754,7 +3750,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/数据库/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250324/105633/","name":"使用索引"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用索引","description":"摘要：本文学习了什么是索引，索引的创建和删除，以及如何查看索引和分析索引的使用情况。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250324/105633/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250324/105633/","wordCount":42,"datePublished":"2025-03-24T02:56:33.000Z","dateModified":"2025-11-27T05:31:00.617Z","articleSection":"数据库","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B04/","name":"数据库"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20250324/105633/","name":"使用索引"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用索引","description":"摘要：本文学习了什么是索引，索引的创建和删除，以及如何查看索引和分析索引的使用情况。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20250324/105633/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20250324/105633/","wordCount":42,"datePublished":"2025-03-24T02:56:33.000Z","dateModified":"2026-02-26T00:21:01.105Z","articleSection":"数据库","keywords":"MongoDB","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

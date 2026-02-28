@@ -61,7 +61,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-12-02T02:41:09.000Z">
-<meta property="article:modified_time" content="2025-12-03T05:59:04.870Z">
+<meta property="article:modified_time" content="2026-02-22T01:43:31.962Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Servlet">
@@ -2022,7 +2022,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2466,13 +2466,13 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div class="new-meta-item wordcount">
     <a class='notlink'>
       <i class="fa-solid fa-keyboard fa-fw" aria-hidden="true"></i>
-      <p>2.2k 字</p>
+      <p>2.4k 字</p>
     </a>
   </div>
   <div class="new-meta-item readtime">
     <a class='notlink'>
       <i class="fa-solid fa-hourglass-half fa-fw" aria-hidden="true"></i>
-      <p>8 分钟</p>
+      <p>9 分钟</p>
     </a>
   </div>
 
@@ -2585,76 +2585,278 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight jsp"><figcaption><span>jsp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ 指令名称 属性<span class="number">1</span>=<span class="string">&quot;值1&quot;</span> 属性<span class="number">2</span>=<span class="string">&quot;值2&quot;</span> ... %&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-1-page"><a href="#4-1-page" class="headerlink" title="4.1 page"></a>4.1 page</h3><p>用于告诉JSP引擎如何解析当前页面，同一个页面可以有多个page指令，通常位于JSP页面的顶端。</p>
-<p>属性：</p>
-<ul>
-<li>language：设置JSP页面使用的脚本语言，默认值为java。</li>
-<li>import：设置页面程序代码使用的类，用<code>,</code>分隔，无默认值。</li>
-<li>contentType：设置类型和编码方式，是服务器发给客户端的内容编码，默认值为<code>text/html; ISO-8859-1</code>。</li>
-<li>pageEncoding：设置JSP页面的字符编码，默认值为<code>ISO-8859-1</code>。</li>
-<li>session：设置当前页面的session内置对象是否可用，默认值为<code>true</code>。</li>
-<li>errorPage：设置当前页面出错处理页面地址，跳转时地址栏不改变，无默认值。</li>
-<li>isErrorPage：表明当前页面是错误处理页面，设置当前页面的exception内置对象是否可用，默认值为<code>false</code>。</li>
-<li>isELIgnored：设置是否忽略EL表达式，默认值为<code>false</code>。</li>
-<li>isThreadSafe：设置当前页面是否是线程安全的，默认值为<code>true</code>。</li>
-<li>autoFlush：设置当前页面是否自动刷新，默认值为<code>true</code>。</li>
-<li>buffer：设置out对象的缓冲区的大小，默认值为<code>8KB</code>。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>language</td>
+      <td>设置JSP页面使用的脚本语言</td>
+      <td>脚本语言，默认为<code>java</code></td>
+    </tr>
+    <tr>
+      <td>import</td>
+      <td>设置页面程序代码使用的类，使用逗号分隔</td>
+      <td>全类名</td>
+    </tr>
+    <tr>
+      <td>contentType</td>
+      <td>设置服务器发给客户端的内容编码</td>
+      <td>类型和编码方式，默认为<code>text/html; UTF-8</code></td>
+    </tr>
+    <tr>
+      <td>pageEncoding</td>
+      <td>设置JSP页面的字符编码</td>
+      <td>字符编码，默认为<code>UTF-8</code></td>
+    </tr>
+    <tr>
+      <td>session</td>
+      <td>设置当前页面的session内置对象是否可用</td>
+      <td>默认为<code>true</code>表示session可用，设置为<code>false</code>表示session不可用</td>
+    </tr>
+    <tr>
+      <td>errorPage</td>
+      <td>设置错误页面地址，跳转时地址栏不改变</td>
+      <td>错误页面地址</td>
+    </tr>
+    <tr>
+      <td>isErrorPage</td>
+      <td>设置当前页面是否为错误处理页面，设置当前页面的exception内置对象是否可用</td>
+      <td>默认为<code>false</code>表示不是错误处理页面，并且页面的exception内置对象不可用</td>
+    </tr>
+    <tr>
+      <td>isELIgnored</td>
+      <td>设置是否忽略EL表达式</td>
+      <td>默认为<code>false</code>表示不忽略</td>
+    </tr>
+    <tr>
+      <td>isThreadSafe</td>
+      <td>设置当前页面是否是线程安全的</td>
+      <td>默认为<code>true</code>表示线程安全</td>
+    </tr>
+    <tr>
+      <td>autoFlush</td>
+      <td>设置当前页面是否自动刷新输出流</td>
+      <td>默认为<code>true</code>表示自动刷新输出流</td>
+    </tr>
+    <tr>
+      <td>buffer</td>
+      <td>设置out对象的缓冲区的大小</td>
+      <td>默认为<code>8KB</code></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="4-2-include"><a href="#4-2-include" class="headerlink" title="4.2 include"></a>4.2 include</h3><p>用于包含其他JSP页面。</p>
 <p>这种方式称为静态引入，Java虚拟机不会单独编译包含的JSP页面，而是将整个页面作为整体进行编译，最终生成一个Java文件。</p>
-<p>属性：</p>
-<ul>
-<li>file：设置包含的JSP页面路径，可以是绝对路径或相对路径。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>file</td>
+      <td>设置包含的JSP页面路径，可以是绝对路径或相对路径</td>
+      <td>页面路径</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="4-3-taglib"><a href="#4-3-taglib" class="headerlink" title="4.3 taglib"></a>4.3 taglib</h3><p>用于引入自定义标签库。</p>
-<p>属性：</p>
-<ul>
-<li>url：设置标签库的名称空间。</li>
-<li>prefix：设置标签库的前缀，用于在JSP页面中使用标签。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>url</td>
+      <td>设置标签库的名称空间</td>
+      <td>名称空间</td>
+    </tr>
+    <tr>
+      <td>prefix</td>
+      <td>设置标签库的前缀，用于在JSP页面中使用标签</td>
+      <td>前缀</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="5-动作"><a href="#5-动作" class="headerlink" title="5 动作"></a>5 动作</h2><p>JSP动作与HTML标签不同，HTML标签由浏览器来解析，而JSP动作需要服务器来运行。</p>
 <p>语法：</p>
 <figure class="highlight jsp"><figcaption><span>jsp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:动作名称 属性<span class="number">1</span>=<span class="string">&quot;值1&quot;</span> 属性<span class="number">2</span>=<span class="string">&quot;值2&quot;</span> ... /&gt;</span><br></pre></td></tr></table></figure>
 
 <h3 id="5-1-jsp-include"><a href="#5-1-jsp-include" class="headerlink" title="5.1 jsp:include"></a>5.1 jsp:include</h3><p>用于把另外JSP页面的输出内容插入进当前JSP页面的输出内容之中。</p>
 <p>这种方式称为动态引入，Java虚拟机会单独编译包含的JSP页面，最终生成多个Java文件。</p>
-<p>属性：</p>
-<ul>
-<li>page：指定被引入资源的相对路径，可以通过表达式获取。</li>
-<li>flush：指定在插入其他资源的输出内容时，是否先将当前JSP页面的已输出的内容刷新到客户端。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>page</td>
+      <td>指定被引入资源的相对路径，可以通过表达式获取</td>
+      <td>相对路径</td>
+    </tr>
+    <tr>
+      <td>flush</td>
+      <td>指定在插入其他资源的输出内容时，是否先将当前JSP页面已输出的内容刷新到客户端</td>
+      <td>默认为<code>true</code>表示刷新</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="5-2-jsp-forward"><a href="#5-2-jsp-forward" class="headerlink" title="5.2 jsp:forward"></a>5.2 jsp:forward</h3><p>用于将请求转发到其他资源。</p>
-<p>属性：</p>
-<ul>
-<li>page：指定被转发的资源的相对路径，可以通过表达式获取。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>page</td>
+      <td>指定被转发的资源的相对路径，可以通过表达式获取</td>
+      <td>相对路径</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="5-3-jsp-param"><a href="#5-3-jsp-param" class="headerlink" title="5.3 jsp:param"></a>5.3 jsp:param</h3><p>用于设置请求参数。</p>
-<p>属性：</p>
-<ul>
-<li>name：指定参数名称。</li>
-<li>value：指定参数值，可以通过表达式获取。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>指定参数名称</td>
+      <td>参数名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>指定参数值，可以通过表达式获取</td>
+      <td>参数值</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="5-4-jsp-useBean"><a href="#5-4-jsp-useBean" class="headerlink" title="5.4 jsp:useBean"></a>5.4 jsp:useBean</h3><p>用于在指定的域范围中获取指定类型的JavaBean对象。</p>
-<p>属性：</p>
-<ul>
-<li>id：指定JavaBean对象的名称。</li>
-<li>class：指定JavaBean对象的类型，必须是全限定类名。</li>
-<li>scope：指定JavaBean对象的域范围，默认值为page。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>指定JavaBean对象的名称</td>
+      <td>对象名称</td>
+    </tr>
+    <tr>
+      <td>class</td>
+      <td>指定JavaBean对象的类型，必须是全限定类名</td>
+      <td>全类名</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>指定JavaBean对象的域范围</td>
+      <td>域范围，默认为<code>page</code></td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="5-5-jsp-getProperty"><a href="#5-5-jsp-getProperty" class="headerlink" title="5.5 jsp:getProperty"></a>5.5 jsp:getProperty</h3><p>用于获取JavaBean对象的属性值。</p>
-<p>属性：</p>
-<ul>
-<li>name：指定JavaBean对象的名称，与<code>jsp:useBean</code>动作的id属性相同。</li>
-<li>property：指定JavaBean对象的属性名称。</li>
-</ul>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>指定JavaBean对象的名称</td>
+      <td>对象名称，与<code>jsp:useBean</code>动作的<code>id</code>属性相同</td>
+    </tr>
+    <tr>
+      <td>property</td>
+      <td>指定JavaBean对象的属性名称</td>
+      <td>属性名称</td>
+    </tr>
+  </tbody>
+</table>
+
 <h3 id="5-6-jsp-setProperty"><a href="#5-6-jsp-setProperty" class="headerlink" title="5.6 jsp:setProperty"></a>5.6 jsp:setProperty</h3><p>用于设置JavaBean对象的属性值。</p>
-<p>属性：</p>
-<ul>
-<li>name：指定JavaBean对象的名称，与<code>jsp:useBean</code>动作的id属性相同。</li>
-<li>property：指定JavaBean对象的属性名称。</li>
-<li>value：指定JavaBean对象的属性值，可以通过表达式获取。</li>
-<li>param：指定使用哪个请求参数作为JavaBean对象的属性值。</li>
-</ul>
-<p>指定JavaBean对象的属性值时，只能在value属性和param属性中选择一种，并且只有在新建JavaBean对象时才执行<code>jsp:setProperty</code>动作。</p>
+<p>常用属性：</p>
+<table>
+  <thead>
+    <tr>
+      <th>属性名</th>
+      <th>作用</th>
+      <th>取值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>指定JavaBean对象的名称</td>
+      <td>对象名称，与<code>jsp:useBean</code>动作的<code>id</code>属性相同</td>
+    </tr>
+    <tr>
+      <td>property</td>
+      <td>指定JavaBean对象的属性名称</td>
+      <td>属性名称</td>
+    </tr>
+    <tr>
+      <td>value</td>
+      <td>指定JavaBean对象的属性值，可以通过表达式获取</td>
+      <td>属性值</td>
+    </tr>
+    <tr>
+      <td>param</td>
+      <td>指定使用哪个请求参数作为JavaBean对象的属性值</td>
+      <td>请求参数</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>指定JavaBean对象的属性值时，只能在<code>value</code>属性和<code>param</code>属性中选择一种，并且只有在新建JavaBean对象时才执行<code>jsp:setProperty</code>动作。</p>
 <h2 id="6-隐式对象"><a href="#6-隐式对象" class="headerlink" title="6 隐式对象"></a>6 隐式对象</h2><p>隐式对象是JSP容器为每个页面提供的Java对象，开发者可以直接使用它们而不用显式声明。隐式对象也被称为内置对象。</p>
 <p>JSP内置的九大隐式对象：</p>
 <ul>
@@ -2708,7 +2910,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年12月3日</div>
+                <div class="license-meta-text">2026年2月22日</div>
               </div>
               
               
@@ -2739,10 +2941,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%90%8E%E7%AB%AF/">后端</a>
+    <a class="category-link" href="/categories/B03/">后端</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%90%8E%E7%AB%AF/" itemprop="url"><span itemprop="name">后端</span></a>
+        <a href="/categories/B03/" itemprop="url"><span itemprop="name">后端</span></a>
       </span>
     
   </div>
@@ -2899,7 +3101,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/D03003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>后端:JSP:页面</span></a>
+      <a href='/groups/B03003003/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:后端:JSP:页面</span></a>
     
   </header>
 
@@ -3443,7 +3645,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/后端/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20251202/104109/","name":"JSP基础"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JSP基础","description":"摘要：本文介绍了JSP的基本概念、生命周期、语法、指令和动作，以及常用的九个隐式对象和四个域对象。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20251202/104109/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20251202/104109/","wordCount":49,"datePublished":"2025-12-02T02:41:09.000Z","dateModified":"2025-12-03T05:59:04.870Z","articleSection":"后端","keywords":"Java,Servlet,JSP","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B03/","name":"后端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20251202/104109/","name":"JSP基础"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"JSP基础","description":"摘要：本文介绍了JSP的基本概念、生命周期、语法、指令和动作，以及常用的九个隐式对象和四个域对象。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20251202/104109/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20251202/104109/","wordCount":49,"datePublished":"2025-12-02T02:41:09.000Z","dateModified":"2026-02-22T01:43:31.962Z","articleSection":"后端","keywords":"Java,Servlet,JSP","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 

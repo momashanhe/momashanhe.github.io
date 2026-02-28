@@ -51,17 +51,17 @@
   <!-- 页面元数据 -->
   <title>多线程 - 墨码山河</title>
   <meta name="keywords" content="JS,代码改变世界">
-  <meta desc name="description" content="摘要：本文学习了如何使用Web Work实现多线程的功能。 - 墨码山河 - 墨码山河">
+  <meta desc name="description" content="摘要：本文学习了如何使用Web Worker实现多线程的功能。 - 墨码山河 - 墨码山河">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程">
 <meta property="og:url" content="https://momashanhe.com/posts/20240712/154239/index.html">
 <meta property="og:site_name" content="墨码山河">
-<meta property="og:description" content="摘要：本文学习了如何使用Web Work实现多线程的功能。">
+<meta property="og:description" content="摘要：本文学习了如何使用Web Worker实现多线程的功能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://momashanhe.com/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2024-07-12T07:42:39.000Z">
-<meta property="article:modified_time" content="2025-06-21T08:57:46.966Z">
+<meta property="article:modified_time" content="2026-02-22T01:33:18.230Z">
 <meta property="article:author" content="墨码山河">
 <meta property="article:tag" content="JS">
 <meta name="twitter:card" content="summary">
@@ -2020,7 +2020,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     root: '/',
     debug: "env",
     default: {"avatar":"/@static/media/placeholder/avatar/round/3442075.svg","link":"/@static/media/placeholder/link/8f277b4ee0ecd.svg","cover":"/@static/media/placeholder/cover/76b86c0226ffd.svg","image":"/@static/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1765180570121),
+    lastupdate: new Date(1772272722801),
     cdn: {
       izitoast_css: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/css/iziToast.min.css',
       izitoast_js: 'https://cdn.bootcdn.net/ajax/libs/izitoast/1.4.0/js/iziToast.min.js',
@@ -2525,12 +2525,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>摘要：本文学习了如何使用Web Work实现多线程的功能。</p>
+    <p>摘要：本文学习了如何使用Web Worker实现多线程的功能。</p>
 <span id="more"></span>
 
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><p>在JS中采用的是单线程机制，不需要考虑复杂的同步问题，但也无法同时处理两件任务，无法发挥计算能力。</p>
-<p>为了满足多线程的需求，H5规范提供了JS多线程的实现，这种技术称为Web Work。</p>
-<p>Web Work的作用就是为JS创造多线程环境，允许主线程创建Worker线程，将一些任务分配给后者在后台运行，主线程和Worker线程互不干扰，在Worker线程执行结束后会将结果返回给主线程。</p>
+<p>为了满足多线程的需求，H5规范提供了JS多线程的实现，这种技术称为Web Worker。</p>
+<p>Web Worker的作用就是为JS创造多线程环境，允许主线程创建Worker线程，将一些任务分配给后者在后台运行，主线程和Worker线程互不干扰，在Worker线程执行结束后会将结果返回给主线程。</p>
 <p>Worker线程一旦创建成功就会运行，并且不会被主线程的交互动作打断，虽然有利于响应主线程的操作，但是长时间运行也会导致CPU资源的浪费，所以需要在使用后及时关闭Worker线程。</p>
 <p>相比较在主线程执行函数，使用分线程函数会慢一些。分线程的优势是可以在不阻塞主线程的情况下，执行函数。</p>
 <p>此外，使用Worker线程还有一些限制：</p>
@@ -2551,7 +2551,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <figure class="highlight js"><figcaption><span>main.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">worker.<span class="title function_">postMessage</span>(<span class="string">&#x27;I am main&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>在分线程要执行的JS文件中，使用<code>onmessage</code>属性接收主线程的信息，使用<code>postMessage()</code>方法给主线程传递结果：</p>
-<figure class="highlight js"><figcaption><span>worker.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onmessage = <span class="keyword">function</span>(<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主线程接收分线程返回的数据: &#x27;</span> + event.<span class="property">data</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">postMessage</span>(<span class="string">&#x27;I am worker&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><figcaption><span>worker.js</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> onmessage = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;主线程接收分线程返回的数据: &#x27;</span> + event.<span class="property">data</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">postMessage</span>(<span class="string">&#x27;I am worker&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
 <p>在使用Worker分线程后，需要及时关闭：</p>
 <ul>
@@ -2588,7 +2588,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
               <div class="license-meta-item">
                 <div class="license-meta-title">更新于</div>
-                <div class="license-meta-text">2025年6月21日</div>
+                <div class="license-meta-text">2026年2月22日</div>
               </div>
               
               
@@ -2619,10 +2619,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <div class='new-meta-item category'>
     <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
-    <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    <a class="category-link" href="/categories/B02/">前端</a>
     
       <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-        <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url"><span itemprop="name">前端</span></a>
+        <a href="/categories/B02/" itemprop="url"><span itemprop="name">前端</span></a>
       </span>
     
   </div>
@@ -2779,7 +2779,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <header>
     
-      <a href='/groups/C03001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>前端:JS:基础</span></a>
+      <a href='/groups/B02003001/'><i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i><span class='name'>编程:前端:JS:基础</span></a>
     
   </header>
 
@@ -3335,7 +3335,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/前端/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240712/154239/","name":"多线程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"多线程","description":"摘要：本文学习了如何使用Web Work实现多线程的功能。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240712/154239/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240712/154239/","wordCount":29,"datePublished":"2024-07-12T07:42:39.000Z","dateModified":"2025-06-21T08:57:46.966Z","articleSection":"前端","keywords":"JS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","sameAs":["https://github.com/volantis-x"],"description":"代码改变世界"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://momashanhe.com/","name":"墨码山河"}},{"@type":"ListItem","position":2,"item":{"@id":"https://momashanhe.com/categories/B02/","name":"前端"}},{"@type":"ListItem","position":3,"item":{"@id":"https://momashanhe.com/posts/20240712/154239/","name":"多线程"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"墨码山河","url":"https://momashanhe.com/","keywords":"代码改变世界","description":"代码改变世界","author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/","description":"代码改变世界"},"publisher":{"@type":"Organization","name":"墨码山河","url":"https://momashanhe.com/","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://momashanhe.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"多线程","description":"摘要：本文学习了如何使用Web Worker实现多线程的功能。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://momashanhe.com/posts/20240712/154239/"},"author":{"@type":"Person","name":"墨码山河","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://momashanhe.com/"},"publisher":{"@type":"Organization","name":"墨码山河","logo":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://momashanhe.com/posts/20240712/154239/","wordCount":31,"datePublished":"2024-07-12T07:42:39.000Z","dateModified":"2026-02-22T01:33:18.230Z","articleSection":"前端","keywords":"JS","image":{"@type":"ImageObject","url":"/@static/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
